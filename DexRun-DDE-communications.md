@@ -14,6 +14,6 @@ StartServerSocketDDE uses a larger 256 byte buffer (the others are 64 bytes). Wh
 * Expects to see at least 4 spaces at the start (will not start passing on data until 4 spaces are seen)
 * Expects to see a 0x3B "delimiter" at some point in the data, which it zeros. (any ';' in the data must be escaped)
 
-The ParseInput routine then tokenizes the input via the standard C [strtok](http://www.massmind.org/techref/language/ccpp/cref/FUNCTIONS/strtok.html) function using " ," (space and comma) as the delimiter. The first token is expected to be the the [command / oplet / instruction](Command oplets). This is converted from a letter to an enumerated value by HashInputCMD. Then a switch continues the parsing of the command according to that value. 
+The ParseInput routine then tokenizes the input via the standard C [strtok](http://www.massmind.org/techref/language/ccpp/cref/FUNCTIONS/strtok.html) function using " ," (space and comma) as the delimiter. The first token is expected to be the the [command / oplet / instruction](Command-oplet-instruction). This is converted from a letter to an enumerated value by HashInputCMD. Then a switch continues the parsing of the command according to that value. 
 
 
