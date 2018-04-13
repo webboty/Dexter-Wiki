@@ -11,7 +11,7 @@ a|"move_all_joints"|MOVEALL_CMD|
 b|"move_to"|| obsolete
 B|"set_boundries"|SET_ALL_BOUNDRY|10 args: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow,
 c|"capture_ad"|CAPTURE_AD_CMD|
-d|"dma_read"|DMAREAD_CMD|
+d|"dma_read"|DMAREAD_CMD|Writes the FPGA DMA data into the specified file. 3 args: Address, Length, Filename.
 e|"cause_dexter_error"|| //fry
 E|"empty_instruction_ queue_immediately"|n/a|new Sept 1, 2016. Apparently never implemented in firmware?
 F|"empty_instruction_ queue"|HEART_BEAT|new Sept 1, 2016 does `wait_fifo_flush()` first. Was SET_FORCE_MOVE_POINT
