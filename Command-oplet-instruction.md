@@ -5,32 +5,35 @@ https://github.com/cfry/dde/blob/master/robot.js#L1513
 
 This wiki page attempts to expand on those source documents to explain the instructions.
 
-Code | DDE name | Description
---- | --- | ---
-a|"move_all_joints"|
-b|"move_to"| obsolete
-B|"set_boundries"|10 args: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow,
-c|"capture_ad"| 
-d|"dma_read"|
-e|"cause_dexter_error"| //fry
-E|"empty_instruction_queue_immediately"|new Sept 1, 2016
-F|"empty_instruction_queue"|new Sept 1, 2016
-f|"find_home"|
-G|"get_robot_status_immediately"|new Sept 1, 2016
-g|"get_robot_status"|   //fry
-h|"get_robot_status_heartbeat"| //fry
-i|"capture_points"|
-l|"load_tables"|
-m|"record_movement"|
-n|"find_index"|
-o|"replay_movement"|
-P|"pid_move_all_joints"|
-p|"find_home_rep"|
-R|"move_all_joints_relative"|
-s|"slow_move"|
-S|"set_parameter"|
-t|"dma_write"|
-w|"write"|
-W|"write_to_robot"|
-x|"exit"|
-z|"sleep"|
+&nbsp; | DDE name | DexRun | Description
+--- | --- | --- | ---
+a|"move_all_joints"|MOVEALL_CMD|
+b|"move_to"|| obsolete
+B|"set_boundries"|SET_ALL_BOUNDRY|10 args: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow,
+c|"capture_ad"|CAPTURE_AD_CMD|
+d|"dma_read"|DMAREAD_CMD|
+e|"cause_dexter_error"|| //fry
+E|"empty_instruction_ queue_immediately"||new Sept 1, 2016
+F|"empty_instruction_ queue"|HEART_BEAT|new Sept 1, 2016 does `wait_fifo_flush()` first. Was SET_FORCE_MOVE_POINT
+f|"find_home"|FIND_HOME_CMD|
+G|"get_robot_status_ immediately"|HEART_BEAT|new Sept 1, 2016
+g|"get_robot_status"|SEND_HEARTBEAT|  //fry
+h|"get_robot_status_ heartbeat"|HEART_BEAT| //fry
+i|"capture_points"|CAPTURE_POINTS_CMD|
+l|"load_tables"|LOAD_TABLES|
+M|n/a|MOVETO_CMD|In development
+m|"record_movement"|RECORD_MOVEMENT|
+n|"find_index"|FIND_INDEX_CMD|
+o|"replay_movement"|REPLAY_MOVEMENT|
+P|"pid_move_all_joints"|PID_FINEMOVE|
+p|"find_home_rep"|FIND_HOME_REP_CMD|
+R|"move_all_joints_ relative"|MOVEALL_RELATIVE|
+r|n/a|READ_CMD||Apparently does nothing
+s|"slow_move"|SLOWMOVE_CMD|
+S|"set_parameter"|SET_PARAM|
+T|n/a|MOVETOSTRAIGHT_CMD|In development
+t|"dma_write"|DMAWRITE_CMD|
+w|"write"|WRITE_CMD|
+W|"write_to_robot"||
+x|"exit"|EXIT_CMD|
+z|"sleep"|SLEEP_CMD|
