@@ -6,3 +6,11 @@ Subcommands:
 * s: Start file data. <BR>`make_ins("W", "s", max_content_chars, a_string.substring(next_start_index, max_content_chars))`
 * m: Middle file data. <BR>`make_ins("W", "m", max_content_chars, a_string.substring(next_start_index, next_start_index + max_content_chars))`
 * e: End File data. <BR>`make_ins("W", "e", chars_left, a_string.substring(next_start_index, a_string.length))`
+
+At this time, there is no function in the DexRun.c [Firmware](Firmware) to process these commands on the Dexter side.
+
+In the future, subcommands to retrieve file data will also be needed. Suggestions:
+* f: File name. As above to set the file name or directory path to be read
+* r: Read data. Reads the next block of data. Dexter will return an error when an attempt is made to read past end of file.
+
+At this time, DexRun.c only returns the robot status data to DDE, and DDE only expects status data, so both will have to be extended to handle returned file data.
