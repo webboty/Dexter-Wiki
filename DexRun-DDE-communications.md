@@ -16,4 +16,5 @@ StartServerSocketDDE uses a larger 256 byte buffer (the others are 64 bytes). Wh
 
 The ParseInput routine then tokenizes the input via the standard C [strtok](http://www.massmind.org/techref/language/ccpp/cref/FUNCTIONS/strtok.html) function using " ," (space and comma) as the delimiter. The first token is expected to be the the [command / oplet / instruction](Command-oplet-instruction). This is converted from a letter to an enumerated value by HashInputCMD. Then a switch continues the parsing of the command according to that value. 
 
+Every command sent by DDE is then replied to via ProcessServerSendDataDDE which again strtok's the (cleaned up) command from the recieved data and then simply returns it as an integer along with some time information, an error code, and the current robot status.
 
