@@ -4,4 +4,4 @@
 
 Dexters gateware configures the [Xilinx Inc. XC7Z010-1CLG400C FPGA](http://www.xilinx.com/support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf) on the zedboard. 
 
-The DexRun.c [firmware](firmware) communicates with the gateware by setting and reading memory mapped registers. 
+The DexRun.c [firmware](Firmware) communicates with the gateware by setting and reading memory mapped registers. 
