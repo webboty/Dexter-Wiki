@@ -1,7 +1,5 @@
-The list of commands or "oplets" that Dexter knows are defined by the HashInputCMD in DexRun.c currently here:
-https://github.com/HaddingtonDynamics/Dexter/blob/master/Firmware/DexRun.c#L2713
-and are described by Dexter.instruction_type_to_function_name_map in DDE here:
-https://github.com/cfry/dde/blob/master/robot.js#L1513
+The list of commands or "oplets" that Dexter knows are defined by the [HashInputCMD function](https://github.com/HaddingtonDynamics/Dexter/search?utf8=%E2%9C%93&q=HashInputCMD+filename%3ADexRun.c&type=) in the [DexRun.c](../blob/master/Firmware/DexRun.c) [Firmware](firmware) and are described by Dexter.instruction_type_to_function_name_map in DDE. (that is currently here:
+https://github.com/cfry/dde/blob/master/robot.js#L1513  )
 
 This wiki page attempts to expand on those source documents to explain the instructions.
 
