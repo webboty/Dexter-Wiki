@@ -15,5 +15,5 @@ The DexRun code is implemented in several different ways which are selected by t
 
 The ParseInput routine then tokenizes the input via the standard C [strtok](http://www.massmind.org/techref/language/ccpp/cref/FUNCTIONS/strtok.html) function using " ," (space _then_ comma) as the delimiter. The first token is expected to be the the [command / oplet / instruction](Command-oplet-instruction). This is converted from a letter to an enumerated value by HashInputCMD(../search?utf8=%E2%9C%93&q=HashInputCMD+filename%3ADexRun.c&type=). Then a switch continues the parsing of the command according to that value. 
 
-Every command sent by DDE is then replied to via [ProcessServerSendDataDDE](../search?utf8=%E2%9C%93&q=ProcessServerSendDataDDE+filename%3ADexRun.c&type=) which again strtok's the (cleaned up) command from the recieved data and then simply returns it as an integer in an array along with some time information, an error code, and the current robot status.
+Every command sent by DDE is then replied to via [ProcessServerSendDataDDE](../search?utf8=%E2%9C%93&q=ProcessServerSendDataDDE+filename%3ADexRun.c&type=) which again strtok's the (cleaned up) command from the recieved data and then simply returns it as an integer in an array along with some time information, an error code, and the current robot [status](status-data).
 
