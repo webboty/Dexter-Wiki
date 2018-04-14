@@ -1,6 +1,6 @@
 # Dexter status data
 
-The status of the Dexter robot arm is returned to [DDE](DDE) by the [Firmware](Firmware) after every command.
+The status of the Dexter robot arm is returned to [DDE](DDE) by the [Firmware](Firmware) after every command. All the _DELTA and _AT values are scaled by the calibration values in the AxisCal.txt file.
 
 It includes:
 * DMA_READ_DATA
