@@ -7,7 +7,8 @@ Subcommands:
 * m: Middle file data. <BR>`make_ins("W", "m", max_content_chars, a_string.substring(next_start_index, next_start_index + max_content_chars))`
 * e: End File data. <BR>`make_ins("W", "e", chars_left, a_string.substring(next_start_index, a_string.length))`
 
-At this time, there is no function in the DexRun.c [Firmware](Firmware) to process these commands on the Dexter side.
+In the original version, there is no function in the DexRun.c [Firmware](Firmware) to process these commands on the Dexter side. That has been added in this release:
+https://github.com/HaddingtonDynamics/Dexter/commit/ef39cfe6effd36faeb9bd96b21a11a3dcd6b84ef
 
 In the future, subcommands to retrieve file data will also be needed. Suggestions:
 * f: File name. As above to set the file name or directory path to be read
