@@ -14,3 +14,6 @@ e.g.
 type in   
 `nameserver 8.8.8.8 `
 save it, and then restart.   
+
+See also:
+- https://help.ubuntu.com/lts/serverguide/network-configuration.html General information on Network configuration for servers. Dexter is basically a server. 
