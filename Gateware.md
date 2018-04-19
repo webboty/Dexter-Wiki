@@ -1,4 +1,4 @@
-# Dexter Gateware
+# [Dexter Gateware](https://github.com/HaddingtonDynamics/Dexter/tree/master/Gateware)
 
 "Gateware" is what we call the FPGA programming that makes Dexter stunningly responsive. It allows feedback from encoder to motor in as little as 200 nanoseconds. 
 
