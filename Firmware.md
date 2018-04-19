@@ -6,5 +6,5 @@ DexRun.c is the interface between the ethernet port and the [FPGA](Gateware) whi
 
 DexRun.c also provides a few local functions. For example, onboard motion planning is being developed. 
 
-To update the onboard firmware, you will need to shell into the robot (via e.g. PUTTY) and follow the directions at:
+To update the onboard firmware, follow the directions at:
 https://github.com/HaddingtonDynamics/Dexter/blob/master/Firmware/README.md
