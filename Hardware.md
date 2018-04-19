@@ -1,6 +1,6 @@
-# Dexter Hardware
+# [Dexter Hardware](https://github.com/HaddingtonDynamics/Dexter/blob/master/Hardware)
 
-[Hardware](https://github.com/HaddingtonDynamics/Dexter/blob/master/Hardware/README.md) includes:
+Hardware includes:
 * 3D printed parts
 * Motor driver / interface PCB
 * Bill of Materials
