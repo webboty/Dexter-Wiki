@@ -2,7 +2,7 @@ Dexter has an RJ-45 connector for CAT5 Ethernet connection. Because of issues wi
 
 Once you are connected, you can shell into Dexter to update the [firmware](Firmware) or do development in the onboard Linux OS, or just connect via [DDE](DDE) to develop and run jobs. 
 
-You generally should NOT need to actually give Dexter access to the internet, but if you need that for some reason, you will need that CAT5 cable to run between Dexter and your Router. After a restart, Dexter should automatically connect and have internet access. You can test that with 'ping www.google.com' (press Ctrl+C to stop). If it works, great! If not, here are some common errors and how to resolve them.
+You generally should NOT need to actually give Dexter access to the internet, but if you need that for some reason, you will need that CAT5 cable to run between Dexter and your Router. After a restart, Dexter should automatically connect and have internet access. You can test that with `ping www.google.com` (press Ctrl+C to stop). If it works, great! If not, here are some common errors and how to resolve them.
 
 - "Network is unreachable" There is no internet connection. Check that Dexter is on the same network as your router. E.g. If your local network is 192.168.0. you will need to edit the IP address in both Dexter and DDE. In Dexter, `sudo nano /etc/network/interfaces`and edit the IP there. In DDE, you will need to change the default address for your Dexter robot. 
 
