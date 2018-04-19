@@ -5,4 +5,4 @@ Hardware includes:
 * Motor driver / interface PCB
 * Bill of Materials
 
-Many different end effectors will be developed for Dexter, and they will be documented in the [End effector list](End Effectors).
+Many different end effectors will be developed for Dexter, and they will be documented in the [End effector list](End-Effectors).
