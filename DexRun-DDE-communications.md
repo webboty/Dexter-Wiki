@@ -1,6 +1,6 @@
 # Dexter <=> DDE communications: 
 
-Uses sockets, over an [Ethernet link](DexterNetworking).
+Uses sockets, over an [Ethernet link](Dexter-Networking).
 
 The DDE code is in socket.js. Data is sent via send, and recieved via on_recieve which is setup as the socket response handler. 
 
