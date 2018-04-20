@@ -3,7 +3,7 @@ The end point of the standard Dexter robot [hardware](Hardware) is a replaceable
 The signals available to the end effector include power, ground, and whatever signals the main board has been configured to produce. Early versions supplied USB connection, some were configured to produce PWM type RC servo drive signals, but the standard going forward will be a Dynamixel XL-320 servo bus and a return serial data line. The Tinyduino will listen on the servo bus and may return data there or via the dedicated return data line. 
 
 Signals from Dexter to the Tool Interface:
-- Groun
+- Ground
 - Logic power +5 Volts
 - Servo power
 - Servo bus
