@@ -32,6 +32,6 @@ S|"set_parameter"|SET_PARAM|
 T|n/a|MOVETOSTRAIGHT_CMD|In development
 t|"dma_write"|DMAWRITE_CMD|
 w|"write"|WRITE_CMD|Does `wait_fifo_flush()` first.
-W|"[write_to_robot](write-to-robot)"|n/a|Send files to the Dexter file system. Not yet implemented in DexRun.c
+W|"[write_to_robot](write-to-robot)"|WRITE_TO_ROBOT|Send files to the Dexter file system. Implemented in DexRun.c April2018
 x|"exit"|EXIT_CMD|
 z|"sleep"|SLEEP_CMD|
