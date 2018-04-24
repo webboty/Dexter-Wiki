@@ -1,0 +1,1 @@
+The new [Tool Interface](End-Effectors) for end effectors incorporates 2 [Dynamixel XL-320 servo](http://support.robotis.com/en/product/actuator/dynamixel_x/xl_series/xl-320.htm).
