@@ -3,11 +3,11 @@ The end point of the standard Dexter robot [hardware](Hardware) is a replaceable
 The signals available to the end effector include power, ground, and whatever signals the main board has been configured to produce. Early versions supplied USB connection, some were configured to produce PWM type RC servo drive signals, but the standard going forward will be a new tool interface which incorporates 2 [Dynamixel XL-320 servos](End-Effector-Servos) and a [Tinyscreen+](End-Effector-Screen) (ARM based, small OLED screen, 4 buttons, lots of IO). The Tinyscreen+ will listen on the servo bus and may return data there or via the dedicated return data line. 
 
 Signals from the Dexter [Motor Control PCB](Motor-Control-PCB) to the Tool Interface:
-- Ground
-- Logic power +5 Volts
-- Supply power, regulated to Servo power voltage at the interface
-- Servo data bus, bidirectional
-- Return serial data
+- Ground (P25 pin 1)
+- Logic power +5 Volts (P25 pin 2)
+- Supply power (18V DC from AC adapter J25?), regulated to Servo power voltage (6 - 8.75V) at the interface
+- Servo data bus, bidirectional. AUX1 via J20
+- Return serial data. AUX2 via J21
 
 Multiple signals are available from the Tinyduino for many different purposes.
 
