@@ -8,7 +8,8 @@ It is fundamentally a JavaScript development environment with lots of extensions
 **Debugging:** _Note that all of this is documented in the DDE help system_
 - the `out` function can be wrapped around _anything_ to dump a copy of the result to the output panel when it is evaluated _without_ any change in program behavior. It returns whatever it prints, so there is no side effect to it being included. E.g. `let variable = out("Hello" + "World").toUpper())` will still put "HELLOWORLD" in variable, but it will also let you see "HelloWorld" on the screen.
 - `inspect` provides a very nice interactive inspector in the output panel. It does not return values like `out` as of this time.
-- To update any part of DDE, simply overwrite the objects property in the Editor script. To retain that between restarts, add the code to the dde_init.js file in the dde_apps folder. e.g. To get a report to the output panel of the result of any call to Dexter.sleep in the job, just redefine the original function:<BR>
+- To debug DDE code in the Chrome debugger, launch that by right clicking anywhere in the Editor pane and select Inspect Element to open the debugger UI. Then add `debugger;` anywhere in the code and "Eval" it. You can explore variables, step, etc... everything you can do in a web page.
+- To update / debug any part of DDE, simply overwrite the objects property in the Editor script. To retain that between restarts, add the code to the dde_init.js file in the dde_apps folder. e.g. To get a report to the output panel of the result of any call to Dexter.sleep in the job, just redefine the original function:<BR>
 `Dexter.sleep           = function(seconds){ return make_ins("z", seconds) }`<BR>
 as a new function including a call to `out`. e.g. <BR>
 `Dexter.sleep           = function(seconds){ return out(make_ins("z", seconds)) }`<br>
