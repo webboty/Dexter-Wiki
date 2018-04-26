@@ -10,6 +10,6 @@ Hardware includes:
 * Xilinx based microzed processor board
 * [micro SD card](SD-Card-Image)
 * Wiring harness
-* [End effector tool interface](End-Effector)
+* [End effector tool interface](End-Effectors)
 
 Many different end effectors will be developed for Dexter, and they will be documented in the [End effector list](End-Effectors).
