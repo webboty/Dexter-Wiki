@@ -6,10 +6,10 @@ Signals from the Dexter [Motor Control PCB](Motor-Control-PCB) to the Tool Inter
 - Ground (P25 pin 1)
 - Logic power +5 Volts (P25 pin 2)
 - Supply power (18V DC from AC adapter J25?), regulated to Servo power voltage (6 - 8.75V) at the interface
-- Servo data bus, bidirectional. AUX1 via J20
-- Return serial data. AUX2 via J21
+- Servo data bus, bidirectional. AUX1 via J20 (bottom pin, on bottom connector left side of motor board)
+- Return serial data. AUX2 via J21?
 
-Multiple signals are available from the Tinyduino for many different purposes.
+Multiple signals are available from the [Tinyscreen+](End-Effector-Screen) for many different purposes.
 
 ## Known end effectors:
 ### Original Tool Interface
