@@ -1,7 +1,8 @@
 The new [Tool Interface](End-Effectors) standard includes a [Tinyscreen+](End_Effector_Screen) ARM based Arduino compatible processor with a small OLED screen, 4 buttons, and lots of IO. 
 
 ## IDE Setup
-To program the Tinyscreen+, install the Arduino IDE and then, under Files / Preferences click the boxes to the right of the "Additional Boards Manager URLs" and add `https://tiny-circuits.com/Downloads/ArduinoBoards/package_tinycircuits_index.json` on a separate line.
+To program the Tinyscreen+, install the Arduino IDE and then, under Files / Preferences click the boxes to the right of the "Additional Boards Manager URLs" and add 
+<BR>`https://tiny-circuits.com/Downloads/ArduinoBoards/package_tinycircuits_index.json` on a separate line.
 
 Select Tools / Boards / Boards Manager... (scroll to the top) and search for SAMD. Select "Arduino SAMD Boards (32-bits ARM Cortex-M0+), and click Install. Once that is finished search for Tinyscreen and install the "Tinycircuits SAMD Boards". You may receive a warning that Windows is unable to verify the publisher during the install. Once the board files are installed, under Tools / Boards, (scroll down) select Tinyscreen+.
 
@@ -52,8 +53,9 @@ void setup(void) {
 //display.drawPixel(x,y,color);//set pixel (x,y) to specified color. This is slow.
 
 /* BITMAP GRAPHICS */
-//display.setX(x start, x end);//set OLED RAM to x start, wrap around at x end
-//display.setY(y start, y end);//set OLED RAM to y start, wrap around at y end
+//display.setX(x start, x end);//set pixel x start, wrap around at x end
+//display.setY(y start, y end);//set pixel y start, wrap around at y end
+//display.goTo(x,y); //Set pixel x and y, as above, wrap at x and y max.
 //display.startData();
 //unsigned char buffer = { TS_8b_colors, ... };
 //display.writeBuffer(buffer,count); //optimized write of a large buffer of 8 bit data.
@@ -62,7 +64,7 @@ void setup(void) {
 /* TEXT GRAPHICS */
 //display.setFont(thinPixel7_10ptFontInfo);
 //display.fontColor(text color, background color); //sets text and background color
-//display.setCursor(x,y); //set text cursor position to (x,y)- in this example, the example string is centered
+//display.setCursor(x,y); //set text cursor position to (x,y)
 //display.print("Example Text!");
 //display.println(" Print, move to next line");
 //int width=display.getPrintWidth("Example Text!"); //total width in pixels
