@@ -28,6 +28,7 @@ TinyScreen display = TinyScreen(TinyScreenPlus);
 
 void setup(void) {
   display.begin();
+  //display.on(); //on by default, but needed after display.off() which saves power.
   display.setBrightness(10); //sets main current level, valid levels are 0-15
   }
 
@@ -35,6 +36,10 @@ void setup(void) {
 //display.clearScreen(); //clears entire display- the same as clearWindow(0,0,96,64)
 //display.clearWindow(x start, y start, width, height); 
 //  clears specified OLED controller memory
+//display.setFlip(true); //flips display upside down
+//display.setMirror(true); //mirrors display left/right
+
+/* BASIC GRAPHICS */
 //display.drawRect(x start, y start, width, height, fill, 8bitcolor);
 //  sets specified OLED controller memory to an 8 bit color, 
 //  fill is a boolean- TSRectangleFilled or TSRectangleNoFill
@@ -53,6 +58,17 @@ void setup(void) {
 //unsigned char buffer = { TS_8b_colors, ... };
 //display.writeBuffer(buffer,count); //optimized write of a large buffer of 8 bit data.
 //display.endTransfer();
+
+/* TEXT GRAPHICS */
+//display.setFont(thinPixel7_10ptFontInfo);
+//display.fontColor(text color, background color); //sets text and background color
+//display.setCursor(x,y); //set text cursor position to (x,y)- in this example, the example string is centered
+//display.print("Example Text!");
+//display.println(" Print, move to next line");
+//int width=display.getPrintWidth("Example Text!"); //total width in pixels
+//int height=display.getFontHeight(); //always the same for a given font
+
+//getButtons(TSButtonUpperLeft|TSButtonUpperRight) true if any listed button is pressed
 
 
 ````
@@ -92,5 +108,6 @@ void loop() {
 ````
 
 See also:<BR>
+- https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib/blob/master/TinyScreenReferenceManual.pdf
 - https://tinycircuits.com/search?type=article&q=Tinyscreen%2B
 - https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib
