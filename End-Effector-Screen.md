@@ -32,6 +32,7 @@ void setup(void) {
   //display.on(); //on by default, but needed after display.off() which saves power.
   display.setBrightness(10); //sets main current level, valid levels are 0-15
   SerialUSB.Begin(9600); //USB to PC communications is via SerialUSB, NOT Serial
+  Serial1.Begin(1000000); //Dexter coms on Serial1, pins 0 and 1 at 1MBPS
   }
 
 /* BASIC DISPLAY FUNCTIONS */
@@ -77,6 +78,8 @@ void setup(void) {
 ````
 
 ## Communications 
+Serial1 is the hardware serial port connected to pin 0 and 1, which is free to use to connect to external serial devices.
+
 The Tinyscreen+ will listen on the same data bus used by the [servos](End-Effector-Servos) and may return data there or via the dedicated return data line. To decode the [Dynamixel V2.0 Protocol](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm), a small serial filter routine can be added to standard Arduino code. 
 
 ````
@@ -91,20 +94,20 @@ The Tinyscreen+ will listen on the same data bus used by the [servos](End-Effect
 char buf[100]; //max packet length?
 
 void setup(){
-    Serial.begin(9600);
-    Serial.print("Hello World!");
+    Serial1.begin(9600);
+    Serial1.print("Hello World!");
 	}
 
 void loop() {
-  if (Serial.find( HEADER ) && Serial.find(ID)) {
-    Serial.readBytesUntil('\xFF',buf,min(3,sizeof(buf)));
+  if (Serial1.find( HEADER ) && Serial1.find(ID)) {
+    Serial1.readBytesUntil('\xFF',buf,min(3,sizeof(buf)));
     int l = buf[0]+buf[1]*256; //get the length
     buf[0]=0; //incase it's not a write
     if ( WRITE_INST == buf[2]) 
-	Serial.readBytesUntil('\xFF',buf,min(l,sizeof(buf)));
+	Serial1.readBytesUntil('\xFF',buf,min(l,sizeof(buf)));
   	}
-  Serial.print(":" );
-  Serial.println(buf );
+  Serial1.print(":" );
+  Serial1.println(buf );
   buf[0]=0;
 	//exit(0);
   }
@@ -113,4 +116,7 @@ void loop() {
 See also:<BR>
 - https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib/blob/master/TinyScreenReferenceManual.pdf
 - https://tinycircuits.com/search?type=article&q=Tinyscreen%2B
+- https://github.com/arduino/ArduinoCore-samd The Tinyscreen+ is based on the Atmel SAMD21 processor. 
+- http://ww1.microchip.com/downloads/en/DeviceDoc/40001882A.pdf SAMD21 datasheet.
 - https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib
+- https://codebender.cc/user/TinyCircuits A few examples are for the Tinyscreen+, most Tinyscreen demos are also useful
