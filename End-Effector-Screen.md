@@ -31,6 +31,7 @@ void setup(void) {
   display.begin();
   //display.on(); //on by default, but needed after display.off() which saves power.
   display.setBrightness(10); //sets main current level, valid levels are 0-15
+  SerialUSB.Begin(9600); //USB to PC communications is via SerialUSB, NOT Serial
   }
 
 /* BASIC DISPLAY FUNCTIONS */
