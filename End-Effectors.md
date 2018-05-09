@@ -9,6 +9,12 @@ Signals from the Dexter [Motor Control PCB](Motor-Control-PCB) to the Tool Inter
 - Servo data bus, bidirectional. AUX1 via J20 (bottom pin, on bottom connector left side of motor board)
 - Return serial data. AUX2 via J21?
 
+_Note: J20 and J21 accept TE Connectivity part 2-179694-2_
+[^](http://www.te.com/usa-en/product-2-179694-2.html)
+[^](https://www.mouser.com/ProductDetail/571-2-179694-2)
+[^](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/2-179694-2/A113162-ND/2135564)
+. _A 2 position, 2mm, IDC, AMP CT connector._
+
 Multiple signals are available from the [Tinyscreen+](End-Effector-Screen) for many different purposes.
 
 ## Known end effectors:
