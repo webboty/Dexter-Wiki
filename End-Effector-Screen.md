@@ -54,6 +54,10 @@ void setup(void) {
 //  like above, but uses 6 bit color values. Red and blue ignore the LSB.
 //display.drawPixel(x,y,color);//set pixel (x,y) to specified color. This is slow.
 
+// Color definitions
+// 8b: BBBG GGRR
+// 16b: BBBB BGGG GGGR RRRR
+
 /* BITMAP GRAPHICS */
 //display.setX(x start, x end);//set pixel x start, wrap around at x end
 //display.setY(y start, y end);//set pixel y start, wrap around at y end
