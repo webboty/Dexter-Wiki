@@ -114,7 +114,7 @@ void loop() {
 ````
 
 See also:<BR>
-- https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib/blob/master/TinyScreenReferenceManual.pdf
+- https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib/blob/master/TinyScreenReferenceManual.pdf Not searchable.
 - https://tinycircuits.com/search?type=article&q=Tinyscreen%2B
 - https://github.com/arduino/ArduinoCore-samd The Tinyscreen+ is based on the Atmel SAMD21 processor. 
 - http://ww1.microchip.com/downloads/en/DeviceDoc/40001882A.pdf SAMD21 datasheet.
