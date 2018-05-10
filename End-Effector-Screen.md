@@ -56,7 +56,7 @@ void setup(void) {
 
 // Color definitions
 // 8b: BBBG GGRR
-// 16b: BBBB BGGG GGGR RRRR
+// #define bgr8(blue, green, red) ( (blue & 3) | (green & 7)<<2 | (red & 7)<<5 )
 
 /* BITMAP GRAPHICS */
 //display.setX(x start, x end);//set pixel x start, wrap around at x end
