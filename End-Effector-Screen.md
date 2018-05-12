@@ -123,5 +123,6 @@ See also:<BR>
 - https://github.com/arduino/ArduinoCore-samd The Tinyscreen+ is based on the Atmel SAMD21 processor. 
 - http://ww1.microchip.com/downloads/en/DeviceDoc/40001882A.pdf SAMD21 datasheet.
 - https://www.robotshop.com/media/files/pdf/tinyscreen-plus-kit-schematic.pdf Schematic
+- https://www.mouser.com/datasheet/2/185/DF12_catalog-938983.pdf The expansion connector
 - https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib
 - https://codebender.cc/user/TinyCircuits A few examples are for the Tinyscreen+, most Tinyscreen demos are also useful
