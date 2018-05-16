@@ -82,7 +82,7 @@ void setup(void) {
 ````
 
 ## Communications 
-Serial1 is the hardware serial port connected to pin 0 and 1, which is free to use to connect to external serial devices.
+Serial1 is the hardware serial port connected to IO pin 0 (RX in) and 1 (TX out), which is free to use to connect to external serial devices.
 
 The Tinyscreen+ will listen on the same data bus used by the [servos](End-Effector-Servos) and may return data there or via the dedicated return data line. To decode the [Dynamixel V2.0 Protocol](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm), a small serial filter routine can be added to standard Arduino code. 
 
@@ -98,12 +98,13 @@ The Tinyscreen+ will listen on the same data bus used by the [servos](End-Effect
 char buf[100]; //max packet length?
 
 void setup(){
-    Serial1.begin(9600);
-    Serial1.print("Hello World!");
+    Serial1.begin(115200);
+    //Serial1.print("Hello World!");
 	}
 
 void loop() {
   if (Serial1.find( HEADER ) && Serial1.find(ID)) {
+    //The .find may not be able to process binary data. 
     Serial1.readBytesUntil('\xFF',buf,min(3,sizeof(buf)));
     int l = buf[0]+buf[1]*256; //get the length
     buf[0]=0; //incase it's not a write
