@@ -111,7 +111,8 @@ int servolen = 0;
 int i = 0;
 
 void setup(void) {
-  Wire.begin();//initialize I2C before we can initialize TinyScreen- not needed for TinyScreen+
+  Wire.begin();
+//initialize I2C before we can initialize TinyScreen- not needed for TinyScreen+
   display.begin();
   //setBrightness(brightness);//sets main current level, valid levels are 0-15
   display.setBrightness(10);
@@ -133,7 +134,7 @@ void loop() {
     case 2: servostate = (0x00 == c? 3: 0); break; //reserved
     case 3: servostate = (SERVO_ID == c? 4: 0); break; //only our addr
     case 4: servostate = 5; servolen = c; break; //low byte of length
-    case 5: servostate = 6; servolen += c<<8; servolen -= 3; break; //not including inst/crc
+    case 5: servostate = 6; servolen += c<<8; servolen -= 3; break; //less inst/crc
     case 6: servostate = (SERVO_WRITE_INST == c? 7: 0); break; //only writes
     case 7: servostate = (!servolen--? 8: 7); buf[i++] = c; break;
     case 8: servostate = 9; buf[i]=0; break; //end TODO: check CRC
