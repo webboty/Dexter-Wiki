@@ -82,39 +82,70 @@ void setup(void) {
 ````
 
 ## Communications 
-Serial1 is the hardware serial port connected to IO pin 0 (RX in) and 1 (TX out), which is free to use to connect to external serial devices.
+Serial (not Serial1) is the hardware serial port connected to IO pin 0 (RX in) and 1 (TX out), which is free to use to connect to external serial devices.
 
 The Tinyscreen+ will listen on the same data bus used by the [servos](End-Effector-Servos) and may return data there or via the dedicated return data line. To decode the [Dynamixel V2.0 Protocol](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm), a small serial filter routine can be added to standard Arduino code. 
 
 ````
-#define ID "\xF0"
-//fake header for testing
-//#define HEADER "AAB0"
-#define  HEADER "\xFF\xFF\xFD\x00"
-//fake inst for testing
-//#define WRITE_INST '3'
-#define WRITE_INST '\x03'
+#include <Wire.h>
+#include <SPI.h>
+#include <TinyScreen.h>
 
-char buf[100]; //max packet length?
+//current Dexter to Dynamixel XL-320 serial rate is 115200
+#define BAUD_RATE 115200
 
-void setup(){
-    Serial1.begin(115200);
-    //Serial1.print("Hello World!");
-	}
+//#define SerialPort SerialUSB //NO that's the USB serial
+//#define SerialPort Serial1 //NO that's something else
+#define SerialPort Serial
+//IO pin 0, RX (in) and IO pin 1, TX (out)
+#define SERVO_ID 0x02
+#define SERVO_WRITE_INST 0x03
+//Library must be passed the board type: TinyScreenPlus for TinyScreen+
+TinyScreen display = TinyScreen(TinyScreenPlus);
+#define rgb8(red, green, blue) ( (red>>1 & 3) | (green & 7)<<2 | (blue & 7)<<5 )
+
+byte buf[100]; //max packet length?
+byte c;
+int servostate = 0;
+int servolen = 0;
+int i = 0;
+
+void setup(void) {
+  Wire.begin();//initialize I2C before we can initialize TinyScreen- not needed for TinyScreen+
+  display.begin();
+  //setBrightness(brightness);//sets main current level, valid levels are 0-15
+  display.setBrightness(10);
+  display.clearScreen();
+  display.setFont(thinPixel7_10ptFontInfo);
+  display.setCursor(0,20);
+  display.fontColor(rgb8(5,3,7),TS_8b_Black);
+  display.print("Ready");
+  SerialPort.begin(BAUD_RATE);
+  }
 
 void loop() {
-  if (Serial1.find( HEADER ) && Serial1.find(ID)) {
-    //The .find may not be able to process binary data. 
-    Serial1.readBytesUntil('\xFF',buf,min(3,sizeof(buf)));
-    int l = buf[0]+buf[1]*256; //get the length
-    buf[0]=0; //incase it's not a write
-    if ( WRITE_INST == buf[2]) 
-	Serial1.readBytesUntil('\xFF',buf,min(l,sizeof(buf)));
-  	}
-  Serial1.print(":" );
-  Serial1.println(buf );
-  buf[0]=0;
-	//exit(0);
+  c = SerialPort.read();
+  //display.setCursor(0,20);
+  //display.print(String(c,HEX));
+  switch (servostate) {
+    case 0: servostate = (0xff == c? 1: 0); break; //header 1 and 2
+    case 1: servostate = (0xfd == c? 2: 0); break; //header 3
+    case 2: servostate = (0x00 == c? 3: 0); break; //reserved
+    case 3: servostate = (SERVO_ID == c? 4: 0); break; //only our addr
+    case 4: servostate = 5; servolen = c; break; //low byte of length
+    case 5: servostate = 6; servolen += c<<8; servolen -= 3; break; //not including inst/crc
+    case 6: servostate = (SERVO_WRITE_INST == c? 7: 0); break; //only writes
+    case 7: servostate = (!servolen--? 8: 7); buf[i++] = c; break;
+    case 8: servostate = 9; buf[i]=0; break; //end TODO: check CRC
+    default: servostate = 0; i=0; break; //recycle
+    }
+
+  if (sizeof(buf) < i) {
+    i = sizeof(buf);
+    display.setCursor(30,10);
+    display.fontColor(rgb8(7,0,0),TS_8b_Black);
+    display.print("OVERRUN");
+    }
   }
 ````
 
