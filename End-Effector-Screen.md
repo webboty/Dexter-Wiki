@@ -164,8 +164,11 @@ void crc() {
   scrc = (scrc << 8) ^ crc_table[((unsigned short)(scrc >> 8) ^ c) & 0xFF];
   }
   
-void loop() {
+ void loop() {
+  while (-1==SerialPort.peek());
   c = SerialPort.read();
+  //display.setCursor(0,20);
+  //display.print(String(c,HEX));
   switch (sstate) {
     case  0: scrc=0; //start crc from zero
              sstate=(0xff == c? 1: 0); crc(); break; //header 1
@@ -183,12 +186,43 @@ void loop() {
     }
   if (sizeof(buf) < i) { //check for more data than fits in buf
     i = sizeof(buf);
-    display.setCursor(40,0);
+    display.setCursor(30,10);
     display.fontColor(rgb8(7,0,0),TS_8b_Black);
     display.print("OVERRUN");
+  }
+#ifdef DEBUG
+  if (!sstate) shake = (shake? 0:1); //shake so we know new stuff came in
+  display.setCursor(sstate*7,0+shake);
+  display.print(sstate,HEX);
+  if (sstate<7) {
+  display.setCursor(sstate*12,10+shake);
+  } else {    
+  display.setCursor((sstate-6)*12,20+shake);
+  }
+  display.print(c,HEX);
+  display.print(' ');
+  if (10 == sstate || 11 == sstate) { //show the CRC
+    display.setCursor(40,40+shake);
+    display.print(scrc,HEX); //the calculated word
+    display.setCursor((11-sstate)*14,40+shake); //aligned
+    display.print(c,HEX); //this is the recieved byte
+  }
+  if (11 == sstate) { //got a packet (9 for no crc, 11 for crc)
+    display.setCursor(0,30+shake);
+    display.print(i);
+    display.print(' ');
+    for (int j=0;buf[j]&&sizeof(buf)>j;j++) {
+      display.print(buf[j],HEX); //assumes the data is a string
+      display.print(':');
     }
- //A simple memory map of the display
+    if ('-' == s) s='|'; else s='-'; //should change each time we send a command
+    display.print(s);
+    SerialPort.print("AU"); //A is 01000001 and U is 01010101
+    sstate = 0;
+    }
+#else //try for a simple memory map of the display
   if (11 == sstate) { //got a packet
+    sstate = 0; //DON'T FORGET THIS!
     display.setCursor(buf[0],buf[1]);
     display.fontColor(buf[3],TS_8b_Black);
     display.print(char(buf[2]));
@@ -196,6 +230,7 @@ void loop() {
     display.setCursor(0,0); //so do a string off the screen. 
     display.print(" "); //if you don't do this, it won't print anything.
     }
+#endif
   }
 
 ````
