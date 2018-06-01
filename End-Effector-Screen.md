@@ -82,7 +82,7 @@ void setup(void) {
 ````
 
 ## Communications 
-Serial (not Serial1) is the hardware serial port connected to IO pin 0 (RX in) and 1 (TX out), which is free to use to connect to external serial devices.
+Serial (not Serial1) is the hardware serial port connected to IO pin 0 (RX in) and 1 (TX out), which is free to use to connect to external serial devices. See the [Tool Interface](End-Effectors) page for more on that wiring.
 
 The Tinyscreen+ will listen on the same data bus used by the [servos](End-Effector-Servos) and may return data there or via the dedicated return data line. To decode the [Dynamixel V2.0 Protocol](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm), a small serial filter routine can be added to standard Arduino code. 
 
