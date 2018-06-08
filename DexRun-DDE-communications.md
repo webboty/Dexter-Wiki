@@ -5,7 +5,7 @@ Uses sockets, over an [Ethernet link](Dexter-Networking).
 The DDE code is in socket.js. Data is sent via send, and recieved via on_recieve which is setup as the socket response handler. 
 
 ### Data Format
-Fields are separated by space (but could be comma) and terminated by a ';' (semicolon).
+Fields are separated by space (but could be comma) and the request is terminated by a ';' (semicolon).
 
 **Header**
 
@@ -14,6 +14,8 @@ Fields are separated by space (but could be comma) and terminated by a ';' (semi
 - _start_: Time (in milliseconds since Jan 1, 1970) when the instruction was started.
 - _end_: Time the instruction ended. Since the instruction hasn't ended, its end time is "undefined."
 - [_instruction_](Command-oplet-instruction): The command / oplet / instruction to be executed.
+
+for example, `1 1 1528438131 undefined g ;` will return a status update
 
 **Data**
 
