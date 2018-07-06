@@ -74,9 +74,11 @@ http.createServer(function (req, res) {
 //socket server to accept websockets from the browser on port 3000
 //and forward them out to DexRun as a raw socket
 var browser = new ws.Server({ port:3000 })
+var bs //really bad... should have an array of connections
 
-browser.on('connection', function connection(socket) {
-    console.log("connected");
+browser.on('connection', function connection(socket,req) {
+    console.log("connected"+req.connection);
+    bs = socket //ASSuming only one browser socket connected
     socket.on('message', function (data) {
         console.log(data.toString());
         dexter.write(data.toString());
@@ -88,8 +90,10 @@ browser.on('connection', function connection(socket) {
 var dexter = new net.Socket()
 dexter.connect(50000,"127.0.0.1")
 dexter.on("data", function(data){
-	console.log("dexter:", data)
-	})
+    console.log("dexter:", data)
+    if (bs) bs.send(data,{ binary: true })
+    //should send to each connected socket in an array
+    })
 
 //test to see if we can get a status update from DexRun
 dexter.write("1 1 1 undefined g ;")
@@ -126,6 +130,7 @@ Now you can make a file with some Javascript in it that makes a websocket connec
 let port = 3000
 let ip_address = "192.168.0.137"
 	let ws = new WebSocket('ws://'+ip_address+":"+port)
+	ws.binaryType = "arraybuffer" //avoids the blob
 	ws.onopen =  function(){
 		document.write("open")
 		ws.send("2 1 1 undefined g")
@@ -134,9 +139,12 @@ let ip_address = "192.168.0.137"
 		document.write("error"+error)
 		}
 	ws.onmessage = function(msg) {
-		document.write("message:"+msg.data)
+		data = new Uint32Array(msg.data)
+		document.write("message:"+data.length+"  "+data)
 		}
 </script>
 </body>
 </html>
 ````
+
+Which will get a status report and display it on the browser document as decimal integers (the node console display is hex bytes).
