@@ -37,7 +37,11 @@ Notes:<BR>
 
 ## A Node.js Web / socket server.
 
-To setup a simple web server / Socket interface to the Dexter [Firmware](Firmware) you can make a file called httpd.js using nano:<BR>
+To setup a simple web server / Socket interface to the Dexter [Firmware](Firmware) first create a sub folder under the share:<BR>
+`mkdir /srv/samba/share/www`
+<BR>This folder will hold all the files your server will serve when a user connects. 
+
+Next, make a file called httpd.js using nano:<BR>
 `nano httpd.js`<BR>
 and then copy in the following text (to paste into PuTTY just right click the window)
 ````
@@ -46,7 +50,7 @@ var url = require('url');
 var fs = require('fs');
 var net = require('net');
 
-//standard web server on port 8080 to serve files
+//standard web server to serve files
 http.createServer(function (req, res) {
   var q = url.parse(req.url, true)
   if (!q.pathname) q.pathname="index.html"
@@ -60,7 +64,7 @@ http.createServer(function (req, res) {
     res.write(data)
     return res.end()
   });
-}).listen(8080)
+}).listen(80) //port 80 is the default port for web browsers. 
 
 //socket server to accept websockets from the browser on port 3000
 //and forward them out to DexRun as a raw socket
@@ -91,4 +95,19 @@ That last line tests the socket interface by sending a status update request to 
 
 You can see the returned little endian integer values (4 bytes each) which are 1, 1, then the two times, and the 67 is the 'g'. The rest of the data (not shown) includes all the [status values](status-data). 
 
+To stop the server, press Ctrl+C
+
+To run your web server in the background while you continue to work, use <BR>
+`node httpd.js &`
+<BR>The & or and sign at the end places the server in the background. You can check on it with `job` or take it back to the foreground with `fg` and then press Ctrl+C to stop it. 
+
+But as long as it's running in the background, you can edit files for it to serve in the /srv/samba/share/www folder. For example, if you place a file called "index.html" in that folder, with something like:
+````
+<html>
+<body>
+<h1>HELLO WORLD!</h1>
+</body>
+</html>
+````
+and then go to http://_dexers-ip-address_/index.html you should see "HELLO WORLD!"
 
