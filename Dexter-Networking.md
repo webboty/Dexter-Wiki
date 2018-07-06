@@ -1,4 +1,10 @@
-Dexter has an RJ-45 connector for CAT5 Ethernet connection. Because of issues with the Linux stack, WiFi adapters are not supported (as of April 2018). Although Dexter does have the ability to connect directly to the internet via a CAT5 cable to a local router, the easiest way to connect from a PC is to simply connect that CAT5 cable directly between the network port on the PC and Dexter. This is perfectly acceptable and works very well. The network adapter on the PC should be configured to the 192.168.1. network. Dexter has defaulted to 192.168.1.142 (future versions may DHCP) so any other address is fine for the PC adapter. The PC's wifi adapter can remain connected to local WiFi at the same time. 
+Dexter has an RJ-45 connector for CAT5 Ethernet connection. Because of issues with the Linux stack, WiFi adapters are not supported (as of April 2018). Although Dexter does have the ability to connect directly to the internet via a CAT5 cable to a local router, the easiest way to connect from a PC is to simply connect that CAT5 cable directly between the network port on the PC and Dexter. This is perfectly acceptable and works very well. The network adapter on the PC should be configured to the 192.168.1. network. In the past, Dexter has defaulted to 192.168.1.142 so any other address is fine for the PC adapter. The PC's wifi adapter can remain connected to local WiFi at the same time. 
+
+In the future Dexter will use DHCP, and so it's IP address will be whatever is assigned by the router if it is network connected. Your computer configuration needn't change. You can log into your router and look at the connected devices to find it, or
+- Android Smartphone: Install and use the Fing app
+- on Linux / Mac use `arp -a`. You may need to ping broadcast first. Or `sudo apt-get nmap` and then `nmap -rP _ip_/24` where _ip_ is your local network address. e.g. 192.168.1.1
+- on Windows, `arp -a` returns the ip address, but no machine names. Or you can download and install<BR>
+http://www.advanced-ip-scanner.com
 
 Once you are connected, you can shell into Dexter to update the [firmware](Firmware) or do development in the onboard Linux OS, or just connect via [DDE](DDE) to develop and run jobs. 
 
