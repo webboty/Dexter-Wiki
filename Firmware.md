@@ -8,3 +8,5 @@ DexRun.c also provides a few local functions. For example, onboard motion planni
 
 To update the onboard firmware, follow the directions at:
 https://github.com/HaddingtonDynamics/Dexter/blob/master/Firmware/README.md
+
+It is very possible to install and run other programs on Dexter. For example, you can install [Node.js and run a web server / socket interface](nodejs-webserver) in order to access the robot without any installed software on your PC.
