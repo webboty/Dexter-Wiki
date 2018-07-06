@@ -4,7 +4,9 @@ https://en.wikipedia.org/wiki/Node.js
 <BR>It's an ideal way to develop a web server that runs on Dexter, serves a web page that interacts with the robot and allows you to directly control it without anything but a browser.
 
 ## Installing Node.js on Dexter
-SSH into Dexter.
+Because we need to download files, your Dexter must be connected to your router and the internet. Check [Dexter Networking](Dexter-Networking) for more information on that.
+
+[SSH into Dexter](SSH-into-Dexter).
 
 To ensure you have enough space check that `df -h ` shows more than 4.0G available.
 
@@ -35,7 +37,7 @@ Notes:<BR>
 
 ## A Node.js Web / socket server.
 
-To setup a simple web server / Socket interface to the Dexter [Firmware] you can make a file called httpd.js using nano:<BR>
+To setup a simple web server / Socket interface to the Dexter [Firmware](Firmware) you can make a file called httpd.js using nano:<BR>
 `nano httpd.js`<BR>
 and then copy in the following text (to paste into PuTTY just right click the window)
 ````
@@ -87,6 +89,6 @@ That last line tests the socket interface by sending a status update request to 
 <BR>you should see:<BR>
 `dexter: <Buffer 01 00 00 00 01 00 00 00 1f 18 1a 5b 41 e9 04 00 67 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 ... >`
 
-You can see the returned little endian integer values (4 bytes each) which are 1, 1, then the two times, and the 67 is the 'g'. The rest of the data (not shown) includes all the status values. 
+You can see the returned little endian integer values (4 bytes each) which are 1, 1, then the two times, and the 67 is the 'g'. The rest of the data (not shown) includes all the [status values](status-data). 
 
 
