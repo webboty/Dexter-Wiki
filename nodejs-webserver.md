@@ -93,7 +93,7 @@ That last line tests the socket interface by sending a status update request to 
 <BR>you should see:<BR>
 `dexter: <Buffer 01 00 00 00 01 00 00 00 1f 18 1a 5b 41 e9 04 00 67 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 ... >`
 
-You can see the returned little endian integer values (4 bytes each) which are 1, 1, then the two times, and the 67 is the 'g'. The rest of the data (not shown) includes all the [status values](status-data). 
+You can see the returned little endian integer values (4 bytes each) which are 1, 1, then the two times, and the 67 is the 'g'. The rest of the data (not shown) includes all the [status values](status-data). See [Dexter - DDE communications](DexRun-DDE-communications) for more on how to talk to Dexter via the socket interface.
 
 To stop the server, press Ctrl+C
 
