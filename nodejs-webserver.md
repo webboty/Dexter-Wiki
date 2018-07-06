@@ -45,47 +45,54 @@ Next, make a file called httpd.js using nano:<BR>
 `nano httpd.js`<BR>
 and then copy in the following text (to paste into PuTTY just right click the window)
 ````
-var http = require('http');
-var url = require('url');
-var fs = require('fs');
-var net = require('net');
+var http = require('http'); 
+var url = require('url'); //url parsing
+var fs = require('fs'); //file system
+var net = require('net'); //network
+const ws = require('ws'); //websocket
+//https://github.com/websockets/ws
+//install with:
+//npm install --save ws
 
-//standard web server to serve files
+//standard web server on port 8080 to serve files
 http.createServer(function (req, res) {
   var q = url.parse(req.url, true)
-  if (!q.pathname) q.pathname="index.html"
+  if ("/"==q.pathname) q.pathname="index.html"
   var filename = "/srv/samba/share/www/" + q.pathname
+  console.log("serving"+q.pathname)
   fs.readFile(filename, function(err, data) {
     if (err) {
       res.writeHead(404, {'Content-Type': 'text/html'})
       return res.end("404 Not Found")
-    }
+    }  
     res.writeHead(200, {'Content-Type': 'text/html'})
     res.write(data)
     return res.end()
   });
-}).listen(80) //port 80 is the default port for web browsers. 
+}).listen(80)
 
 //socket server to accept websockets from the browser on port 3000
 //and forward them out to DexRun as a raw socket
-require('net').createServer(function (socket) {
+var browser = new ws.Server({ port:3000 })
+
+browser.on('connection', function connection(socket) {
     console.log("connected");
-    socket.on('data', function (data) {
+    socket.on('message', function (data) {
         console.log(data.toString());
-        dexter.write(data);
+        dexter.write(data.toString());
+        });
     });
-}).listen(3000);
+
 
 //Now as a client, open a raw socket to DexRun on localhost
 var dexter = new net.Socket()
 dexter.connect(50000,"127.0.0.1")
 dexter.on("data", function(data){
-        console.log("dexter:", data)
-        })
+	console.log("dexter:", data)
+	})
 
 //test to see if we can get a status update from DexRun
 dexter.write("1 1 1 undefined g ;")
-
 ````
 
 That last line tests the socket interface by sending a status update request to Dexter and then writing out the returned value to the console. when you run the script by entering<BR>
@@ -111,4 +118,25 @@ But as long as it's running in the background, you can edit files for it to serv
 ````
 and then go to http://_dexers-ip-address_/index.html you should see "HELLO WORLD!"
 
-Now you can make a file with some Javascript in it that makes a websocket connection to the Node.JS server on port 3000, which will then make a _raw_ socket connection to Dexter on port 50000, and pass on your request, and log the result. 
+Now you can make a file with some Javascript in it that makes a websocket connection to the Node.JS server on port 3000, which will then make a _raw_ socket connection to Dexter on port 50000, and pass on your request, and log the result. Like this:
+````
+<html>
+<body>
+<script type="text/javascript">
+let port = 3000
+let ip_address = "192.168.0.137"
+	let ws = new WebSocket('ws://'+ip_address+":"+port)
+	ws.onopen =  function(){
+		document.write("open")
+		ws.send("2 1 1 undefined g")
+		}
+	ws.onerror = function(error) {
+		document.write("error"+error)
+		}
+	ws.onmessage = function(msg) {
+		document.write("message:"+msg.data)
+		}
+</script>
+</body>
+</html>
+````
