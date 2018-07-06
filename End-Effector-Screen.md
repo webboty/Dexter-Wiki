@@ -1,4 +1,38 @@
-The new [Tool Interface](End-Effectors) standard includes a [Tinyscreen+](End_Effector_Screen) ARM based Arduino compatible processor with a small OLED screen, 4 buttons, and lots of IO. 
+The new [Tool Interface](End-Effectors) standard includes a [Tinyscreen+](End_Effector_Screen) ARM based Arduino compatible processor with a small OLED screen, 4 buttons, and lots of IO. _Note: this is NOT the Tinyscreen. The + sign makes a huge difference._
+
+## Mounting
+
+_Wide meaning left to right as viewing the screen, long meaning top to bottom, high meaning surface to distant._
+
+1.025" wide, 0.991" long, ~0.5" high (with space for expansion PCB and wires)
+
+|To, From:|left| top| surface|
+|---|---------|----|--------|
+|Button 1 center| -0.026| 0.212| -0.146|
+|Button 2 center| -0.026| 0.487| -0.146|
+|Button 3 center| 1.039| 0.212| -0.146 |
+|Button 4 center| 1.039| 0.487| -0.146|
+|Switch 1 center| -0.026| 0.773| -0.146|
+|Mounting hole 1 center| 0.175| 0.920| 0|
+|Mounting hole 1 center| 0.847| 0.920| 0|
+|USB micro B| 0.278| 0| -0.165 |
+|Viewable area| 0.750| 0.051| 0| 
+|to |0.965| 0.651| 0|
+
+Mounting hole diameter: 0.056
+
+Button face: 0.068 long, 0.050 high. They depress about 0.01" and are very difficult to operate. An "L" lever to allow easy operation by pressing down will be necessary... or a larger piston type button to press in from the side. 
+
+Switch face: 0.264 long, 0.050 high, this is the power switch and may be necessary to programming. Access with a toothpick or tweezers is probably enough.
+
+USB port (micro B) is even with top edge, 0.30 wide, 0.111 high but it's best to leave more space as connectors can have extra plastic around them and won't be able to plug in otherwise. Access to this port is required to update firmware. 
+
+All the wiring comes out the lower face away from the surface (the back side) and is centered over the hole in the "Gripper" part over the tool interface mate to the differential so it would be best to leave as much space under the unit as possible.
+![](https://github.com/HaddingtonDynamics/Dexter/blob/master/Hardware/GripperAssembly.PNG)
+
+There are no mounting holes at the top. so a lip that holds the top down would be wise. This will probably conflict with the USB port so the lip can really only be at the center to the right side. 
+
+The back surface at the top can come in about 0.265 from the top at a height of about -0.272 for the expansion PCB to rest on and about 0.171 from the top at a height of about -0.240 for the main PCB to rest on.
 
 ## IDE Setup
 To program the Tinyscreen+, install the Arduino IDE and then, under Files / Preferences click the boxes to the right of the "Additional Boards Manager URLs" and add 
