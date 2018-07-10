@@ -12,7 +12,7 @@ c|"capture_ad"|CAPTURE_AD_CMD|
 d|"dma_read"|DMAREAD_CMD|Writes the FPGA DMA data into the specified file. 3 args: Address, Length, Filename.
 e|"cause_dexter_error"|n/a|unused
 E|"empty_instruction_ queue_immediately"|n/a|new Sept 1, 2016. Apparently never implemented in firmware?
-F|"empty_instruction_ queue"|HEART_BEAT|new Sept 1, 2016 does `wait_fifo_flush()` first. Was SET_FORCE_MOVE_POINT
+F|"empty_instruction_ queue"|HEART_BEAT|new Sept 1, 2016 does `wait_fifo_flush()` first. Was SET_FORCE_MOVE_POINT. This instruction will not return a status until it actually executes. Instructions before this one will be executed first.
 f|"find_home"|FIND_HOME_CMD|
 G|"get_robot_status_ immediately"|HEART_BEAT|new Sept 1, 2016
 g|"get_robot_status"|SEND_HEARTBEAT|  //fry
