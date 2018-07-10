@@ -274,12 +274,12 @@ void crc() {
 ````
 
 See also:<BR>
-- https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib/blob/master/TinyScreenReferenceManual.pdf Not searchable.
-- https://tinycircuits.com/search?type=article&q=Tinyscreen%2B
+- https://github.com/TinyCircuits/TinyCircuits-TinyScreenPlus-ASM2022 Includes: [Reference manual](https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib/blob/master/TinyScreenReferenceManual.pdf) _Not searchable_ and [Examples](https://github.com/TinyCircuits/TinyCircuits-TinyScreenPlus-ASM2022/tree/master/examples)
+- https://www.robotshop.com/media/files/pdf/tinyscreen-plus-kit-schematic.pdf Schematic
+- https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib General Libraries
 - https://github.com/arduino/ArduinoCore-samd The Tinyscreen+ is based on the Atmel SAMD21 processor. 
 - http://ww1.microchip.com/downloads/en/DeviceDoc/40001882A.pdf SAMD21 datasheet.
-- https://www.robotshop.com/media/files/pdf/tinyscreen-plus-kit-schematic.pdf Schematic
+- https://tinycircuits.com/search?type=article&q=Tinyscreen%2B
 - https://www.mouser.com/datasheet/2/185/DF12_catalog-938983.pdf The expansion connector
-- https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib
 - https://codebender.cc/user/TinyCircuits A few examples are for the Tinyscreen+, most Tinyscreen demos are also useful
 - https://www.mouser.com/ProductDetail/855-P70-2300045R The pogo pins used in the end effector interface.
