@@ -282,3 +282,4 @@ See also:<BR>
 - https://www.mouser.com/datasheet/2/185/DF12_catalog-938983.pdf The expansion connector
 - https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib
 - https://codebender.cc/user/TinyCircuits A few examples are for the Tinyscreen+, most Tinyscreen demos are also useful
+- https://www.mouser.com/ProductDetail/855-P70-2300045R The pogo pins used in the end effector interface.
