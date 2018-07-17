@@ -52,7 +52,10 @@ var net = require('net'); //network
 const ws = require('ws'); //websocket
 //https://github.com/websockets/ws
 //install with:
-//npm install --save ws
+//npm install --save ws 
+//on Dexter, if httpd.js is going to be in the /srv/samba/share/ folder, install ws there
+//e.g. after a cd /srv/samba/share/ but then run it from root. e.g. cd /
+//node /srv/samba/share/httpd.js 
 
 //standard web server on port 8080 to serve files
 http.createServer(function (req, res) {
@@ -74,37 +77,57 @@ http.createServer(function (req, res) {
 //socket server to accept websockets from the browser on port 3000
 //and forward them out to DexRun as a raw socket
 var browser = new ws.Server({ port:3000 })
-var bs //really bad... should have an array of connections
+var bs 
+var dexter = new net.Socket()
+//don't open the socket yet, because Dexter only allows 1 socket connection
+dexter.connected=false //track socket status (doesn't ws do this?)
 
 browser.on('connection', function connection(socket,req) {
-    console.log("connected"+req.connection);
-    bs = socket //ASSuming only one browser socket connected
+    console.log(process.hrtime()[1], " browser connected ",req.connection.Server);
+    bs = socket
     socket.on('message', function (data) {
-        console.log(data.toString());
+        console.log(process.hrtime()[1], " browser says ",data.toString());
+        //Now as a client, open a raw socket to DexRun on localhost
+        if (!dexter.connected) { 
+            dexter.connect(50000,"127.0.0.1") 
+            console.log(process.hrtime()[1], "dexter connect")
+            dexter.on("connect", function() { 
+                dexter.connected=true 
+                console.log(process.hrtime()[1], "dexter connected")
+                } )
+            dexter.on("data", function(data){
+                console.log(process.hrtime()[1], " dexter says ", data)
+                if (bs) {
+                    bs.send(data,{ binary: true })
+                    console.log(process.hrtime()[1], " browser responded to ")
+                    }
+                })
+            dexter.on("close", function() { 
+                dexter.connected=false 
+                dexter.removeAllListeners() 
+                //or multiple connect/data/close events next time
+                console.log(process.hrtime()[1], "dexter disconnect")
+                } )
+            }
         dexter.write(data.toString());
+        });
+    socket.on('close', function (data) {
+        console.log(process.hrtime()[1], " browser disconnected ");
+        bs = null
+        dexter.end()
         });
     });
 
 
-//Now as a client, open a raw socket to DexRun on localhost
-var dexter = new net.Socket()
-dexter.connect(50000,"127.0.0.1")
-dexter.on("data", function(data){
-    console.log("dexter:", data)
-    if (bs) bs.send(data,{ binary: true })
-    //should send to each connected socket in an array
-    })
-
 //test to see if we can get a status update from DexRun
-dexter.write("1 1 1 undefined g ;")
+//dexter.write("1 1 1 undefined g ;")
+
 ````
 
-That last line tests the socket interface by sending a status update request to Dexter and then writing out the returned value to the console. when you run the script by entering<BR>
-`node httpd.js`
-<BR>you should see:<BR>
-`dexter: <Buffer 01 00 00 00 01 00 00 00 1f 18 1a 5b 41 e9 04 00 67 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 ... >`
+That last line would test the socket interface by sending a status update request to Dexter and then writing out the returned value to the console, but the program needs to NOT connect to dexter at the start, and only connect when asked to by the browser. Why? Because DexRun.c only supports a single socket connection at a time, and if this server "hogs" it, DDE and other applications cant connect at all. 
 
-You can see the returned little endian integer values (4 bytes each) which are 1, 1, then the two times, and the 67 is the 'g'. The rest of the data (not shown) includes all the [status values](status-data). See [Dexter - DDE communications](DexRun-DDE-communications) for more on how to talk to Dexter via the socket interface.
+Run the script by entering<BR>
+`node httpd.js`
 
 To stop the server, press Ctrl+C
 
@@ -125,15 +148,17 @@ and then go to http://_dexers-ip-address_/index.html you should see "HELLO WORLD
 Now you can make a file with some Javascript in it that makes a websocket connection to the Node.JS server on port 3000, which will then make a _raw_ socket connection to Dexter on port 50000, and pass on your request, and log the result. Like this:
 ````
 <html>
-<body>
+<body> 
 <script type="text/javascript">
-let port = 3000
-let ip_address = "192.168.0.137"
+	var count = 0
+	let port = 3000
+	let ip_address = "192.168.0.137" //change to your dexters IP address
+	let interval = 1000 //how often to update status
 	let ws = new WebSocket('ws://'+ip_address+":"+port)
 	ws.binaryType = "arraybuffer" //avoids the blob
 	ws.onopen =  function(){
 		document.write("open")
-		ws.send("2 1 1 undefined g")
+		getDexterStatus()
 		}
 	ws.onerror = function(error) {
 		document.write("error"+error)
@@ -141,10 +166,21 @@ let ip_address = "192.168.0.137"
 	ws.onmessage = function(msg) {
 		data = new Uint32Array(msg.data)
 		document.write("message:"+data.length+"  "+data)
+		//ws.close()
+		}
+
+	function getDexterStatus(){
+		ws.send("1 "+(count++)+" 1 undefined g")
+		setTimeout(function(){getDexterStatus()},interval)
 		}
 </script>
 </body>
 </html>
+
 ````
 
-Which will get a status report and display it on the browser document as decimal integers (the node console display is hex bytes).
+Which will get a status report and display it on the browser document as decimal integers (the node console display is hex bytes). You should see something like:<BR>
+`openmessage:60 <BR>1,0,1531789558,73782,103,0,0,0,0,0,0,0,0,0,3757,3003,0,0,0,2147483647,0,0,0,0,286,56,0,0,0,2147483647,0,0,0,0,786,3015,0,0,0,2147483647,0,0,0,0,1688,3687,0,0,0,2147483647,0,0,0,0,2004,216,0,0,0,2147483647message:60 
+`
+
+You can see the returned little endian integer values (4 bytes each) which are 1, 1, then the two times, and the 67 is the 'g'. The rest of the data (not shown) includes all the [status values](status-data). See [Dexter - DDE communications](DexRun-DDE-communications) for more on how to talk to Dexter via the socket interface.
