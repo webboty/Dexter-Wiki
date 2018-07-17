@@ -149,23 +149,30 @@ Now you can make a file with some Javascript in it that makes a websocket connec
 ````
 <html>
 <body> 
+	Hi James
+	<div id="stat">hello</div>
 <script type="text/javascript">
 	var count = 0
 	let port = 3000
-	let ip_address = "192.168.0.137" //change to your dexters IP address
+	let ip_address = self.location.hostname //"192.168.0.137"
+	//may not be an ip address... 
 	let interval = 1000 //how often to update status
 	let ws = new WebSocket('ws://'+ip_address+":"+port)
 	ws.binaryType = "arraybuffer" //avoids the blob
 	ws.onopen =  function(){
-		document.write("open")
+		self.status="open"
 		getDexterStatus()
 		}
 	ws.onerror = function(error) {
-		document.write("error"+error)
+		self.status="error"+error
 		}
 	ws.onmessage = function(msg) {
-		data = new Uint32Array(msg.data)
-		document.write("message:"+data.length+"  "+data)
+		data = new Int32Array(msg.data)
+		if ('g'.charCodeAt(0) == data[4]) {//status
+			displayStatus(msg.ip_address,data)
+//1,0,1531787828,349602,103,0,0,0,0,0,0,0,0,0,3703,2967,0,0,0,2147483647,0,0,0,0,293,56,0,0,0,2147483647,0,0,0,0,809,3063,0,0,0,2147483647,0,0,0,0,1682,3675,0,0,0,2147483647,0,0,0,0,1990,218,0,0,0,2147483647
+			}
+		//document.write("message:"+data.length+"  "+data)
 		//ws.close()
 		}
 
@@ -173,14 +180,56 @@ Now you can make a file with some Javascript in it that makes a websocket connec
 		ws.send("1 "+(count++)+" 1 undefined g")
 		setTimeout(function(){getDexterStatus()},interval)
 		}
+	function displayStatus(ip,data){
+		var stat=document.getElementById('stat')
+		stat.innerHTML=ip_address+" Job: "+data[0]+" No: "+data[1]+" Op: "+String.fromCharCode(data[4])
+		//+data.toString()
+		data = data.slice(10,60)
+//https://github.com/cfry/dde/blob/99e37f9f466b3c374953581aefde0e27e1582fcd/robot.js#L2247
+//https://github.com/cfry/dde/blob/master/robot.js#L1907
+		let label = new Array("ANGLE","DELTA","PID_DELTA","FORCE_CALC_ANGLE","A2D_SIN","A2D_COS","PLAYBACK","SENT","SLOPE","MEASURED_ANGLE")
+		let tdstyle="border:1px solid black; "
+		var num=0
+        tbl  = document.createElement('table');
+	    tbl.style = 'font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; border: 1px solid black; width:100px;';
+	    var tr = tbl.insertRow(); //top header
+        var td = tr.insertCell();
+        td.appendChild(document.createTextNode('Cell'));
+        td.style = tdstyle+" background-color:#808080; color:#ffffff;";
+        td.innerText=" "
+        for(var j = 1; j < 6; j++){ //top labels
+            var td = tr.insertCell();
+            td.appendChild(document.createTextNode('Cell'));
+            td.style = tdstyle+" background-color:#808080; color:#ffffff;";
+            td.innerText="Joint:"+j
+        	}
+	    for(var i = 0; i < 10; i++){
+	        var tr = tbl.insertRow(); //data lines
+            var td = tr.insertCell(); //left header label
+            td.appendChild(document.createTextNode('Cell'));
+            td.style = tdstyle+" text-align: right; background-color:#808080; color:#ffffff;";
+            td.innerText=label[i]
+	        for(var j = 0; j < 5; j++){
+                var td = tr.insertCell();
+                td.appendChild(document.createTextNode('Cell'));
+                td.style = tdstyle;
+                num=data[j*10+i]
+                if (9==i && 2147483647==num) num="UNKNOWN"
+                td.innerText=num
+		        }
+		    }
+		stat.appendChild(tbl)
+
+		}
 </script>
 </body>
 </html>
-
 ````
 
-Which will get a status report and display it on the browser document as decimal integers (the node console display is hex bytes). You should see something like:<BR>
-`openmessage:60 <BR>1,0,1531789558,73782,103,0,0,0,0,0,0,0,0,0,3757,3003,0,0,0,2147483647,0,0,0,0,286,56,0,0,0,2147483647,0,0,0,0,786,3015,0,0,0,2147483647,0,0,0,0,1688,3687,0,0,0,2147483647,0,0,0,0,2004,216,0,0,0,2147483647message:60 
+Which will get a status report and display it on the browser document as decimal integers (the node console display is hex bytes). 
+
+The raw data returned would be something like:
+`1,0,1531789558,73782,103,0,0,0,0,0,0,0,0,0,3757,3003,0,0,0,2147483647,0,0,0,0,286,56,0,0,0,2147483647,0,0,0,0,786,3015,0,0,0,2147483647,0,0,0,0,1688,3687,0,0,0,2147483647,0,0,0,0,2004,216,0,0,0,2147483647
 `
 
-You can see the returned little endian integer values (4 bytes each) which are 1, 1, then the two times, and the 67 is the 'g'. The rest of the data (not shown) includes all the [status values](status-data). See [Dexter - DDE communications](DexRun-DDE-communications) for more on how to talk to Dexter via the socket interface.
+You can see the returned little endian integer values (4 bytes each) which are 1, 1, then the two times, and the 103 (67 hex) is the 'g'. The rest of the data includes all the [status values](status-data). See [Dexter - DDE communications](DexRun-DDE-communications) for more on how to talk to Dexter via the socket interface.
