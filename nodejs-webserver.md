@@ -50,17 +50,21 @@ var url = require('url'); //url parsing
 var fs = require('fs'); //file system
 var net = require('net'); //network
 const ws = require('ws'); //websocket
-//https://github.com/websockets/ws
+// https://github.com/websockets/ws 
 //install with:
 //npm install --save ws 
-//on Dexter, if httpd.js is going to be in the /srv/samba/share/ folder, install ws there
-//e.g. after a cd /srv/samba/share/ but then run it from root. e.g. cd /
+//on Dexter, if httpd.js is going to be in the /srv/samba/share/ folder, 
+//install ws there but then run it from root. e.g. 
+//cd /srv/samba/share/ 
+//npm install --save ws 
+//cd /
 //node /srv/samba/share/httpd.js 
 
 //standard web server on port 8080 to serve files
 http.createServer(function (req, res) {
   var q = url.parse(req.url, true)
-  if ("/"==q.pathname) q.pathname="index.html"
+  if ("/"==q.pathname) 
+    q.pathname="index.html"
   var filename = "/srv/samba/share/www/" + q.pathname
   console.log("serving"+q.pathname)
   fs.readFile(filename, function(err, data) {
@@ -80,30 +84,30 @@ var browser = new ws.Server({ port:3000 })
 var bs 
 var dexter = new net.Socket()
 //don't open the socket yet, because Dexter only allows 1 socket connection
-dexter.connected=false //track socket status (doesn't ws do this?)
+dexter.connected = false //track socket status (doesn't ws do this?)
 
-browser.on('connection', function connection(socket,req) {
-    console.log(process.hrtime()[1], " browser connected ",req.connection.Server);
+browser.on('connection', function connection(socket, req) {
+    console.log(process.hrtime()[1], " browser connected ", req.connection.Server);
     bs = socket
     socket.on('message', function (data) {
-        console.log(process.hrtime()[1], " browser says ",data.toString());
+        console.log(process.hrtime()[1], " browser says ", data.toString());
         //Now as a client, open a raw socket to DexRun on localhost
         if (!dexter.connected) { 
-            dexter.connect(50000,"127.0.0.1") 
+            dexter.connect(50000, "127.0.0.1") 
             console.log(process.hrtime()[1], "dexter connect")
-            dexter.on("connect", function() { 
-                dexter.connected=true 
+            dexter.on("connect", function () { 
+                dexter.connected = true 
                 console.log(process.hrtime()[1], "dexter connected")
                 } )
-            dexter.on("data", function(data){
+            dexter.on("data", function (data){
                 console.log(process.hrtime()[1], " dexter says ", data)
                 if (bs) {
                     bs.send(data,{ binary: true })
                     console.log(process.hrtime()[1], " browser responded to ")
                     }
                 })
-            dexter.on("close", function() { 
-                dexter.connected=false 
+            dexter.on("close", function () { 
+                dexter.connected = false 
                 dexter.removeAllListeners() 
                 //or multiple connect/data/close events next time
                 console.log(process.hrtime()[1], "dexter disconnect")
@@ -149,78 +153,78 @@ Now you can make a file with some Javascript in it that makes a websocket connec
 ````
 <html>
 <body> 
-	Hi James
+	Dexter Status
 	<div id="stat">hello</div>
 <script type="text/javascript">
-	var count = 0
-	let port = 3000
-	let ip_address = self.location.hostname //"192.168.0.137"
-	//may not be an ip address... 
-	let interval = 1000 //how often to update status
-	let ws = new WebSocket('ws://'+ip_address+":"+port)
-	ws.binaryType = "arraybuffer" //avoids the blob
-	ws.onopen =  function(){
-		self.status="open"
-		getDexterStatus()
-		}
-	ws.onerror = function(error) {
-		self.status="error"+error
-		}
-	ws.onmessage = function(msg) {
-		data = new Int32Array(msg.data)
-		if ('g'.charCodeAt(0) == data[4]) {//status
-			displayStatus(msg.ip_address,data)
+    var count = 0
+    let port = 3000
+    let ip_address = self.location.hostname //"192.168.0.137"
+    //may not be an ip address... 
+    let interval = 1000 //how often to update status
+    let ws = new WebSocket('ws://'+ip_address+":"+port)
+    ws.binaryType = "arraybuffer" //avoids the blob
+    ws.onopen = function(){
+        self.status = "open"
+        getDexterStatus()
+        }
+    ws.onerror = function(error) {
+        self.status = "error"+error
+        }
+    ws.onmessage = function(msg) {
+        data = new Int32Array(msg.data)
+        if ('g'.charCodeAt(0) == data[4]) {//status
+            displayStatus(msg.ip_address,data)
 //1,0,1531787828,349602,103,0,0,0,0,0,0,0,0,0,3703,2967,0,0,0,2147483647,0,0,0,0,293,56,0,0,0,2147483647,0,0,0,0,809,3063,0,0,0,2147483647,0,0,0,0,1682,3675,0,0,0,2147483647,0,0,0,0,1990,218,0,0,0,2147483647
-			}
-		//document.write("message:"+data.length+"  "+data)
-		//ws.close()
-		}
+            }
+        //document.write("message:"+data.length+"  "+data)
+        //ws.close()
+        }
 
-	function getDexterStatus(){
-		ws.send("1 "+(count++)+" 1 undefined g")
-		setTimeout(function(){getDexterStatus()},interval)
-		}
-	function displayStatus(ip,data){
-		var stat=document.getElementById('stat')
-		stat.innerHTML=ip_address+" Job: "+data[0]+" No: "+data[1]+" Op: "+String.fromCharCode(data[4])
-		//+data.toString()
-		data = data.slice(10,60)
+    function getDexterStatus() {
+	ws.send("1 " + (count++) + " 1 undefined g")
+	setTimeout(function(){getDexterStatus()},interval)
+	}
+    function displayStatus(ip,data) {
+	var stat = document.getElementById('stat')
+	stat.innerHTML = ip_address + " Job: " + data[0]+" No: " + data[1] + " Op: " + String.fromCharCode(data[4])
+	//+data.toString()
+	data = data.slice(10,60)
 //https://github.com/cfry/dde/blob/99e37f9f466b3c374953581aefde0e27e1582fcd/robot.js#L2247
 //https://github.com/cfry/dde/blob/master/robot.js#L1907
-		let label = new Array("ANGLE","DELTA","PID_DELTA","FORCE_CALC_ANGLE","A2D_SIN","A2D_COS","PLAYBACK","SENT","SLOPE","MEASURED_ANGLE")
-		let tdstyle="border:1px solid black; "
-		var num=0
+	let label = new Array("ANGLE","DELTA","PID_DELTA","FORCE_CALC_ANGLE","A2D_SIN","A2D_COS","PLAYBACK","SENT","SLOPE","MEASURED_ANGLE")
+	let tdstyle="border:1px solid black; "
+	var num=0
         tbl  = document.createElement('table');
-	    tbl.style = 'font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; border: 1px solid black; width:100px;';
-	    var tr = tbl.insertRow(); //top header
+        tbl.style = 'font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; border: 1px solid black; width:100px;';
+        var tr = tbl.insertRow(); //top header
         var td = tr.insertCell();
         td.appendChild(document.createTextNode('Cell'));
-        td.style = tdstyle+" background-color:#808080; color:#ffffff;";
+        td.style = tdstyle + " background-color:#808080; color:#ffffff;";
         td.innerText=" "
-        for(var j = 1; j < 6; j++){ //top labels
+        for(var j = 1; j < 6; j++) { //top labels
             var td = tr.insertCell();
             td.appendChild(document.createTextNode('Cell'));
-            td.style = tdstyle+" background-color:#808080; color:#ffffff;";
-            td.innerText="Joint:"+j
-        	}
-	    for(var i = 0; i < 10; i++){
-	        var tr = tbl.insertRow(); //data lines
+            td.style = tdstyle + " background-color:#808080; color:#ffffff;";
+            td.innerText="Joint:" + j
+            }
+        for(var i = 0; i < 10; i++) {
+            var tr = tbl.insertRow(); //data lines
             var td = tr.insertCell(); //left header label
             td.appendChild(document.createTextNode('Cell'));
-            td.style = tdstyle+" text-align: right; background-color:#808080; color:#ffffff;";
+            td.style = tdstyle + " text-align: right; background-color:#808080; color:#ffffff;";
             td.innerText=label[i]
-	        for(var j = 0; j < 5; j++){
+            for(var j = 0; j < 5; j++) {
                 var td = tr.insertCell();
                 td.appendChild(document.createTextNode('Cell'));
                 td.style = tdstyle;
-                num=data[j*10+i]
-                if (9==i && 2147483647==num) num="UNKNOWN"
+                num=data[j * 10 + i]
+                if (9 == i && 2147483647 == num) num="UNKNOWN"
                 td.innerText=num
-		        }
-		    }
-		stat.appendChild(tbl)
+                }
+            }
+	stat.appendChild(tbl)
+	}
 
-		}
 </script>
 </body>
 </html>
