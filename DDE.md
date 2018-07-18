@@ -5,7 +5,7 @@ It is fundamentally a JavaScript development environment with lots of extensions
 
 ### Programming notes:
 
-**Debugging:** _Note that all of this is documented in the DDE help system_
+**Debugging:** _Note that all of this is documented in the  [DDE help system](DDE-help-system)_.
 - the `out` function can be wrapped around _anything_ to dump a copy of the result to the output panel when it is evaluated _without_ any change in program behavior. It returns whatever it prints, so there is no side effect to it being included. E.g. `let variable = out("Hello" + "World").toUpper())` will still put "HELLOWORLD" in variable, but it will also let you see "HelloWorld" on the screen.
 - `inspect` provides a very nice interactive inspector in the output panel. It does not return values like `out` as of this time.
 - To debug DDE code in the Chrome debugger, launch that by right clicking anywhere in the Editor pane and select Inspect Element to open the debugger UI. Then add `debugger;` anywhere in the code and "Eval" it. You can explore variables, step, etc... everything you can do in a web page.
