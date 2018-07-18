@@ -44,7 +44,7 @@ To setup a simple web server / Socket interface to the Dexter [Firmware](Firmwar
 Next, make a file called httpd.js using nano:<BR>
 `nano httpd.js`<BR>
 and then copy in the following text (to paste into PuTTY just right click the window)
-````
+```javascript
 var http = require('http'); 
 var url = require('url'); //url parsing
 var fs = require('fs'); //file system
@@ -140,7 +140,7 @@ To run your web server in the background while you continue to work, use <BR>
 <BR>The & or and sign at the end places the server in the background. You can check on it with `job` or take it back to the foreground with `fg` and then press Ctrl+C to stop it. 
 
 But as long as it's running in the background, you can edit files for it to serve in the /srv/samba/share/www folder. For example, if you place a file called "index.html" in that folder, with something like:
-````
+```javascript
 <html>
 <body>
 <h1>HELLO WORLD!</h1>
@@ -150,7 +150,7 @@ But as long as it's running in the background, you can edit files for it to serv
 and then go to http://_dexers-ip-address_/index.html you should see "HELLO WORLD!"
 
 Now you can make a file with some Javascript in it that makes a websocket connection to the Node.JS server on port 3000, which will then make a _raw_ socket connection to Dexter on port 50000, and pass on your request, and log the result. Like this:
-````
+```javascript
 <html>
 <body> 
 	Dexter Status
