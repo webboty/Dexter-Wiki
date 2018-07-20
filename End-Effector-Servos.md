@@ -3,3 +3,9 @@ The new [Tool Interface](End-Effectors) for end effectors incorporates 2 [Dynami
 The connector on the servo is a Molex Microlatch 3 pin. For a PCB, the mating part is the [Molex 53253-0370](https://www.mouser.com/ProductDetail/Molex/53253-0370?qs=sGAEpiMZZMs%252bGHln7q6pm%2fK1Y9dcUIE1bkILUHD%2fB%252bE%3d)
 
 Data for the servo bus comes from the main controller board. See the [Tool Interface](End-Effectors) page for more on that wiring.
+
+Pin | Signal 
+--- | ---- 
+ 1 | GND 
+ 2 | VDD 
+ 3 | DATA 
