@@ -14,7 +14,7 @@ Hardware includes:
 
 Many different end effectors will be developed for Dexter, and they will be documented in the [End effector list](End-Effectors).
 
-Dexter has 5 joints in the base model, and the Tool Interface adds 2 more for a total of 7.
+Dexter has 5 joints in the base model, and the [Tool Interface](End-Effectors) adds 2 more for a total of 7.
 
 |#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation* |
 | ----  | ----- | ------------- | ------------------------------------- | ----- | ------------ |
@@ -24,8 +24,8 @@ Dexter has 5 joints in the base model, and the Tool Interface adds 2 more for a 
 |4	|4	|Angle		|Wrist: Differential combination 	| 115	|Counter	
 |5	|5	|Rotate		|DiffA1 is rotate, DIffA2 is lift	| 100	|Clockwise	
 |6	|6	|External	|(not used)		        	|	|
-|6	| n/a	|(Dynamixel)	|Wrist rotate                   	| n/a	| n/a
-|7	| n/a	|(Dynamixel)	|Gripper                        	| n/a	| n/a
+|6	| n/a	|J20 bottom pin	|Rotate [Dynamixel](End-Effector-Servos)| n/a	| n/a
+|7	| n/a	|J20 bottom pin	|Gripper [Dynamixel](End-Effector-Servos)| n/a	| n/a
 
 \* _The direction of the rotation of the eye for Joint 5 is the opposite of the others._<BR>
-** _Development of the FPGA code started in the middle and so the numbering of the joints is not consistent._
+** _Development of the [FPGA](Gateware) code started in the middle and so the numbering of the joints is not consistent._
