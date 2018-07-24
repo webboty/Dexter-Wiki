@@ -10,7 +10,7 @@ b|"move_to"||x| obsolete
 B|"set_boundries"|SET_ALL_BOUNDRY||10 args: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow,
 c|"capture_ad"|CAPTURE_AD_CMD||
 d|"dma_read"|DMAREAD_CMD||Writes the FPGA DMA data into the specified file. 3 args: Address, Length, Filename.
-e|"cause_dexter_error"|n/a||unused
+e|"cause_dexter_error"|n/a||Used only the Dexter
 E|"empty_instruction_ queue_immediately"|n/a||new Sept 1, 2016. Apparently never implemented in firmware?
 F|"empty_instruction_ queue"|HEART_BEAT|x|new Sept 1, 2016 does `wait_fifo_flush()` first. Was SET_FORCE_MOVE_POINT. This instruction will not return a status until it actually executes. Instructions before this one will be executed first.
 f|"find_home"|FIND_HOME_CMD||
