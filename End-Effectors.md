@@ -1,6 +1,16 @@
-The end point of the standard Dexter robot [hardware](Hardware) is a replaceable "tool interface" It has a shape which makes it easy for other tools to be clicked on and off. There are "[pogo pins](https://www.mouser.com/ProductDetail/855-P70-2300045R)" at the end for electrical connection. 
+The end point of the standard Dexter robot [hardware](Hardware) is a replaceable "tool interface" It has a shape which makes it easy for other tools to be clicked on and off. There are [spring loaded connectors, sometimes called "pogo pins"](https://www.mouser.com/ProductDetail/855-P70-2300045R) at the end for electrical connection. 
 
-The signals available to the end effector include power, ground, and whatever signals the main board has been configured to produce. Early versions supplied USB connection, some were configured to produce PWM type RC servo drive signals, but the standard going forward will be a new tool interface which incorporates 2 [Dynamixel XL-320 servos](End-Effector-Servos) and a [Tinyscreen+](End-Effector-Screen) (ARM based, small OLED screen, 4 buttons, lots of IO). The Tinyscreen+ will listen on the servo bus and may return data there or via the dedicated return data line. See: [Parts](https://octopart.com/bom-tool/4UgoKwTw), [source](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=da6dc9e512), [Schematic and PCB design](https://workspace.circuitmaker.com/Projects/Details/James-Newton-2/Dexter-Tool-Interface)
+The signals available to the end effector include power, ground, and whatever signals the main board has been configured to produce. Early versions were wired to USB connection. Later version bring out the GPIO pins from the FPGA. These pins can be configured to produce different signals.
+- There is a digital IO pin on the white connectors in the upper right on the back of the motor board<BR>
+`Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
+`make_ins("S", "GripperMotor", 1), //Digital output pin. 0 = off 1 = 5v` TODO: Verify this?
+- Another pin on that same connector is the PWM output pin.<BR>
+`Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
+`make_ins("S", "EERoll", 512), //PWN pin. Integer range of 0-512`  TODO: Verify this?
+- The standard going forward will be a new tool interface which incorporates 2 [Dynamixel XL-320 servos](End-Effector-Servos) and a [Tinyscreen+](End-Effector-Screen) (ARM based, small OLED screen, 4 buttons, lots of IO). One FPGA IO pin will be configured to send and receive data via the [Dynamixel protocol 2.0](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm). This requires and update to the FPGA image. <BR>
+`Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
+`make_ins("S", "ServoSet2X", 2, char1 + char2<<8, char3+char4<<8)`
+<BR>The Tinyscreen+ will listen on the servo bus and may return data there or via the dedicated return data line. See: [Parts](https://octopart.com/bom-tool/4UgoKwTw), [source](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=da6dc9e512), [Schematic and PCB design](https://workspace.circuitmaker.com/Projects/Details/James-Newton-2/Dexter-Tool-Interface)
 
 Signals from the Dexter [Motor Control PCB](Motor-Control-PCB) to the Tool Interface:
 - Ground (P25 pin 1)
