@@ -14,7 +14,7 @@ Hardware includes:
 
 Many different end effectors will be developed for Dexter, and they will be documented in the [End effector list](End-Effectors).
 
-Dexter has 5 joints in the base model, and the [Tool Interface](End-Effectors) adds 2 more for a total of 7.
+Dexter has 5 joints in the base model, and the v2 [Tool Interface](End-Effectors) adds 2 more for a total of 7.
 
 |#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation* |
 | ----  | ----- | ------------- | ------------------------------------- | ----- | ------------ |
