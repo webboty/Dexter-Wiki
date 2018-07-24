@@ -28,4 +28,4 @@ Dexter has 5 joints in the base model, and the Tool Interface adds 2 more for a 
 |7	| n/a	|(Dynamixel)	|Gripper                        	| n/a	| n/a
 
 \* _The direction of the rotation of the eye for Joint 5 is the opposite of the others._<BR>
-** _Development of the FPGA code started in the middle and so the numbering of the joints is not consistent. _
+** _Development of the FPGA code started in the middle and so the numbering of the joints is not consistent._
