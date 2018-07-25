@@ -1,4 +1,4 @@
-Parameters set with the "S" [Oplet]
+Parameters set with the "S" [Oplet](Command-oplet-instruction)
 
 |# | Name
 | --- | ----
