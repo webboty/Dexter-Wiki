@@ -5,7 +5,7 @@ This wiki page attempts to expand on those source documents to explain the instr
 
 &nbsp; | DDE name | DexRun | Q'd | Description
 --- | --- | --- | --- | ---
-a|"move_all_joints"|MOVEALL_CMD|x|
+a|"move_all_joints"|MOVEALL_CMD|x|5 args: j1deg, j2deg, j3deg, j4deg, j5deg
 b|"move_to"||x| obsolete
 B|"set_boundries"|SET_ALL_BOUNDRY||10 args: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow,
 c|"capture_ad"|CAPTURE_AD_CMD||
@@ -28,7 +28,7 @@ p|"find_home_rep"|FIND_HOME_REP_CMD||
 R|"move_all_joints_ relative"|MOVEALL_RELATIVE||obsolete
 r|n/a|READ_CMD|||Implemented in DexRun.c April2018
 s|"slow_move"|SLOWMOVE_CMD||
-S|"set_parameter"|SET_PARAM||
+S|"[set_parameter](set-parameter-oplet)"|SET_PARAM||Sets many different values
 T|n/a|MOVETOSTRAIGHT_CMD||In development
 t|"dma_write"|DMAWRITE_CMD||
 w|"write"|WRITE_CMD||Does `wait_fifo_flush()` first.
