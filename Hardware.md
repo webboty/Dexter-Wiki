@@ -28,4 +28,4 @@ Dexter has 5 joints in the base model, and the v2 [Tool Interface](End-Effectors
 |7	| n/a	|J20 bottom pin	|Gripper [Dynamixel](End-Effector-Servos)| n/a	| n/a
 
 \* _The direction of the rotation of the eye for Joint 5 is the opposite of the others._<BR>
-** _Development of the [FPGA](Gateware) code started in the middle and so the numbering of the joints is not consistent._
+** _Development of the [FPGA](Gateware) code started in the middle and so the numbering of the joints is not consistent. Specifically, when reading (or writing) the AdcCenters.txt file from the share folder, the 2nd and 4th, and 3rd and 5th, lines must be swapped_
