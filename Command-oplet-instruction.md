@@ -26,7 +26,7 @@ o|"replay_movement"|REPLAY_MOVEMENT||
 P|"pid_move_all_joints"|PID_FINEMOVE|?|
 p|"find_home_rep"|FIND_HOME_REP_CMD||
 R|"move_all_joints_ relative"|MOVEALL_RELATIVE||obsolete
-r|n/a|READ_CMD|||Implemented in DexRun.c April2018
+r|From v2.3.16<BR>"[read_from_robot](read-from-robot)"|READ_CMD||[Implemented in DexRun.c 20180726](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e) on TDint branch.
 s|"slow_move"|SLOWMOVE_CMD||
 S|"[set_parameter](set-parameter-oplet)"|SET_PARAM||Sets many different values
 T|n/a|MOVETOSTRAIGHT_CMD||In development
