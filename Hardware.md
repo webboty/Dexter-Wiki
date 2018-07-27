@@ -29,3 +29,5 @@ Dexter has 5 joints in the base model, and the v2 [Tool Interface](End-Effectors
 
 \* _The direction of the rotation of the eye for Joint 5 is the opposite of the others._<BR>
 ** _Development of the [FPGA](Gateware) code started in the middle and so the numbering of the joints is not consistent. Specifically, when reading (or writing) the AdcCenters.txt file from the share folder, the 2nd and 4th, and 3rd and 5th, lines must be swapped_
+
+For problems related to hardware, be sure to search [Hardware Issues](https://github.com/HaddingtonDynamics/Dexter/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3AHardware+)
