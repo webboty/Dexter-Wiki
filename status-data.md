@@ -7,15 +7,18 @@ The actually returned data includes:
 * DMA_READ_DATA
 * RECORD_BLOCK_SIZE
 * END_EFFECTOR_IO_IN
-* BASE_POSITION_AT
-* BASE_POSITION_DELTA
-* BASE_POSITION_PID_DELTA
-* BASE_POSITION_FORCE_DELTA
+
+* BASE_POSITION_AT - Current position goal. This is the position the motion controller has told the stepper to go to. 
+* BASE_POSITION_DELTA - Instantaneous error in position. Difference between _AT and actual position. 
+* BASE_POSITION_PID_DELTA - Accumulated corrective error signal. Force due to inertia, gravity, friction, etc...  
+* BASE_POSITION_FORCE_DELTA - In follow mode, this is the offset in position necessary to keep force at zero. 
 * BASE_SIN
 * BASE_COS
-* PLAYBACK_BASE_POSITION
-* SENT_BASE_POSITION
-* SLOPE_BASE_POSITION
+* PLAYBACK_BASE_POSITION - Not used? The step and direction ticks sent to the motor in the time between status updates. 
+* SENT_BASE_POSITION - Not used? Commanded position goal. 
+* SLOPE_BASE_POSITION - Unused. Was rate of change of _AT. Measurement of joint speed. 
+
+In April 2018, SLOPE BASE position of Axes 6, PIVOT is force Axis 6. END_ position of Axis 7 and ANGLE is force of Axis 7.
 
 ***
 
