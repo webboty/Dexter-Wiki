@@ -8,17 +8,32 @@ The actually returned data includes:
 * RECORD_BLOCK_SIZE
 * END_EFFECTOR_IO_IN
 
-* BASE_POSITION_AT - Current position goal. This is the position the motion controller has told the stepper to go to. 
-* BASE_POSITION_DELTA - Instantaneous error in position. Difference between _AT and actual position. 
-* BASE_POSITION_PID_DELTA - Accumulated corrective error signal. Force due to inertia, gravity, friction, etc...  
-* BASE_POSITION_FORCE_DELTA - In follow mode, this is the offset in position necessary to keep force at zero. 
+In April 2018, the FPGA code was changed so that:
+<BR> SLOPE_BASE_POSITION is the position of Axes 6,
+<BR> SLOPE_PIVOT_POSITION is force Axis 6,
+<BR> SLOPE_END_POSITION is the position of Axis 7,
+<BR> SLOPE_ANGLE_POSITION is force of Axis 7.
+
+For each of the following:
+<BR>\*\_AT - Current position goal. This is the position the motion controller has told the stepper to go to in this instant on it's way to the commanded position goal. 
+<BR>\*\_DELTA - Instantaneous error in position. Difference between \_AT and actual position. 
+<BR>\*\_PID_DELTA - Accumulated corrective error signal. Force due to inertia, gravity, friction, etc...  
+<BR>\*\_FORCE_DELTA - In follow mode, this is the offset in position necessary to keep force at zero. 
+<BR>\*\_SIN - The current A2D value from the sin sensor on that joints encoder. 
+<BR>\*\_COS - The current A2D value from the cos sensor on that joints encoder. 
+<BR>PLAYBACK\_ - Not used? The step and direction ticks sent to the motor in the time between status updates.
+<BR>SENT\_  - Little used? Commanded position goal.
+<BR>SLOPE\_ - Unused. Was rate of change of \_AT. Measurement of joint speed. 
+
+* BASE_POSITION_AT
+* BASE_POSITION_DELTA 
+* BASE_POSITION_PID_DELTA
+* BASE_POSITION_FORCE_DELTA
 * BASE_SIN
 * BASE_COS
-* PLAYBACK_BASE_POSITION - Not used? The step and direction ticks sent to the motor in the time between status updates. 
-* SENT_BASE_POSITION - Not used? Commanded position goal. 
-* SLOPE_BASE_POSITION - Unused. Was rate of change of _AT. Measurement of joint speed. 
-
-In April 2018, SLOPE BASE position of Axes 6, PIVOT is force Axis 6. END_ position of Axis 7 and ANGLE is force of Axis 7.
+* PLAYBACK_BASE_POSITION 
+* SENT_BASE_POSITION 
+* SLOPE_BASE_POSITION
 
 ***
 
