@@ -8,11 +8,11 @@ In April 2018, the FPGA code was changed so that:
 <BR> SLOPE_END_POSITION is the position of Axis 7,
 <BR> SLOPE_ANGLE_POSITION is force of Axis 7.
 
-For each of the following:
-<BR>\*\_AT - Current position goal. This is the position the motion controller has told the stepper to go to in this instant on it's way to the commanded position goal. 
+For each of the following "[Joint](Hardware)..." sections:
+<BR>\*\_AT - Current incremental position goal toward the commanded final position goal. 
 <BR>\*\_DELTA - Instantaneous error in position. Difference between \_AT and actual position. 
-<BR>\*\_PID_DELTA - Accumulated corrective error signal. Force due to inertia, gravity, friction, etc...  
-<BR>\*\_FORCE_DELTA - In follow mode, this is the offset in position necessary to keep force at zero. 
+<BR>\*\_PID_DELTA - Accumulated corrective error signal. Related to force due to inertia, gravity, etc.
+<BR>\*\_FORCE_DELTA - In follow mode, this is the offset from commanded position necessary to keep force at zero. 
 <BR>\*\_SIN - The current A2D value from the sin sensor on that joints encoder. 
 <BR>\*\_COS - The current A2D value from the cos sensor on that joints encoder. 
 <BR>PLAYBACK\_ - Not used? The step and direction ticks sent to the motor in the time between status updates.
@@ -26,7 +26,7 @@ The actually returned data includes:
 * END_EFFECTOR_IO_IN
 
 ***
-BASE Joint 1
+Joint 1: BASE 
 
 * BASE_POSITION_AT
 * BASE_POSITION_DELTA 
@@ -39,7 +39,7 @@ BASE Joint 1
 * SLOPE_BASE_POSITION
 
 ***
-PIVOT Joint 2
+Joint 2: PIVOT 
 
 * PIVOT_POSITION_AT
 * PIVOT_POSITION_DELTA
@@ -52,7 +52,7 @@ PIVOT Joint 2
 * SLOPE_PIVOT_POSITION
 
 ***
-END Joint 3
+Joint 3: END 
 
 * END_POSITION_AT
 * END_POSITION_DELTA
@@ -65,7 +65,7 @@ END Joint 3
 * SLOPE_END_POSITION
 
 ***
-ANGLE Joint 4
+Joint 4: ANGLE 
 
 * ANGLE_POSITION_AT
 * ANGLE_POSITION_DELTA
@@ -78,7 +78,7 @@ ANGLE Joint 4
 * SLOPE_ANGLE_POSITION
 
 ***
-ROT Joint 5
+Joint 5: ROT 
 
 * ROT_POSITION_AT
 * ROT_POSITION_DELTA
