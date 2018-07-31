@@ -8,7 +8,7 @@ In April 2018, the FPGA code was changed so that:
 <BR> SLOPE_END_POSITION is the position of Axis 7,
 <BR> SLOPE_ANGLE_POSITION is force of Axis 7.
 
-For each of the following "[Joint](Hardware)..." sections:
+For each of the following "[Joint](Joints)..." sections:
 <BR>\*\_AT - Current incremental position goal toward the commanded final position goal. 
 <BR>\*\_DELTA - Instantaneous error in position. Difference between \_AT and actual position. 
 <BR>\*\_PID_DELTA - Accumulated corrective error signal. Related to force due to inertia, gravity, etc.
