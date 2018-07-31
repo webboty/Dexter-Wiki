@@ -4,7 +4,7 @@ The status of the Dexter robot arm is returned to [DDE](DDE) by the [Firmware](F
 
 In April 2018, the FPGA code was changed so that:
 <BR> SLOPE_BASE_POSITION is the position of Axes 6,
-<BR> SLOPE_PIVOT_POSITION is force Axis 6,
+<BR> SLOPE_PIVOT_POSITION is force of Axis 6,
 <BR> SLOPE_END_POSITION is the position of Axis 7,
 <BR> SLOPE_ANGLE_POSITION is force of Axis 7.
 
