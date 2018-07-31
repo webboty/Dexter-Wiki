@@ -2,12 +2,6 @@
 
 The status of the Dexter robot arm is returned to [DDE](DDE) by the [Firmware](Firmware) after every command. All the _DELTA and _AT values are scaled by the calibration values in the AxisCal.txt file. [DDE](DDE) calculates additional status data and adds it to the status array<sup>[1](https://github.com/cfry/dde/blob/e53ec91c4c6e0d3755a4e370af5d62ac8dc84e22/doc/ref_man.html#L2730)</sup> available to jobs. This includes slope values for each joint.
 
-The actually returned data includes:
-* DMA_READ_DATA
-* DMA_READ_DATA
-* RECORD_BLOCK_SIZE
-* END_EFFECTOR_IO_IN
-
 In April 2018, the FPGA code was changed so that:
 <BR> SLOPE_BASE_POSITION is the position of Axes 6,
 <BR> SLOPE_PIVOT_POSITION is force Axis 6,
@@ -25,6 +19,15 @@ For each of the following:
 <BR>SENT\_  - Little used? Commanded position goal.
 <BR>SLOPE\_ - Unused. Was rate of change of \_AT. Measurement of joint speed. 
 
+The actually returned data includes:
+* DMA_READ_DATA
+* DMA_READ_DATA
+* RECORD_BLOCK_SIZE
+* END_EFFECTOR_IO_IN
+
+***
+BASE Joint 1
+
 * BASE_POSITION_AT
 * BASE_POSITION_DELTA 
 * BASE_POSITION_PID_DELTA
@@ -36,6 +39,7 @@ For each of the following:
 * SLOPE_BASE_POSITION
 
 ***
+PIVOT Joint 2
 
 * PIVOT_POSITION_AT
 * PIVOT_POSITION_DELTA
@@ -48,6 +52,7 @@ For each of the following:
 * SLOPE_PIVOT_POSITION
 
 ***
+END Joint 3
 
 * END_POSITION_AT
 * END_POSITION_DELTA
@@ -60,6 +65,7 @@ For each of the following:
 * SLOPE_END_POSITION
 
 ***
+ANGLE Joint 4
 
 * ANGLE_POSITION_AT
 * ANGLE_POSITION_DELTA
@@ -72,6 +78,7 @@ For each of the following:
 * SLOPE_ANGLE_POSITION
 
 ***
+ROT Joint 5
 
 * ROT_POSITION_AT
 * ROT_POSITION_DELTA
