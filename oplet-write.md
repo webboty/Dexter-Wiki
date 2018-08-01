@@ -1,1 +1,1 @@
-Writes values to the [FPGA](Gateware). The second parameter is written to the address of the FPGA specified by the first parameter. e.g. `make_ins("w", 42, 64)` writes the value 64 into the address 42 in the FPGA. 
+Writes values to the [FPGA](Gateware). The second parameter is written to the address of the FPGA specified by the first parameter. e.g. `make_ins("w", 42, 64)` writes the value 64 into the address 42 in the FPGA. If the address is ACCELERATION_MAXSPEED ( 5 ) then the maxSpeed and coupledAcceleration variables in DexRun will be updated. 
