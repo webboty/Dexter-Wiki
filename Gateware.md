@@ -9,7 +9,7 @@ The DexRun.c [firmware](Firmware) communicates with the gateware by setting and 
 Addr | Function
 ---- | ---------
 5 | ACCELERATION_MAXSPEED 
-42 | COMMAND_REG<BR> Bits:<BR>1:CapCalibrateBase<BR>2:CapCalibrateEnd<BR>3:CapCalibratePivot<BR>4: GoMove<BR>5: SelectMoveChange<BR>6: EnableLoop<BR>7: AClrLoop <BR>8: CAL_RUN <BR>9: ResetForce
+42 | COMMAND_REG<BR> Bits:<BR>1:CapCalibrateBase<BR>2:CapCalibrateEnd<BR>3:CapCalibratePivot<BR>4: GoMove<BR>5: SelectMoveChange<BR>6: EnableLoop<BR>7: AClrLoop <BR>8: CAL_RUN <BR>9: ResetMotorPosition <BR>10: ResetForce <BR> 13-14: DiffAxisEnable
 79| PID? Timebase Divisor
 80| Physics J123? Timebase Divisor
 81| Physics J45? Timebase Divisor
