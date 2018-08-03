@@ -273,6 +273,97 @@ void crc() {
 
 ````
 
+In [DDE](DDE), the `make_ins("S","ServoSet2X")` command can be used to send data to the Tinyscreen+ using the sketch above if you have Dynamixel support in your FPGA image (from ~April 2018) and in the DexRun firmware (TDInt branch). In the future, support for sending longer strings will be added, see Issue #32:<BR>
+https://github.com/HaddingtonDynamics/Dexter/issues/32
+
+````
+function send_screen_data(screen_addr, data) {
+	let payload = ""
+    let instrs = []
+	for(let char of data) {
+        payload += char
+        if (payload.length >= 4) {
+            instrs.push( //out(
+                make_ins("S", "ServoSet2X", screen_addr 
+                , (payload.charCodeAt(0) || 0)
+                +((payload.charCodeAt(1) || 0) << 8)
+                , (payload.charCodeAt(2) || 0)
+                +((payload.charCodeAt(3) || 0) << 8)
+                  )) //)
+            payload = ""
+            }
+    	}
+    if (payload.length > 0) {
+		instrs.push( //out(
+			make_ins("S", "ServoSet2X", screen_addr 
+    	   	, (payload.charCodeAt(0) || 0)
+    	    +((payload.charCodeAt(1) || 0) << 8)
+    	    , (payload.charCodeAt(2) || 0)
+    	    +((payload.charCodeAt(3) || 0) << 8)
+    	      )) //)
+		}
+	return instrs
+	}
+
+function screen_color(red, green, blue) {
+  return ( (red>>1 & 3) | (green & 7)<<2 | (blue & 7)<<5 )
+  }
+
+function send_screen_char(screen_addr, x, y, c, red, green, blue) {
+	let instrs = []
+    instrs.push( //out(
+      make_ins("S", "ServoSet2X", screen_addr 
+               , (x || 0)
+               +((y || 0) << 8)
+               , (c.charCodeAt(0) || 0)
+               +((screen_color(red, green, blue) || 0) << 8)
+              )) //)
+    return instrs
+    }
+function send_screen_string(screen_addr, x, y, a_string, red, green, blue) {
+    let instrs = []
+    let color = screen_color(red, green, blue)
+	for(let char of a_string) {
+        instrs.push( //out(
+          make_ins("S", "ServoSet2X", screen_addr 
+            , (x || 0)
+            +((y || 0) << 8)
+            , (char.charCodeAt(0) || 0)
+            +((color || 0) << 8)
+            )) //)
+        x+=6
+        }
+    return instrs
+    }
+
+new Job({name: "my_job",
+        robot: Robot.dexter241,
+        do_list: [
+            //Dexter.move_all_joints(10, 0, 0, 0, 0), //not needed
+            //make_ins("S", "RebootServo", 1), //only needed for the XL-320's
+            //make_ins("S", "RebootServo", 3),
+            //Robot.wait_until(1), //only needed after RebootServo
+            Dexter.move_all_joints(0, 0, 0, 0, 0), //REQUIRED! Servo system won't start without
+            Robot.label("LoopPoint"),
+            make_ins("g"),
+            //DEBUG defined in Tinyscreen+ code.
+            //make_ins("S", "ServoSet2X", 2, char1 + char2<<8, char3+char4<<8), // 
+            //make_ins("S", "ServoSet2X", 2, 34 + (72 << 8), 105 + (34 << 8)), // "Hi"
+            //make_ins("S", "ServoSet2X", 2, 25940, 29811), // Test
+            //send_screen_data(2, "Test"),
+            //DEBUG not defined in Tinyscreen+ code.
+            //make_ins("S", "ServoSet2X", 2, x + (y << 8), char + (color << 8)),
+            //make_ins("S", "ServoSet2X", 2, 30 + (30 << 8), 66 + (250 << 8)), // white "A" at 30,30
+            //send_screen_char(2, 10, 10, 'A', 7,7,7),
+            send_screen_string(2, 0, 20, "Hello world!", 7, 7, 0),
+            //Robot.go_to("LoopPoint"),
+
+            ]
+        }
+    )
+
+````
+
 See also:<BR>
 - https://github.com/TinyCircuits/TinyCircuits-TinyScreenPlus-ASM2022 Includes: [Reference manual](https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib/blob/master/TinyScreenReferenceManual.pdf) _Not searchable_ and [Examples](https://github.com/TinyCircuits/TinyCircuits-TinyScreenPlus-ASM2022/tree/master/examples)
 - https://www.robotshop.com/media/files/pdf/tinyscreen-plus-kit-schematic.pdf Schematic
