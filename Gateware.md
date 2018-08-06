@@ -4,6 +4,8 @@
 
 Dexters gateware configures the [Xilinx Inc. XC7Z010-1CLG400C FPGA](http://www.xilinx.com/support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf) from the image of the [micro SD card](SD-Card-Image) on the [microzed](http://zedboard.org/product/microzed) board. 
 
+The SD card image has multiple partitions, one is the actual hard drive image when running in the robot. Another is the FAT partition which contains UBOOT, ZIMAGE, DTS (Device Tree) and the Gateware .BIT file. Those can be updated individually. 
+
 The DexRun.c [firmware](Firmware) communicates with the gateware by setting and reading memory mapped registers through the ['w' command oplet](oplet-write)
 
 Addr | Function
