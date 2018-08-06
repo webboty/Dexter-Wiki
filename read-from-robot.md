@@ -1,5 +1,5 @@
 This allows data to be read from the Dexter file system without having to use a SAMBA share (which was blocked by Windows 10). Support was added in [DexRun.c TDint branch](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)* and in [DDE version 2.3.16, June 4, 2018](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905) as Dexter.read_from_robot(pathfile, user_variable) where 
-- pathfile is the path and file name from root e.g. "/srv/samba/share/err.txt"
+- pathfile is the path and file name from root e.g. "/srv/samba/share/err.txt" or a "fake" file name starting with "#" which returns data without actually creating a file. E.g. "#XYZ" returns a cartesian coordinate matrix of position and orientation which was added in [DexRun.c TDint branch](https://github.com/HaddingtonDynamics/Dexter/blob/e6db50da946176123e191e9af6660a318f240489/Firmware/DexRun.c#L2117)*
 - user_variable is the name of the variable to add to the user_data object. e.g. "foo" would put the returned text of the file in user_data.foo
 
 For example:
