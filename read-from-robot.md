@@ -15,6 +15,7 @@ new Job({name: "my_job",
          })
 ````
 
+## 'r' Oplet
 In DexRun.c, this required that we implement separate return data for the 'r' oplet. Previously, all commands always return the 'g' status data. This is the first command to return something different. In this case, it returns the contents of a file from the robots file system, in blocks of MAX_CONTENT_CHARS bytes. The parameters for the 'r' command are the block number to read, and the file name, both as null terminated strings. The block number is in human readable ASCII format and should start with 0 then increase until fewer than MAX_CONTENT_CHARS bytes are returned. 
 
 The returned data includes the number of bytes actually read as a binary integer and then the actual bytes of data from the file starting from the block number times MAX_CONTENT_CHARS for a length of MAX_CONTENT_CHARS or less if the end of the file is reached.
