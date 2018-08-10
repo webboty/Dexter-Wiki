@@ -26,12 +26,12 @@ o|"replay_movement"|REPLAY_MOVEMENT||
 P|"pid_move_all_joints"|PID_FINEMOVE|?|
 p|"find_home_rep"|FIND_HOME_REP_CMD||
 R|"move_all_joints_ relative"|MOVEALL_RELATIVE||obsolete
-r|From v2.3.16<BR>"[read_from_robot](read-from-robot)"|READ_CMD||[Implemented in DexRun.c 20180726](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e) on TDint branch.
+r|From v2.3.16<BR>"[read_from_robot](read-from-robot)"|[TDint branch 20180726](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)<BR>READ_CMD||Reads files or string data from the robot.
 s|"slow_move"|SLOWMOVE_CMD||
 S|"[set_parameter](set-parameter-oplet)"|SET_PARAM||Sets many different values
 T|n/a|MOVETOSTRAIGHT_CMD||In development
 t|"dma_write"|DMAWRITE_CMD||
 w|"[write](oplet-write)"|WRITE_CMD||Does `wait_fifo_flush()` first.
-W|"[write_to_robot](write-to-robot)"|WRITE_TO_ROBOT||Send files to the Dexter file system. Implemented in DexRun.c April2018
+W|"[write_to_robot](write-to-robot)"|From April2018<BR>WRITE_TO_ROBOT||Send files to the Dexter file system. 
 x|"exit"|EXIT_CMD||
 z|"sleep"|SLEEP_CMD||
