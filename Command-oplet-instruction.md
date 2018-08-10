@@ -26,7 +26,7 @@ o|"replay_movement"|REPLAY_MOVEMENT||
 P|"pid_move_all_joints"|PID_FINEMOVE|?|
 p|"find_home_rep"|FIND_HOME_REP_CMD||
 R|"move_all_joints_ relative"|MOVEALL_RELATIVE||obsolete
-r|From v2.3.16<BR>"[read_from_robot](read-from-robot)"|[TDint branch 20180726](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)<BR>READ_CMD||Reads files or string data from the robot.
+r|[From v2.3.16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)<BR>"[read_from_robot](read-from-robot)"|[TDint branch 20180726](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)<BR>READ_CMD||Reads files or string data from the robot.
 s|"slow_move"|SLOWMOVE_CMD||
 S|"[set_parameter](set-parameter-oplet)"|SET_PARAM||Sets many different values
 T|n/a|MOVETOSTRAIGHT_CMD||In development
