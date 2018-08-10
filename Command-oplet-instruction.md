@@ -32,6 +32,6 @@ S|"[set_parameter](set-parameter-oplet)"|SET_PARAM||Sets many different values
 T|n/a|MOVETOSTRAIGHT_CMD||In development
 t|"dma_write"|DMAWRITE_CMD||
 w|"[write](oplet-write)"|WRITE_CMD||Does `wait_fifo_flush()` first.
-W|"[write_to_robot](write-to-robot)"|From April2018<BR>WRITE_TO_ROBOT||Send files to the Dexter file system. 
+W|[From v2.3.15-16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)<BR>"[write_to_robot](write-to-robot)"|[From 20180418](https://github.com/HaddingtonDynamics/Dexter/commit/ef39cfe6effd36faeb9bd96b21a11a3dcd6b84ef)<BR>WRITE_TO_ROBOT||Send files to the Dexter file system. 
 x|"exit"|EXIT_CMD||
 z|"sleep"|SLEEP_CMD||
