@@ -30,7 +30,7 @@ Parameters set with the "S" [Oplet](Command-oplet-instruction)
 |25 | "StartSpeed" Velocity of entrance into next move
 |26 | "EndSpeed" (not implemented)
 |27 | "ServoSet2X" Address, Register, Value (as of [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) was "End")  see: [Servo](End-Effector-Servos)
-|28 | "ServoSet" Address, Register, String [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (may not be working in FPGA?) [Screen](End-Effector-Screen)
+|28 | "ServoSet" Address, Register, String [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (may not be working in FPGA?) [Needed](../issues/32) for [Screen](End-Effector-Screen)
 |29 | "RebootServo" [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93)
 |30 | "End" (not implemented)
 
