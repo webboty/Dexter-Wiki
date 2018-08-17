@@ -25,12 +25,12 @@ Parameters set with the "S" [Oplet](Command-oplet-instruction)
 |20 | "J5BoundryHigh"
 |21 | "J5BoundryLow"
 |22 | "GripperMotor" Set mode to use standard servo (not Dynamixel) as the 6th / 7th axis for Tool interface.
-|23 | "EERoll" 6th axis position / Tool Interface Roll (was standard servo, [May 29,2018 changed to Dynamixel](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93))
-|24 | "EESpan" 7th axis position / End Effector actuation (was standard servo, [May 29,2018 changed to Dynamixel](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93))
+|23 | "EERoll" 6th axis position / Tool Interface Roll (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
+|24 | "EESpan" 7th axis position / End Effector actuation (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
 |25 | "StartSpeed" Velocity of entrance into next move
 |26 | "EndSpeed" (not implemented)
-|27 | "ServoSet2X" Address, Register, Value (as of [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) was "End")  see: [Screen](End-Effector-Screen), [Servo](End-Effector-Servos)
-|28 | "ServoSet" Address, Register, String [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (may not be working in FPGA?)
+|27 | "ServoSet2X" Address, Register, Value (as of [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) was "End")  see: [Servo](End-Effector-Servos)
+|28 | "ServoSet" Address, Register, String [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (may not be working in FPGA?) [Screen](End-Effector-Screen)
 |29 | "RebootServo" [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93)
 |30 | "End" (not implemented)
 
