@@ -6,12 +6,4 @@ Dexters gateware configures the [Xilinx Inc. XC7Z010-1CLG400C FPGA](http://www.x
 
 The SD card image has multiple partitions, one is the actual hard drive image when running in the robot. Another is the FAT partition which contains UBOOT, ZIMAGE, DTS (Device Tree) and the Gateware .BIT file. Those can be updated individually. 
 
-The DexRun.c [firmware](Firmware) communicates with the gateware by setting and reading memory mapped registers through the ['w' command oplet](oplet-write)
-
-Addr | Function
----- | ---------
-5 | ACCELERATION_MAXSPEED 
-42 | COMMAND_REG<BR> Bits:<BR>1:CapCalibrateBase<BR>2:CapCalibrateEnd<BR>3:CapCalibratePivot<BR>4: GoMove<BR>5: SelectMoveChange<BR>6: EnableLoop<BR>7: AClrLoop <BR>8: CAL_RUN <BR>9: ResetMotorPosition <BR>10: ResetForce <BR> 13-14: DiffAxisEnable
-79| PID? Timebase Divisor
-80| Physics J123? Timebase Divisor
-81| Physics J45? Timebase Divisor
+The DexRun.c [firmware](Firmware) communicates with the gateware by setting and reading [memory mapped registers](oplet-write) through the ['w' command oplet](oplet-write)
