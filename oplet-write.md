@@ -1,27 +1,28 @@
 Writes values to the [FPGA / Gateware](Gateware). The second parameter is written to the address of the FPGA specified by the first parameter. e.g. in [DDE](DDE) `make_ins("w", 42, 64)` writes the value 64 into the address 42 in the FPGA. If the address is ACCELERATION_MAXSPEED ( 5 ) then the maxSpeed and coupledAcceleration variables in DexRun will be updated. 
 
+_Note: This represents the "virtual" address list as used by the 'w' command. The actual FPGA addresses have been changed since (TODO: get date) to use a keyhole window. DexRun.c on the TDInt branch still interprets 'w' commands with these addresses, but it translates them into the keyhole system._
 
 Addr | Function          | Description
 ---- | ----------------- | ----------------------------
-0 | BASE_POSITION        | Motor position index
-1 | END_POSITON          |
-2 | PIVOT_POSITON        |
-3 | ANGLE_POSITON        |
-4 | ROT_POSITON          |
-5 | ACCELERATION_MAXSPEED| 
-6 | BASE_SIN_CENTER      | DC bias parameters
-7 | BASE_COS_CENTER      |
-8 | END_SIN_CENTER       |
-9 | END_COS_CENTER       |
+ 0 | BASE_POSITION        | Motor position index
+ 1 | END_POSITON          | ...where the joint has been
+ 2 | PIVOT_POSITON        | ...commanded to go to
+ 3 | ANGLE_POSITON        |
+ 4 | ROT_POSITON          |
+ 5 | ACCELERATION_MAXSPEED| Acceleration [20:31] and max speed [0:19] (shared register)
+ 6 | BASE_SIN_CENTER      | DC bias parameters
+ 7 | BASE_COS_CENTER      | .. ADCCenters
+ 8 | END_SIN_CENTER       |
+ 9 | END_COS_CENTER       |
 10 | PIVOT_SIN_CENTER    |
 11 | PIVOT_COS_CENTER    |
 12 | ANGLE_SIN_CENTER    |
 13 | ANGLE_COS_CENTER    |
 14 | ROT_SIN_CENTER      |
 15 | ROT_COS_CENTER      |
-16 | PID_DELTATNOT       |
-17 | PID_DELTAT          |
-18 | PID_D               |
+16 | PID_DELTATNOT       | delta t not. Inverse of Delta t. 100,000KHz
+17 | PID_DELTAT          | delta t. float * 0.0001 seconds
+18 | PID_D               | 
 19 | PID_I               |
 20 | PID_P               |
 21 | PID_ADDRESS         |
