@@ -22,24 +22,24 @@ Addr | Function          | Description
 15 | ROT_COS_CENTER      |
 16 | PID_DELTATNOT       | delta t not. Inverse of Delta t. 100,000KHz
 17 | PID_DELTAT          | delta t. float * 0.0001 seconds
-18 | PID_D               | 
-19 | PID_I               |
-20 | PID_P               |
-21 | PID_ADDRESS         |
-22 | BOUNDRY_BASE        | Force
-23 | BOUNDRY_END         | Force
-24 | BOUNDRY_PIVOT       | Force
-25 | BOUNDRY_ANGLE       | Force
-26 | BOUNDRY_ROT         | Force
-27 | SPEED_FACTORA       |
-28 | SPEED_FACTORB       |
-29 | FRICTION_BASE       |
-30 | FRICTION_END        |
+18 | PID_D               | PID Differential Term
+19 | PID_I               | PID Integral Term
+20 | PID_P               | PID Proportional Term
+21 | PID_ADDRESS         | Sets the joint number for the above PID_ settings to be written into. 
+22 | BOUNDRY_BASE        | Maximum position past which the force position override will be reduced for each joint.
+23 | BOUNDRY_END         | Injects a negative force opposing the external force to limit the amount the joint will move to avoid external forces.
+24 | BOUNDRY_PIVOT       | The low boundary is [0:15] and the high boundary is [16:31]
+25 | BOUNDRY_ANGLE       | Changed along with TDInt branch via a keyhole to make low and high boundary +-18 bits (19 bits total) each. Use ["S" command](set-parameter-oplet) to set boundaries, or the "B" command, instead of 'w' command.
+26 | BOUNDRY_ROT         | "
+27 | SPEED_FACTORA       | Multiplier (coefficient / master gain) for the force calculator. Allows quick adjustments.
+28 | SPEED_FACTORB       | B not used. 
+29 | FRICTION_BASE       | Coefficient to scale the position error. Can be negative. 
+30 | FRICTION_END        | Feels like friction. Used in most modes, very important in follow mode.
 31 | FRICTION_PIVOT      |
 32 | FRICTION_ANGLE      |
 33 | FRICTION_ROT        |
-34 | MOVE_TRHESHOLD      |
-35 | F_FACTOR            |
+34 | MOVE_TRHESHOLD      | Maximum force before joint position starts changing. See follow mode.
+35 | F_FACTOR            | 
 36 | MAX_ERROR           |
 37 | FORCE_BIAS_BASE     |
 38 | FORCE_BIAS_END      |
