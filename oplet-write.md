@@ -38,30 +38,30 @@ Addr | Function          | Description
 31 | FRICTION_PIVOT      |
 32 | FRICTION_ANGLE      |
 33 | FRICTION_ROT        |
-34 | MOVE_TRHESHOLD      | Maximum force before joint position starts changing. See follow mode.
-35 | F_FACTOR            | 
-36 | MAX_ERROR           |
-37 | FORCE_BIAS_BASE     |
-38 | FORCE_BIAS_END      |
+34 | MOVE_TRHESHOLD      | Maximum force before joint 1,2,3 position starts changing. See follow mode.
+35 | F_FACTOR            | Like SPEED_FACTORA, but for PID controller. Affects all joints at once. 
+36 | MAX_ERROR           | Speed limit for PID controller. Clips the velocity of the step signals going to the motor. 
+37 | FORCE_BIAS_BASE     | Adds to the force (position error) on each joint. Useful for removing the force of gravity.
+38 | FORCE_BIAS_END      | Also used to provide haptic force feedback in teleoperation or VR systems.
 39 | FORCE_BIAS_PIVOT    |
 40 | FORCE_BIAS_ANGLE    |
 41 | FORCE_BIAS_ROT      |
 42 | COMMAND_REG         | control state register. Bits:<BR>0 CMD_CAPCAL_BASE 1 <BR>1 CMD_CAPCAL_END 2 <BR>2 CMD_CAPCAL_PIVOT 4 <BR>3 CMD_MOVEEN 8 <BR>4 CMD_MOVEGO 16 <BR>5 CMD_ENABLE_LOOP 32 <BR>6 CMD_CLEAR_LOOP 64 <BR>7 CMD_CALIBRATE_RUN 128 <BR>8 CMD_RESET_POSITION 256 <BR>9 CMD_RESET_FORCE 512 <BR>10 CMD_CAPCAL_ANGLE 1024 <BR>11 CMD_CAPCAL_ROT 2048 <BR>12 CMD_ANGLE_ENABLE 4096 <BR>13 CMD_ROT_ENABLE 8196 <BR>see <a href="http://JamesNewton.github.io/Dexter.html">cmd calc</a>
-43 | DMA_CONTROL         | Bits:<BR>0 DMA_WRITE_ENQUEUE 1<BR>1 DMA_WRITE_INITIATE 2<BR>2 DMA_READ_DEQUEUE 4<BR>3 DMA_READ_BLOCK 8<BR>4 DMA_RESET_ALL 16
+43 | DMA_CONTROL         | Used to read and write tables and other large data objects. Bits:<BR>0 DMA_WRITE_ENQUEUE 1<BR>1 DMA_WRITE_INITIATE 2<BR>2 DMA_READ_DEQUEUE 4<BR>3 DMA_READ_BLOCK 8<BR>4 DMA_RESET_ALL 16
 44 |  DMA_WRITE_DATA     |
 45 |  DMA_WRITE_PARAMS     |
-46 |  DMA_WRITE_ADDRESS     |
-47 |  DMA_READ_PARAMS     |
-48 |  DMA_READ_ADDRESS     |
-49 |  REC_PLAY_CMD 49 |Bits:<BR>0 CMD_RESET_RECORD 1<BR>1 CMD_RECORD 2<BR>2 CMD_RESET_PLAY 4<BR>3 CMD_PLAYBACK 8<BR>4 CMD_RESET_PLAY_POSITION     |
-50 |  REC_PLAY_TIMEBASE     |
-51 |  DIFF_FORCE_TIMEBASE     |
-52 |  DIFF_FORCE_BETA     |
-53 |  DIFF_FORCE_MOVE_THRESHOLD     |
-54 |  DIFF_FORCE_MAX_SPEED     |
-55 |  DIFF_FORCE_SPEED_FACTOR_ANGLE     |
-56 |  DIFF_FORCE_SPEED_FACTOR_ROT     |
-57 |  DIFF_FORCE_ANGLE_COMPENSATE     |
+46 |  DMA_WRITE_ADDRESS            |
+47 |  DMA_READ_PARAMS              |
+48 |  DMA_READ_ADDRESS             |
+49 |  REC_PLAY_CMD 49              | Bits:<BR>0 CMD_RESET_RECORD 1<BR>1 CMD_RECORD 2<BR>2 CMD_RESET_PLAY 4<BR>3 CMD_PLAYBACK 8<BR>4 CMD_RESET_PLAY_POSITION
+50 |  REC_PLAY_TIMEBASE            |
+51 |  DIFF_FORCE_TIMEBASE          | Timebase for PID and Force calculators. Depreciated
+52 |  DIFF_FORCE_BETA              | Scaling factor for boundaries for the differential 
+53 |  DIFF_FORCE_MOVE_THRESHOLD    | Maximum force before joint 4, 5 position starts changing. See follow mode.
+54 |  DIFF_FORCE_MAX_SPEED         | Maximum speed the force calculator can generate. Like MAX_ERROR (but for force, not PID)
+55 |  DIFF_FORCE_SPEED_FACTOR_ANGLE| Multiplier (coefficient / master gain) for the force calculator on J4. Like SPEED_FACTORA
+56 |  DIFF_FORCE_SPEED_FACTOR_ROT  | Multiplier (coefficient / master gain) for the force calculator on J5. Like SPEED_FACTORA
+57 |  DIFF_FORCE_ANGLE_COMPENSATE  | 
 58 |  FINE_ADJUST_BASE     |
 59 |  FINE_ADJUST_END     |
 60 |  FINE_ADJUST_PIVOT     |
