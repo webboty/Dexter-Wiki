@@ -25,7 +25,7 @@ Addr | Function          | Description
 18 | PID_D               | PID Differential Term
 19 | PID_I               | PID Integral Term
 20 | PID_P               | PID Proportional Term
-21 | PID_ADDRESS         | Sets the joint number for the above PID_ settings to be written into. 
+21 | PID_ADDRESS         | Sets the joint number for the above PID_ settings to be written into. Multiple sets are available for PID_SCHEDULE_INDEX
 22 | BOUNDRY_BASE        | Maximum position past which the force position override will be reduced for each joint.
 23 | BOUNDRY_END         | Injects a negative force opposing the external force to limit the amount the joint will move to avoid external forces.
 24 | BOUNDRY_PIVOT       | The low boundary is [0:15] and the high boundary is [16:31]
@@ -61,27 +61,27 @@ Addr | Function          | Description
 54 |  DIFF_FORCE_MAX_SPEED         | Maximum speed the force calculator can generate. Like MAX_ERROR (but for force, not PID)
 55 |  DIFF_FORCE_SPEED_FACTOR_ANGLE| Multiplier (coefficient / master gain) for the force calculator on J4. Like SPEED_FACTORA
 56 |  DIFF_FORCE_SPEED_FACTOR_ROT  | Multiplier (coefficient / master gain) for the force calculator on J5. Like SPEED_FACTORA
-57 |  DIFF_FORCE_ANGLE_COMPENSATE  | 
-58 |  FINE_ADJUST_BASE     |
-59 |  FINE_ADJUST_END     |
-60 |  FINE_ADJUST_PIVOT     |
-61 |  FINE_ADJUST_ANGLE     |
-62 |  FINE_ADJUST_ROT     |
-63 |  RECORD_LENGTH     |
-64 |  END_EFFECTOR_IO     |
-65 |  SERVO_SETPOINT_A     |
-66 |  SERVO_SETPOINT_B     |
-67 |  BASE_FORCE_DECAY     |
-68 |  END_FORCE_DECAY     |
-69 |  PIVOT_FORCE_DECAY     |
-70 |  ANGLE_FORCE_DECAY     |
-71 |  ROTATE_FORCE_DECAY     |
-72 |  PID_SCHEDULE_INDEX     |
-73 |  GRIPPER_MOTOR_CONTROL     |
-74 |  GRIPPER_MOTOR_OFF_WIDTH     |
-75 |  GRIPPER_MOTOR_ON_WIDTH     |
-76 |  START_SPEED     |
-77 |  ANGLE_END_RATIO     |
+57 |  DIFF_FORCE_ANGLE_COMPENSATE  | Unused. 
+58 |  FINE_ADJUST_BASE             | Position offset to commanded joint angle into the PID. See PID_MOVE
+59 |  FINE_ADJUST_END              | Has the same effect as offsetting the error signal. 
+60 |  FINE_ADJUST_PIVOT            | Allows moves to be made by the PID only vs the coupled acceleration calculator + PID
+61 |  FINE_ADJUST_ANGLE            | "
+62 |  FINE_ADJUST_ROT              | "
+63 |  RECORD_LENGTH                | Length of the recording to be played back
+64 |  END_EFFECTOR_IO              | Controls the configuration of the bits that go to the end effector. See [End-Effectors](End-Effectors)
+65 |  SERVO_SETPOINT_A             | PWM value in PWM mode on end effector pins.
+66 |  SERVO_SETPOINT_B             | "
+67 |  BASE_FORCE_DECAY             | How hard the joint tries to return to the commanded position when the position 
+68 |  END_FORCE_DECAY              | has been changed to avoid exceeding the maximum force. 
+69 |  PIVOT_FORCE_DECAY            | Subtracts out the offset introduced by the force controller.
+70 |  ANGLE_FORCE_DECAY            | See Protect mode
+71 |  ROTATE_FORCE_DECAY           | "
+72 |  PID_SCHEDULE_INDEX           | Gain scheduling. Changes the offset to the PID parameters. Multiplies PID_ADDRESS. To quickly change settings.
+73 |  GRIPPER_MOTOR_CONTROL        | PWM output from 7 pin SIL connector on the side (near bottom) of the motor board. Just the first bit is used to enable / disable.
+74 |  GRIPPER_MOTOR_OFF_WIDTH      | "
+75 |  GRIPPER_MOTOR_ON_WIDTH       | "
+76 |  START_SPEED                  | Starting speed into this move.
+77 |  ANGLE_END_RATIO              | Difference in the transmission ratios for the differential joint.
 78 | ???
 79| PID?                 |Timebase Divisor
 80| Physics J123?        |Timebase Divisor
