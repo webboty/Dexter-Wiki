@@ -35,3 +35,4 @@ Parameters set with the "S" [Oplet](Command-oplet-instruction)
 |30 | "End" (not implemented)
 
 
+* Frictions can be fractional, but are limited to a range of +-(256 + 1/256). E.g. 1.1 becomes 1 plus a fractional value of 25/256
