@@ -20,4 +20,4 @@ In DexRun.c, this required that we implement separate return data for the 'r' op
 
 The returned data includes the number of bytes actually read as a binary integer and then the actual bytes of data from the file starting from the block number times MAX_CONTENT_CHARS for a length of MAX_CONTENT_CHARS or less if the end of the file is reached.
 
-*Note that this release of DexRun.c requires an updated FPGA image. Contact us for that file before updating the code.
+*Note that this release of DexRun.c requires an updated [FPGA image](SD-Card-Image). Contact us for that file before updating the code.
