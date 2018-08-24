@@ -273,7 +273,7 @@ void crc() {
 
 ````
 
-In [DDE](DDE), the `make_ins("S","ServoSet2X")` command can be used to send data to the Tinyscreen+ using the sketch above if you have Dynamixel support in your FPGA image (from ~April 2018) and in the DexRun firmware (TDInt branch). In the future, support for sending longer strings will be added, see Issue #32:<BR>
+In [DDE](DDE), the `make_ins("S","ServoSet2X")` command can be used to send data to the Tinyscreen+ using the sketch above if you have Dynamixel support in your [FPGA](Gateware) [image](SD-Card-Image) (from ~April 2018) and in the DexRun firmware (TDInt branch). In the future, support for sending longer strings will be added, see Issue #32:<BR>
 https://github.com/HaddingtonDynamics/Dexter/issues/32
 
 ````
