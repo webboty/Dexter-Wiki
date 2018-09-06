@@ -33,7 +33,7 @@ Once that finishes, you should be able to run node:<BR>
 
 Notes:<BR>
 - If you install more than one version of node, you must select the default each time. To avoid this, use `nvm alias default 4.9.1` to set the default to e.g. 4.9.1 (use whatever version you have working)
-- 
+- https://nodejs.org/docs/latest-v4.x/api/index.html API docs for node 4.x
 
 ## A Node.js Web / socket server.
 
