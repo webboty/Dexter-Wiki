@@ -13,5 +13,12 @@ To use the webcam with a [NodeJS webserver](nodejs-webserver), install:<BR>
 https://github.com/chuckfairy/node-webcam
 by downloading the repo as a zip or tz and extracting it into a temp folder on Dexters SAMBA share at `\\<dexters-ip>\share`. (Note: This is needed because NPM crashes on Ubuntu 12 trying to install this directly) On the command prompt in Dexter, `mv` the temp folder contents in the `node_modules` folder. (Note: This is needed to avoid changing permissions on the node_modules folder to let Windows write to it directly)
 
+In node, you should be able to:
+````
+var cam = require("node-webcam")
+var pic = cam.capture("test", {skip:2}, function(e,data) { })
+````
+`pic.shots` will show `[ Shot { location: 'test.jpg', data: '' } ]`. If it's empty, `pic.clear()` make sure test.jpg is deleted and capture again. The `skip:2` option is there to keep it from throwing an "nodejs JPEG library reports unrecoverable error: Not a JPEG file" error. Not sure why that works. 
+
 There is a sample of using the web cam with a ws socket on a nodejs service at:<BR>
 https://github.com/chuckfairy/node-webcam/tree/master/examples/websocket
