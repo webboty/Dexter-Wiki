@@ -3,6 +3,8 @@
 DDE allows users to develop and run software on multiple platforms to control the Dexter 5 axis robot arm. 
 It is fundamentally a JavaScript development environment with lots of extensions. See [DexRun-DDE-communications](DexRun-DDE-communications) for more detail about the communications between DDE and Dexter.
 
+**Units:** Note that Dexter uses the metric system of measurement. So all units of distance are in meters. A meter is about 3 feet. A tenth of a meter (e.g. 0.1) is about 4 inches. A hundredth of a meter (e.g. 0.01) is about a half inch (actually closer to 0.4 inches). And a thousandth of a meter (e.g. 0.001) is tiny, about a half of a tenth of an inch.
+
 ### Programming notes:
 
 **Debugging:** _Note that all of this is documented in the  help system inside DDE. Download and install the program to access that in it's formatted form_.
