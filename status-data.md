@@ -15,10 +15,17 @@ For each of the following "[Joint](Joints)..." sections:
 <BR>SLOPE\_ - Unused. Was rate of change of \_AT. Measurement of joint speed. April 2018 changed to servo information (see below)
 
 In April 2018, the FPGA code was changed so that the Dynamixel servo data is returned in the SLOPE items as follows:
-<BR> SLOPE_BASE_POSITION is the position of Axes 6,
-<BR> SLOPE_PIVOT_POSITION is force of Axis 6,
-<BR> SLOPE_END_POSITION is the position of Axis 7,
-<BR> SLOPE_ANGLE_POSITION is force of Axis 7.
+<BR> SLOPE_BASE_POSITION and is the position of Axes 6,
+<BR> SLOPE_PIVOT_POSITION and is force of Axis 6,
+<BR> SLOPE_END_POSITION and is the position of Axis 7,
+<BR> SLOPE_ANGLE_POSITION and is force of Axis 7.
+
+In August 2018, the FPGA code was changed to return the actual measured angle of each joint encoder as follows:
+<BR> BASE_MEASURED_ANGLE replaces PLAYBACK_BASE_POSITION 
+<BR> PIVOT_MEASURED_ANGLE replaces PLAYBACK_PIVOT_POSITION 
+<BR> END_MEASURED_ANGLE replaces PLAYBACK_END_POSITION 
+<BR> ANGLE_MEASURED_ANGLE replaces PLAYBACK_ANGLE_POSITION 
+<BR> ROT_MEASURED_ANGLE replaces PLAYBACK_ROT_POSITION 
 
 The actually returned data includes:
 * DMA_READ_DATA
