@@ -5,6 +5,8 @@ It is fundamentally a JavaScript development environment with lots of extensions
 
 **Units:** Note that Dexter uses the metric system of measurement. So all units of distance are in meters. A meter is about 3 feet which is about Dexters full reach at the size Dexter has been made at so far. A tenth of a meter (e.g. 0.1) is about 4 inches which is about the length of your finger. A hundredth of a meter (e.g. 0.01) called a "centimeter"  is a about a half inch (actually closer to 0.4 inches) or about the width of your little finger. And a thousandth of a meter (e.g. 0.001) called a "millimeter" is tiny, about a half of a tenth of an inch or about the thickness of a fingernail.
 
+So if you change the first digit to the right of the decimal point, you are moving about a finger length. The next digit, 2nd to the right, moves you about a finger width, and the 3rd moves you about the thickness of a fingernail.
+
 ### Programming notes:
 
 **Debugging:** _Note that all of this is documented in the  help system inside DDE. Download and install the program to access that in it's formatted form_.
