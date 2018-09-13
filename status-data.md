@@ -14,13 +14,13 @@ For each of the following "[Joint](Joints)..." sections:
 <BR>SENT\_  - Little used? Commanded position goal. 
 <BR>SLOPE\_ - Unused. Was rate of change of \_AT. Measurement of joint speed. April 2018 changed to servo information (see below)
 
-In April 2018, the FPGA code was changed so that the Dynamixel servo data is returned in the SLOPE items as follows:
-<BR> SLOPE_BASE_POSITION and is the position of Axes 6,
-<BR> SLOPE_PIVOT_POSITION and is force of Axis 6,
-<BR> SLOPE_END_POSITION and is the position of Axis 7,
-<BR> SLOPE_ANGLE_POSITION and is force of Axis 7.
+In April 2018, the FPGA and [Firmware](https://github.com/HaddingtonDynamics/Dexter/commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (see line 2455) code was changed so that the [Dynamixel servo](End-Effector-Servos) data is returned in the SLOPE items as follows:
+<BR>Joint 6 position replaces SLOPE_BASE_POSITION,
+<BR>Joint 6 force replaces SLOPE_PIVOT_POSITION,
+<BR>Joint 7 position replaces SLOPE_END_POSITION,
+<BR>Joint 7 force replaces SLOPE_ANGLE_POSITION.
 
-In August 2018, the FPGA code was changed to return the actual measured angle of each joint encoder as follows:
+In August 2018, the FPGA and [Firmware](https://github.com/HaddingtonDynamics/Dexter/commit/1ca9251b47468d9841713ec89b62e91050125188) was changed to return the actual measured angle of each joint encoder as follows:
 <BR> BASE_MEASURED_ANGLE replaces PLAYBACK_BASE_POSITION 
 <BR> PIVOT_MEASURED_ANGLE replaces PLAYBACK_PIVOT_POSITION 
 <BR> END_MEASURED_ANGLE replaces PLAYBACK_END_POSITION 
@@ -42,9 +42,9 @@ Joint 1: BASE
 * BASE_POSITION_FORCE_DELTA
 * BASE_SIN
 * BASE_COS
-* PLAYBACK_BASE_POSITION 
+* PLAYBACK_BASE_POSITION (Now BASE_MEASURED_ANGLE)
 * SENT_BASE_POSITION 
-* SLOPE_BASE_POSITION
+* SLOPE_BASE_POSITION (Now Joint 6 angle)
 
 ***
 Joint 2: PIVOT 
@@ -55,9 +55,9 @@ Joint 2: PIVOT
 * PIVOT_POSITION_FORCE_DELTA
 * PIVOT_SIN
 * PIVOT_COS
-* PLAYBACK_PIVOT_POSITION
+* PLAYBACK_PIVOT_POSITION (Now PIVOT_MEASURED_ANGLE)
 * SENT_PIVOT_POSITION
-* SLOPE_PIVOT_POSITION
+* SLOPE_PIVOT_POSITION (Now Joint 6 force)
 
 ***
 Joint 3: END 
@@ -68,7 +68,7 @@ Joint 3: END
 * END_POSITION_FORCE_DELTA
 * END_SIN
 * END_COS
-* PLAYBACK_END_POSITION
+* PLAYBACK_END_POSITION (Now END_MEASURED_ANGLE)
 * SENT_END_POSITION
 * SLOPE_END_POSITION
 
@@ -81,7 +81,7 @@ Joint 4: ANGLE
 * ANGLE_POSITION_FORCE_DELTA
 * ANGLE_SIN
 * ANGLE_COS
-* PLAYBACK_ANGLE_POSITION
+* PLAYBACK_ANGLE_POSITION (Now ANGLE_MEASURED_ANGLE)
 * SENT_ANGLE_POSITION
 * SLOPE_ANGLE_POSITION
 
@@ -94,7 +94,7 @@ Joint 5: ROT
 * ROT_POSITION_FORCE_DELTA
 * ROT_SIN
 * ROT_COS
-* PLAYBACK_ROT_POSITION
+* PLAYBACK_ROT_POSITION (Now ROT_MEASURED_ANGLE)
 * SENT_ROT_POSITION
 * SLOPE_ROT_POSITION
 
