@@ -32,8 +32,8 @@ Address | Description | Sample
 --- | --- | ---
  00 | Job number | 1
  01 | Instruction number | 0
- 02 | Start time | 1531787828
- 03 | End time | 349602
+ 02 | Start time <sup><a href="#times">1</a></sup> | 1531787828
+ 03 | End time <sup><a href="#times">1</a></sup> | 349602
  04 | Oplet (e.g. 'g') | 103
  05 | ERROR | 0
  06 | DMA_READ_DATA | 0
@@ -95,3 +95,10 @@ Address | Description | Sample
  57 | SENT_ROT_POSITION | 0
  58 | SLOPE_ROT_POSITION | 0
  59 | empty | 2147483647
+
+Notes:
+
+### Times
+Times are in seconds since 1970. e.g. 1531787828 is GMT: Tuesday, July 17, 2018 12:37:08 AM as per https://www.epochconverter.com/
+
+Note that Dexter may not have the correct current time. e.g. 349602 is GMT: Monday, January 5, 1970 1:06:42 AM or, in other words, a Dexter which has been running for a day, six minutes and 42 seconds. 
