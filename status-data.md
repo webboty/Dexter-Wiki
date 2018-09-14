@@ -6,15 +6,18 @@ Units are always integer arc seconds.
 
 ## Joint Data Meanings
 For each of the following "[Joint](Joints)..." sections in the status data:
-<BR>\*\_AT - Current incremental position goal toward the commanded final position goal. 
-<BR>\*\_DELTA - Instantaneous error in position. Difference between \_AT and actual position. 
-<BR>\*\_PID_DELTA - Accumulated corrective error signal. Related to force due to inertia, gravity, etc.
-<BR>\*\_FORCE_DELTA - In follow mode, this is the offset from commanded position necessary to keep force at zero. 
-<BR>\*\_SIN - The current A2D value from the sin sensor on that joints encoder. 
-<BR>\*\_COS - The current A2D value from the cos sensor on that joints encoder. 
-<BR>PLAYBACK\_ - Not used? The step and direction ticks sent to the motor in the time between status updates. August 2018 changed to the current measured angle of the joint.
-<BR>SENT\_  - Little used? Commanded position goal. 
-<BR>SLOPE\_ - Unused. Was rate of change of \_AT. Measurement of joint speed. April 2018 changed to servo information on some joints (see below)
+
+Name | Description
+--- | ---
+\*\_AT | Current incremental position goal toward the commanded final position goal. 
+\*\_DELTA | Instantaneous error in position. Difference between \_AT and actual position. 
+\*\_PID_DELTA | Accumulated corrective error signal. Related to force due to inertia, gravity, etc.
+\*\_FORCE_DELTA | In follow mode, this is the offset from commanded position necessary to keep force at zero. 
+\*\_SIN | The current A2D value from the sin sensor on that joints encoder. 
+\*\_COS | The current A2D value from the cos sensor on that joints encoder. 
+PLAYBACK\_ | Not used? The step and direction ticks sent to the motor in the time between status updates. August 2018 changed to the current measured angle of the joint.
+SENT\_  | Little used? Commanded position goal. 
+SLOPE\_ | Unused. Was rate of change of \_AT. Measurement of joint speed. April 2018 changed to servo information on some joints (see below)
 
 ## Changes
 In April 2018, the FPGA and [Firmware](https://github.com/HaddingtonDynamics/Dexter/commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (see line 2455) code was changed so that the [Dynamixel servo](End-Effector-Servos) data is returned in the SLOPE items as follows:
@@ -102,6 +105,6 @@ Address | Description | Sample
 ## Notes:
 
 ### Times
-Times are in seconds since 1970. e.g. 1531787828 is GMT: Tuesday, July 17, 2018 12:37:08 AM as per https://www.epochconverter.com/
+Times are in seconds since 1970. e.g. 1531787828 is GMT: Tuesday, July 17, 2018 12:37:08 AM as per [epochconverter.com](https://www.epochconverter.com/)
 
 Note that Dexter may not have the correct current time. e.g. 349602 is GMT: Monday, January 5, 1970 1:06:42 AM or, in other words, a Dexter which has been running for a day, six minutes and 42 seconds. 
