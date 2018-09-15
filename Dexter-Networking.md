@@ -18,7 +18,7 @@ To enable both WiFi and CAT5 to Dexter when the WiFi local network isn't on 192.
 `nano /etc/network/interface`
 and edit the ip address to 192.168.#.142 where the # matches the network IP address. Ctrl+X to exit, and follow the prompts to save. 
 
-# DHCP assigned
+## DHCP assigned
 In the future Dexter will use DHCP, and so needs to be CAT5 cabled to a router with a DHCP service, or to a network with a DHCP server, and it's IP address will be whatever is assigned by DHCP. Your computer configuration needn't change. You can log into your router and look at the connected devices to find it, or
 - Android or iOS Smartphone: Install and use the Fing app<BR>
 https://www.fing.io/
