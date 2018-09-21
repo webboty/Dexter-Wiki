@@ -49,3 +49,15 @@ Multiple signals are available from the [Tinyscreen+](End-Effector-Screen) for m
 - Current Tool Interface CAD files (note: this will be replaced): [OnShape](https://cad.onshape.com/documents/2af8ed0e61a34ebf69284c68/w/72caf65e51bde98e456925d2/e/b03fb46577fe162df32757e9), [STL](https://www.thingiverse.com/download:3318346) There is room in the body for wiring and a [Tinyduino ](https://tinycircuits.com/collections/kits/products/tinyduino-basic-kit) interface device which can be attached with [slightly longer bolts](https://www.mcmaster.com/#91251a059/=17p3i1d). 
 - http://hdrobotic.com/dexter-community/#!/grippers Our forum section for grippers. 
 - https://www.eng.yale.edu/grablab/openhand/ These are good designs for open source grippers. They do NOT have the exact tool interface for Dexter, but could be adapted, or the tool interface part can be replace. 
+- http://www.zedboard.org/sites/default/files/documentations/5164-MicroZed-GettingStarted-V1.pdf Chapter 9 contains extesive examples of IO via file read and write to /sys/class/gpio "folder". e.g. to turn on the red LED on the main board, which is connected to GPIO pin 47, from the command prompt after logging into Dexter:
+````
+   echo 47 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio47/direction
+   echo 1 > /sys/class/gpio/gpio47/value
+````
+> SW1 (or other GPIO lines) is available for input:
+````
+   echo 51 > /sys/class/gpio/export
+   echo in > /sys/class/gpio/gpio51/direction
+   cat /sys/class/gpio/gpio51/value
+````
