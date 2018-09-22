@@ -8,7 +8,7 @@ Table of contents:
 
 The end point of the standard Dexter robot [hardware](Hardware) is a replaceable "tool interface" It has a shape which makes it easy for other tools to be clicked on and off. There are [spring loaded connectors, sometimes called "pogo pins"](https://www.mouser.com/ProductDetail/855-P70-2300045R) at the end for electrical connection, and space for a Tinyduino if additional processing of the signals is needed.
 
-The signals available to the end effector include power, ground, and whatever signals the main board has been configured to produce. Early versions were wired to USB connection. Later version bring out the AUX1 and AUX2 GPIO pins from the FPGA via J20 and J21. These pins can be configured to produce different signals.
+The signals available to the end effector include power, ground, and whatever signals the [main board](MicroZed) has been configured to produce. Early versions were wired to USB connection. Later version bring out the AUX1 and AUX2 GPIO pins from the FPGA via J20 and J21. These pins can be configured to produce different signals.
 - There is a digital IO pin on the white connectors in the upper right on the back of the motor board<BR>
 `Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
 `make_ins("S", "GripperMotor", 1), //Digital output pin. 0 = off 1 = 5v` TODO: Verify this?
@@ -17,7 +17,7 @@ The signals available to the end effector include power, ground, and whatever si
 `make_ins("S", "EERoll", 512), //PWN pin. Integer range of 0-512`  TODO: Verify this?
 
 ## Version 2
-The standard going forward will be a new tool interface which incorporates 2 [Dynamixel XL-320 servos](End-Effector-Servos) and a [Tinyscreen+](End-Effector-Screen) (ARM based, small OLED screen, 4 buttons, lots of IO). One FPGA IO pin will be configured to send and receive data via the [Dynamixel protocol 2.0](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm). This requires and update to the [FPGA](Gateware) image. <BR>
+The standard going forward will be a new tool interface which incorporates 2 [Dynamixel XL-320 servos](End-Effector-Servos) and a [Tinyscreen+](End-Effector-Screen) (ARM based, small OLED screen, 4 buttons, lots of IO). One FPGA IO pin will be configured to send and receive data via the [Dynamixel protocol 2.0](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm). This requires an update to the [FPGA](Gateware) image. <BR>
 `Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
 `make_ins("S", "ServoSet2X", 2, char1 + char2<<8, char3+char4<<8)`
 <BR>The Tinyscreen+ will listen on the servo bus and may return data there or via the dedicated return data line.
@@ -49,25 +49,3 @@ Multiple signals are available from the [Tinyscreen+](End-Effector-Screen) for m
 - Current Tool Interface CAD files (note: this will be replaced): [OnShape](https://cad.onshape.com/documents/2af8ed0e61a34ebf69284c68/w/72caf65e51bde98e456925d2/e/b03fb46577fe162df32757e9), [STL](https://www.thingiverse.com/download:3318346) There is room in the body for wiring and a [Tinyduino ](https://tinycircuits.com/collections/kits/products/tinyduino-basic-kit) interface device which can be attached with [slightly longer bolts](https://www.mcmaster.com/#91251a059/=17p3i1d). 
 - http://hdrobotic.com/dexter-community/#!/grippers Our forum section for grippers. 
 - https://www.eng.yale.edu/grablab/openhand/ These are good designs for open source grippers. They do NOT have the exact tool interface for Dexter, but could be adapted, or the tool interface part can be replace. 
-- http://www.zedboard.org/sites/default/files/documentations/5164-MicroZed-GettingStarted-V1.pdf Chapter 9 contains extesive examples of IO via file read and write to /sys/class/gpio "folder". e.g. to turn on the red LED on the main board, which is connected to GPIO pin 47, from the command prompt after logging into Dexter:
-````
-   echo 47 > /sys/class/gpio/export
-   echo out > /sys/class/gpio/gpio47/direction
-   echo 1 > /sys/class/gpio/gpio47/value
-````
-> SW1 (or other GPIO lines) is available for input:
-````
-   echo 51 > /sys/class/gpio/export
-   echo in > /sys/class/gpio/gpio51/direction
-   cat /sys/class/gpio/gpio51/value
-````
-> Since all of these are just reading and writing files, and DexRun has [read_from_robot](read-from-robot) and [write_to_robot](write-to-robot), we can access any available GPIO pin on the [MicroZed](MicroZed) board. For example, the following job in [DDE](DDE) will read the position of SW1:
-````
-new Job({name: "read_sw1",
-	do_list: [
-         Dexter.write_to_robot("51", "/sys/class/gpio/export"),
-         Dexter.write_to_robot("in", "/sys/class/gpio/gpio51/direction"),
-         Dexter.read_from_robot("/sys/class/gpio/gpio51/value", "sw1"),
-         function(){out("sw1 on the zedboard is:" + this.user_data.sw1)}
-         ]})
-````
