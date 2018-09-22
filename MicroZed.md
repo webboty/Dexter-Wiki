@@ -1,7 +1,7 @@
 Dexter's "brain" is a [ZedBoard MicroZed](http://zedboard.org/product/microzed) 
 ## Specs
 **Processor:** [Zynq™-7000](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) AP [SoC XC7Z010-CLG400-1](https://www.xilinx.com/support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf), with two ARM 9 cores and an [FPGA](Gateware)<BR>
-**Memory:** - 1 GB DDR3 - 128 Mb Quad-SPI Flash - [microSD card](SD-Card-Image) contains the Ubuntu operating system, .bit files to load the [FPGA](Gateware) 
+**Memory:** - 1 GB DDR3 - 128 Mb Quad-SPI Flash - [microSD card](SD-Card-Image) contains the ["Xillinux" Ubuntu operating system](http://xillybus.com/xillinux), DexRun [firmware](Firmware), and the .bit files to load the [FPGA](Gateware) 
 <BR>
 **Communication:** - [10/100/1000 Ethernet](Dexter-Networking) - USB Host 2.0, for things like a [WebCam](WebCam) and USB-UART<BR>
 **Expansion connectors:**
