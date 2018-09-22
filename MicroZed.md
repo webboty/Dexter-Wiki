@@ -32,7 +32,8 @@ new Job({name: "read_sw1",
          Dexter.write_to_robot("51", "/sys/class/gpio/export"),
          Dexter.write_to_robot("in", "/sys/class/gpio/gpio51/direction"),
          Dexter.read_from_robot("/sys/class/gpio/gpio51/value", "sw1"),
-         function(){out("sw1 on the zedboard is:" + this.user_data.sw1)}
+         function(){out("sw1 on the zedboard is:" + this.user_data.sw1)},
+         Dexter.write_to_robot("51", "/sys/class/gpio/unexport")
          ]})
 ````
 GPIO pins 9-15 are routed to the PMOD connector J5. If not used for a PMOD device, those IO pins could be accessed there.
