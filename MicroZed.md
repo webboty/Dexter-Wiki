@@ -35,5 +35,5 @@ new Job({name: "read_sw1",
          function(){out("sw1 on the zedboard is:" + this.user_data.sw1)}
          ]})
 ````
-
+GPIO pins 9-15 are routed to the PMOD connector J5. If not used for a PMOD device, those IO pins could be accessed there.
 
