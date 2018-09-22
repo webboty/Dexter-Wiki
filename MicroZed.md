@@ -17,7 +17,7 @@ Dexter's "brain" is a [ZedBoard MicroZed](http://zedboard.org/product/microzed)
    echo out > /sys/class/gpio/gpio47/direction
    echo 1 > /sys/class/gpio/gpio47/value
 ````
-> SW1 (or other GPIO lines) is available for input:
+SW1 (or other GPIO lines) is available for input:
 ````
    echo 51 > /sys/class/gpio/export
    echo in > /sys/class/gpio/gpio51/direction
