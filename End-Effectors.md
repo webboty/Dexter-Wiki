@@ -61,3 +61,13 @@ Multiple signals are available from the [Tinyscreen+](End-Effector-Screen) for m
    echo in > /sys/class/gpio/gpio51/direction
    cat /sys/class/gpio/gpio51/value
 ````
+> Since all of these are just reading and writing files, and DexRun has [read_from_robot](read-from-robot) and [write_to_robot](write-to-robot), we can access any available GPIO pin on the [MicroZed](MicroZed) board. For example, the following job in [DDE](DDE) will read the position of SW1:
+````
+new Job({name: "read_sw1",
+	do_list: [
+         Dexter.write_to_robot("51", "/sys/class/gpio/export"),
+         Dexter.write_to_robot("in", "/sys/class/gpio/gpio51/direction"),
+         Dexter.read_from_robot("/sys/class/gpio/gpio51/value", "sw1"),
+         function(){out("sw1 on the zedboard is:" + this.user_data.sw1)}
+         ]})
+````
