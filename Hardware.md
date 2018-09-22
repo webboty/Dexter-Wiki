@@ -7,7 +7,7 @@ Hardware includes:
 * Steel shafts and bearings that make up each [Joint](Joints)
 * Carbon fiber strakes and tubes
 * [Motor driver / interface PCB](Motor-Control-PCB)
-* Xilinx based microzed processor board [Schematic Rev F](http://microzed.org/sites/default/files/documentations/MicroZed_Rev_F_Schematic_141212.pdf)
+* Xilinx based [MicroZed](MicroZed) processor board
 * [micro SD card](SD-Card-Image)
 * Wiring harness
 * [End effector tool interface](End-Effectors)
