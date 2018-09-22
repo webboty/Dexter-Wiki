@@ -1,7 +1,8 @@
 Dexter's "brain" is a [ZedBoard MicroZed](http://zedboard.org/product/microzed) 
 ## Specs
 **Processor:** [Zynq™-7000](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) AP SoC XC7Z010-CLG400-1, with two ARM 9 cores and an [FPGA](Gateware)<BR>
-**Memory:** - 1 GB DDR3 - 128 Mb Quad-SPI Flash - 4 GB [microSD card](SD-Card-Image)<BR>
+**Memory:** - 1 GB DDR3 - 128 Mb Quad-SPI Flash - [microSD card](SD-Card-Image) contains the Ubuntu operating system, .bit files to load the [FPGA](Gateware) 
+<BR>
 **Communication:** - [10/100/1000 Ethernet](Dexter-Networking) - USB Host 2.0, for things like a [WebCam](WebCam) and USB-UART<BR>
 **Expansion connectors:**
  - 2 MicroHeader connectors (108 single-ended, 48 differential pairs, Agile Mixed Signaling
@@ -10,15 +11,7 @@ Dexter's "brain" is a [ZedBoard MicroZed](http://zedboard.org/product/microzed)
 
 **Clocking:** 33.33333 MHz clock source for PS<BR>
 **Configuration and Debug:** Xilinx Platform Cable JTAG connector<BR>
-**General Purpose I/O:** 1 user LED, 1 push button (SW1)
-
-The [micro SD card](SD-Card-Image) contains the Ubuntu operating system, .bit files to load the [FPGA](Gateware) 
-
-[Schematic Rev F](http://microzed.org/sites/default/files/documentations/MicroZed_Rev_F_Schematic_141212.pdf)
-
-[Getting Started Guide](http://www.zedboard.org/sites/default/files/documentations/5164-MicroZed-GettingStarted-V1.pdf)
-
-Chapter 9 contains extesive examples of IO via file read and write to /sys/class/gpio "folder". e.g. to turn on the red LED on the main board, which is connected to GPIO pin 47, from the command prompt after logging into Dexter:
+**General Purpose I/O:** 1 user LED, 1 push button (SW1). The [Getting Started Guide](http://www.zedboard.org/sites/default/files/documentations/5164-MicroZed-GettingStarted-V1.pdf) Chapter 9 contains extesive examples of IO via file read and write to /sys/class/gpio "folder". e.g. to turn on the red LED on the main board, which is connected to GPIO pin 47, from the command prompt after logging into Dexter:
 ````
    echo 47 > /sys/class/gpio/export
    echo out > /sys/class/gpio/gpio47/direction
@@ -40,4 +33,5 @@ new Job({name: "read_sw1",
          function(){out("sw1 on the zedboard is:" + this.user_data.sw1)}
          ]})
 ````
+[Schematic Rev F](http://microzed.org/sites/default/files/documentations/MicroZed_Rev_F_Schematic_141212.pdf)
 
