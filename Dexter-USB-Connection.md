@@ -1,5 +1,10 @@
+The Zedboard on Dexter has as MicroA USB connector at the bottom of the board, left of the CAT5 and USB A connector, which provides a serial connection to a PC via a SiLabs CP2104 adapter.
+
 Installing the CP2104 USB adapter driver<BR>
 <a href="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installing.png"><img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installing.png" height=366 width=496></a>
+
+If your computer doesn't find the driver, you can download it from<br>
+https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
 
 CP2104 USB Port Installed<BR>
 <a href="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installed.png"><img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installed.png" height=366 width=496></a>
