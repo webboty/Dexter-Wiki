@@ -9,6 +9,8 @@ https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vc
 CP2104 USB Port Installed<BR>
 <a href="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installed.png"><img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installed.png" height=366 width=496></a>
 
+Once the driver is installed, you should see it under Ports, as COM# where # is some number. E.g. COM63 in this case.
+
 ## In DDE:
 
 Eval result of  `serial_devices()` _before_ installing: `INSPECTing  A Array of 0`
@@ -25,3 +27,6 @@ Eval result of  `serial_devices()` after installing:
   vendorId: "10C4"
 }
 ````
+
+## PuTTY
+Select terminal 
