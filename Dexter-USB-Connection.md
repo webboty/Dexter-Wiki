@@ -46,5 +46,5 @@ value of the comName field, i.e. "COM63".)
 <img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/PuTTYSerialSession.png" height="448" width="466"><BR>
 You can enter and name for this setting and save it here as well.
 - Under "Connection" on the "Serial" screen, make sure the "Data bits", "Stop bits" and "Parity" are 8, 1 and None. <BR>
-<img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/PuTTYSerialSerial.png" width="466" height="448">
+<img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/PuTTYSerialSerial.png" width="466" height="448"><BR>
 - Press "Open" and the connection should be made. You may not see any text, just press enter to get a prompt.
