@@ -5,8 +5,8 @@ Dexter's "brain" is a [ZedBoard.org](http://zedboard.org) [MicroZed](http://zedb
 <BR>
 **I/O:**
  - [10/100/1000 Ethernet](Dexter-Networking)
- - USB Host 2.0, for things like a [WebCam](WebCam) or [other IO](End-Effectors)
- - USB-UART
+ - USB 2.0 A Host port (under Ethernet) for things like a [WebCam](WebCam) or [other IO](End-Effectors)
+ - USB-UART Micro B port for [console connection](Dexter-USB-Connection)
  - 2 MicroHeader connectors (108 single-ended, 48 differential pairs, Agile Mixed Signaling
 (AMS)) which connect to the Motor Driver PCB [hardware](Hardware).
  - [Digilent Pmod™](https://store.digilentinc.com/pmod-expansion-modules/by-form-factor/2x4/) Compatible header (8 MIO)
