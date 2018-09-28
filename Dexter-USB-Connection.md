@@ -29,4 +29,11 @@ Eval result of  `serial_devices()` after installing:
 ````
 
 ## PuTTY
-Select terminal 
+In PuTTY, on the "Session" screen, select "Serial", then enter the port name (e.g. "COM" and the number as shown in the ports list) then change the "Speed" to 115200. 
+<img src="https://raw.github.com/HaddingtonDynamics/Dexter/blob/master/Hardware/PuTTYSerialSession.png" height="448" width="466">
+You can enter and name for this setting and save it here as well.
+
+Under "Connection" on the "Serial" screen, make sure the "Data bits", "Stop bits" and "Parity" are 8, 1 and None. 
+<img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/PuTTYSerialSerial.png" width="466" height="448">
+
+Press "Open" and the connection should be made. You may not see any text, just press enter to get a prompt.
