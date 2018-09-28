@@ -1,6 +1,6 @@
 The Zedboard on Dexter has as MicroA USB connector at the bottom of the board, left of the CAT5 and USB A connector, which provides a serial connection to a PC via a SiLabs CP2104 adapter.
 
-Installing the CP2104 USB adapter driver<BR>
+Installing the CP2104 USB adapter driver on Windows<BR>
 <a href="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installing.png"><img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installing.png" height=366 width=496></a>
 
 If your computer doesn't find the driver, you can download it from<br>
@@ -29,11 +29,11 @@ Eval result of  `serial_devices()` after installing:
 ````
 
 ## PuTTY
-In PuTTY, on the "Session" screen, select "Serial", then enter the port name (e.g. "COM" and the number as shown in the ports list) then change the "Speed" to 115200. 
-<img src="https://raw.github.com/HaddingtonDynamics/Dexter/blob/master/Hardware/PuTTYSerialSession.png" height="448" width="466">
+In PuTTY, on the "Session" screen, select "Serial", then enter the port name (e.g. "COM" and the number as shown in the ports list) then change the "Speed" to 115200. <BR>
+<img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/PuTTYSerialSession.png" height="448" width="466"><BR>
 You can enter and name for this setting and save it here as well.
 
-Under "Connection" on the "Serial" screen, make sure the "Data bits", "Stop bits" and "Parity" are 8, 1 and None. 
+Under "Connection" on the "Serial" screen, make sure the "Data bits", "Stop bits" and "Parity" are 8, 1 and None. <BR>
 <img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/PuTTYSerialSerial.png" width="466" height="448">
 
 Press "Open" and the connection should be made. You may not see any text, just press enter to get a prompt.
