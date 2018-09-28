@@ -19,14 +19,14 @@ To enable both WiFi and CAT5 to Dexter when the WiFi local network isn't on 192.
 and edit the ip address to 192.168.#.142 where the # matches the network IP address. Ctrl+X to exit, and follow the prompts to save. 
 
 ## DHCP assigned
-In the future Dexter will use DHCP, and so needs to be CAT5 cabled to a router with a DHCP service, or to a network with a DHCP server, and it's IP address will be whatever is assigned by DHCP. Your computer configuration needn't change. You can log into your router and look at the connected devices to find it, or
+Newer images use DHCP, and so need to be CAT5 cabled to a router with a DHCP service, or to a network with a DHCP server, and it's IP address will be whatever is assigned by DHCP. Your computer configuration needn't change. You can log into your router and look at the connected devices to find it, or
 - Android or iOS Smartphone: Install and use the Fing app<BR>
 https://www.fing.io/
 - on Linux / Mac use `arp -a`. You may need to ping broadcast first. Or `sudo apt-get nmap` and then `nmap -rP _ip_/24` where _ip_ is your local network address. e.g. 192.168.1.1
 - on Windows, `arp -a` returns the ip address, but no machine names. Or you can download and install<BR>
 http://www.advanced-ip-scanner.com
 
-If you don't have a CAT5 connection to the network, you can connect directly via CAT5 to your computer, after making some changes to Dexters networking. See [Issue 37](https://github.com/HaddingtonDynamics/Dexter/issues/37) for more information.
+If you don't have a CAT5 connection to the network, you can connect directly via CAT5 to your computer, after making some changes to Dexters networking. See [Issue 37](https://github.com/HaddingtonDynamics/Dexter/issues/37) for more information. You may need to use a [Serial USB connection](Dexter-USB-Connection) to gain access to make those changes.
 
 # Shell Access via SSH
 Once you are connected, you can shell into Dexter to update the [firmware](Firmware) or do development in the onboard Linux OS, or just connect via [DDE](DDE) to develop and run jobs. 
