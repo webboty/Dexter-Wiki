@@ -1,4 +1,8 @@
-The Zedboard on Dexter has as MicroA USB connector at the bottom of the board, left of the CAT5 and USB A connector, which provides a serial connection to a PC via a SiLabs CP2104 adapter.
+The [MicroZed](MicroZed) board on Dexter has as Micro B USB connector at the bottom of the board, left of the CAT5 and USB A connector, which provides a serial connection to a PC via a SiLabs CP2104 adapter. To use it connect a USB A to USB Micro B cable between the PC and Dexter. Then install the CP2104 device driver, find the COM port number and use a terminal program like PuTTY to log in. Details below.
+
+[Picture of USB A to USB Micro B cable](https://commons.wikimedia.org/wiki/File:MicroB_USB_Plug.jpg)
+
+Once the cable is connected, the driver should automatically be installed. It is commonly available and should be automatic on Windows, Mac, and most Linux distributions.
 
 Installing the CP2104 USB adapter driver on Windows<BR>
 <a href="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installing.png"><img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installing.png" height=366 width=496></a>
