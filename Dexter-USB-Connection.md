@@ -11,7 +11,7 @@ CP2104 USB Port Installed<BR>
 
 Once the driver is installed, you should see it under Ports, as COM# where # is some number. E.g. COM63 in this case.
 
-## In DDE:
+## In DDE
 
 Eval result of  `serial_devices()` _before_ installing: `INSPECTing  A Array of 0`
 
@@ -29,7 +29,7 @@ Eval result of  `serial_devices()` after installing:
 ````
 
 ## PuTTY
-In PuTTY, on the "Session" screen, select "Serial", then enter the port name (e.g. "COM" and the number as shown in the ports list) then change the "Speed" to 115200. <BR>
+In [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/), on the "Session" screen, select "Serial", then enter the port name (e.g. "COM" and the number as shown in the ports list) then change the "Speed" to 115200. <BR>
 <img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/PuTTYSerialSession.png" height="448" width="466"><BR>
 You can enter and name for this setting and save it here as well.
 
