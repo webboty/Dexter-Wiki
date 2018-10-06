@@ -18,7 +18,7 @@ G|"get_robot_status_ immediately"|HEART_BEAT|| (Same as 'g'?) new Sept 1, 2016
 g|"[get_robot_status](status-data)"|SEND_HEARTBEAT||  Returns the current [status](status-data) of the robot.//fry
 h|"get_robot_status_ heartbeat"|HEART_BEAT|| obsolete //fry
 i|"capture_points"|CAPTURE_POINTS_CMD|| Enters a sub mode where points are captured to a file on Dexter. 1 arg: Filename. Expects an input stream of commands from stdin via getchar(). No timeout.
-l|"load_tables"|LOAD_TABLES||Writes FPGA CalTables to /srv/samba/share/HiMem.dta
+l|"load_tables"|LOAD_TABLES||Writes [encoder](Encoders) CalTables from [FPGA](Gateware) to /srv/samba/share/HiMem.dta
 M|n/a|MOVETO_CMD|x|In development
 m|"record_movement"|RECORD_MOVEMENT||
 n|"find_index"|FIND_INDEX_CMD||
