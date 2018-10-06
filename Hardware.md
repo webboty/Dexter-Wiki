@@ -7,6 +7,7 @@ Hardware includes:
 * Steel shafts and bearings that make up each [Joint](Joints)
 * Carbon fiber strakes and tubes
 * [Motor driver / interface PCB](Motor-Control-PCB)
+* A2D [joint](Joints) [encoder](Encoders) PCBs
 * Xilinx based [MicroZed](MicroZed) processor board
 * [micro SD card](SD-Card-Image)
 * Wiring harness
