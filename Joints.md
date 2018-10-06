@@ -1,10 +1,10 @@
-Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool Interface](End-Effectors) adds 2 more for a total of 7.
+Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool Interface](End-Effectors) adds 2 more for a total of 7. Each [FPGA](Gateware) measured joint has an [encoder](Encoders).
 
 |#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation* |
 | ----  | ----- | ------------- | ------------------------------------- | ----- | ------------ |
 |1	|1	|Base		|Roll. Shoulder rotate (vertical)      	| 200	|Counter	
-|2	|3?**	|Pivot		|Pitch. Shoulder lift	               	| 180	|Counter	
-|3	|2?	|End		|Pitch. Elbow. Pwr set R65/66       	| 157	|Counter	
+|2	|3**	|Pivot		|Pitch. Shoulder lift	               	| 180	|Counter	
+|3	|2	|End		|Pitch. Elbow. Pwr set R65/66       	| 157	|Counter	
 |4	|4	|Angle		|Pitch.  DiffA1 Differential with 5 	| 115	|Counter	
 |5	|5	|Rotate		|Yaw.  DIffA2 4 and 5 make the wrist	| 100	|Clockwise	
 |6	|6	|External	|(not used, could be extrude)		|	|
