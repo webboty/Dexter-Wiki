@@ -1,4 +1,4 @@
-Writes values to the [FPGA / Gateware](Gateware). The second parameter is written to the address of the FPGA specified by the first parameter. e.g. in [DDE](DDE) `make_ins("w", 42, 64)` writes the value 64 into the address 42 in the FPGA. If the address is ACCELERATION_MAXSPEED ( 5 ) then the maxSpeed and coupledAcceleration variables in DexRun will be updated. 
+Writes values to the [FPGA / Gateware](Gateware). The second parameter is written to the address of the FPGA specified by the first parameter. e.g. in [DDE](DDE) `make_ins("w", 42, 64)` writes the value 64 into the address 42 in the FPGA. If the address is ACCELERATION_MAXSPEED ( 5 ) then the maxSpeed and coupledAcceleration variables in DexRun will be updated. For higher level settings in the [Firmware](Firmware), see the ['S' oplet](set-parameter-oplet)
 
 _Note: This represents the "virtual" address list as used by the 'w' command. The actual FPGA addresses have been changed since (TODO: get date) to use a keyhole window. DexRun.c on the TDInt branch still interprets 'w' commands with these addresses, but it translates them into the keyhole system._
 
