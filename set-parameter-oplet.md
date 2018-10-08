@@ -1,4 +1,4 @@
-Parameters set with the "S" [Oplet](Command-oplet-instruction)
+High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [Oplet](Command-oplet-instruction). For direct control of low level [FPGA](Gateware) parameters, see the ["w" Oplet](oplet-write)
 
 |# | Name
 | --- | ----
