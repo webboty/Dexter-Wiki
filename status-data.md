@@ -10,9 +10,9 @@ For each of the following "[Joint](Joints)..." sections in the status data:
 Name | Description
 --- | ---
 \*\_AT | Current incremental position goal toward the commanded final position goal. 
-\*\_DELTA | Instantaneous error in position. Difference between \_AT and actual position. 
-\*\_PID_DELTA | Accumulated corrective error signal. Related to force due to inertia, gravity, etc.
-\*\_FORCE_DELTA | In follow mode, this is the offset from commanded position necessary to keep force at zero. 
+\*\_DELTA | Instantaneous error in position. Difference between \_AT and actual position. Always gets corrected out to zero given drive strength to do so.
+\*\_PID_DELTA | . Related to force due to inertia, gravity, etc.
+\*\_FORCE_DELTA | In follow mode, this is the angular offset from commanded position necessary to keep force at zero. 
 \*\_SIN | The current A2D value from the sin sensor on that joints encoder. 
 \*\_COS | The current A2D value from the cos sensor on that joints encoder. 
 PLAYBACK\_ | Not used? The step and direction ticks sent to the motor in the time between status updates. August 2018 changed to the current measured angle of the joint.
