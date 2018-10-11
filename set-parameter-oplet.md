@@ -4,7 +4,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 | --- | ----
 |0 | "MaxSpeed" Maximum velocity of next move
 |1 | "Acceleration" Maximum acceleration of next move
-|2 | "J1Force"
+|2 | "J1Force"  How hard each joint tries to return to commanded position in force protect modes
 |3 | "J3Force"
 |4 | "J2Force"
 |5 | "J4Force"
