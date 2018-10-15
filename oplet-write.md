@@ -82,8 +82,8 @@ Addr | Function          | Description
 75 |  GRIPPER_MOTOR_ON_WIDTH       | "
 76 |  START_SPEED                  | Starting speed into this move.
 77 |  ANGLE_END_RATIO              | Difference in the transmission ratios for the differential joint.
-78 | ???
-79| PID?                 |Timebase Divisor
-80| Physics J123?        |Timebase Divisor
-81| Physics J45?         |Timebase Divisor
+78 | CMD2? | bit 0 resets PID_DELTA. Bit 1 is E_STOP? Set to all zero for normal operation.
+79 | PID?                 |Timebase Divisor
+80 | Physics J123?        |Timebase Divisor
+81 | Physics J45?         |Timebase Divisor
 
