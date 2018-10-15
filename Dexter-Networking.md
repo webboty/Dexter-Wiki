@@ -12,14 +12,14 @@ Dexter has an RJ-45 connector for CAT5 Ethernet connection. Because of issues wi
 
 # IP Address
 ## Fixed IP
-In the past, Dexter has defaulted to 192.168.1.142 so any other address is fine for the PC adapter. The PC's wifi adapter can remain connected to local WiFi at the same time as long as it's assigned IP address is in the same subnet. 
+Dexter normally defaults to 192.168.1.142 so any other address is fine for the PC adapter. The PC's wifi adapter can remain connected to local WiFi at the same time as long as it's assigned IP address is in the same subnet. 
 
-To enable both WiFi and CAT5 to Dexter when the WiFi local network isn't on 192.168.1.#: First, download PuTTY or other SSH software (see below for setup and use). Make a note of the local IP address assigned to the WiFi then disconnect from WiFI, CAT5 to Dexter, SSH into Dexter. At the command prompt:
-`nano /etc/network/interface`
+To enable both WiFi and CAT5 to Dexter when the WiFi local network isn't on 192.168.1.#: First, download PuTTY or other SSH software (see below for setup and use). Make a note of the local IP address assigned to the WiFi then disconnect from WiFI, CAT5 to Dexter, SSH into Dexter or use a [Serial USB connection](Dexter-USB-Connection). At the command prompt:
+`nano /etc/network/interfaces`
 and edit the ip address to 192.168.#.142 where the # matches the network IP address. Ctrl+X to exit, and follow the prompts to save. 
 
 ## DHCP assigned
-Newer images use DHCP, and so need to be CAT5 cabled to a router with a DHCP service, or to a network with a DHCP server, and it's IP address will be whatever is assigned by DHCP. Your computer configuration needn't change. You can log into your router and look at the connected devices to find it, or
+Some Dexters may have been configured to use DHCP, and so need to be CAT5 cabled to a router with a DHCP service, or to a network with a DHCP server, and it's IP address will be whatever is assigned by DHCP. Your computer configuration needn't change. You can log into your router and look at the connected devices to find it, or
 - Android or iOS Smartphone: Install and use the Fing app<BR>
 https://www.fing.io/
 - on Linux / Mac use `arp -a`. You may need to ping broadcast first. Or `sudo apt-get nmap` and then `nmap -rP _ip_/24` where _ip_ is your local network address. e.g. 192.168.1.1
@@ -27,6 +27,14 @@ https://www.fing.io/
 http://www.advanced-ip-scanner.com
 
 If you don't have a CAT5 connection to the network, you can connect directly via CAT5 to your computer, after making some changes to Dexters networking. See [Issue 37](https://github.com/HaddingtonDynamics/Dexter/issues/37) for more information. You may need to use a [Serial USB connection](Dexter-USB-Connection) to gain access to make those changes.
+
+To disable DHCP and return to a static IP address, connect to Dexter and at the command line, enter<BR>
+`nano /etc/network/interfaces`
+<BR>Then edit the file to change the `iface eth0` line to replace `dhcp` with `static`. It should look like this:<BR>
+````
+iface eth0 inet static
+    address 192.168.1.142
+````
 
 # Shell Access via SSH
 Once you are connected, you can shell into Dexter to update the [firmware](Firmware) or do development in the onboard Linux OS, or just connect via [DDE](DDE) to develop and run jobs. 
