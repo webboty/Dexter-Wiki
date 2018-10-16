@@ -1,5 +1,12 @@
 All of Dexters [Firmware](Firmware) and [Gateware](Gateware) as well as the Ubuntu OS and configuration files are stored on the micro SD card inserted into the microzed board. Although all the files on that card can be edited once Dexter is running, installing a new image is a quick way to make sure everything is setup correctly and is needed when building a new Dexter.
 
+There are two partitions on the card. 
+- A FAT32 partition with the [FPGA](Gateware) .bit file. It can be used to transfer other files into the running system, but it is not mounted by default.
+- An EXT4 Linux partition which contains the OS, and all the other files for the running system. 
+
+The boot setup and selection of the partition for booting is controlled by u boot<BR>
+http://processors.wiki.ti.com/index.php/Linux_Core_U-Boot_User%27s_Guide
+
 The location of the SD card is VERY difficult to access. It is on the opposite side of the [MicroZed board](MicroZed) from the USB Micro B at the bottom of the PCB, just left of center. If you have a fan installed for the stepper drivers, you will need to remove it. The contacts of the SD Card should be facing you, and pointing upward. 
 
 ## Writing a new SD Card Image
