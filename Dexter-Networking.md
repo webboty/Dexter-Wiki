@@ -88,7 +88,16 @@ If you wish to disable or reconfigure the sftp daemon, see the /etc/ssh folder. 
 # Internet access
 You generally should NOT need to actually give Dexter access to the internet, but if you need that for some reason, you will need that CAT5 cable to run between Dexter and your Router. After a restart, Dexter should automatically connect and have internet access. You can test that with `ping www.google.com` (press Ctrl+C to stop). If it works, great! If not, here are some common errors and how to resolve them.
 
-- "Network is unreachable" There is no internet connection. Check that Dexter is on the same network as your router. E.g. If your local network is 192.168.0. you will need to edit the IP address in both Dexter and DDE. In Dexter, `sudo nano /etc/network/interfaces`and edit the IP there. In DDE, you will need to change the default address for your Dexter robot in the dde_init.js file in your documents dde_apps folder. e.g. `persistent_set("default_dexter_ip_address", "192.168.0.142")` 
+- "Network is unreachable" There is no internet connection. Check that Dexter is configured and on the same network as your router. E.g. If your local network is 192.168.0. you will need to edit the IP address in both Dexter and DDE. In DDE, you will need to change the default address for your Dexter robot in the dde_init.js file in your documents dde_apps folder. e.g. `persistent_set("default_dexter_ip_address", "192.168.0.142")`. In Dexter, `sudo nano /etc/network/interfaces`and edit the IP there to match. You will also need to make sure the correct gateway and nameservers are set. A typical setup looks like this:
+````
+address 192.168.1.142
+#set Dexters fixed IP address here
+netmask 255.255.255.0
+gateway 192.168.1.1
+#set your gateway address (router)
+dns-nameservers 192.168.1.1 8.8.8.8
+#set your local DNS server and/or 8.8.8.8 to use google
+````
 
 - "Unknown host" The DNS system could not resolve the name to an IP address. Try `ping 8.8.8.8` instead. If you CAN ping 8.8.8.8 but still have no DNS (e.g. `ping www.google.com`) fails, then try adding 
 `nameserver 8.8.8.8`
