@@ -77,7 +77,7 @@ Address | Description | Sample
  35 | END_COS | 3063
  36 | PLAYBACK_END_POSITION (Now END_MEASURED_ANGLE) | 0
  37 | SENT_END_POSITION | 0
- 38 | SLOPE_END_POSITION | 0
+ 38 | SLOPE_END_POSITION (Now Joint 7 position)| 0
  39 | empty | 2147483647
  &nbsp; | **Joint 4: ANGLE**
  40 | ANGLE_POSITION_AT | 0
@@ -88,7 +88,7 @@ Address | Description | Sample
  45 | ANGLE_COS | 3675
  46 | PLAYBACK_ANGLE_POSITION (Now ANGLE_MEASURED_ANGLE) | 0
  47 | SENT_ANGLE_POSITION | 0
- 48 | SLOPE_ANGLE_POSITION | 0
+ 48 | SLOPE_ANGLE_POSITION (Now Joint 7 force)| 0
  49 | empty | 2147483647
  &nbsp; | **Joint 5: ROT**
  50 | ROT_POSITION_AT | 0
