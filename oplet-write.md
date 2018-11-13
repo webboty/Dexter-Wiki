@@ -24,7 +24,7 @@ Addr | Function          | Description
 17 | PID_DELTAT          | delta t. float * 0.0001 seconds
 18 | PID_D               | PID Differential Term
 19 | PID_I               | PID Integral Term
-20 | PID_P               | PID Proportional Term
+20 | PID_P               | PID Proportional Term <A HREF="https://github.com/HaddingtonDynamics/Dexter/issues/33#issuecomment-427921288">in Floating point</A>
 21 | PID_ADDRESS         | Sets the joint number for the above PID_ settings to be written into. Multiple sets are available for PID_SCHEDULE_INDEX
 22 | BOUNDRY_BASE        | Maximum position past which the force position override will be reduced for each joint.
 23 | BOUNDRY_END         | Injects a negative force opposing the external force to limit the amount the joint will move to avoid external forces.
