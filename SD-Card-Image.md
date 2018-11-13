@@ -14,7 +14,7 @@ Start by downloading the image file and a program for writing the image ([USB Im
 
 Open the image file in the program and write it to the SD card. Be very careful to write to the correct card. It is best to start with the card NOT inserted, and then insert it and refresh the list so you can see which card appears. In USB Image Tool, make sure "Device mode" is selected (not "Volume Mode") and click the card, click "Reset", and approve clearing all the partitions and data off the card. Click "Restore" and select the img file. Eject the card from the PC. With Dexter powered off, remove the old card (if present) and insert the freshly written card, then power on. 
 
-If you get an "error 32" saying the device is already in use, the issue is likely that the program needs administrative rights. Right click the icon and select "Run as administrator"
+If you get an "error 32" saying the device is already in use, or "error 6" the issue is likely that the program needs administrative rights. Right click the icon and select "Run as administrator"
 
 ## Delete partitions from SD Card
 You may need to delete any existing partitions on the SD Card or allow the tool to do so. With USB Image Tool, you can use the "Reset" button. If the tool you are using can't remove the existing partition, you may need to delete it yourself before writing the image. 
