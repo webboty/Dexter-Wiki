@@ -2,7 +2,9 @@
 
 The status of the Dexter robot arm is returned to [DDE](DDE) by the [Firmware](Firmware) after every command. All the _DELTA and _AT values are scaled by the calibration values in the AxisCal.txt file. [DDE](DDE) calculates additional status data and adds it to the status array<sup>[1](https://github.com/cfry/dde/blob/e53ec91c4c6e0d3755a4e370af5d62ac8dc84e22/doc/ref_man.html#L2730)</sup> available to jobs. This includes slope values for each joint.
 
-Units are always integer arc seconds.
+Each data item is a signed 32 bit binary integer.
+
+Units for angles are always integer arc seconds.
 
 ## Joint Data Meanings
 For each of the following "[Joint](Joints)..." sections in the status data:
@@ -45,7 +47,7 @@ Address | Description | Sample
  06 | DMA_READ_DATA | 0
  07 | DMA_READ_DATA | 0
  08 | RECORD_BLOCK_SIZE | 0
- 09 | END_EFFECTOR_IO_IN (Type of end effector installed) | 0
+ 09 | END_EFFECTOR_IO_IN (Type of end effector installed?) | 0
  &nbsp; | **Joint 1: BASE**
  10 | BASE_POSITION_AT | 0
  11 | BASE_POSITION_DELTA | 0
