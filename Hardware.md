@@ -15,4 +15,6 @@ Hardware includes:
 
 Many different end effectors will be developed for Dexter, and they will be documented in the [End effector list](End-Effectors).
 
+[Parts list (BOM)](https://docs.google.com/spreadsheets/d/1uk89q76vcK4OT9NTM6qxsPpkON_QM3-OrlhfjPigGuE/edit?usp=sharing). May be out of date.
+
 For problems related to hardware, be sure to search [Hardware Issues](https://github.com/HaddingtonDynamics/Dexter/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3AHardware+)
