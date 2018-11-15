@@ -3,7 +3,7 @@
 Hardware includes:
 * 3D printed parts
 * NEMA 17 Stepper Motors
-* Harmonic or Wave drives
+* Harmonic or Wave drives, 52:1, [hanzh.com](http://www.hanzh.com/product-2.html) Model 14 component gear set (unlisted, special order)
 * Steel shafts and bearings that make up each [Joint](Joints)
 * Carbon fiber strakes and tubes
 * [Motor driver / interface PCB](Motor-Control-PCB)
