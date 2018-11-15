@@ -5,6 +5,3 @@ Dexter is a combination of the following:
 * [Gateware](Gateware)
 * [Hardware](Hardware)
 
-To search the Wiki, go to<BR>
-https://github.com/HaddingtonDynamics/Dexter/search?type=Wikis&q=
-<BR> and then add your search terms to the end of the URL.
