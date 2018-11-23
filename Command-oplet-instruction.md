@@ -19,7 +19,7 @@ g|"[get_robot_status](status-data)"|SEND_HEARTBEAT|Returns the current [status](
 h|"get_robot_status_ heartbeat"|HEART_BEAT|obsolete //fry
 i|"capture_points"|CAPTURE_POINTS_CMD| Enters a sub mode where points are captured to a file on Dexter. 1 arg: Filename. Expects an input stream of commands from stdin via getchar(). No timeout.
 l|"load_tables"|LOAD_TABLES|Writes [encoder](Encoders) CalTables from [FPGA](Gateware) to /srv/samba/share/HiMem.dta
-M|n/a<sup>1</sup>|MOVETO_CMD|Q'd Move to XYZ (in microns), with end effector pointed in XYZ direction (unit vector), using configuration (booleans), since [Oct 9](https://github.com/HaddingtonDynamics/Dexter/commit/78bc04dfae5166d8889e1fba36540a3de3ea836b#diff-691272021fae98368efb598f8e089c16). For example to move to [0,0.5,1.0] (in meters) with the end effector pointed straight down and right_arm, elbow_up, and wrist_out:<pre>1 1 1 1 M 0 500000 100000 0 0 -1 1 1 1</pre>
+M|n/a<sup>1</sup>|MOVETO_CMD|Q'd Move to XYZ (integer microns), with end effector pointed in XYZ direction (unit vector), using configuration (booleans), since [Oct 9](https://github.com/HaddingtonDynamics/Dexter/commit/78bc04dfae5166d8889e1fba36540a3de3ea836b#diff-691272021fae98368efb598f8e089c16). For example to move to [0,0.5,1.0] (in meters) with the end effector pointed straight down and right_arm, elbow_up, and wrist_out:<pre>1 1 1 1 M 0 500000 100000 0 0 -1 1 1 1</pre>
 m|"record_movement"|RECORD_MOVEMENT||
 n|"find_index"|FIND_INDEX_CMD||
 o|"replay_movement"|REPLAY_MOVEMENT||
