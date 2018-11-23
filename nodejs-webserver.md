@@ -1,9 +1,15 @@
+Contents:
+- <a href="#installing-node-js-on-dexter">Installing Node.js on Dexter</a>
+- <a href="#a-node-js-websocket-server">A Node.js Websocket server</a>
+- <a href="#browser-interface">Browser interface</a>
+- <a href="#">Scratch</a>
+
 Node.js allows you to use Javascript as a scripting language on the host instead of just on the client in the browser. It's very commonly used to build things like web servers, apps that use sockets to communicate, and generally things that work between a computer and the internet.<BR>
 https://nodejs.org/en/ <BR>
 https://en.wikipedia.org/wiki/Node.js
 <BR>It's an ideal way to develop a web server that runs on Dexter, serves a web page that interacts with the robot and allows you to directly control it without anything but a browser.
 
-## Installing Node.js on Dexter
+## Installing Node js on Dexter
 Because we need to download files, your Dexter must be connected to your router and the internet. Check [Dexter Networking](Dexter-Networking) for more information on that.
 
 [SSH into Dexter](SSH-into-Dexter).
@@ -36,7 +42,7 @@ Notes:<BR>
 - If, when you type `node --help` (or any other node command) you get `node: command not found` try `nvm ls` to verify that you have 4.9.1 listed, then try `nvm use 4.9.1` to set that as the current version.
 - https://nodejs.org/docs/latest-v4.x/api/index.html API docs for node 4.x
 
-## A Node.js Web / socket server.
+## A Node js Websocket server
 
 To setup a simple web server / Socket interface to the Dexter [Firmware](Firmware) first create a sub folder under the share:<BR>
 `mkdir /srv/samba/share/www`
@@ -150,6 +156,7 @@ But as long as it's running in the background, you can edit files for it to serv
 ````
 and then go to http://_dexers-ip-address_/index.html you should see "HELLO WORLD!"
 
+## Browser interface
 Now you can make a file with some Javascript in it that makes a websocket connection to the Node.JS server on port 3000, which will then make a _raw_ socket connection to Dexter on port 50000, and pass on your request, and log the result. Like this:
 ```javascript
 <html>
@@ -238,3 +245,6 @@ The raw data returned would be something like:
 `
 
 You can see the returned little endian integer values (4 bytes each) which are 1, 1, then the two times, and the 103 (67 hex) is the 'g'. The rest of the data includes all the [status values](status-data). See [Dexter - DDE communications](DexRun-DDE-communications) for more on how to talk to Dexter via the socket interface.
+
+## Scratch
+With the Node Proxy, you can also add extensions to the [Scratch](https://scratch.mit.edu/) language to control Dexter, as demonstrated in [this video](https://www.facebook.com/steamaker/videos/577470826025034/).
