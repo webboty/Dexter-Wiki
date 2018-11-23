@@ -25,7 +25,7 @@ n|"find_index"|FIND_INDEX_CMD||
 o|"replay_movement"|REPLAY_MOVEMENT||
 P|"pid_move_all_joints"|PID_FINEMOVE||
 p|"find_home_rep"|FIND_HOME_REP_CMD||
-R|"move_all_joints_ relative"|MOVEALL_RELATIVE|obsolete
+**R**|"move_all_joints_ relative"|MOVEALL_RELATIVE|Q'd. obsolete
 r|[Since v2.3.16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)<BR>"[read_from_robot](read-from-robot)"|[Since 2018.07.26](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)<BR>READ_CMD|Reads files or string data from the robot.
 s|"slow_move"|[Since 2018.10.9](https://github.com/HaddingtonDynamics/Dexter/commit/78bc04dfae5166d8889e1fba36540a3de3ea836b#diff-691272021fae98368efb598f8e089c16) SLOWMOVE_CMD||
 S|"[set_parameter](set-parameter-oplet)"|SET_PARAM|Sets many different values
@@ -34,6 +34,6 @@ t|"dma_write"|DMAWRITE_CMD||
 w|"[write](oplet-write)"|WRITE_CMD|Writes to the [FPGA / Gateware](Gateware). Does `wait_fifo_flush()` first.
 W|[Since v2.3.15-16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)<BR>"[write_to_robot](write-to-robot)"|[From 20180418](https://github.com/HaddingtonDynamics/Dexter/commit/ef39cfe6effd36faeb9bd96b21a11a3dcd6b84ef)<BR>WRITE_TO_ROBOT|Send files to the Dexter file system. 
 x|"exit"|EXIT_CMD||
-z|"sleep"|SLEEP_CMD||
+**z**|"sleep"|SLEEP_CMD|Q'd.|
 
 1. The 'M' and 'T' oplets are not used in DDE because DDE does it's own kinematics. 
