@@ -38,3 +38,6 @@ The axis 5 line in the file, second line from the end, may need it's sign swappe
 
 ### Status
 [Status data ](status-data) for each of the joints is returned via the 'g' [command oplet](Command-oplet-instruction) and automatically after most commands. 
+
+<img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Positive_Joint_Directions_J234.PNG" align="left">
+<img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Positive_Joint_Directions_J15.PNG" align="left">
