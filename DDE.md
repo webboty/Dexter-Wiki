@@ -1,7 +1,6 @@
 # [Dexter Development Environment](https://github.com/HaddingtonDynamics/Dexter/blob/master/DDE/README.md)
 
-DDE allows users to develop and run software on multiple platforms to control the Dexter 5 axis robot arm. 
-It is fundamentally a JavaScript development environment with lots of extensions. See [DexRun-DDE-communications](DexRun-DDE-communications) for more detail about the communications between DDE and Dexter.
+DDE allows users to develop and run software on multiple platforms to control the Dexter 5 axis robot arm. In addition to providing standard robot control functions like [kinematics](Kinematics), it is fundamentally a JavaScript development environment with lots of extensions. See [DexRun-DDE-communications](DexRun-DDE-communications) for more detail about the communications between DDE and Dexter.
 
 **Units:** Note that Dexter uses the metric system of measurement. So all units of distance are in meters. A meter is about 3 feet which is about Dexters full reach at the size Dexter has been made at so far. A tenth of a meter (e.g. 0.1) is about 4 inches which is about the length of your finger. A hundredth of a meter (e.g. 0.01) called a "centimeter"  is a about a half inch (actually closer to 0.4 inches) or about the width of your little finger. And a thousandth of a meter (e.g. 0.001) called a "millimeter" is tiny, about a half of a tenth of an inch or about the thickness of a fingernail.
 
