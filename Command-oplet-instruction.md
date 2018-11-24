@@ -35,4 +35,4 @@ W|[Since v2.3.15-16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c1
 x|"exit"|EXIT_CMD||
 **z**|"sleep"|SLEEP_CMD|Q'd.|
 
-1. The 'M' and 'T' oplets are not used in DDE because DDE does it's own kinematics. 
+1. The 'M' and 'T' oplets are not used in DDE because DDE does it's own [kinematics](Kinematics). 
