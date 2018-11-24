@@ -1,5 +1,5 @@
 ## Kinematics
-Convert XYZ to [Joint](Joints) Angles for J1, J2, J3, J4, and J5. Dexter follows the common convention is that Z is up / down, X is right / left, and Y is out / back. 
+Convert XYZ to [Joint](Joints) Angles for J1, J2, J3, J4, and J5. Dexter follows the common convention is that Z is up / down, X is right / left, and Y is out / back. (see picture below)
 
 In [DDE](DDE) we can `move_to(X, Y, Z, direction, config)` where 
 - X, Y, and Z are the destination in meters, 
@@ -8,9 +8,9 @@ In [DDE](DDE) we can `move_to(X, Y, Z, direction, config)` where
 
 Dexter also directly supports the 'M' and 'T' [oplets](command-oplets) which take the same parameters, but the X, Y, Z units are integer microns, aka "micrometers", or a millionths of a meter (1/1,000,000 meters).
 
-**config** For most points within the reachability of Dexter, there are multiple ways in which Dexter can get there. For example, This picture shows all the ways Dexter might get to the same point (on the sloped face of the grey cube).
-<BR><img src="https://github.com/JamesNewton/AdvancedRoboticsWithJavascript/blob/master/docs/Configurations.png?raw=true">
-<BR>There is also a [(really big) version that shows them all seperated](https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Configurations.png). `config` helps you specify your preference as to how Dexter configures its joints to get to the indicated x, y, z. There are 3 independent boolean values to determining this configuration. They are:
+<img src="https://github.com/JamesNewton/AdvancedRoboticsWithJavascript/blob/master/docs/Configurations.png?raw=true" width=317 height=327 align="right">
+
+**config** For most points within the reachability of Dexter, there are multiple ways in which Dexter can get there. For example, This picture shows all the ways Dexter might get to the same point (on the sloped face of the grey cube). There is also a [(really big) version that shows them all seperated](https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Configurations.png). `config` helps you specify your preference as to how Dexter configures its joints to get to the indicated x, y, z. There are 3 independent boolean values to determining this configuration. They are:
 - **base-rotation** `right_arm`: LEFT or 0 means J1, the base joint has a _negative_ value, ie it is to the right if you are facing Dexters front. Looking down from the top at Dexter this would mean its rotated counter clockwise. The opposite direction is RIGHT, or 1 which is clockwise, to the left facing the robot.
 - **J3-position** `elbow_up`: Joint 3 can be thought of as Dexter's elbow. The elbow can be either UP i.e. away from the table or DOWN, closer to the table.
 - **J4 Position** `wrist_out`: Joint 4 / 5 can be thought of as Dexter's wrist. It can be pointing either IN, towards the base, or OUT, away from the base.
