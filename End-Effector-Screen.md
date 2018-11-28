@@ -371,6 +371,8 @@ See also:<BR>
 - https://github.com/arduino/ArduinoCore-samd The Tinyscreen+ is based on the Atmel SAMD21 processor. 
 - http://ww1.microchip.com/downloads/en/DeviceDoc/40001882A.pdf SAMD21 datasheet.
 - https://tinycircuits.com/search?type=article&q=Tinyscreen%2B
+- https://cdn.shopify.com/s/files/1/1125/2198/files/ASD2021_Rev1.pdf?3908401193410811528 Tiny screen expansion with ribbon cable
+- https://www.digikey.com/product-detail/en/molex-llc/0152660337/WM11482-ND/3161072 Althernate ribbon cable, shorter, has conductor pads on the same side on both ends.
 - https://www.mouser.com/datasheet/2/185/DF12_catalog-938983.pdf The expansion connector
 - https://codebender.cc/user/TinyCircuits A few examples are for the Tinyscreen+, most Tinyscreen demos are also useful
 - https://www.mouser.com/ProductDetail/855-P70-2300045R The pogo pins used in the end effector interface.
