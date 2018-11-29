@@ -46,8 +46,8 @@ Int | Address | Description | Sample
 --- | --- | --- | ---
   0 |  00 | Job number | 1
   1 |  04 | Instruction number | 1
-  2 |  08 | Start time <sup><a href="#times">1</a></sup> | 1543452381142 
-  3 |  16 | End time <sup><a href="#times">1</a></sup> | 1543452391148 
+  2 |  08 | Start time | 1543452381142 
+  3 |  16 | End time | 1543452391148 
   4 |  24 | Oplet ('r') | 114
   5 |  32 | ERROR | 0
   6 |  40 | PAYLOAD_LENGTH | 62
@@ -59,8 +59,8 @@ Int | Address | Description | Sample
 --- | --- | --- | ---
   0 |  00 | Job number | 1
   1 |  04 | Instruction number | 2
-  2 |  08 | Start time <sup><a href="#times">1</a></sup> | 1543452381197 
-  3 |  16 | End time <sup><a href="#times">1</a></sup> | 1543452382199 
+  2 |  08 | Start time | 1543452381197 
+  3 |  16 | End time | 1543452382199 
   4 |  24 | Oplet ('r') | 114
   5 |  32 | ERROR | 0
   6 |  40 | PAYLOAD_LENGTH | 48
