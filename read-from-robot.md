@@ -23,7 +23,7 @@ In DexRun.c, this required that we implement separate return data for the 'r' op
 ````
 
 - The first value in the string is an arbitrary integer job number. Any number is fine.
-- The second number is an arbitrary instruction number in that job. Normally this is incremented and is returned by DexRun so that you can tell which packet the response is for. In actuality, you are generally safe to ignore this
+- The second number is an arbitrary instruction number in that job. Normally this is incremented and is returned by DexRun so that you can tell which packet the response is for. Actually, this can be ignored and set to the same value every time.
 - The third value is the start time of the instruction. This is totally optional; a simple number 1 works fine
 - The forth is the end time of the instruction, which is not known, and therefore the word "undefined" is sent. This can be replace with 1 or any other character.
 - Next is the oplet 'r'
