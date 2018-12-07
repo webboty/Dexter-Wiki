@@ -367,6 +367,7 @@ new Job({name: "my_job",
 See also:<BR>
 - https://github.com/TinyCircuits/TinyCircuits-TinyScreenPlus-ASM2022 Includes: [Reference manual](https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib/blob/master/TinyScreenReferenceManual.pdf) _Not searchable_ and [Examples](https://github.com/TinyCircuits/TinyCircuits-TinyScreenPlus-ASM2022/tree/master/examples)
 - https://www.robotshop.com/media/files/pdf/tinyscreen-plus-kit-schematic.pdf Schematic
+- https://cdn.shopify.com/s/files/1/1125/2198/files/ASD2021_Rev1.pdf?3908401193410811528 Ribbon cable expansion schematic.
 - https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib General Libraries
 - https://github.com/arduino/ArduinoCore-samd The Tinyscreen+ is based on the Atmel SAMD21 processor. 
 - http://ww1.microchip.com/downloads/en/DeviceDoc/40001882A.pdf SAMD21 datasheet.
