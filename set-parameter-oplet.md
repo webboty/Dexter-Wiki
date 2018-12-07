@@ -38,7 +38,9 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |33 | "J3_PID_P" " 
 |34 | "J4_PID_P" " 
 |35 | "J5_PID_P" " 
-|36 | "End" (not implemented)
+|36 | "EncoderAngles" (name subject to change) Sets the encoder angles in the form of a circle number index that Dexter thinks it is at. Where it is within a circle is done with encoder measurements and an atan2 calc which effectively cannot be set. Takes 5 signed integer arguments where 0 is the circle that contains 0 degrees. See [read_from_robot, #EncoderAngles](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot).
+|37 | "CommandedAngles" Sets where Dexter thinks it is without actually moving the robot. Takes 5 angles in integer arcseconds. These are the same values that are returned in the robot status under [*_AT]( https://github.com/HaddingtonDynamics/Dexter/wiki/status-data#joint-data-meanings).
+|38 | "End" (not implemented)
 
 
 \* Frictions can be fractional, but are limited to a range of +-(256 + 1/256). E.g. 1.1 becomes 1 plus a fractional value of 25/256
