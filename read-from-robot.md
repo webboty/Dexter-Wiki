@@ -1,5 +1,5 @@
 This allows data to be read from the Dexter file system without having to use a SAMBA share (which was blocked by Windows 10). Support was added in [DexRun.c TDint branch](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)* as the 'r' [oplet](Command-oplet-instruction) (see below for more) and in [DDE version 2.3.16, June 4, 2018](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905) as Dexter.read_from_robot(pathfile, user_variable) where 
-- pathfile is the path and file name from root e.g. "/srv/samba/share/err.txt" or a "fake" file name starting with "#" which returns data without actually creating a file. E.g. "#XYZ" returns a cartesian coordinate matrix of position and orientation which was added in [DexRun.c TDint branch](https://github.com/HaddingtonDynamics/Dexter/blob/e6db50da946176123e191e9af6660a318f240489/Firmware/DexRun.c#L2117)*
+- pathfile is the path and file name from root e.g. "/srv/samba/share/err.txt" or a "fake" file name starting with "#" which returns data without actually creating a file. E.g. "#XYZ" (this is being changed to #POM) returns a cartesian coordinate matrix of position and orientation which was added in [DexRun.c TDint branch](https://github.com/HaddingtonDynamics/Dexter/blob/e6db50da946176123e191e9af6660a318f240489/Firmware/DexRun.c#L2117)* 
 - user_variable is the name of the variable to add to the user_data object. e.g. "foo" would put the returned text of the file in user_data.foo
 
 For example:
@@ -77,5 +77,5 @@ The incoming socket handler should not assume that each packet of data received 
 
 Keyword | Datatype | Description | Sample
 --- | --- | --- | ---
-  #POM |  ascii JSON, 4x4 matrix of floats | **P**osition and **O**rientation **M**atrix. First three columns are the orientation unit vectors for the x, y, and z axes last column is xyz position in microns. The 4th row is always [0, 0, 0, 1] to maintain transformation matrix format. | "[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]]"
-  #EncoderAngles | ascii, 5 space delimited integers | Each encoder can measure where it is in the current circle but has to keep track of when it transitions between circles. These 5 values are the indices for which circle number each encoder is on.| "5 5 5 5 5"
+  #POM |  ascii JSON, 4x4 matrix of floats | **P**osition and **O**rientation **M**atrix. (Was #XYZ) First three columns are the orientation unit vectors for the x, y, and z axes last column is xyz position in microns. The 4th row is always [0, 0, 0, 1] to maintain transformation matrix format. | `"[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]]"`
+  #EncoderAngles | ascii, 5 space delimited integers | Each encoder can measure where it is in the current circle but has to keep track of when it transitions between circles. These 5 values are the indices for which circle number each encoder is on.| `"5 5 5 5 5"`
