@@ -22,7 +22,7 @@ l|"load_tables"|LOAD_TABLES|Writes [encoder](Encoders) CalTables from [FPGA](Gat
 m|"record_movement"|RECORD_MOVEMENT||
 n|"find_index"|FIND_INDEX_CMD||
 o|"replay_movement"|REPLAY_MOVEMENT||
-P|"pid_move_all_joints"|PID_FINEMOVE||
+P|"pid_move_all_joints"|PID_FINEMOVE|Applies a force to each joint in the direction of the desired angles. The force can be adjusted via the PID P command. Movement is not coordinated so each joint may arrive at a different time.|
 p|"find_home_rep"|FIND_HOME_REP_CMD||
 **R**|"move_all_joints_ relative"|MOVEALL_RELATIVE|Q'd. obsolete
 r|[Since v2.3.16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)<BR>"[read_from_robot](read-from-robot)"|[Since 2018.07.26](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)<BR>READ_CMD|Reads files or string data from the robot.
