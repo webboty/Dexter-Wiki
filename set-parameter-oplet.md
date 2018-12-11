@@ -38,7 +38,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |33 | "J3_PID_P" " 
 |34 | "J4_PID_P" " 
 |35 | "J5_PID_P" " 
-|36 | "EncoderAngles" (name subject to change) Sets the encoder angles in the form of a circle number index that Dexter thinks it is at. Where it is within a circle is done with encoder measurements and an atan2 calc which effectively cannot be set. Takes 5 signed integer arguments where 0 is the circle that contains 0 degrees. See [read_from_robot, #EncoderAngles](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords).
+|36 | "EyeNumbers" Sets the index for which Eye Dexter thinks it is at. Where it is within an eye is calculated with encoder measurements and effectively cannot be set. Takes 5 signed integer arguments where 0 is the circle that contains 0 degrees. See [read_from_robot, #EyeNumbers](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords).
 |37 | "CommandedAngles" Sets where Dexter thinks it is without actually moving the robot. Takes 5 angles in integer arcseconds. These are the same values that are returned in the robot status under [*_AT]( https://github.com/HaddingtonDynamics/Dexter/wiki/status-data#joint-data-meanings).
 |38 | "End" (not implemented)
 
