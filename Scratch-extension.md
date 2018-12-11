@@ -23,6 +23,6 @@ https://raw.githubusercontent.com/Kenny2github/scratch-dexter/master/httpd.js
 Once you have all that setup, 
 - `node httpd.js dexter_ip` where dexter_ip  is the IP address of the dexter robot.
 - Go to<br>
-https://scratchx.org/?url=https://jamesnewton.github.io/scratch/ext.js  
-<br>and accept the warning. Drag the black "move all joints" block over into the script area on the right. You can click on "events" above and drag a "when (flag) clicked" over on top of it, the click the green flag on the left or just double click the move all joints block. 
+https://scratchx.org/?url=https://kenny2github.github.io/scratch-dexter/ext.js#scratch
+<br>and accept the warning. Drag the black "move all joints" block over into the script area on the right. You can click on "events" above and drag a "when (flag) clicked" over on top of it, then click the green flag on the left or just double click the move all joints block. 
 
