@@ -78,4 +78,4 @@ The incoming socket handler should not assume that each packet of data received 
 Keyword | Datatype | Description | Sample
 --- | --- | --- | ---
   #POM |  ascii JSON, 4x4 matrix of floats | **P**osition and **O**rientation **M**atrix. (Was #XYZ) First three columns are the orientation unit vectors for the x, y, and z axes last column is xyz position in microns. The 4th row is always [0, 0, 0, 1] to maintain transformation matrix format. | `"[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]]"`
-  #EncoderAngles | ascii, 5 space delimited integers | Each encoder can measure where it is in the current circle but has to keep track of when it transitions between circles. These 5 values are the indices for which circle number each encoder is on.| `"5 5 5 5 5"`
+  #EyeNumbers | ascii, 5 space delimited integers | Each encoder can measure where it is in the current eye but has to keep track of when it transitions between eyes. These 5 values are the indices for which eye number each encoder is on.| `"5 5 5 5 5"`
