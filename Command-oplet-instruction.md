@@ -4,7 +4,7 @@ This wiki page attempts to expand on those source documents to explain the instr
 
 &nbsp; | DDE name | DexRun | Description
 --- | --- | --- | ---
-**a**|"move_all_joints"|MOVEALL_CMD|Q'd. 5 args: j1deg, j2deg, j3deg, j4deg, j5deg
+**a**|"move_all_joints"|MOVEALL_CMD|Q'd. Arguments: 5 to 7 goal joint angles. Trapezoidal speed ramping is used with coordination so all the joints arrive at their goals at the same time. The goal can not be changed during the move.
 **b**|"move_to"|n/a|Q'd. obsolete
 B|"set_boundries"|SET_ALL_BOUNDRY|10 args: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow,
 c|"capture_ad"|CAPTURE_AD_CMD|
@@ -22,7 +22,7 @@ l|"load_tables"|LOAD_TABLES|Writes [encoder](Encoders) CalTables from [FPGA](Gat
 m|"record_movement"|RECORD_MOVEMENT||
 n|"find_index"|FIND_INDEX_CMD||
 o|"replay_movement"|REPLAY_MOVEMENT||
-P|"pid_move_all_joints"|PID_FINEMOVE|Applies a force to each joint in the direction of the desired angles. The force can be adjusted via the PID P command. Movement is not coordinated so each joint may arrive at a different time.|
+P|"pid_move_all_joints"|PID_FINEMOVE|Chases a goal position on each joint. The goal can change in the middle of the move. Movement is not coordinated so each joint may arrive at the goal at a different time. The standard trapezoidal speed ramping is not used.|
 p|"find_home_rep"|FIND_HOME_REP_CMD||
 **R**|"move_all_joints_ relative"|MOVEALL_RELATIVE|Q'd. obsolete
 r|[Since v2.3.16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)<BR>"[read_from_robot](read-from-robot)"|[Since 2018.07.26](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)<BR>READ_CMD|Reads files or string data from the robot.
