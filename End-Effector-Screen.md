@@ -34,7 +34,9 @@ USB port (micro B) is even with top edge, 0.30 wide, 0.111 high but it's best to
 All the wiring comes out the lower face away from the surface (the back side) and is centered over the hole in the "Gripper" part over the tool interface mate to the differential so it would be best to leave as much space under the unit as possible.
 ![](https://github.com/HaddingtonDynamics/Dexter/blob/master/Hardware/GripperAssembly.PNG)
 
-There are no mounting holes at the top. so a lip that holds the top down would be wise. This will probably conflict with the USB port so the lip can really only be at the center to the right side. 
+A PCB with a power regulator to provide the +5 the Tinyscreen+ needs from the 8.75 volt servo power, provide access to IO pins and power to end effectors via an array of pogo pins, and connect to the tinyscreen via a ribbon cable connector is being designed. [Schematic and PCB](https://workspace.circuitmaker.com/Projects/Details/Caleb-Ho/Dexter-Tool-Interface-v2-Tinyscreen-Dynamixel-Copy). It attaches to the back of the center gripper on the side towards the roll bearing. The wires will solder directly into it, and it will provide connectors for the servos broken out from those wires.
+
+There are no mounting holes at the top of the Tinyscreen+. so a lip that holds the top down would be wise. This will probably conflict with the USB port so the lip can really only be at the center to the right side. 
 
 The back surface at the top can come in about 0.265 from the top at a height of about -0.272 for the expansion PCB to rest on and about 0.171 from the top at a height of about -0.240 for the main PCB to rest on.
 
