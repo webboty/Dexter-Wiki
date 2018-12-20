@@ -36,7 +36,7 @@ _Note: J20 and J21 accept TE Connectivity part 2-179694-2_
 [^](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/2-179694-2/A113162-ND/2135564)
 . _A 2 position, 2mm, IDC, AMP CT connector. While this is an IDC part, the [crimp head](http://www.te.com/usa-en/product-58372-1.html) cost is insain even without the [crimp handle](http://www.te.com/usa-en/product-58074-1.html) so manually pressing it in with round nose tweezers or just [soldering the wire on](https://youtu.be/Vy5zcLWQZoc?t=26m3s) maybe the practical choice._
 
-Multiple signals are available from the [Tinyscreen+](End-Effector-Screen) for many different purposes. A PCB to breakout those signals and make them accessible to end effectors via "spring loaded contacts" (pogos) is being designed. [Schematic and PCB](https://workspace.circuitmaker.com/Projects/Details/James-Newton-2/Dexter-Tool-Interface-v2-Tinyscreen-Dynamixel-XL320-Breakout)
+Multiple signals are available from the [Tinyscreen+](End-Effector-Screen) for many different purposes. A PCB to breakout those signals and make them accessible to end effectors via "spring loaded contacts" (pogos) is being designed. [Schematic and PCB](https://workspace.circuitmaker.com/Projects/Details/Caleb-Ho/Dexter-Tool-Interface-v2-Tinyscreen-Dynamixel-Copy)
 
 # End effectors:
 ## for the Original Tool Interface
