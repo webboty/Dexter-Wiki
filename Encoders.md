@@ -5,7 +5,7 @@ Encoders provide closed loop feedback of the actual position of each [joint](Joi
 
 There are two light sources and sensors for each disk to provide quadrature directional data. These are placed such that the signals generated are 90 degrees out of phase with each other. This makes them sin and cosine. If they are plotted on a graph, as each slot passes the sensors, they form a circle. 
 
-During calibration, the signals are recorded in RAM and transferred to the HiMem.dta and memText.txt files on the disk via the ["load_tables" oplet](Command-oplet-instruction) which actually stores the data from the tables. HiMem.dta is binary, the text version of this file is memText.txt. On startup, RAM is automatically [loaded from HiMem.dta](https://github.com/HaddingtonDynamics/Dexter/blob/master/Firmware/DexRun.c#L2607). 
+During calibration, the signals are recorded in RAM and transferred to the HiMem.dta and memText.txt files on the disk via the ["load_tables" oplet](Command-oplet-instruction) which actually stores the data from the tables. HiMem.dta is binary, the text version of this file is memText.txt. On startup, RAM is automatically [loaded from HiMem.dta](https://github.com/HaddingtonDynamics/Dexter/search?q=himem&unscoped_q=HiMem.dta). 
 
 Each value represents a reading from the A2D at a given angle converted to arctangent (perpendicular from the tangent which is sin/cos) and combined with the slot number. Values are a 32 bits. The top 10(?) bits are the slot number and the bottom 20(?) bits are the interpolated data.
 
