@@ -33,6 +33,6 @@ t|"dma_write"|DMAWRITE_CMD||
 w|"[write](oplet-write)"|WRITE_CMD|Writes to the [FPGA / Gateware](Gateware). Does `wait_fifo_flush()` first.
 W|"[write_to_robot](write-to-robot)"<br>Since [v2.3.15-16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)|WRITE_TO_ROBOT<br>[Since 20180418](https://github.com/HaddingtonDynamics/Dexter/commit/ef39cfe6effd36faeb9bd96b21a11a3dcd6b84ef)|Send files to the Dexter file system. 
 x|"exit"|EXIT_CMD||
-**z**|"sleep"|SLEEP_CMD|Q'd.|
+**z**|"sleep"|SLEEP_CMD|Q'd. Pause the robot for the specified uSeconds|
 
 1. The 'M' and 'T' oplets are not used in DDE because DDE does it's own [kinematics](Kinematics). 
