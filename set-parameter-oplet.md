@@ -2,8 +2,8 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 
 |# | Name
 | --- | ----
-|0 | "MaxSpeed" Maximum velocity of next move
-|1 | "Acceleration" Maximum acceleration of next move
+|0 | "MaxSpeed" Maximum velocity of next move in arcseconds/second. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 250000 or /3600 = 69.4 degrees / second. See also StartSpeed below.
+|1 | "Acceleration" Maximum acceleration of next move in arcseconds/second/second. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 3.
 |2 | "J1Force"  How hard each joint tries to return to commanded position in force protect modes
 |3 | "J3Force"
 |4 | "J2Force"
@@ -27,7 +27,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |22 | "GripperMotor" Set mode to use standard servo (not Dynamixel) as the 6th / 7th axis for Tool interface.
 |23 | "EERoll" 6th axis position / Tool Interface Roll (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
 |24 | "EESpan" 7th axis position / End Effector actuation (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
-|25 | "StartSpeed" Velocity of entrance into next move
+|25 | "StartSpeed" Velocity of transition between moves. 
 |26 | "EndSpeed" (not implemented)
 |27 | "ServoSet2X" Address, Register, Value (as of [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) was "End")  see: [Servo](End-Effector-Servos)
 |28 | "ServoSet" Address, Register, String [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (may not be working in FPGA?) [Needed](../issues/32) for [Screen](End-Effector-Screen)
