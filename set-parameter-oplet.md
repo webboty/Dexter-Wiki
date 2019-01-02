@@ -2,14 +2,14 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 
 |# | Name
 | --- | ----
-|0 | "**MaxSpeed**" Maximum velocity of next move in arcseconds/second. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 250000 or /3600 = 69.4 degrees / second. See also StartSpeed below.
-|1 | "**Acceleration**" Maximum acceleration of next move in arcseconds/second/second. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 3.
+|0 | "**MaxSpeed**" Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 250000. See also StartSpeed below.
+|1 | "**Acceleration**" Maximum acceleration of next move in  "nbits"<sup><a href="#1">1</a></sup>. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 3.
 |2 | "**J1Force**"  How hard each joint tries to return to commanded position in force protect modes
 |3 | "**J3Force**"
 |4 | "**J2Force**"
 |5 | "**J4Force**"
 |6 | "**J5Force**"
-|7 | "**J1Friction**" \*
+|7 | "**J1Friction**"  <sup><a href="#2">2</a></sup>
 |8 | "**J3Friction**"
 |9 | "**J2Friction**"
 |10 | "**J4Friction**"
@@ -27,7 +27,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |22 | "**GripperMotor**" Set mode to use standard servo (not Dynamixel) as the 6th / 7th axis for Tool interface.
 |23 | "**EERoll**" 6th axis position / Tool Interface Roll (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
 |24 | "**EESpan**" 7th axis position / End Effector actuation (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
-|25 | "**StartSpeed**" Velocity of transition between moves. 
+|25 | "**StartSpeed**" Velocity of transition between moves in  "nbits"<sup><a href="#1">1</a></sup>
 |26 | "**EndSpeed**" (not implemented)
 |27 | "**ServoSet2X**" Address, Register, Value (as of [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) was "End")  see: [Servo](End-Effector-Servos)
 |28 | "**ServoSet**" Address, Register, String [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (may not be working in FPGA?) [Needed](../issues/32) for [Screen](End-Effector-Screen)
@@ -43,4 +43,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |38 | "End" (not implemented)
 
 
-\* Frictions can be fractional, but are limited to a range of +-(256 + 1/256). E.g. 1.1 becomes 1 plus a fractional value of 25/256
+<a name="1">Note 1</a> nbits are a value added to a register every clock cycle for a 128Khz clock such that once it overflows, an action will be taken. Converted automatically by DDE [in the socket communications code](https://github.com/cfry/dde/blob/33f06f03167a8c7b443a42ad0b3560df39ed7a17/core/socket.js#L98) for the "MaxSpeed", "StartSpeed", and "Acceleration" parameters. The global constant "_nbits_cf" is 7754.73550222 and the values given are divided by that constant. This converts degrees / second (or degrees / second / second in the case of Acceleration) into nbits. 
+
+<a name="2">Note 2</a> Frictions can be fractional, but are limited to a range of +-(256 + 1/256). E.g. 1.1 becomes 1 plus a fractional value of 25/256
+
