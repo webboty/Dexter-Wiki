@@ -1,15 +1,12 @@
-<table align="left" cellpadding=0 cellspacing=0 border=0 style="float:left;border: 0px;padding: 0px;"><tr>
-<td>
 The new [Tool Interface](End-Effectors) standard includes a Tinyscreen+ ARM based Arduino compatible processor with a small OLED screen, 4 buttons, and lots of IO. _Note: this is NOT the Tinyscreen. The + sign makes a huge difference._
-</td>
-<td>
+<br>
 On this page:
 <br><a href="#mounting">Mounting</a>
 <br><a href="#ide-setup">IDE Setup</a>
 <br><a href="#programming">Programming</a>
 <br><a href="#communications">Communications</a>
 <br><a href="#see-also">See also</a>
-</td></tr></table>
+<br>
 Available here:<BR>
 https://tinycircuits.com/collections/processors/products/tinyscreenplus
 
