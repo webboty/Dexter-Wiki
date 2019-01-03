@@ -1,4 +1,4 @@
-<table align="left" style="float:left;"><tr>
+<table align="left" cellpadding=0 cellspacing=0 border=0 style="float:left;border: 0px;padding: 0px;"><tr>
 <td>
 The new [Tool Interface](End-Effectors) standard includes a Tinyscreen+ ARM based Arduino compatible processor with a small OLED screen, 4 buttons, and lots of IO. _Note: this is NOT the Tinyscreen. The + sign makes a huge difference._
 </td>
