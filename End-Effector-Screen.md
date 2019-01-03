@@ -1,4 +1,8 @@
-<table align="left" style="float:left;"><tr><td>
+<table align="left" style="float:left;"><tr>
+<td>
+The new [Tool Interface](End-Effectors) standard includes a Tinyscreen+ ARM based Arduino compatible processor with a small OLED screen, 4 buttons, and lots of IO. _Note: this is NOT the Tinyscreen. The + sign makes a huge difference._
+</td>
+<td>
 On this page:
 <br><a href="#mounting">Mounting</a>
 <br><a href="#ide-setup">IDE Setup</a>
@@ -6,11 +10,8 @@ On this page:
 <br><a href="#communications">Communications</a>
 <br><a href="#see-also">See also</a>
 </td></tr></table>
-The new [Tool Interface](End-Effectors) standard includes a Tinyscreen+ ARM based Arduino compatible processor with a small OLED screen, 4 buttons, and lots of IO. _Note: this is NOT the Tinyscreen. The + sign makes a huge difference._<BR>
+Available here:<BR>
 https://tinycircuits.com/collections/processors/products/tinyscreenplus
-
-We also use a proto board to make connection back to Dexter and provide available IO for future use. <BR>
-https://tinycircuits.com/collections/proto-boards/products/proto-board-tinyshield
 
 ## Mounting
 
