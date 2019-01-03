@@ -1,3 +1,11 @@
+<table align="right"><tr><td>
+<br><a href="#mounting">Mounting</a>
+<br><a href="#ide_setup">IDE Setup</a>
+<br><a href="#programming">Programming</a>
+<br><a href="#communications">Communications</a>
+<br><a href="#see_also">See also</a>
+ 
+</td></tr></table>
 The new [Tool Interface](End-Effectors) standard includes a Tinyscreen+ ARM based Arduino compatible processor with a small OLED screen, 4 buttons, and lots of IO. _Note: this is NOT the Tinyscreen. The + sign makes a huge difference._<BR>
 https://tinycircuits.com/collections/processors/products/tinyscreenplus
 
@@ -366,7 +374,7 @@ new Job({name: "my_job",
 
 ````
 
-See also:<BR>
+## See also
 - https://github.com/TinyCircuits/TinyCircuits-TinyScreenPlus-ASM2022 <BR>Includes: [Reference manual](https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib/blob/master/TinyScreenReferenceManual.pdf) _Not searchable_ and [Examples](https://github.com/TinyCircuits/TinyCircuits-TinyScreenPlus-ASM2022/tree/master/examples)
 - https://www.robotshop.com/media/files/pdf/tinyscreen-plus-kit-schematic.pdf <BR>Schematic
 - https://github.com/TinyCircuits/TinyCircuits-TinyScreen_Lib <BR>General Libraries
