@@ -1,4 +1,5 @@
-<table align="right" style="float:right"><tr><td>
+<table align="left" style="float:left;"><tr><td>
+On this page:
 <br><a href="#mounting">Mounting</a>
 <br><a href="#ide-setup">IDE Setup</a>
 <br><a href="#programming">Programming</a>
