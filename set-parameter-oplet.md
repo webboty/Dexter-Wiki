@@ -27,8 +27,8 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |22 | "**GripperMotor**" Set mode to use standard servo (not Dynamixel) as the 6th / 7th axis for Tool interface.
 |23 | "**EERoll**" 6th axis position / Tool Interface Roll (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
 |24 | "**EESpan**" 7th axis position / End Effector actuation (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
-|25 | "**StartSpeed**" Velocity of transition between moves in  "nbits"<sup><a href="#1">1</a></sup>
-|26 | "**EndSpeed**" (not implemented)
+|25 | "**StartSpeed**" Velocity at start (and currently, the end as well) of the next move in "nbits"<sup><a href="#1">1</a></sup>
+|26 | "**EndSpeed**" (not implemented) Currently StartSpeed is the speed for both the start and end of each move. 
 |27 | "**ServoSet2X**" Address, Register, Value (as of [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) was "End")  see: [Servo](End-Effector-Servos)
 |28 | "**ServoSet**" Address, Register, String [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (may not be working in FPGA?) [Needed](../issues/32) for [Screen](End-Effector-Screen)
 |29 | "**RebootServo**" [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93)
