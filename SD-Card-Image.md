@@ -64,3 +64,41 @@ To delete partitions:
 The images should be just under 8GB in size and should fit on a standard 8GB card, if it is fully empty without any remaining partitions. In some cases however, the card may not actually have a full 8GB of data available. In this case, USB Image Tool will fail, Etcher will very quickly claim to have copied it but only the FAT partition (not the Ubuntu OS on the EXT4 partition) is transferred and (of course) it won't boot.
 
 You can always use a larger (e.g. 16GB card) but a more advanced utility may be able to shrink the partition sizes to "shoehorn" it into the smaller space. "Paragon Backup" is able to do this, but 1) You have to have an SD card that is working (e.g. a 16GB with the 8GB image) so that you can make a backup in their format. 2) Insert the SD Card and manually delete the partition (it will NOT do that automatically even though it says it will) 3) Restore to the SD Card and let it reduce the size when it offers. 
+
+### Expanding the image to fill your SD Card
+If you want more space on Dexter, and you have a larger SD Card (e.g. 16M or more) then you can expand the 2nd (Linux ext4) partition. 
+
+_WARNING: This is dangerous and can easily lose all data. Be ready to reload the image: Make a backup if you have made changes._
+
+First, SSH into Dexter
+
+Check the size of the SD card and current partition with the `lsblk` command. For example:
+````
+root@localhost:~# lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+mmcblk0     179:0    0   15G  0 disk
+|-mmcblk0p1 179:1    0   15M  0 part
+`-mmcblk0p2 179:2    0  7.4G  0 part /
+mtdblock0    31:0    0    4M  0 disk
+````
+Assuming you have additional space (mmcblk0 is larger than mmcblk0p1), you can fdisk the drive, delete the existing partition entry from the partition table, and make a new, larger, partition:
+````
+fdisk /dev/mmcblk0
+````
+- At the prompt, enter `d` to delete a partition, and select partition 2.
+- Next, enter `n` to add a new partition, and just accept the default values for each question by pressing enter. If you like, on the "Last sector" prompt, you can specify the size of the partition by entering a plus sign, then the size with an M or G for Megabytes or Gigibytes. E.g. to make a 12GB partition (assuming an SD card with enough space) enter "+12G"
+- Finish by select `w` to write the changes to the disk.
+
+Note: You will see an error "Re-reading the partition table failed.: Device or resource busy" this is normal. 
+
+To actually read in the new partition table, issue the command: 
+````
+partprobe
+````
+It should return without any messages. If it reports an error, try to fdisk again.
+
+At this point, the new partition table is in place, but the data on the disk does not match it. To update the disk data, issue the `resize2fs` command on the updated partition:
+````
+resize2fs /dev/mmcblk0p2
+````
+At this point, everything is done; `lsblk` should show the new partition size and `df -h` should show that you have additional space on the file system.
