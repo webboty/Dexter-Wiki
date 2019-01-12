@@ -13,10 +13,10 @@ SSH stands for "Secure SHell. It is an application running on a computer that gi
 1. Type in `root@192.168.1.142`   and hit enter.
 1. When prompted, type in password: `klg`
 ### Commonly Used Shell Commands
-pwd  (print working directory)
-cd   _dirname_in_working_directory_ (change directory to the given sub directory)
-cd .. (change directory to the parent of the working directory)
-ls (show contents of the working directory)
-ls -l (show working directory contents including permissions, owner, size, modified date.)
-cat _filename_ (show contents of the given file)
+* pwd  (print working directory)
+* cd   _dirname_in_working_directory_ (change directory to the given sub directory)
+* cd .. (change directory to the parent of the working directory)
+* ls (show contents of the working directory)
+* ls -l (show working directory contents including permissions, owner, size, modified date.)
+* cat _filename_ (show contents of the given file)
 
