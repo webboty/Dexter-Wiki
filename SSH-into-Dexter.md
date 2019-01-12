@@ -10,8 +10,8 @@ SSH stands for "Secure SHell. It is an application running on a computer that gi
 4. select SSH. 
 ### MacOS
 1. Double click on the file: `Applications/Utilities/Terminal.app`
-1. Type in `root@192.168.1.142`   and hit enter.
-1. When prompted, type in password: `klg`
+1. Type in `root@192.168.1.142`   and hit `enter`.
+1. When prompted, type in password: `klg` and hit `enter`.
 ### Commonly Used Shell Commands
 * `pwd`  (print working directory)
 * `cd`   _dirname_in_working_directory_ (change directory to the given sub directory)
