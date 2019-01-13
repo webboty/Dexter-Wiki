@@ -24,3 +24,5 @@ SSH stands for "Secure SHell. It is an application running on a computer that gi
 ctrl+o Outputs a file... this is SAVE not open.
 ctrl+x to eXit. 
 To select text, move the cursor to the start of the text you want to select, press the Alt-A key combination to mark the start, then move the cursor to the end of the section you want to select. press Ctrl+K to cut your selection and Ctrl+U to paste it.)
+
+Detailed instructions are available for updating the [firmware](https://github.com/HaddingtonDynamics/Dexter/tree/master/Firmware) or [gateware](https://github.com/HaddingtonDynamics/Dexter/tree/master/Gateware)
