@@ -19,4 +19,8 @@ SSH stands for "Secure SHell. It is an application running on a computer that gi
 * `ls` (show contents of the working directory)
 * `ls -l` (show working directory contents including permissions, owner, size, modified date.)
 * `cat` _filename_ (show contents of the given file)
-
+* `nano` _filename_
+ (File editor which uses regular commands like the arrow keys, delete, backspace, etc... 
+ctrl+o Outputs a file... this is SAVE not open.
+ctrl+x to eXit. 
+To select text, move the cursor to the start of the text you want to select, press the Alt-A key combination to mark the start, then move the cursor to the end of the section you want to select. press Ctrl+K to cut your selection and Ctrl+U to paste it.)
