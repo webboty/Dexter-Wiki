@@ -3,7 +3,7 @@ Table of contents:
 - <a href="#ip-address"> Finding Dexter on the Network, IP address </a>
 - <a href="#shell-access-via-ssh"> Shell access via SSH </a>
 - <a href="#x-windows"> Remote GUI interface via X-Windows </a>
-- <a href="#file-sharing"> Reading / Writing files via SAMBA or SFTP </a>
+- <a href="#file-sharing"> Reading / Writing files</a>
 - <a href="#internet-access"> Letting Dexter access the Internet </a>
 - <a href="#see-also"> See also </a>
 
@@ -81,7 +81,7 @@ You can also transfer files via the `/usr/lib/openssh/sftp-server` service but y
 https://winscp.net/eng/download.php
 <BR>Or if you want to integrate SFTP support into the Windows Explorer, you might try:<BR>
 http://www.swish-sftp.org
-<BR>Once installed, just go to "Swish" in the address bar and "Add SFTP Connection"
+<BR>Once installed, just go to "Swish" in the address bar and "Add SFTP Connection". The [Remmina](https://remmina.org/) SSH client (only available on Linux) includes a file transfer function.
 
 If you wish to disable or reconfigure the sftp daemon, see the /etc/ssh folder. Note: SFTP is not at all related to FTP.
 
