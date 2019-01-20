@@ -2,11 +2,19 @@
 
 DDE allows users to develop and run software on multiple platforms to control the Dexter 5 axis robot arm. In addition to providing standard robot control functions like [kinematics](Kinematics), it is fundamentally a JavaScript development environment with lots of extensions. See [DexRun-DDE-communications](DexRun-DDE-communications) for more detail about the communications between DDE and Dexter.
 
+## Install
+### Windows
+Download and run the .exe
+### Ubuntu
+1. In the Documents folder, create a subfolder called "dde_apps".
+2. Download the AppImage file, change the execution permissions, and start it.
+<img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/DDE/doc/installDDEUbuntu.png">
+
+## Programming notes:
+
 **Units:** Note that Dexter uses the metric system of measurement. So all units of distance are in meters. A meter is about 3 feet which is about Dexters full reach at the size Dexter has been made at so far. A tenth of a meter (e.g. 0.1) is about 4 inches which is about the length of your finger. A hundredth of a meter (e.g. 0.01) called a "centimeter"  is a about a half inch (actually closer to 0.4 inches) or about the width of your little finger. And a thousandth of a meter (e.g. 0.001) called a "millimeter" is tiny, about a half of a tenth of an inch or about the thickness of a fingernail.
 
 So if you change the first digit to the right of the decimal point, you are moving about a finger length. The next digit, 2nd to the right, moves you about a finger width, and the 3rd moves you about the thickness of a fingernail.
-
-### Programming notes:
 
 **Debugging:** _Note that all of this is documented in the  help system inside DDE. Download and install the program to access that in it's formatted form_.
 - the `out` function can be wrapped around _anything_ to dump a copy of the result to the output panel when it is evaluated _without_ any change in program behavior. It returns whatever it prints, so there is no side effect to it being included. E.g. `let variable = out("Hello" + "World").toUpper())` will still put "HELLOWORLD" in variable, but it will also let you see "HelloWorld" on the screen.
