@@ -7,7 +7,7 @@ There are two partitions on the card.
 The boot setup and selection of the partition for booting is controlled by u boot<BR>
 http://processors.wiki.ti.com/index.php/Linux_Core_U-Boot_User%27s_Guide
 
-The location of the SD card is VERY difficult to access. It is on the opposite side of the [MicroZed board](MicroZed) from the USB Micro B at the bottom of the PCB, just left of center. If you have a fan installed for the stepper drivers, you will need to remove it. The contacts of the SD Card should be facing you, and pointing upward. 
+The location of the SD card is VERY difficult to access. It is on the opposite side of the [MicroZed board](MicroZed) from the USB Micro B at the bottom of the PCB, just left of center. If you have a fan installed for the stepper drivers, you will need to remove it. The contacts of the SD Card should be facing you, and pointing upward. See [Issue 52](https://github.com/HaddingtonDynamics/Dexter/issues/52) for progress / workarounds.
 
 ## Writing a new SD Card Image
 Start by downloading the image file and a program for writing the image ([USB Image Tool](http://www.alexpage.de/usb-image-tool/download/) is small at 0.4MB, open source, and known to work in Windows. [Etcher](https://etcher.io/) has versions for Mac, Linux, and Windows, but is ~60MB). You will need a micro SD card adapter if your PC doesn't have a slot built in, and an 8GB or larger micro SD card.
