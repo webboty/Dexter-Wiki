@@ -33,25 +33,25 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |28 | "**ServoSet**" | | | | | | | Address, Register, String [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (may not be working in FPGA?) [Needed](../issues/32) for [Screen](End-Effector-Screen)
 |29 | "**RebootServo**" | | | | | | [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93)
 |30 | "**RunFile**" | | | | | | FilePathName [Oct 12, 2018](../commit/e3cccb88cf9b1671c5b2f13c77d1ee00a967a528#diff-691272021fae98368efb598f8e089c16) If it exists, the file will be opened and all instructions from it parsed and executed. By convention, files end with `.make_ins` extension. Each line should be one instruction just like any sent over the socket connection (the job, instruction, start, and end time values are NOT included; start with the oplet). A sample line might be <BR>`S J1_PID_P 0.2 ; set base drive` <BR>Anything after a ';' is ignored. <BR>Was: "Ctrl" parms/values [Aug 24, 2018](../commit/f0d9fa772ba6c3eee979e62a071bca487a084c21) Compact setting of values related to operational mode. (**Depreciated, replaced with RunFile**)
-|31 | "**J1_PID_P**" | | | | | | Float [Oct 12, 2018](../commit/e3cccb88cf9b1671c5b2f13c77d1ee00a967a528#diff-691272021fae98368efb598f8e089c16) Set Joint PID P with a floating point number. Helps with [Issue #33](https://github.com/HaddingtonDynamics/Dexter/issues/33#issuecomment-427921288)
-|32 | "**J2_PID_P**"
-|33 | "**J3_PID_P**"
-|34 | "**J4_PID_P**"
-|35 | "**J5_PID_P**"
-|36 | "**AngularSpeed**"
-|37 | "**AngularSpeedStartAndEnd**"
-|38 | "**AngularAcceleration**"
-|39 | "**CartesianSpeed**"
-|40 | "**CartesianSpeedStart**"
-|41 | "**CartesianSpeedEnd**"
-|42 | "**CartesianAcceleration**"
-|43 | "**CartesianStepSize**"
-|44 | "**CartesianPivotSpeed**"
-|45 | "**CartesianPivotSpeedStart**"
-|46 | "**CartesianPivotSpeedEnd**"
-|47 | "**CartesianPivotAcceleration**"
-|48 | "**EyeNumbers**" | | | | | | Sets the index for which Eye Dexter thinks it is at. Where it is within an eye is calculated with encoder measurements and effectively cannot be set. Takes 5 signed integer arguments where 0 is the circle that contains 0 degrees. See [read_from_robot, #EyeNumbers](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords).
-|49 | "**CommandedAngles**" | | | | | | Sets where Dexter thinks it is without actually moving the robot. Takes 5 angles in integer arcseconds. These are the same values that are returned in the robot status under [*_AT]( https://github.com/HaddingtonDynamics/Dexter/wiki/status-data#joint-data-meanings).
+|31 | "**J1_PID_P**" | 0.2 | 0 - 1 | unitless | unitless | float | Float [Oct 12, 2018](../commit/e3cccb88cf9b1671c5b2f13c77d1ee00a967a528#diff-691272021fae98368efb598f8e089c16) Set Joint PID P with a floating point number. Helps with [Issue #33](https://github.com/HaddingtonDynamics/Dexter/issues/33#issuecomment-427921288)
+|32 | "**J2_PID_P**" | 0.2 | 0 - 1 | unitless | unitless | float | 
+|33 | "**J3_PID_P**" | 2 | 0 - 4 | unitless | unitless | float | 
+|34 | "**J4_PID_P**" | 0.1 | 0 - 0.5 | unitless | unitless | float | 
+|35 | "**J5_PID_P**" | 0.1 | 0 - 0.5 | unitless | unitless | float | 
+|36 | "**AngularSpeed**" | 30 | 1 - 45 | (deg/s) | (arcsec/s) | integer | 
+|37 | "**AngularSpeedStartAndEnd**" | 0.1 | 0 - 45 | (deg/s) | (arcsec/s) | integer | 
+|38 | "**AngularAcceleration**"  | 0.1 | 0.0003 - 0.1 | (deg/s<sup>2</sup>) | (arcsec/s<sup>2</sup>) | integer | 
+|39 | "**CartesianSpeed**" | 300000 | 10000 - 500000 | (micron/s) | (micron/s) | integer | 
+|40 | "**CartesianSpeedStart**" | 0 | 0 - 500000 | (micron/s) | (micron/s) | integer | 
+|41 | "**CartesianSpeedEnd**" | 0 | 0 - 500000 | (micron/s) | (micron/s) | integer | 
+|42 | "**CartesianAcceleration**" | 1000000 | 0 - 500000 | (micron/s<sup>2</sup>) | (micron/s<sup>2</sup>) | integer | 
+|43 | "**CartesianStepSize**" | 10 | 1 - 10000| (micron) | (micron) | integer | 
+|44 | "**CartesianPivotSpeed**" | 108000 | 1 - 360000| (arcsec/s) | (arcsec/s) | integer | 
+|45 | "**CartesianPivotSpeedStart**" | 0 | 1 - 360000| (arcsec/s) | (arcsec/s) | integer | 
+|46 | "**CartesianPivotSpeedEnd**" | 0 | 1 - 360000| (arcsec/s) | (arcsec/s) | integer | 
+|47 | "**CartesianPivotAcceleration**" | 10800000 | 1 - 10800000| (arcsec/s<sup>2</sup>) | (arcsec/s<sup>2</sup>) | integer | 
+|48 | "**EyeNumbers**" | | | | | integer array of 5 | Sets the index for which Eye Dexter thinks it is at. Where it is within an eye is calculated with encoder measurements and effectively cannot be set. Takes 5 signed integer arguments where 0 is the circle that contains 0 degrees. See [read_from_robot, #EyeNumbers](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords).
+|49 | "**CommandedAngles**" | | | (arcsec) | (arcsec) | integer array of 5 | Sets where Dexter thinks it is without actually moving the robot. Takes 5 angles in integer arcseconds. These are the same values that are returned in the robot status under [*_AT]( https://github.com/HaddingtonDynamics/Dexter/wiki/status-data#joint-data-meanings).
 
 
 
