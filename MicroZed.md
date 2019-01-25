@@ -5,7 +5,7 @@ Dexter's "brain" is a [ZedBoard.org](http://zedboard.org) [MicroZed](http://zedb
 Note: The [SD Card](SD-Card-Image) slot is directly under the Micro USB connector, on the opposite side of the board.
 
 ## Specs
-**Processor:** [Zynq™-7000](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) AP [SoC XC7Z010-CLG400-1](https://www.xilinx.com/support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf), with two ARM 9 cores and an [FPGA](Gateware)<BR>
+**Processor:** [Zynq™-7000](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) AP [SoC XC7Z010-CLG400-1](https://www.xilinx.com/support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf), with two ARM 7 cores and an [FPGA](Gateware)<BR>
 **Memory:** - 1 GB DDR3 - 128 Mb Quad-SPI Flash - [microSD card](SD-Card-Image) (just under the contains the ["Xillinux" Ubuntu operating system](http://xillybus.com/xillinux), DexRun [firmware](Firmware), and the .bit files to load the [FPGA](Gateware) 
 <BR>
 **I/O:**
