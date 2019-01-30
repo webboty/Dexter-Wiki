@@ -32,6 +32,7 @@ To disable DHCP and return to a static IP address, connect to Dexter and at the 
 `nano /etc/network/interfaces`
 <BR>Then edit the file to change the `iface eth0` line to replace `dhcp` with `static`. It should look like this:<BR>
 ````
+auto eth0
 iface eth0 inet static
     address 192.168.1.142
 ````
