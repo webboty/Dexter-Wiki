@@ -45,7 +45,13 @@ Notes:<BR>
 ## A Node js Websocket server
 
 To setup a simple web server / Socket interface to the Dexter [Firmware](Firmware) first create a sub folder under the share:<BR>
-`mkdir /srv/samba/share/www`
+````
+cd /srv/samba/share
+mkdir www
+cd www
+npm init
+npm install ws
+````
 <BR>This folder will hold all the files your server will serve when a user connects. 
 
 Next, make a file called httpd.js using nano:<BR>
