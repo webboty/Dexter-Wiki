@@ -199,7 +199,7 @@ Now you can make a file with some Javascript in it that makes a websocket connec
         }
 
     function getDexterStatus() {
-	ws.send("1 " + (count++) + " 1 undefined g")
+	ws.send("1 " + (count++) + " 1 undefined g ;")
 	setTimeout(function(){getDexterStatus()},interval)
 	}
     function displayStatus(ip,data) {
