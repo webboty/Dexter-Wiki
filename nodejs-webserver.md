@@ -2,7 +2,7 @@ Contents:
 - <a href="#installing-node-js-on-dexter">Installing Node.js on Dexter</a>
 - <a href="#a-node-js-websocket-server">A Node.js Websocket server</a>
 - <a href="#browser-interface">Browser interface</a>
-- <a href="#">Scratch</a>
+- <a href="#scratch">Scratch</a>
 
 Node.js allows you to use Javascript as a scripting language on the host instead of just on the client in the browser. It's very commonly used to build things like web servers, apps that use sockets to communicate, and generally things that work between a computer and the internet.<BR>
 https://nodejs.org/en/ <BR>
