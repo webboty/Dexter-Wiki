@@ -49,10 +49,13 @@ To setup a simple web server / Socket interface to the Dexter [Firmware](Firmwar
 cd /srv/samba/share
 mkdir www
 cd www
+````
+Now initialize the folder (just accept all the default answers to the questions), and install the ws websocket module
+````
 npm init
 npm install ws
 ````
-<BR>This folder will hold all the files your server will serve when a user connects. 
+This folder will hold all the files your server will serve when a user connects. 
 
 Next, make a file called httpd.js using nano:<BR>
 `nano httpd.js`<BR>
@@ -73,7 +76,7 @@ const ws = require('ws'); //websocket
 //cd /
 //node /srv/samba/share/httpd.js 
 
-//standard web server on port 8080 to serve files
+//standard web server on port 80 to serve files
 http.createServer(function (req, res) {
   var q = url.parse(req.url, true)
   if ("/"==q.pathname) 
@@ -90,6 +93,7 @@ http.createServer(function (req, res) {
     return res.end()
   });
 }).listen(80)
+console.log("listening on port 80")
 
 //socket server to accept websockets from the browser on port 3000
 //and forward them out to DexRun as a raw socket
