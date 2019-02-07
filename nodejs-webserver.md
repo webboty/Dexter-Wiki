@@ -93,7 +93,7 @@ http.createServer(function (req, res) {
     return res.end()
   });
 }).listen(80)
-console.log("listening on port 80")
+console.log("listing on port 80")
 
 //socket server to accept websockets from the browser on port 3000
 //and forward them out to DexRun as a raw socket
@@ -125,10 +125,16 @@ browser.on('connection', function connection(socket, req) {
                 })
             dexter.on("close", function () { 
                 dexter.connected = false 
+                console.log(process.hrtime()[1], "dexter disconnect")
                 dexter.removeAllListeners() 
                 //or multiple connect/data/close events next time
-                console.log(process.hrtime()[1], "dexter disconnect")
                 } )
+	    dexter.on("error", function () {
+                dexter.connected = false 
+		console.log("dexter error")
+                if (bs) { bs.send(null,{ binary: true }) }
+                dexter.removeAllListeners() 
+		} )
             }
         dexter.write(data.toString());
         });
@@ -142,7 +148,6 @@ browser.on('connection', function connection(socket, req) {
 
 //test to see if we can get a status update from DexRun
 //dexter.write("1 1 1 undefined g ;")
-
 ````
 
 That last line would test the socket interface by sending a status update request to Dexter and then writing out the returned value to the console, but the program needs to NOT connect to dexter at the start, and only connect when asked to by the browser. Why? Because DexRun.c only supports a single socket connection at a time, and if this server "hogs" it, DDE and other applications cant connect at all. 
@@ -170,15 +175,36 @@ and then go to http://_dexers-ip-address_/index.html you should see "HELLO WORLD
 Now you can make a file with some Javascript in it that makes a websocket connection to the Node.JS server on port 3000, which will then make a _raw_ socket connection to Dexter on port 50000, and pass on your request, and log the result. Like this:
 ```javascript
 <html>
+<head>
+    <title>Dexter</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font: 13px Helvetica, Arial; }
+        form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages li { padding: 5px 10px; }
+        #messages li:nth-child(odd) { background: #eee; }
+        #stat { margin-bottom: 40px }
+        </style>
+    </head>
 <body> 
 	Dexter Status
-	<div id="stat">hello</div>
+        <ul id="messages"></ul>
+	<div id="stat">Status: Unknown</div>
+        <form id="send" action="">
+            <input id="msg" autocomplete="off" />
+            <button>Send</button>
+            </form>
 <script type="text/javascript">
     var count = 0
     let port = 3000
     let ip_address = self.location.hostname //"192.168.0.137"
     //may not be an ip address... 
     let interval = 1000 //how often to update status
+    var pulse //to hold the timout.
     let ws = new WebSocket('ws://'+ip_address+":"+port)
     ws.binaryType = "arraybuffer" //avoids the blob
     ws.onopen = function(){
@@ -190,6 +216,7 @@ Now you can make a file with some Javascript in it that makes a websocket connec
         }
     ws.onmessage = function(msg) {
         data = new Int32Array(msg.data)
+	if (data.length == 0) { clearInterval(pulse); console.log("Connection to Dexter Lost"); }
         if ('g'.charCodeAt(0) == data[4]) {//status
             displayStatus(msg.ip_address,data)
 //1,0,1531787828,349602,103,0,0,0,0,0,0,0,0,0,3703,2967,0,0,0,2147483647,0,0,0,0,293,56,0,0,0,2147483647,0,0,0,0,809,3063,0,0,0,2147483647,0,0,0,0,1682,3675,0,0,0,2147483647,0,0,0,0,1990,218,0,0,0,2147483647
@@ -197,13 +224,25 @@ Now you can make a file with some Javascript in it that makes a websocket connec
         //document.write("message:"+data.length+"  "+data)
         //ws.close()
         }
-
+    function byID(str) {return document.getElementById(str);}
+    function make(str) {return document.createElement(str);}
+    byID("send").onsubmit=function(e){
+	var msg = byID("msg").value
+	ws.send("1 " + (count++) + " 1 undefined "+msg+" ;")
+	console.log("sent:"+msg)
+	var ul = byID("messages")
+	var li = document.createElement("li")
+	li.appendChild(document.createTextNode('<-'+msg))
+	ul.appendChild(li)
+	window.scrollTo(0, document.body.scrollHeight)
+	return false //don't actually post the form
+	}
     function getDexterStatus() {
 	ws.send("1 " + (count++) + " 1 undefined g ;")
-	setTimeout(function(){getDexterStatus()},interval)
 	}
+    pulse = setInterval(function(){getDexterStatus()},interval)
     function displayStatus(ip,data) {
-	var stat = document.getElementById('stat')
+	var stat = byID('stat')
 	stat.innerHTML = ip_address + " Job: " + data[0]+" No: " + data[1] + " Op: " + String.fromCharCode(data[4])
 	//+data.toString()
 	data = data.slice(10,60)
