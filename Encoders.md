@@ -18,3 +18,7 @@ Because there are over a million possible positions for each joint, the entire d
 A single real world value read from the joints A2D converter is matched against that table. And the address in the table is incremented if the value is smaller, decremented if it's larger. As a result it is constantly vibrating between the upper and lower bounds, but this is a very very slight movement and can't possibly be seen in the actual position of the robot.
 
 The measured angle derived from this system, is fed into the motor control logic to produce an error signal, which is compensated for by motor commands.
+
+See also:<br>
+https://github.com/JamesNewton/HybridDiskEncoder
+
