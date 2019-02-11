@@ -113,6 +113,8 @@ type in
 `nameserver 8.8.8.8 `
 save it, and then restart.   
 
+- The ethernet adapter on the Xilix chips all come with the same MAC address and IP address. If there is more than one Dexter on the CAT5 network (doesn't apply to WiFi) you will need to edit both. See [Issue 57](https://github.com/HaddingtonDynamics/Dexter/issues/57) for more information. 
+
 # See also
 - https://help.ubuntu.com/lts/serverguide/network-configuration.html General information on Network configuration for servers. Dexter is basically a server. 
 - https://askubuntu.com/questions/971171/how-to-use-putty-to-get-x11-connections-over-ssh-from-windows-to-ubuntu Setting up X Windows on Windows via PuTTY.
