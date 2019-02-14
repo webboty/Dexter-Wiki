@@ -24,7 +24,7 @@ n|"find_index"|FIND_INDEX_CMD||
 o|"replay_movement"|REPLAY_MOVEMENT||
 P|"pid_move_all_joints"|PID_FINEMOVE|Chases a goal position on each joint using the PID control system which must be enabled. Requires [calibration](Encoder-calibration). The goal can change in the middle of the move. Movement is not coordinated so each joint may arrive at the goal at a different time. The standard trapezoidal speed ramping is not used. See "a".|
 p|"find_home_rep"|FIND_HOME_REP_CMD||
-**R**|"move_all_joints_ relative"|MOVEALL_RELATIVE|Q'd. obsolete
+**R**|"move_all_joints_ relative"|MOVEALL_RELATIVE|Q'd. Like 'a' but the joint is moved relative to it's prior position. E.g. `R 0 0 -36000 0 0;` will move joint 3 ccw 10 degrees.
 r|"[read_from_robot](read-from-robot)"<br>[Since v2.3.16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)|READ_CMD<br>[Since 2018.07.26](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)|Reads files or string data from the robot. Also reads and prints locally values from the memory mapped FPGA interface.
 s|"slow_move"|SLOWMOVE_CMD<br>[Since 2018.10.9](https://github.com/HaddingtonDynamics/Dexter/commit/78bc04dfae5166d8889e1fba36540a3de3ea836b#diff-691272021fae98368efb598f8e089c16)||
 S|"[set_parameter](set-parameter-oplet)"|SET_PARAM|Sets many different values
