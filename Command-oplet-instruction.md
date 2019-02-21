@@ -2,6 +2,8 @@ The list of commands or "oplets" that Dexter knows are defined by the [HashInput
 
 This wiki page attempts to expand on those source documents to explain the instructions. **Q'd** instructions are stored in an internal movement FIFO by DexRun.c and executed sequentially. Other instructions are executed as soon as they are recieved. 
 
+Note that non-movement instructions may not have any effect until a move instruction is sent. This helps to coordinate movement with things like end effector actuation. However, it can be confusing if you just want to e.g. turn a laser end effector on and off and nothing happens. Just send a move all joints with the current joint positions to enable your other commands.
+
 &nbsp; | DDE name | DexRun | Description
 --- | --- | --- | ---
 **a**|"move_all_joints"|MOVEALL_CMD|Q'd. Arguments: 5 to 7 goal joint angles. The goal can not be changed during the move. Trapezoidal speed ramping is used with coordination so all the joints arrive at their goals at the same time. Acceleration, MaxSpeed, and StartSpeed can be set via the ["S" SetParameter oplet](set-parameter-oplet). Does not require calibration, works even in Open Loop mode (w/ lower accuracy).
