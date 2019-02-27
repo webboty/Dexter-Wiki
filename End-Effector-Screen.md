@@ -47,7 +47,7 @@ The back surface at the top can come in about 0.265 from the top at a height of 
 
 ## IDE Setup
 To program the Tinyscreen+, install the Arduino IDE and then, under Files / Preferences click the boxes to the right of the "Additional Boards Manager URLs" and add 
-<BR>`https://tiny-circuits.com/Downloads/ArduinoBoards/package_tinycircuits_index.json` on a separate line. (Note: The original Tinyscreen without the + is just an Arduino Pro / Pro Mini clone, but the Tinyscreen+ is a SAMD processor, which is not supported by the base IDE)
+<BR>`https://tiny-circuits.com/Downloads/ArduinoBoards/package_tinycircuits_index.json` on a separate line. (Note: The original Tinyscreen without the + is just an 3.3 volt, 8Mhz, Arduino Pro / Pro Mini clone, but the Tinyscreen+ is a SAMD processor, which is not supported by the base IDE)
 
 Select Tools / Boards / Boards Manager... (scroll to the top) and search for SAMD. Select "Arduino SAMD Boards (32-bits ARM Cortex-M0+), and click Install. Once that is finished search for Tinyscreen and install the "Tinycircuits SAMD Boards". You may receive a warning that Windows is unable to verify the publisher during the install. Once the board files are installed, under Tools / Boards, (scroll down) select Tinyscreen+.
 
