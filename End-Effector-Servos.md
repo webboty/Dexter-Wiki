@@ -14,7 +14,7 @@ The firmware was [changed May 29th on the TDInt branch](../commit/42df0e01285ef8
 
 Communications are at 115,200 baud. Joint 4 is Servo ID 3, and Joint 5 is Servo ID 1 on the Dynamixel Protocol 2.0 bus. The following Arduino program will setup the 
 
-````
+````C++
 // ========================================
 // Dynamixel XL-320 Setup for Dexter
 // ========================================
