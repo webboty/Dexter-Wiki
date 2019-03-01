@@ -12,7 +12,9 @@ Data for the servo bus comes from the main controller board. See the [Tool Inter
 
 The firmware was [changed May 29th on the TDInt branch](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) to accept servo commands via the [Set Parameter](set-parameter-oplet) command and to include measured angle and force data via the returned [status data](status-data)
 
-Communications are at 115,200 baud. Joint 4 is Servo ID 3, and Joint 5 is Servo ID 1 on the Dynamixel Protocol 2.0 bus. The following Arduino program will setup the 
+Communications are at 115,200 baud. Joint 4 is Servo ID 3, and Joint 5 is Servo ID 1 on the Dynamixel Protocol 2.0 bus. The following Arduino program will setup the servos for use in Dexter.
+
+### Servo Setup
 
 ````C++
 // ========================================
