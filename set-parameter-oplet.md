@@ -25,8 +25,8 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |20 | "**J5BoundryHigh**" | 180 / -180-180 | deg / arcsec| integer | 
 |21 | "**J5BoundryLow**" | 180 / -180-180 | deg / arcsec| integer | 
 |22 | "**GripperMotor**" |  |  | | Set mode to use standard servo (not Dynamixel) as the 6th / 7th axis for Tool interface.
-|23 | "**EERoll**" |  |  | | 6th axis position / Tool Interface Roll (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
-|24 | "**EESpan**" |  |  | | 7th axis position / End Effector actuation (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
+|23 | "**EERoll**" | 512 / 0~1023 | deg / 0.29*deg | | 6th axis position / Tool Interface Roll (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
+|24 | "**EESpan**" | 0 / 0~1023 | deg / 0.29*deg | | 7th axis position / End Effector actuation (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
 |25 | "**StartSpeed**" |  |  | | Velocity at start (and currently, the end as well) of the next move in "nbits"<sup><a href="#1">1</a></sup>
 |26 | "**EndSpeed**" |  |  | | (not implemented) Currently StartSpeed is the speed for both the start and end of each move. 
 |27 | "**ServoSet2X**" |  |  | | Address, Register, Value (as of [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) was "End")  see: [Servo](End-Effector-Servos)
