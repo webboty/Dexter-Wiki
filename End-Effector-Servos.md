@@ -8,7 +8,7 @@ Pin | Signal
  2 | VDD 
  3 | DATA 
 
-Data for the servo bus comes from the main controller board. See the [Tool Interface](End-Effectors) page for more on that wiring.
+Data for the servo bus comes from the main controller board. See the [Tool Interface](End-Effectors) page, <a href="https://github.com/HaddingtonDynamics/Dexter/wiki/End-Effectors#version-2">Version 2 section</a> for more on that wiring.
 
 The firmware was [changed May 29th on the TDInt branch](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) to accept servo commands via the [Set Parameter](set-parameter-oplet) command and to include measured angle and force data via the returned [status data](status-data)
 
