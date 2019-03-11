@@ -23,7 +23,7 @@ The standard going forward will be a new tool interface which incorporates 2 [Dy
 <BR>The Tinyscreen+ will listen on the servo bus and may return data there or via the dedicated return data line.
 
 Signals from the Dexter [Motor Control PCB](Motor-Control-PCB) to the Tool Interface:
-- Ground (P25 pin 1)
+- Ground (J25 pin 1, top pin)
 - Logic power +5 Volts (J25 pin 2, the bottom pin). Note: Although out of spec, this actually appears to work very well as a power supply for the servos, making the next signal unnecessary.
 - Supply power (18V DC from AC adapter J25?), regulated to Servo power voltage (6 - 8.75V) at the interface by the servo power supply board  See: [Parts](https://octopart.com/bom-tool/4UgoKwTw), [source](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=da6dc9e512), [Schematic and PCB design](https://workspace.circuitmaker.com/Projects/Details/James-Newton-2/Dexter-Tool-Interface-Servo-Power-Supply). Note: The +5 supply line appears to work fine. 
 - Servo data bus, bidirectional. AUX1 via J20 (bottom pin, on bottom connector left side of motor board)
