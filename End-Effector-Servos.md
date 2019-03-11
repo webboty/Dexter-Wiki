@@ -1,14 +1,14 @@
-The new [Tool Interface](End-Effectors) for end effectors incorporates 2 [Dynamixel XL-320 servos](http://support.robotis.com/en/product/actuator/dynamixel_x/xl_series/xl-320.htm) which use a [single wire, half duplex, serial interface](http://support.robotis.com/en/product/actuator/dynamixel_x/xl-series_main.htm) and a data format known as the [Dynamixel v.20 Protocol](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm). These become the 6th and 7th axis for the robot.
+The new [Tool Interface](End-Effectors) for end effectors incorporates 2 [Dynamixel XL-320 servos](http://support.robotis.com/en/product/actuator/dynamixel_x/xl_series/xl-320.htm) which use a [single wire, half duplex, serial interface](http://support.robotis.com/en/product/actuator/dynamixel_x/xl-series_main.htm) and a data format known as the [Dynamixel v.20 Protocol](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm). These become the 6th and 7th axis for the robot. Data for the servo bus comes from the main controller board.
 
 The connector on the servo is a Molex Microlatch 3 pin. For a PCB, the mating part is the [Molex 53253-0370](https://www.mouser.com/ProductDetail/Molex/53253-0370?qs=sGAEpiMZZMs%252bGHln7q6pm%2fK1Y9dcUIE1bkILUHD%2fB%252bE%3d)
 
-Pin | Signal 
---- | ---- 
- 1 | GND (nearest the feedhorn)
- 2 | VDD 
- 3 | DATA 
+Pin | Signal @Servo | Signal @[MicroZed Board](MicroZed)
+--- | ---- | ---
+ 1 | GND (nearest the feedhorn) | J25 top pin
+ 2 | VDD | J25 bottom pin*
+ 3 | DATA | J20 bottom pin "AUX2"
 
-Data for the servo bus comes from the main controller board. See the [Tool Interface](End-Effectors) page, <a href="https://github.com/HaddingtonDynamics/Dexter/wiki/End-Effectors#version-2">Version 2 section</a> for more on that wiring.
+*See the [Tool Interface](End-Effectors) page, <a href="https://github.com/HaddingtonDynamics/Dexter/wiki/End-Effectors#version-2">Version 2 section</a> for more on that wiring / power supply.
 
 The firmware was [changed May 29th on the TDInt branch](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) to accept servo commands via the [Set Parameter](set-parameter-oplet) command and to include measured angle and force data via the returned [status data](status-data)
 
@@ -27,7 +27,7 @@ Communications are at 115,200 baud. Joint 4 is Servo ID 3, and Joint 5 is Servo 
 
 // Name your robot!
 XL320 robot;
-int servoID = 3; //desired servo ID number (1 or 3 for Dexter)
+int servoID = 3; //desired servo ID number (1 "span" or 3 "roll" for Dexter)
 
 void setup() {
 
