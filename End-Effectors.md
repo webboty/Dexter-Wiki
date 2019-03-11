@@ -1,5 +1,5 @@
 Table of contents:
-- <a href="#tool-interfaces"> Tool Interfaces </a> <a href="#version-2">Version 2</a>
+- <a href="#tool-interfaces"> Tool Interfaces</a>: <a href="#version-1">Version 1: RC servos</a> or <a href="#version-2">Version 2: Dynamixel servos</a> 
 - <a href="#end-effectors"> End Effectors </a>
 - <a href="#see-also"> See also </a>
 
