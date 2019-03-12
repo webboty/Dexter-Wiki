@@ -7,10 +7,25 @@ DDE allows users to develop and run software on multiple platforms to control th
 
 ### Windows
 Download and run the .exe
+
 ### Ubuntu
 1. In the Documents folder, create a subfolder called "dde_apps".
 2. Download the AppImage file, change the execution permissions, and start it.
 <img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/DDE/doc/installDDEUbuntu.png">
+
+### On Dexter
+In this case, we don't need to make a distributable package, we just want to run it. So instead of installing the Electron package, we just install the source and use npm to pull in the dependencies. Note: This requires the 16.04 version of the operating system on Dexter.
+````
+$ git clone https://github.com/cfry/dde
+$ cd dde
+$ npm i
+$ npm run start
+````
+A "dde_apps" folder must be created under the "/root" folder (alongside Documents, not in it) for the DDE application.
+
+Setting the dexter0 ip address to `localhost` in the `/root/dde_init.js` file allows local connection of DDE to DexRun. The program takes a while to load (need faster SD Card and interface?) but operation isn't horribly slow on the Lubuntu desktop.
+
+### 
 
 ## Programming notes:
 
