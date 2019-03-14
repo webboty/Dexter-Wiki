@@ -2,18 +2,18 @@
 
 DDE allows users to develop and run software on multiple platforms to control the Dexter 5 axis robot arm. In addition to providing standard robot control functions like [kinematics](Kinematics), it is fundamentally a JavaScript development environment with lots of extensions. See [DexRun-DDE-communications](DexRun-DDE-communications) for more detail about the communications between DDE and Dexter.
 
-## Install
+## Install DDE
 [Links to current LTS and other versions](https://github.com/HaddingtonDynamics/Dexter/blob/master/DDE/README.md)
 
-### Windows
+### DDE on Windows
 Download and run the .exe
 
-### Ubuntu
+### DDE on Ubuntu
 1. In the Documents folder, create a subfolder called "dde_apps".
 2. Download the AppImage file, change the execution permissions, and start it.
 <img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/DDE/doc/installDDEUbuntu.png">
 
-### On Dexter
+### DDE on Dexter
 In this case, we don't need to make a distributable package, we just want to run the source. And having the source directly run means we can develop on Dexter and also use parts of it in other ways (see Job Engine below). So instead of installing the Electron package, we just install the source and use npm to pull in the dependencies. Note: This requires the 16.04 version of the operating system on Dexter.
 ````
 $ git clone https://github.com/cfry/dde
@@ -21,19 +21,39 @@ $ cd dde
 $ npm i
 $ npm run start
 ````
-A "dde_apps" folder must be created under the "/root" folder (alongside Documents, not in it) for the DDE application.
+Of course, the GUI part of the app will only be visible with an X-Server running and since Dexter does not have a video adapter, this must be a remote the [X-Windows Desktop](Dexter-Networking#x-windows). On the current images, an icon is provided to launch DDE from the desktop when logged in via X-Windows. The program takes a while to load (need faster SD Card and interface?) but operation isn't horribly slow.
 
-Setting the dexter0 ip address to `localhost` in the `/root/dde_init.js` file allows local connection of DDE to DexRun. The program takes a while to load (need faster SD Card and interface?) but operation isn't horribly slow.
+A "dde_apps" folder is created under the "/root" folder (alongside Documents, not in it) for the DDE application. Setting the dexter0 ip address to `localhost` in the `/root/dde_apps/dde_init.js` file allows local connection of DDE to DexRun. 
 
-#### Job Engine
+### Job Engine on Dexter
 
-To run DDE jobs without the full DDE GUI interface, you can start them from `~/Documents/dde` with the command:<br>
+To run DDE jobs without the full DDE GUI interface, e.g. via [SSH](Dexter-Networking#shell-access-via-ssh), you can start them from `~/Documents/dde` with the command:<br>
 `node  core  define_and_start_job  job_file.dde`
 
-Before this will work, you need a `/root/Documents/dde_apps` folder. When run for the first time, the job engine will create a `dde_init.js` file in that folder. (note this is different than for the GUI DDE on Dexter which is in `/root/dde_init.js`)
+**Job Engine Initialization:** When run for the first time, the job engine creates a `dde_init.js` file in the `/root/Documents/dde_apps` folder. (note this is different than for the GUI DDE on Dexter which is in `/root/dde_init.js`). The job engine defaults to simulate, so the jobs don't actually make the robot move until the dde_init file is edited to add `,simulate: false` after the IP address in the definition of dexter0. The IP address is set to `localhost` so it will work no matter what IP address Dexter is actually assigned.
 
-Note: The job engine defaults to simulate, so the jobs won't actually make the robot move until you edit `/root/Documents/dde_apps/dde_init.js` to add `,simulate: false` after the IP address in the definition of dexter0. You should also change the IP address to `localhost` so it will work no matter what IP address Dexter is actually assigned.
+`/root/Documents/dde_apps/dde_init.js`:
+````Javascript
+persistent_set("ROS_URL", "localhost:9090") //required property, but you can edit the value.
+persistent_set("default_dexter_ip_address", "localhost") //required property but you can edit the value.
+persistent_set("default_dexter_port", "50000") //required property, but you can edit the value.
+new Dexter({name: "dexter0", simulate: false}) //dexter0 must be defined.
+````
 
+When you 'run a job' as defined above, it sets window.platform to "node". If you are in dde, `window.platform == "dde"` will evaluate to true. That means you can customize any code written based on this "platform" i.e.
+````Javascript
+if(window.platform == "node")      { /* hey I'm in node. */ }
+else if (window.platform == "dde") { /* we're in dde! */ }
+````
+
+The system software takes advantage of this. One important case is that the "out" function is defined as:
+````Javascript
+function out(val="", color="black", temp=false, code=null){
+    if(window.platform == "node") { console.log(val) }
+    else { do formatting and print to DDE's Output pane }
+}
+````
+Thus when running on node, 'out' only pays attention to its first arg, and it sends the first arg directly to the console.
 
 ## Programming notes:
 
