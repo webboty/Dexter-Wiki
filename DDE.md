@@ -50,7 +50,7 @@ The system software takes advantage of this. One important case is that the "out
 ````Javascript
 function out(val="", color="black", temp=false, code=null){
     if(window.platform == "node") { console.log(val) }
-    else { do formatting and print to DDE's Output pane }
+    else { /* do formatting and print to DDE's Output pane */ }
 }
 ````
 Thus when running on node, 'out' only pays attention to its first arg, and it sends the first arg directly to the console.
