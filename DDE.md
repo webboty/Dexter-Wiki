@@ -14,7 +14,7 @@ Download and run the .exe
 <img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/DDE/doc/installDDEUbuntu.png">
 
 ### On Dexter
-In this case, we don't need to make a distributable package, we just want to run it. So instead of installing the Electron package, we just install the source and use npm to pull in the dependencies. Note: This requires the 16.04 version of the operating system on Dexter.
+In this case, we don't need to make a distributable package, we just want to run the source. And having the source directly run means we can develop on Dexter and also use parts of it in other ways (see Job Engine below). So instead of installing the Electron package, we just install the source and use npm to pull in the dependencies. Note: This requires the 16.04 version of the operating system on Dexter.
 ````
 $ git clone https://github.com/cfry/dde
 $ cd dde
@@ -23,9 +23,17 @@ $ npm run start
 ````
 A "dde_apps" folder must be created under the "/root" folder (alongside Documents, not in it) for the DDE application.
 
-Setting the dexter0 ip address to `localhost` in the `/root/dde_init.js` file allows local connection of DDE to DexRun. The program takes a while to load (need faster SD Card and interface?) but operation isn't horribly slow on the Lubuntu desktop.
+Setting the dexter0 ip address to `localhost` in the `/root/dde_init.js` file allows local connection of DDE to DexRun. The program takes a while to load (need faster SD Card and interface?) but operation isn't horribly slow.
 
-### 
+#### Job Engine
+
+To run DDE jobs without the full DDE GUI interface, you can start them from `~/Documents/dde` with the command:<br>
+`node  core  define_and_start_job  job_file.dde`
+
+Before this will work, you need a `/root/Documents/dde_apps` folder. When run for the first time, the job engine will create a `dde_init.js` file in that folder. (note this is different than for the GUI DDE on Dexter which is in `/root/dde_init.js`)
+
+Note: The job engine defaults to simulate, so the jobs won't actually make the robot move until you edit `/root/Documents/dde_apps/dde_init.js` to add `,simulate: false` after the IP address in the definition of dexter0. You should also change the IP address to `localhost` so it will work no matter what IP address Dexter is actually assigned.
+
 
 ## Programming notes:
 
