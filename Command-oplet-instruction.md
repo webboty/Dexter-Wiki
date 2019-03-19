@@ -8,7 +8,7 @@ Note that non-movement instructions may not have any effect until a move instruc
 --- | --- | --- | ---
 **a**|"move_all_joints"|MOVEALL_CMD|Q'd. Arguments: 5 to 7 goal joint angles. The goal can not be changed during the move. Trapezoidal speed ramping is used with coordination so all the joints arrive at their goals at the same time. Acceleration, MaxSpeed, and StartSpeed can be set via the ["S" SetParameter oplet](set-parameter-oplet). Does not require calibration, works even in Open Loop mode (w/ lower accuracy).
 **b**|"move_to"|n/a|Q'd. obsolete. See "M"
-B|"set_boundries"|SET_ALL_BOUNDRY|10 args: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow.
+B|"set_boundries"|SET_ALL_BOUNDRY|10 args: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow. Set individually with ["S" oplet subcommands](set-parameter-oplet)
 c|"capture_ad"|CAPTURE_AD_CMD|
 d|"dma_read"|DMAREAD_CMD|Writes the FPGA DMA data into the specified file. 3 args: Address, Length, Filename.
 e|"cause_dexter_error"|n/a|Used only in DDE
