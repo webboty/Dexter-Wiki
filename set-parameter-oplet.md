@@ -14,7 +14,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |9 | "**J2Friction**" | 5 / 0-50 | unitless | fixed point? | 
 |10 | "**J4Friction**" | 15 / 0-150 | unitless | fixed point? | 
 |11 | "**J5Friction**" | 15 / 0-150 | unitless | fixed point? | 
-|12 | "**J1BoundryHigh**" | 180 / -180-180 | deg / arcsec| integer | 
+|12 | "**J1BoundryHigh**" | 180 / -180-180 | deg / arcsec| integer | Set all Boundaries at once with "B" [Oplet](Command-oplet-instruction)
 |13 | "**J1BoundryLow**" | 180 / -180-180 | deg / arcsec| integer | 
 |14 | "**J3BoundryHigh**" | 180 / -180-180 | deg / arcsec| integer | 
 |15 | "**J3BoundryLow**" | 180 / -180-180 | deg / arcsec| integer | 
