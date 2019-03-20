@@ -75,11 +75,15 @@ The incoming socket handler should not assume that each packet of data received 
 
 ## Keywords
 
+There are special "file names" which start with the "#" symbol (and therefore can not be actual names in the file system) which return data which might not fit in a single socket payload. The read_from_robot functionality allows this data to be returned as if it were from a file, by transferring multiple blocks. 
+
 Keyword | Datatype | Description | Sample
 --- | --- | --- | ---
   #POM |  ascii JSON, 4x4 matrix of floats | **P**osition and **O**rientation **M**atrix. (Was #XYZ) First three columns are the orientation unit vectors for the x, y, and z axes last column is xyz position in microns. The 4th row is always [0, 0, 0, 1] to maintain transformation matrix format. | `"[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]]"`
   #EyeNumbers | ascii, 5 space delimited integers | Each encoder can measure where it is in the current eye but has to keep track of when it transitions between eyes. These 5 values are the indices for which eye number each encoder is on.| `"5 5 5 5 5"`
+  #RawEncoders | ascii JSON, 5 integers | RawEncoders is the uncorrected data about each joints position, prior to calibration. It does not take into account the slight changes in the "eye" from one slot to the next, or any mispositioning of the eye center. | `"[14319360, 596611840, 2108160, -1794560, -172800]"`
+ #measured_angles | ascii JSON, 5 integers | The measured angles | `"[0, 0, 0, 0, 0]"`
 
 ## Read from FPGA memory
 
-This has an internal debug function which reads and prints to the local console values from the FPGA memory mapped IO. In that case, the first parameter is the address and the second the length. For example, `r 0 20` will display the first 20 memory values which list the types of the I/O data passed in the higher addresses. Each value encodes the width and the type of each interface. The number of interfaces will be obvious by the number of non-zero values returned. E.g. If there are 12 interfaces, the first 12 values will be non-zero, and the rest zero. This can help making sure you have the correct firmware by looking for a match with the INPUT_OFFSET value in the DexRun.c code. 
+This has an internal debug function which reads and prints to the local console values from the FPGA memory mapped IO. In that case, the first parameter is the address and the second the length. For example, `r 0 20` will display, on the stdout console (not returned via the socket), the first 20 memory values which list the types of the I/O data passed in the higher addresses. Each value encodes the width and the type of each interface. The number of interfaces will be obvious by the number of non-zero values returned. E.g. If there are 12 interfaces, the first 12 values will be non-zero, and the rest zero. This can help making sure you have the correct firmware by looking for a match with the INPUT_OFFSET value in the DexRun.c code. 
