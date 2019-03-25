@@ -102,3 +102,10 @@ At this point, the new partition table is in place, but the data on the disk doe
 resize2fs /dev/mmcblk0p2
 ````
 At this point, everything is done; `lsblk` should show the new partition size and `df -h` should show that you have additional space on the file system.
+
+## History
+2017/00/00 The original image was based on Xilinux 1.3 which is basically Lubuntu 12. 
+
+2019/03/08 a new version was released based on Xilinux 2.0 which is basically Lubuntu 16.04. 
+
+To find which version you are running, if you can [SSH into Dexter](https://github.com/HaddingtonDynamics/Dexter/wiki/Dexter-Networking#shell-access-via-ssh), run a `lsb_release -a` command. We strongly recommend upgrading to the latest image if at all possible, and using a new SD card will both allow you to maintain your old one as a backup, but also refresh the SD card as FLASH memory does have a limited lifetime. 
