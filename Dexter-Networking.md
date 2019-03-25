@@ -8,11 +8,11 @@ Table of contents:
 - <a href="#see-also"> See also </a>
 
 # Connection
-Dexter has an RJ-45 connector for CAT5 Ethernet connection. Because of issues with the Linux stack, WiFi adapters are not supported (as of September 2018). Although Dexter does have the ability to connect directly to the internet via a CAT5 cable to a local router, the easiest way to connect from a PC is to simply connect that CAT5 cable directly between the network port on the PC and Dexter. This is perfectly acceptable and works very well. The network adapter on the PC should be configured to the 192.168.1. network. 
+Dexter has an RJ-45 connector for CAT5 Ethernet connection. Because of issues with the Linux stack, WiFi adapters are not supported (as of September 2018). Although Dexter does have the ability to connect directly to the internet via a CAT5 cable to a local router, the easiest way to connect from a PC is to simply connect that CAT5 cable directly between the network port on the PC and Dexter. This is perfectly acceptable and works very well. The network adapter on the PC should be configured to the 192.168.1. network. (Since 201903, the [SD card image](https://github.com/HaddingtonDynamics/Dexter/wiki/SD-Card-Image) supports both 192.168.1 and 192.168.0 networks at the same time)
 
 # IP Address
 ## Fixed IP
-Dexter normally defaults to 192.168.1.142 so any other address is fine for the PC adapter. The PC's wifi adapter can remain connected to local WiFi at the same time as long as it's assigned IP address is in the same subnet. 
+Dexter normally defaults to 192.168.1.142 so any other address is fine for the PC adapter. (Since 201903, the [SD card image](https://github.com/HaddingtonDynamics/Dexter/wiki/SD-Card-Image) answers on both 192.168.1.142 and 192.168.0.142 at the same time) The PC's wifi adapter can remain connected to local WiFi at the same time as long as it's assigned IP address is in the same subnet. 
 
 To enable both WiFi and CAT5 to Dexter when the WiFi local network isn't on 192.168.1.#: First, download PuTTY or other SSH software (see below for setup and use). Make a note of the local IP address assigned to the WiFi then disconnect from WiFI, CAT5 to Dexter, SSH into Dexter or use a [Serial USB connection](Dexter-USB-Connection). At the command prompt:
 `nano /etc/network/interfaces`
@@ -79,7 +79,7 @@ Terminal is very nice looking, with colors, a clear font, and nice size. It's ev
 
 # File Sharing
 ## SAMBA
-Dexter provides a SAMBA share and an sFTP service for transferring files back and forth, in addition to the socket connection for commands via DexRun. Access the share at `\\<dexters-ip>\share`. Some versions of Windows or some Firewalls may block access to this share. Apparently this is because it isn't password protected.
+Dexter provides a SAMBA share and an sFTP service for transferring files back and forth, in addition to the socket connection for commands via DexRun. Access the share at `\\<dexters-ip>\share`. Some versions of Windows or some Firewalls may block access to this share. Apparently this is because it isn't password protected. See [Issue #58](https://github.com/HaddingtonDynamics/Dexter/issues/58) for issues with Windows 8 / 10. 
 
 ## SFTP
 You can also transfer files via the `/usr/lib/openssh/sftp-server` service but you will need to supply the same username and password. And you will need a client which supports sftp such as<BR>
