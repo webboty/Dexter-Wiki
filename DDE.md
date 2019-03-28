@@ -55,6 +55,10 @@ function out(val="", color="black", temp=false, code=null){
 ````
 Thus when running on node, 'out' only pays attention to its first arg, and it sends the first arg directly to the console.
 
+#### Running .dde files on Dexter from DDE. 
+
+A folder can be created and a systemd path unit[^](https://blog.andrewkeech.com/posts/170809_path.html) setup to send any .dde files dropped into the folder to the job engine, then delete them when finished. Then DDE's [write-to-robot] function can be used to send a .dde file to the folder. See [Issue 60](https://github.com/HaddingtonDynamics/Dexter/issues/60)
+
 ## Programming notes:
 
 **Units:** Note that Dexter uses the metric system of measurement. So all units of distance are in meters. A meter is about 3 feet which is about Dexters full reach at the size Dexter has been made at so far. A tenth of a meter (e.g. 0.1) is about 4 inches which is about the length of your finger. A hundredth of a meter (e.g. 0.01) called a "centimeter"  is a about a half inch (actually closer to 0.4 inches) or about the width of your little finger. And a thousandth of a meter (e.g. 0.001) called a "millimeter" is tiny, about a half of a tenth of an inch or about the thickness of a fingernail.
