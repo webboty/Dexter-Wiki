@@ -68,7 +68,7 @@ Addr | Function          | Description
 61 |  FINE_ADJUST_ANGLE            | "
 62 |  FINE_ADJUST_ROT              | "
 63 |  RECORD_LENGTH                | Length of the recording to be played back
-64 |  END_EFFECTOR_IO              | Controls the configuration of the bits that go to the end effector. See [End-Effectors](End-Effectors)
+64 |  END_EFFECTOR_IO              | Controls the configuration of the bits that go to the end effector.  See [End-Effectors](End-Effectors)
 65 |  SERVO_SETPOINT_A             | PWM value in PWM mode on end effector pins.
 66 |  SERVO_SETPOINT_B             | "
 67 |  BASE_FORCE_DECAY             | How hard the joint tries to return to the commanded position when the position 
