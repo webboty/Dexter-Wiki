@@ -16,6 +16,15 @@ The signals available to the end effector include power, ground, and whatever si
 `Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
 `make_ins("S", "EERoll", 512), //PWN pin. Integer range of 0-512`  TODO: Verify this?
 
+W oplet 64:
+LSB bit 0: 0 is output, 1 in input for the blue wire, bit 1 is high / low for blue wire when it's an output. Bit 2 and 3 do the same for the green wire. Bit 4 and 5 selects between modes for green wire (top). Bits 6 and 7 select modes for blue wire (bottom).
+
+Bit6=1 Bit7=0 = RC PWM on blue (needs bit 0 low, blue wire is output). Bit6=0 Bit7=0 = blue is GPIO Bit6=0 Bit7=1 = blue is high speed PWM value set via BIT 8 to 16s. Bit6=1 Bit7=1 = Dynamixel on blue wire. 
+
+Bit 4=1 Bit 5=0 = RC PWM on green (needs bit 2 low, green wire is output). Bit 4=0 Bit 5=0 green is GPIO. Bit 4=0 Bit 5=1 green is high speed PWM value set via BIT 8 to 16s.
+
+Instead of EESpan and EERoll, it's W oplets 65 and 66.
+
 ## Version 2
 The standard going forward will be a new tool interface which incorporates 2 [Dynamixel XL-320 servos](End-Effector-Servos) and a [Tinyscreen+](End-Effector-Screen) (ARM based, small OLED screen, 4 buttons, lots of IO). One FPGA IO pin will be configured to send and receive data via the [Dynamixel protocol 2.0](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm). This requires an update to the [FPGA](Gateware) image. <BR>
 `Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
