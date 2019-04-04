@@ -24,7 +24,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |19 | "**J4BoundryLow**" | 180 / -180-180 | deg / arcsec| integer | 
 |20 | "**J5BoundryHigh**" | 180 / -180-180 | deg / arcsec| integer | 
 |21 | "**J5BoundryLow**" | 180 / -180-180 | deg / arcsec| integer | 
-|22 | "**GripperMotor**" |  |  | | Set mode to use standard servo (not Dynamixel) as the 6th / 7th axis for Tool interface.
+|22 | "**GripperMotor**" | 500 / 0 - 12000 | PWM | | Set mode to use PWM output on J19 Start with 1, stop with 0.  TODO make ON and OFF widths parameters. See W command 73 - 74.
 |23 | "**EERoll**" | 512 / 0~1023 | deg / 0.29*deg | | 6th axis position / Tool Interface Roll (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
 |24 | "**EESpan**" | 0 / 0~1023 | deg / 0.29*deg | | 7th axis position / End Effector actuation (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
 |25 | "**StartSpeed**" |  |  | | Velocity at start (and currently, the end as well) of the next move in "nbits"<sup><a href="#1">1</a></sup>
