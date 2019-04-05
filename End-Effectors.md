@@ -9,27 +9,40 @@ Table of contents:
 The end point of the standard Dexter robot [hardware](Hardware) is a replaceable "tool interface" It has a shape which makes it easy for other tools to be clicked on and off. There are [spring loaded connectors, sometimes called "pogo pins"](https://www.mouser.com/ProductDetail/855-P70-2300045R) at the end for electrical connection, and space for a Tinyduino if additional processing of the signals is needed.
 
 The signals available to the end effector include power, ground, and whatever signals the [main board](MicroZed) has been configured to produce. Early versions were wired to USB connection. Later version bring out the AUX1 and AUX2 GPIO pins from the FPGA via J20 and J21. These pins can be configured to produce different signals.
-- There is a digital IO pin on the white connectors in the upper right on the back of the motor board<BR>
+
+
 `Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
-`make_ins("S", "GripperMotor", 1), //Digital output pin. 0 = off 1 = 5v` TODO: Verify this?
-- Another pin on that same connector is the PWM output pin.<BR>
+`make_ins("S", "GripperMotor", 1), //Digital output pin. 0 = off 1 = 5v` pin 7 of connector J19 on bottom of PCB. TODO: Verify this?
+
+- There two IO pins on the white connectors in the upper right on the back of the motor board. AUX1 and AUX2 GPIO pins from the FPGA via J20 and J21. On Dexter HD, the J20 pins are brought out to the end effector as the "green" and "blue" wires. Green is the top pin on J20, and blue is the bottom. 
+
+In the original firmware, these were connected to the EERoll and EESpan SetParameter commands. 
 `Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
-`make_ins("S", "EERoll", 512), //PWN pin. Integer range of 0-512`  TODO: Verify this?
+`make_ins("S", "EERoll", 512), //PWN pin. Integer range of 0-512`  
 
-W oplet 64:
-LSB bit 0: 0 is output, 1 in input for the blue wire, bit 1 is high / low for blue wire when it's an output. Bit 2 and 3 do the same for the green wire. Bit 4 and 5 selects between modes for green wire (top). Bits 6 and 7 select modes for blue wire (bottom).
+In [commit 42df0e01285ef8b67764ed53f3cc697df44d4d93](https://github.com/HaddingtonDynamics/Dexter/commit/42df0e01285ef8b67764ed53f3cc697df44d4d93#diff-691272021fae98368efb598f8e089c16R1562), Roll and Span were changed to instead expect Dynamixel servos. However, the wires can still be set manually via the [W oplet](https://github.com/HaddingtonDynamics/Dexter/wiki/oplet-write), at address 64-66. 
 
-Bit6=1 Bit7=0 = RC PWM on blue (needs bit 0 low, blue wire is output). Bit6=0 Bit7=0 = blue is GPIO Bit6=0 Bit7=1 = blue is high speed PWM value set via BIT 8 to 16s. Bit6=1 Bit7=1 = Dynamixel on blue wire. 
+#### W oplet address 64:
 
-Bit 4=1 Bit 5=0 = RC PWM on green (needs bit 2 low, green wire is output). Bit 4=0 Bit 5=0 green is GPIO. Bit 4=0 Bit 5=1 green is high speed PWM value set via BIT 8 to 16s.
+Bit | Wire | Function
+--- | --- | ---
+6, 7 | Blue | `6,7 Mode`<BR>`0,0 GPIO` (see bits 0, 1) <BR>`0,1 PWM` High speed (not for servos) <BR>`1,0 RC PWM` For standard servos <BR>`1,1 Dynamixel` 
+4, 5 | Green | `4,5 Mode`<BR>`0,0 GPIO` (see bits 2, 3) <BR>`0,1 PWM` High speed (not for servos) <BR>`1,0 RC PWM` For standard servos
+3 | Green | Output level: When Tristate is 0 and mode GPIO, 0=low, 1=high
+2 | Green | Tristate 0=output, 1=input
+1 | Blue | Output level: When Tristate is 0 and mode GPIO, 0=low, 1=high
+0 | Blue | Tristate: 0=output, 1=input
 
-Instead of EESpan and EERoll, it's W oplets 65 and 66.
+In PWM modes, the associated tristate bit must be zero, and the duty cycle is set via `W 65 _dutycycle_` or `W 66 _dutycycle_`. Instead of EESpan use `W 65 _dutycycle_` and for EERoll, `W 66 _dutycycle_` The _dutycycle_ value should be 591*degrees+1142000
 
 ## Version 2
 The standard going forward will be a new tool interface which incorporates 2 [Dynamixel XL-320 servos](End-Effector-Servos) and a [Tinyscreen+](End-Effector-Screen) (ARM based, small OLED screen, 4 buttons, lots of IO). One FPGA IO pin will be configured to send and receive data via the [Dynamixel protocol 2.0](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm). This requires an update to the [FPGA](Gateware) image. <BR>
 `Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
 `make_ins("S", "ServoSet2X", 2, char1 + char2<<8, char3+char4<<8)`
 <BR>The Tinyscreen+ will listen on the servo bus and may return data there or via the dedicated return data line.
+
+To move the Dynamixel servos, 
+
 
 Signals from the Dexter [Motor Control PCB](Motor-Control-PCB) to the Tool Interface:
 - Ground (J25 pin 1, top pin)
