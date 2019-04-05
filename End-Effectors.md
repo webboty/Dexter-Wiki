@@ -8,13 +8,18 @@ Table of contents:
 
 The end point of the standard Dexter robot [hardware](Hardware) is a replaceable "tool interface" It has a shape which makes it easy for other tools to be clicked on and off. There are [spring loaded connectors, sometimes called "pogo pins"](https://www.mouser.com/ProductDetail/855-P70-2300045R) at the end for electrical connection, and space for a Tinyduino if additional processing of the signals is needed.
 
-The signals available to the end effector include power, ground, and whatever signals the [main board](MicroZed) has been configured to produce. Early versions were wired to USB connection. Later version bring out the AUX1 and AUX2 GPIO pins from the FPGA via J20 and J21. These pins can be configured to produce different signals.
+The signals available to the end effector include power, ground, and whatever signals the [main board](MicroZed) has been configured to produce. Early versions were wired to USB connection. Later version bring out the AUX1 and AUX2 GPIO pins from the FPGA via J20 and J21 which can be configured to produce different signals. 
 
+### J19 pin 7
+IO pin 7 of connector J19 on bottom of PCB. This is controlled via the GripperMotor SetParameter. e.g.
 
 `Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
-`make_ins("S", "GripperMotor", 1), //Digital output pin. 0 = off 1 = 5v` pin 7 of connector J19 on bottom of PCB. TODO: Verify this?
+`make_ins("S", "GripperMotor", 1), //Digital output pin. 0 = off 1 = 5v`  TODO: Verify this?
 
-- There two IO pins on the white connectors in the upper right on the back of the motor board. AUX1 and AUX2 GPIO pins from the FPGA via J20 and J21. On Dexter HD, the J20 pins are brought out to the end effector as the "green" and "blue" wires. Green is the top pin on J20, and blue is the bottom. 
+The FPGA support high resolution PWM on this pin, via W Oplet address 73 to 75. Bit 0 of W oplet address 75 enables / disables this pin. e.g. `W 73 1` enables it. Address 74 controls the off time, and address 75 controls the on time. 
+
+### J20 / J21 (Blue and Green wires)
+AUX1 and AUX2 GPIO pins from the FPGA via J20 and J21. These are the white connectors in the upper right on the back of the motor board. On Dexter HD, the J20 pins are brought out to the end effector as the "green" and "blue" wires. Green is the top pin on J20, and blue is the bottom. 
 
 In the original firmware, these were connected to the EERoll and EESpan SetParameter commands. 
 `Dexter.move_all_joints(0, 0, 0, 0, 0)`<BR>
@@ -22,7 +27,7 @@ In the original firmware, these were connected to the EERoll and EESpan SetParam
 
 In [commit 42df0e01285ef8b67764ed53f3cc697df44d4d93](https://github.com/HaddingtonDynamics/Dexter/commit/42df0e01285ef8b67764ed53f3cc697df44d4d93#diff-691272021fae98368efb598f8e089c16R1562), Roll and Span were changed to instead expect Dynamixel servos. However, the wires can still be set manually via the [W oplet](https://github.com/HaddingtonDynamics/Dexter/wiki/oplet-write), at address 64-66. 
 
-#### W oplet address 64:
+#### w oplet address 64:
 
 Bit | Wire | Function
 --- | --- | ---
@@ -33,7 +38,9 @@ Bit | Wire | Function
 1 | Blue | Output level: When Tristate is 0 and mode GPIO, 0=low, 1=high
 0 | Blue | Tristate: 0=output, 1=input
 
-In PWM modes, the associated tristate bit must be zero, and the duty cycle is set via `W 65 _dutycycle_` or `W 66 _dutycycle_`. Instead of EESpan use `W 65 _dutycycle_` and for EERoll, `W 66 _dutycycle_` The _dutycycle_ value should be 591*degrees+1142000
+E.g. `w 64 80` sets both wires for RC servo PWM output. 80 = 1010000 binary. 
+
+In PWM modes, the associated tristate bit must be zero, and the duty cycle is set via `w 65 _dutycycle_` or `w 66 _dutycycle_`. Instead of EESpan use `w 65 _dutycycle_` and for EERoll, `w 66 _dutycycle_` The _dutycycle_ value should be 591*degrees+1142000
 
 ## Version 2
 The standard going forward will be a new tool interface which incorporates 2 [Dynamixel XL-320 servos](End-Effector-Servos) and a [Tinyscreen+](End-Effector-Screen) (ARM based, small OLED screen, 4 buttons, lots of IO). One FPGA IO pin will be configured to send and receive data via the [Dynamixel protocol 2.0](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm). This requires an update to the [FPGA](Gateware) image. <BR>
