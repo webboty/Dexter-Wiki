@@ -38,8 +38,8 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |33 | "**J3_PID_P**" | 2 / 0 - 4 | unitless | float | 
 |34 | "**J4_PID_P**" | 0.1 / 0 - 0.5 | unitless | float | 
 |35 | "**J5_PID_P**" | 0.1 / 0 - 0.5 | unitless | float | 
-|36 | <sup>"**AngularSpeed**"</sup> | 30 / 1 - 45 | deg/s / arcsec/s | integer | 
-|37 | <sup>"**AngularSpeedStartAndEnd**"</sup> | 0.1 / 0 - 45 | deg/s / arcsec/s | integer | 
+|36 | <sup>"**AngularSpeed**"</sup> | 30 / 1 - 45 | deg/s / arcsec/s | integer | Speed to ramp up to at given acceleration. Same as MaxSpeed but with human readable units.
+|37 | <sup>"**AngularSpeedStartAndEnd**"</sup> | 0.1 / 0 - 45 | deg/s / arcsec/s | integer | Speed to ramp up from and down to. Same as StartSpeed but with human readable units. 
 |38 | <sup>"**AngularAcceleration**"</sup>  | 0.1 / 0.0003 - 0.1 | deg/s<sup>2</sup> | integer | 
 |39 | <sup>"**CartesianSpeed**"</sup> | 300000 / 10000 - 500000 | micron/s | integer | 
 |40 | <sup>"**CartesianSpeedStart**"</sup> | 0 / 0 - 500000 | micron/s | integer | 
