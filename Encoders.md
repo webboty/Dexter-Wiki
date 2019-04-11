@@ -3,8 +3,15 @@ Encoders provide closed loop feedback of the actual position of each [joint](Joi
 
 <img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/EncoderOverview.png">
 
+### Unit Circle
 There are two light sources and sensors for each disk to provide quadrature directional data. These are placed such that the signals generated are 90 degrees out of phase with each other. This makes them sin and cosine. If they are plotted on a graph, as each slot passes the sensors, they form a circle. 
 
+### ADC Centers
+The light sources can be adjusted to change their intensity. This changes the maximum A2D readings, expanding the circle. Minimum readings, when the light is blocked, might be zero or slightly higher if any light is leading around the disk. The center of the circle must be marked, and those coordinate values are stored in the AdcCenters.txt file in the /srv/samba/share folder. On startup those values are read in by the firmware and set into the FPGA. The robot _must_ be restarted (power cycled) after the file is updated.
+
+_Note: Development of the FPGA code started in the middle and so the numbering of the [joints](Joints) is not consistent. Specifically, when reading (or writing) the AdcCenters.txt file from the [share](Dexter-Networking#file-sharing) folder, the 2nd and 4th, and 3rd and 5th, lines must be swapped_
+
+### Calibration
 During calibration, the signals are recorded in RAM and transferred to the HiMem.dta and memText.txt files on the disk via the ["load_tables" oplet](Command-oplet-instruction) which actually stores the data from the tables. HiMem.dta is binary, the text version of this file is memText.txt. On startup, RAM is automatically [loaded from HiMem.dta](https://github.com/HaddingtonDynamics/Dexter/search?q=himem&unscoped_q=HiMem.dta). 
 
 Each value represents a reading from the A2D at a given angle converted to arctangent (perpendicular from the tangent which is sin/cos) and combined with the slot number. Values are a 32 bits. The top 10(?) bits are the slot number and the bottom 20(?) bits are the interpolated data.
@@ -13,8 +20,10 @@ The lower bits are divided by 2^20th(?) to make a fraction. This the fractional 
 
 The axis data for all the joints are stored sequentially, separated by address. The top 12 bits of the 32 bit address represent the axis. 3FFF FFFF is the maximum address for DRAM in the FPGA. We use 3F00 0000 to 3FFF FFFF for this data. 3F00 0000 to 3F3F FFFF is the first axis, the next axis starts at 3F40... then 3F8, 3FA, 3FE.
 
+### Sliding Window
 Because there are over a million possible positions for each joint, the entire disk's values will not fit in the FPGA at once. Instead, a smaller "sliding window" table with 2k entries, divided into 4 parts, each 512 entries, is loaded with the part of the data that is currently being indexed.
 
+### Table Lookup
 A single real world value read from the joints A2D converter is matched against that table. And the address in the table is incremented if the value is smaller, decremented if it's larger. As a result it is constantly vibrating between the upper and lower bounds, but this is a very very slight movement and can't possibly be seen in the actual position of the robot.
 
 The measured angle derived from this system, is fed into the motor control logic to produce an error signal, which is compensated for by motor commands.
