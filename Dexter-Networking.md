@@ -40,12 +40,14 @@ iface eth0 inet static
 # Shell Access via SSH
 Once you are connected, you can shell into Dexter to update the [firmware](Firmware) or do development in the onboard Linux OS, or just connect via [DDE](DDE) to develop and run jobs. 
 
-To **SSH into Dexter**, you will need an [SSH client](https://en.wikipedia.org/wiki/Comparison_of_SSH_clients) (e.g. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) or [Remmina](https://remmina.org/) for Linux ). Configure the IP address in the client software to [Dexter's IP address](Dexter-Networking#ip-address), set the port to 22, and select SSH. 
+On Windows, to **SSH into Dexter**, you will need an [SSH client](https://en.wikipedia.org/wiki/Comparison_of_SSH_clients) (e.g. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) or [Remmina](https://remmina.org/) for Linux ). Configure the IP address in the client software to [Dexter's IP address](Dexter-Networking#ip-address), set the port to 22, and select SSH. 
 
 Username: `root`
 <br>password: `klg`
 
 Hint: Under Connection / Data you can specify the "Auto-login username" so you don't have to type root every time. 
+
+On Linx or Mac, from the Terminal application type: `ssh root@192.168.1.142` (or whatever IP address Dexter is on) and and when prompted for the password, enter `klg`.
 
 # X-Windows
 It is also possible to run GUI applications via X11 Forwarding either from SSH on Linux or on Windows, from PuTTY via an X-Windows Server program such as [X-Ming](https://en.wikipedia.org/wiki/Xming).
