@@ -47,7 +47,7 @@ Username: `root`
 
 Hint: Under Connection / Data you can specify the "Auto-login username" so you don't have to type root every time. 
 
-On Linx or Mac, from the Terminal application type: `ssh root@192.168.1.142` (or whatever IP address Dexter is on) and and when prompted for the password, enter `klg`.
+On Linux or Mac, from the Terminal application type: `ssh root@192.168.1.142` (or whatever IP address Dexter is on) and when prompted for the password, enter `klg`.
 
 # X-Windows
 It is also possible to run GUI applications via X11 Forwarding either from SSH on Linux or on Windows, from PuTTY via an X-Windows Server program such as [X-Ming](https://en.wikipedia.org/wiki/Xming).
