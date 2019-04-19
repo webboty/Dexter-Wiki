@@ -8,7 +8,40 @@ Table of contents:
 - <a href="#see-also"> See also </a>
 
 # Connection
-Dexter has an RJ-45 connector for CAT5 Ethernet connection. Because of issues with the Linux stack, WiFi adapters are not supported (as of September 2018). Although Dexter does have the ability to connect directly to the internet via a CAT5 cable to a local router, the easiest way to connect from a PC is to simply connect that CAT5 cable directly between the network port on the PC and Dexter. This is perfectly acceptable and works very well. The network adapter on the PC should be configured to the 192.168.1. network. (Since 201903, the [SD card image](https://github.com/HaddingtonDynamics/Dexter/wiki/SD-Card-Image) supports both 192.168.1 and 192.168.0 networks at the same time)
+Dexter has an RJ-45 connector for CAT5 Ethernet connection. Because of issues with the Linux stack, WiFi adapters have not been supported (before Feb 2018). Those were resolved on [the OS 16.04 image](https://github.com/HaddingtonDynamics/Dexter/issues/25), and WiFi adapters DO work, but can be difficult to use. (see below)
+
+## Direct to PC
+Although Dexter does have the ability to connect directly to the internet via a CAT5 cable to a local router, the easiest way to connect from a PC is to simply connect that CAT5 cable directly between the network port on the PC and Dexter. This is perfectly acceptable and works very well. The network adapter on the PC should be configured to the 192.168.1. network. (Since 201903, the [SD card image](https://github.com/HaddingtonDynamics/Dexter/wiki/SD-Card-Image) supports both 192.168.1 and 192.168.0 networks at the same time). 
+
+For instructions to configure your PC CAT5 Network adapter, go into DDE or go to [the HDRobotic.com Software page](http://hdrobotic.com/software) and on the Doc panel, under **User Guide**, **Configure Dexter**, **Data Connection**, follow the directions for your operating system.
+
+## Direct to Network Router
+If you can connect a CAT5 cable between Dexter and your network router, Dexter will have access to NTP time, and can be reached from any PC in your internal network (assuming your router allows it). If your network is 192.168.1 or 192.168.0 this should work as long as no other device is at 192.168.x.142. You may need to change Dexters fixed IP address, or change Dexter to DHCP. (see below)
+
+## WiFi 
+If your [SD Card](SD-Card-Image) is up to date, you should be able to install a WiFi adapter via the USB Host connection on the [MicroZed board](MicroZed), and configure it for access to your WiFi router. However, 
+1. The WiFi adapter will overheat next to the stepper drivers, so it's best to install it via a USB A extension cable.
+2. You will need to connect via CAT5 or USB then SSH in to configure the SSID and password for your router. You can use `iwconfig wlan0 essid <name> key s:<password>` or nmcli (see below) from the command line or setup <a href="#x-windows">Remote GUI interface via X-Windows</a> and use the network manager. It's icon is in the bottom right (just left of the time) on the desktop.
+
+### nmcli
+nmcli is the command line version of the network manager GUI. 
+- `nmcli dev wifi` to see available WiFi access points.
+- `nmcli dev wifi connect ESSID_NAME password ESSID_PASSWORD` to add a new connection.
+- `nmcli nm` to see the current status
+- `nmcli c` shows a list of known connections
+- `nmcli c delete id CONNECTION_NAME` will delete the specified connection. 
+
+### Automatic WiFi connection
+To automatically connect to a WiFI access point on startup, you can `sudo nano /etc/network/interfaces` and then add the necessary information there. It should look something like
+````
+auto wlan0
+iface wlan0 inet static
+address ASSIGNED_IP
+netmask 255.255.255.0
+gateway THE_GATEWAY
+wireless-essid YOURSSID
+wireless-key WIRELESSKEY_HERE
+````
 
 # IP Address
 ## Fixed IP
