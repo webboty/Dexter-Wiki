@@ -13,7 +13,7 @@ Dexter has an RJ-45 connector for CAT5 Ethernet connection. Because of issues wi
 ## Direct to PC
 Although Dexter does have the ability to connect directly to the internet via a CAT5 cable to a local router, the easiest way to connect from a PC is to simply connect that CAT5 cable directly between the network port on the PC and Dexter. This is perfectly acceptable and works very well. The network adapter on the PC should be configured to the 192.168.1. network. (Since 201903, the [SD card image](https://github.com/HaddingtonDynamics/Dexter/wiki/SD-Card-Image) supports both 192.168.1 and 192.168.0 networks at the same time). 
 
-For instructions to configure your PC CAT5 Network adapter, go into DDE or go to [the HDRobotic.com Software page](http://hdrobotic.com/software) and on the Doc panel, under **User Guide**, **Configure Dexter**, **Data Connection**, follow the directions for your operating system.
+For instructions to configure your PC's CAT5 Network adapter, go into DDE or go to [the HDRobotic.com Software page](http://hdrobotic.com/software) and on the Doc panel, under **User Guide**, **Configure Dexter**, **Data Connection**, follow the directions for your operating system.
 
 ## Direct to Network Router
 If you can connect a CAT5 cable between Dexter and your network router, Dexter will have access to NTP time, and can be reached from any PC in your internal network (assuming your router allows it). If your network is 192.168.1 or 192.168.0 this should work as long as no other device is at 192.168.x.142. You may need to change Dexters fixed IP address, or change Dexter to DHCP. (see below)
@@ -21,18 +21,19 @@ If you can connect a CAT5 cable between Dexter and your network router, Dexter w
 ## WiFi 
 If your [SD Card](SD-Card-Image) is up to date, you should be able to install a WiFi adapter via the USB Host connection on the [MicroZed board](MicroZed), and configure it for access to your WiFi router. However, 
 1. The WiFi adapter will overheat next to the stepper drivers, so it's best to install it via a USB A extension cable.
-2. You will need to connect via CAT5 or USB then SSH in to configure the SSID and password for your router. You can use `iwconfig wlan0 essid <name> key s:<password>` or nmcli (see below) from the command line or setup <a href="#x-windows">Remote GUI interface via X-Windows</a> and use the network manager. It's icon is in the bottom right (just left of the time) on the desktop.
+2. The USB connector is not reachable if a fan is installed directly over the stepper drivers, so that will need to be moved back.
+3. You will need to connect via CAT5 or USB then SSH in to Dexter and configure the SSID and password to match your router. You can use `iwconfig wlan0 essid <name> key s:<password>` or `nmcli` (see below) from the command line or setup <a href="#x-windows">Remote GUI interface via X-Windows</a> and use the network manager. It's icon is in the bottom right (just left of the time) on Dexter's desktop.
 
 ### nmcli
-nmcli is the command line version of the network manager GUI. 
-- `nmcli dev wifi` to see available WiFi access points.
-- `nmcli dev wifi connect ESSID_NAME password ESSID_PASSWORD` to add a new connection.
-- `nmcli nm` to see the current status
-- `nmcli c` shows a list of known connections
-- `nmcli c delete id CONNECTION_NAME` will delete the specified connection. 
+nmcli is the command line version of the network manager GUI. It can be used to set up WiFi on Dexter.
+- `nmcli dev wifi` to see WiFi access points available to Dexter.
+- `nmcli dev wifi connect ESSID_NAME password ESSID_PASSWORD` to add a new connection to those Dexter knows.
+- `nmcli nm` to see the current status of Dexter's WiFi.
+- `nmcli c` shows a list of connections known to Dexter. 
+- `nmcli c delete id CONNECTION_NAME` will delete the specified connection from Dexters memory. 
 
 ### Automatic WiFi connection
-To automatically connect to a WiFI access point on startup, you can `sudo nano /etc/network/interfaces` and then add the necessary information there. It should look something like
+To automatically connect to a WiFI access point on startup, you can SSH into Dexter, then `sudo nano /etc/network/interfaces` and add the necessary information there. It should look something like
 ````
 auto wlan0
 iface wlan0 inet static
