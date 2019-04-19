@@ -43,6 +43,9 @@ wireless-essid YOURSSID
 wireless-key WIRELESSKEY_HERE
 ````
 
+See also: 
+- https://askubuntu.com/questions/16584/how-to-connect-and-disconnect-to-a-network-manually-in-terminal
+
 # IP Address
 ## Fixed IP
 Dexter normally defaults to 192.168.1.142 so any other address is fine for the PC adapter. (Since 201903, the [SD card image](https://github.com/HaddingtonDynamics/Dexter/wiki/SD-Card-Image) answers on both 192.168.1.142 and 192.168.0.142 at the same time) The PC's wifi adapter can remain connected to local WiFi at the same time as long as it's assigned IP address is in the same subnet. 
