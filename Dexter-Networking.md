@@ -22,7 +22,7 @@ If you can connect a CAT5 cable between Dexter and your network router, Dexter w
 If your [SD Card](SD-Card-Image) is up to date, you should be able to install a WiFi adapter via the USB Host connection on the [MicroZed board](MicroZed), and configure it for access to your WiFi router. However, 
 1. The WiFi adapter will overheat next to the stepper drivers, so it's best to install it via a USB A extension cable.
 2. The USB connector is not reachable if a fan is installed directly over the stepper drivers, so that will need to be moved back.
-3. You will need to connect via CAT5 or USB then SSH in to Dexter and configure the SSID and password to match your router. You can use `iwconfig wlan0 essid <name> key s:<password>` or `nmcli` (see below) from the command line or setup <a href="#x-windows">Remote GUI interface via X-Windows</a> and use the network manager. It's icon is in the bottom right (just left of the time) on Dexter's desktop.
+3. You will need to connect via CAT5 or [Serial USB connection](Dexter-USB-Connection) then SSH in to Dexter and configure the SSID and password to match your router. You can use `iwconfig wlan0 essid <name> key s:<password>` or `nmcli` (see below) from the command line or setup <a href="#x-windows">Remote GUI interface via X-Windows</a> and use the network manager. It's icon is in the bottom right (just left of the time) on Dexter's desktop.
 
 ### Using nmcli to setup WiFi on Dexter.
 nmcli is the command line version of the network manager GUI. It can be used to set up WiFi on Dexter.
