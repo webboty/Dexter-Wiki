@@ -24,7 +24,7 @@ If your [SD Card](SD-Card-Image) is up to date, you should be able to install a 
 2. The USB connector is not reachable if a fan is installed directly over the stepper drivers, so that will need to be moved back.
 3. You will need to connect via CAT5 or USB then SSH in to Dexter and configure the SSID and password to match your router. You can use `iwconfig wlan0 essid <name> key s:<password>` or `nmcli` (see below) from the command line or setup <a href="#x-windows">Remote GUI interface via X-Windows</a> and use the network manager. It's icon is in the bottom right (just left of the time) on Dexter's desktop.
 
-### nmcli
+### Using nmcli to setup WiFi on Dexter.
 nmcli is the command line version of the network manager GUI. It can be used to set up WiFi on Dexter.
 - `nmcli dev wifi` to see WiFi access points available to Dexter.
 - `nmcli dev wifi connect ESSID_NAME password ESSID_PASSWORD` to add a new connection to those Dexter knows.
@@ -32,7 +32,7 @@ nmcli is the command line version of the network manager GUI. It can be used to 
 - `nmcli c` shows a list of connections known to Dexter. 
 - `nmcli c delete id CONNECTION_NAME` will delete the specified connection from Dexters memory. 
 
-### Automatic WiFi connection
+### Automatic WiFi connection by Dexter
 To automatically connect to a WiFI access point on startup, you can SSH into Dexter, then `sudo nano /etc/network/interfaces` and add the necessary information there. It should look something like
 ````
 auto wlan0
