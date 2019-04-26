@@ -103,6 +103,10 @@ resize2fs /dev/mmcblk0p2
 ````
 At this point, everything is done; `lsblk` should show the new partition size and `df -h` should show that you have additional space on the file system.
 
+## Checklist for Making New Image
+- Ensure /etc/network/interfaces is setup for non-DHCP, but fixed IP address.
+- `rm /var/lib/zerotier-one/identity.secret ` <br> `rm /var/lib/zerotier-one/identity.public` <br>so that a new ZeroTeir unique identity will be generated the first time it starts.
+
 ## History
 2017/00/00 The original image was based on Xilinux 1.3 which is basically Lubuntu 12. 
 
