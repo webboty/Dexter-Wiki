@@ -10,10 +10,10 @@ To setup communications between Dexter and your browser, a Node.JS proxy between
 - `nodejs` installed on your local machine<br>
 https://nodejs.org/en/download/
 - `npm` installed on your local machine. It should be installed with node.js but if you `sudo apt install nodejs`, you may need to install it separately. e.g. `sudo apt install npm`
-- Make a folder, and at the command prompt, npm init it and install ws. You can just take the defaults for each question during the init. e.g. 
+- Make a folder, and at the command prompt, npm init it and install ws. You can just take the defaults for most question during the init. You can change the entry point to 'httpd.js'. 
 ````
-mkdir DexProxy
-cd DexProxy
+mkdir dexproxy
+cd dexproxy
 npm init
 npm install ws
 ````
