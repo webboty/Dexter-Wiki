@@ -7,8 +7,9 @@ https://github.com/Kenny2github/scratch-dexter
 https://www.facebook.com/steamaker/videos/577470826025034/
 
 To setup communications between Dexter and your browser, a Node.JS proxy between websockets and [Dexter's raw socket interface](Dexter-Networking) is required. [Node.js and a proxy](nodejs-webserver#a-node-js-websocket-server) is available on the current image, but since it is running from Dexters IP address, the browser will see it as a cross site scripting security vulnerability and refuse to work. Running a Node.JS proxy on localhost, however, is allowed. To set that up:
-- Node.js installed on your local machine<br>
+- `nodejs` installed on your local machine<br>
 https://nodejs.org/en/download/
+- `npm` installed on your local machine. It should be installed with node.js but if you `sudo apt install nodejs`, you may need to install it separately. e.g. `sudo apt install npm`
 - Make a folder, and at the command prompt, npm init it and install ws. You can just take the defaults for each question during the init. e.g. 
 ````
 mkdir DexProxy
