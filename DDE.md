@@ -55,6 +55,8 @@ function out(val="", color="black", temp=false, code=null){
 ````
 Thus when running on node, 'out' only pays attention to its first arg, and it sends the first arg directly to the console.
 
+For more information on the Job Engine, see the [dde/core/job_engine_doc.txt file](https://github.com/cfry/dde/blob/master/core/job_engine_doc.txt)
+
 #### Running .dde files on Dexter from DDE. 
 
 A folder can be created and a systemd path unit[^](https://blog.andrewkeech.com/posts/170809_path.html) setup to send any .dde files dropped into the folder to the job engine, then delete them when finished. Then DDE's [write-to-robot] function can be used to send a .dde file to the folder. See [Issue 60](https://github.com/HaddingtonDynamics/Dexter/issues/60)
