@@ -30,3 +30,5 @@ Once you have all that setup,
 https://scratchx.org/?url=https://kenny2github.github.io/scratch-dexter/ext.js#scratch
 <br>and accept the warning. Drag the black "move all joints" block over into the script area on the right. You can click on "events" above and drag a "when (flag) clicked" over on top of it, then click the green flag on the left or just double click the move all joints block. 
 
+## Examples
+![](https://user-images.githubusercontent.com/419392/57275528-b8690e80-7053-11e9-8ebf-120c13898d7f.png)
