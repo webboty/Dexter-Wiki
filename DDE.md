@@ -30,7 +30,7 @@ A "dde_apps" folder is created under the "/root" folder (alongside Documents, no
 To run DDE jobs without the full DDE GUI interface, e.g. via [SSH](Dexter-Networking#shell-access-via-ssh), you can start them from `~/Documents/dde` with the command:<br>
 `node  core  define_and_start_job  job_file.dde`
 
-**Job Engine Initialization:** When run for the first time, the job engine creates a `dde_init.js` file in the `/root/Documents/dde_apps` folder. (note this is different than for the GUI DDE on Dexter which is in `/root/dde_init.js`). The job engine defaults to simulate, so the jobs don't actually make the robot move until the dde_init file is edited to add `,simulate: false` after the IP address in the definition of dexter0. The IP address is set to `localhost` so it will work no matter what IP address Dexter is actually assigned.
+**Job Engine Initialization:** When run for the first time, the job engine creates a `dde_init.js` file in the `/root/Documents/dde_apps` folder. (note this is different than for the GUI DDE on Dexter which is in `/root/dde_init.js`). If this folder doesn't exist, you will need to create it with `mkdir /root/Documents/dde_apps`. The job engine defaults to simulate, so the jobs don't actually make the robot move until the dde_init file is edited to add `,simulate: false` after the IP address in the definition of dexter0. The IP address is set to `localhost` so it will work no matter what IP address Dexter is actually assigned.
 
 `/root/Documents/dde_apps/dde_init.js`:
 ````Javascript
