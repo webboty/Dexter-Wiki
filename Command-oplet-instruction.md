@@ -1,6 +1,6 @@
 The list of commands or "oplets" that Dexter knows are defined by the [HashInputCMD function](https://github.com/HaddingtonDynamics/Dexter/search?utf8=%E2%9C%93&q=HashInputCMD+filename%3ADexRun.c&type=) in the [DexRun.c](../blob/master/Firmware/DexRun.c) [Firmware](firmware) and are described by [Dexter.instruction_type_to_function_name_map](https://github.com/cfry/dde/search?q=Dexter.instruction_type_to_function_name_map+filename%3Arobot.js&unscoped_q=Dexter.instruction_type_to_function_name_map+filename%3Arobot.js) in DDE. 
 
-This wiki page attempts to expand on those source documents to explain the instructions. **Q'd** instructions are stored in an internal movement FIFO by DexRun.c and executed sequentially. Other instructions are executed as soon as they are recieved. 
+This wiki page attempts to expand on those source documents to explain the instructions. **Q'd** instructions are stored in an internal movement FIFO by DexRun.c and executed sequentially. Other instructions are executed as soon as they are recieved. In addition to this list, the ['w' Write FPGA](oplet-write), and ['S' SetParameter](set-parameter-oplet) oplets also have lists of addresses and sub-commands.
 
 Note that non-movement instructions may not have any effect until a move instruction is sent. This helps to coordinate movement with things like end effector actuation. However, it can be confusing if you just want to e.g. turn a laser end effector on and off and nothing happens. Just send a move all joints with the current joint positions to enable your other commands.
 
