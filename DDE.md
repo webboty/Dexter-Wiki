@@ -27,8 +27,15 @@ A "dde_apps" folder is created under the "/root" folder (alongside Documents, no
 
 ### Job Engine on Dexter
 
-To run DDE jobs without the full DDE GUI interface, e.g. via [SSH](Dexter-Networking#shell-access-via-ssh), you can start them from `~/Documents/dde` with the command:<br>
-`node  core  define_and_start_job  job_file.dde`
+To run DDE jobs without the full DDE GUI interface, e.g. via [SSH](Dexter-Networking#shell-access-via-ssh), you can start them from `/root/Documents/dde` with the command:<br>
+`node core define_and_start_job job_file.dde`<br>
+where `job_file.dde` is replaced with the path and file name of the job file you want to start. 
+
+Jobs can be run on Dexter automatically on startup by appending the following to the /srv/samba/share/RunDexRun script or in /etc/rc.local. The `sleep 5` is required to get DexRun time to start, and `sudo` is required because the startup script doesn't have root access by default.<br>
+````
+cd /root/Documents/dde
+sleep 5 && sudo node core define_and_start_job /srv/samba/share/autoexec.dde
+````
 
 **Job Engine Initialization:** When run for the first time, the job engine creates a `dde_init.js` file in the `/root/Documents/dde_apps` folder. (note this is different than for the GUI DDE on Dexter which is in `/root/dde_init.js`). If this folder doesn't exist, you will need to create it with `mkdir /root/Documents/dde_apps`. The job engine defaults to simulate, so the jobs don't actually make the robot move until the dde_init file is edited to add `,simulate: false` after the IP address in the definition of dexter0. The IP address is set to `localhost` so it will work no matter what IP address Dexter is actually assigned.
 
@@ -59,7 +66,7 @@ For more information on the Job Engine, see the [dde/core/job_engine_doc.txt fil
 
 #### Running .dde files on Dexter from DDE. 
 
-A folder can be created and a systemd path unit[^](https://blog.andrewkeech.com/posts/170809_path.html) setup to send any .dde files dropped into the folder to the job engine, then delete them when finished. Then DDE's [write-to-robot] function can be used to send a .dde file to the folder. See [Issue 60](https://github.com/HaddingtonDynamics/Dexter/issues/60)
+A folder can be created and a systemd path unit[^](https://blog.andrewkeech.com/posts/170809_path.html) setup to send any .dde files dropped into the folder to the job engine, then delete them when finished. Then DDE's [write-to-robot] function can be used to send a .dde file to the folder. See [Issue 60](https://github.com/HaddingtonDynamics/Dexter/issues/60) Versions of DDE after 3.3.0 support running jobs on Dexter via the Jobs menu. 
 
 ## Programming notes:
 
