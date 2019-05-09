@@ -12,7 +12,7 @@ The location of the SD card is VERY difficult to access. It is on the opposite s
 ## Writing a new SD Card Image
 Start by downloading the image file (please contact us for the link, it's too big for github to host) and a program for writing the image ([USB Image Tool](http://www.alexpage.de/usb-image-tool/download/) is small at 0.4MB, open source, and known to work in Windows. [Etcher](https://etcher.io/) has versions for Mac, Linux, and Windows, but is ~60MB). You will need a micro SD card adapter if your PC doesn't have a slot built in, and an 8GB or larger micro SD card.
 
-Open the image file in the program and write it to the SD card. Be very careful to write to the correct card. It is best to start with the card NOT inserted, and then insert it and refresh the list so you can see which card appears. In USB Image Tool, make sure "Device mode" is selected (not "Volume Mode") and click the card, click "Reset", and approve clearing all the partitions and data off the card. Click "Restore" and select the img file. Eject the card from the PC. With Dexter powered off, remove the old card (if present) and insert the freshly written card, then power on. 
+Open the image file in the program and write it to the SD card. Be very careful to write to the correct card. It is best to start with the card NOT inserted, and then insert it and refresh the list so you can see which card appears. In USB Image Tool, on the "Options" tab, you can turn on "Truncate oversized images in device mode..." then make sure "Device mode" is selected (not "Volume Mode") and click the card, click "Reset", and approve clearing all the partitions and data off the card. Click "Restore" and select the img file. Eject the card from the PC. With Dexter powered off, remove the old card (if present) and insert the freshly written card, then power on. 
 
 If you get an "error 32" saying the device is already in use, or "error 6" the issue is likely that the program needs administrative rights. Right click the icon and select "Run as administrator"
 
@@ -61,7 +61,7 @@ To delete partitions:
 **WARNING: You can easily delete your own hard drive letters. But you are a Linux user, so...**
 
 ## SD Card Size
-The images should be just under 8GB in size and should fit on a standard 8GB card, if it is fully empty without any remaining partitions. In some cases however, the card may not actually have a full 8GB of data available. In this case, USB Image Tool will fail, Etcher will very quickly claim to have copied it but only the FAT partition (not the Ubuntu OS on the EXT4 partition) is transferred and (of course) it won't boot.
+The images should be just under <strike>8GB</strike> 16GB in size and should fit on a standard 16GB card, if it is fully empty without any remaining partitions. In some cases however, the card may not actually have a full 16GB of data available. In this case, USB Image Tool will fail, Etcher will very quickly claim to have copied it but only the FAT partition (not the Ubuntu OS on the EXT4 partition) is transferred and (of course) it won't boot. Since we don't really need the empty space at the end of the image, in USB Image Tool, on the "Options" tab, you can turn on "Truncate oversized images in device mode..." and then be sure to set "Device Mode" at the top left.
 
 You can always use a larger (e.g. 16GB card) but a more advanced utility may be able to shrink the partition sizes to "shoehorn" it into the smaller space. "Paragon Backup" is able to do this, but 1) You have to have an SD card that is working (e.g. a 16GB with the 8GB image) so that you can make a backup in their format. 2) Insert the SD Card and manually delete the partition (it will NOT do that automatically even though it says it will) 3) Restore to the SD Card and let it reduce the size when it offers. 
 
@@ -106,6 +106,9 @@ At this point, everything is done; `lsblk` should show the new partition size an
 ## Checklist for Making New Image
 - Ensure /etc/network/interfaces is setup for non-DHCP, but fixed IP address.
 - `rm /var/lib/zerotier-one/identity.secret ` <br> `rm /var/lib/zerotier-one/identity.public` <br>so that a new ZeroTeir unique identity will be generated the first time it starts.
+
+After the image is made, try shrinking it on Ubuntu with <br>
+https://github.com/Drewsif/PiShrink
 
 ## History
 2017/00/00 The original image was based on Xilinux 1.3 which is basically Lubuntu 12. 
