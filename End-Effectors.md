@@ -70,10 +70,23 @@ Multiple signals are available from the [Tinyscreen+](End-Effector-Screen) for m
 # End effectors:
 ## for the Original Tool Interface
 - http://hdrobotic.com/dexter-community/#!/grippers:marker-holder Simple Marker / Pen holder used to write or draw via [DDE's](DDE) DXF.init_drawing and txt.string_to_line functions. Hint: This functionality should allow Dexter to 3D print in the future.
+- [Laser](http://hdrobotic.com/store/hd-gripper-6th-and-7th-axis-force-feedback-and-trainable-brsfj)
+- [Laser with Microscope](http://hdrobotic.com/store/hd-gripper-6th-and-7th-axis-force-feedback-and-trainable-brsfj-9bh6n)
 - http://www.appropedia.org/User:Zsarnold#Enterprise See "Semester 2" A Mantis gripper was adapted to Dexter for a great demo of removing parts from a 3D printer. [Mantis Gripper Design](https://www.thingiverse.com/thing:1480408) and [Dexter adapter files](https://www.thingiverse.com/thing:2877079). Demo setup: [Video](https://www.youtube.com/watch?v=g7vwe5gVP3k), [Images](https://imgur.com/a/42GDrtg), and [DDE code](https://pastebin.com/EKfpEdBR). 
 
 ## New Servo Tool Interface
-- n/a
+- [Curved gripper](http://hdrobotic.com/store/hd-gripper-6th-and-7th-axis-force-feedback-and-trainable)
+- Straight fingered gripper 
+<table><tr><td width=207 valign="top">
+To insert the removable finger into the gripper, and install it into Tool Interface, first turn the knob so that the dial points to the line as shown here:<br>
+<img src="https://user-images.githubusercontent.com/419392/57670426-1baeef80-75c4-11e9-8f35-2c820016c5ce.JPG"  width=207 height=155>
+</td><td width=146 valign="top">
+Then push the finger in until the dial points toward the Tool Interface, and slide it in.<br>
+<img src="https://user-images.githubusercontent.com/419392/57670424-18b3ff00-75c4-11e9-9521-967dbbd6b59b.JPG" width=146 height=155>
+</td></tr></table>
+
+- [Cutting Shears](http://hdrobotic.com/store/hd-gripper-6th-and-7th-axis-force-feedback-and-trainable-brsfj-9bh6n-c7bmw)
+
 
 # See also:
 - Current Tool Interface CAD files (note: this will be replaced): [OnShape](https://cad.onshape.com/documents/2af8ed0e61a34ebf69284c68/w/72caf65e51bde98e456925d2/e/b03fb46577fe162df32757e9), [STL](https://www.thingiverse.com/download:3318346) There is room in the body for wiring and a [Tinyduino ](https://tinycircuits.com/collections/kits/products/tinyduino-basic-kit) interface device which can be attached with [slightly longer bolts](https://www.mcmaster.com/#91251a059/=17p3i1d). 
