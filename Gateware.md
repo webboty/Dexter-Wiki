@@ -16,3 +16,5 @@ The ultra fast update has several benefits:
 3. The position of the motor is actually being dithered around the point it needs to be. We are stepping back and forth over points in between even the microstepping points. Especially on joints 4 and 5. This is where the inductive filtering helps us.
 
 Mainly the group delay is so low that we don’t need any filtering.
+
+Dexters gateware is written in Viva, a graphical system for defining logic. This (very) large picture shows the overview of that logic diagram: (Dexter FPGA logic diagram overview)[https://user-images.githubusercontent.com/419392/57746151-be2ea780-7684-11e9-80b5-95490f015973.png]
