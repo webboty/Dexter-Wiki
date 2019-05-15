@@ -17,4 +17,4 @@ The ultra fast update has several benefits:
 
 Mainly the group delay is so low that we don’t need any filtering.
 
-Dexters gateware is written in Viva, a graphical system for defining logic. This (very) large picture shows the overview of that logic diagram: (Dexter FPGA logic diagram overview)[https://user-images.githubusercontent.com/419392/57746151-be2ea780-7684-11e9-80b5-95490f015973.png]
+Dexters gateware is written in Viva, a graphical system for defining logic. This (very) large picture shows the overview of that logic diagram: [Dexter FPGA logic diagram overview](https://user-images.githubusercontent.com/419392/57746151-be2ea780-7684-11e9-80b5-95490f015973.png)
