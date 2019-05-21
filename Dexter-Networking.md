@@ -91,6 +91,8 @@ It is also possible to run GUI applications via X11 Forwarding either from SSH o
 
 On Linux, just SSH in but add the -X parameter, as in `ssh root@192.168.1.142 -X` and it will forward all X-Windows commands back to the local PC. 
 
+On the MAC `ssh -XCY root@192.168.1.142`
+
 In PuTTY, under Connection / SSH / X11, check "Enable X11 forwarding", set the display location to `localhost:0.0` then save that session. 
 
 ## Individual applications
@@ -100,6 +102,8 @@ In Linux, just run any GUI application on Dexter. On Windows, you can just start
 You can also start the standard Ubuntu desktop with the command: `gnome-session --session=ubuntu-2d &` or for a lighter desktop, try `/usr/bin/startlxde &`. But from Windows, if you have multiple monitors, you may wish to configure XMing to use only one monitor. XMing comes with XLaunch which allows you to configure how XMing display things. On the first "Display settings" panel, select "One window" and then keep the defaults for the other panels. Save that configuration file and use it to launch XMing in the future. 
 
 In Linux, the Dexter desktop show up on the PC desktop, mixing both on the same screen. Luckily, the XDE desktop `/sr/bin/startlxde &` uses the bottom and left corner, and the Ubuntu desktop uses the top and left side, so they co-exist pretty well. It's fun keeping track of which application is running on which device.
+
+In the Mac, the XQuartz application shows up at the top.
 
 ## Easy Desktop
 But the easiest way to set up the full desktop is to use XLaunch to make a workable config file for XMing and then use that config to launch it. 
