@@ -126,11 +126,16 @@ Dexter provides a SAMBA share and an sFTP service for transferring files back an
 
 ## SFTP
 You can also transfer files via the `/usr/lib/openssh/sftp-server` service but you will need to supply the same username and password. 
+
 On Windows you will need a client which supports sftp such as<BR>
 https://winscp.net/eng/download.php
 <BR>Or if you want to integrate SFTP support into the Windows Explorer, you might try:<BR>
 http://www.swish-sftp.org
-<BR>Once installed, just go to "Swish" in the address bar and "Add SFTP Connection". The [Remmina](https://remmina.org/) SSH client (only available on Linux) includes a file transfer function. Be sure to select SFTP as the protocol and change the port to 22. On the MAC you can use Cyberduck. Click on "Open Connection" then change "FTP.." to "SFTP..." and enter the ip address of in the "Server" field. Username "root" and password "klg". The port must be set to 22. 
+<BR>Once installed, just go to "Swish" in the address bar and "Add SFTP Connection". 
+
+The [Remmina](https://remmina.org/) SSH client (only available on Linux) includes a file transfer function. Be sure to select SFTP as the protocol and change the port to 22. 
+
+On the MAC you can use Cyberduck. Click on "Open Connection" then change "FTP.." to "SFTP..." and enter the ip address of in the "Server" field. Username "root" and password "klg". The port must be set to 22. 
 
 If you wish to disable or reconfigure the sftp daemon, see the /etc/ssh folder. Note: SFTP is not at all related to FTP.
 
