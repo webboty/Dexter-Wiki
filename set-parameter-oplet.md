@@ -24,7 +24,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |19 | "**J4BoundryLow**" | 180 / -180-180 | deg / arcsec| integer | 
 |20 | "**J5BoundryHigh**" | 180 / -180-180 | deg / arcsec| integer | 
 |21 | "**J5BoundryLow**" | 180 / -180-180 | deg / arcsec| integer | 
-|22 | "**GripperMotor**" | 0 / 0-1, 0 / 0-12000, 0 / 0-12000 | ON/OFF, ON_PWM, OFF_PWM | bool, int, int | Set PWM output on J19 1st parameter starts PWM with 1, stop with 0.  2nd parameter is on time, 3rd is off time. See W command 73 - 74.
+|22 | "**GripperMotor**" | 0/0-1, 0/0-12000, 0/0-12000 | ON/OFF, ON_PWM, OFF_PWM | bool, int, int | Set PWM output on J19 1st parameter starts PWM with 1, stop with 0. After 2019/05/23: 2nd parameter is PWM on time, 3rd is off time. See W commands 73 - 74.
 |23 | "**EERoll**" | 512 / 0~1023 | deg / 0.29*deg | | 6th axis position / Tool Interface Roll (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
 |24 | "**EESpan**" | 0 / 0~1023 | deg / 0.29*deg | | 7th axis position / End Effector actuation (was standard servo, [May 29,2018](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) changed to [Dynamixel](End-Effector-Servos))
 |25 | "**StartSpeed**" |  |  | | Velocity at start (and currently, the end as well) of the next move in "nbits"<sup><a href="#1">1</a></sup>
