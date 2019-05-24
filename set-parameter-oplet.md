@@ -57,7 +57,15 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 |52 | <sup>**RawEncoderErrorLimits**</sup> | 3600 / 0-1296000 | arcsec | 5 integers | [2019/04/22](https://github.com/HaddingtonDynamics/Dexter/commit/8efff90396c50680f40f52a196b21d2c92cc0088) The largest error allowed between the raw encoder reading of position and the expected position for each joint. Part of the status monitor. Will inject a returned error status on the next command and write out and entry with more information to /srv/samba/share/errors.log
 |53 | **RawVelocityLimits** | 3600 / 0-1296000 | arcsec | 5 integers | [2019/04/22](https://github.com/HaddingtonDynamics/Dexter/commit/8efff90396c50680f40f52a196b21d2c92cc0088) The largest velocity allowed between subsequent readings of the raw encoder position. Part of the status monitor. Will inject a returned error status on the next command and write out and entry with more information to /srv/samba/share/errors.log
 
-<a name="1">Note 1</a> nbits are a value added to a register every clock cycle for a 128Khz clock such that once it overflows, an action will be taken. Converted automatically by DDE [in the socket communications code](https://github.com/cfry/dde/blob/33f06f03167a8c7b443a42ad0b3560df39ed7a17/core/socket.js#L98) for the "MaxSpeed", "StartSpeed", and "Acceleration" parameters. The global constant "_nbits_cf" is 7754.73550222 and the values given are divided by that constant. This converts degrees / second (or degrees / second / second in the case of Acceleration) into nbits. 
+<a name="1">Note 1</a> nbits are a value added to a register every clock cycle for a 128Khz clock such that once it overflows, an action will be taken. Converted automatically by DDE [in the socket communications code](https://github.com/cfry/dde/blob/33f06f03167a8c7b443a42ad0b3560df39ed7a17/core/socket.js#L98) for the "MaxSpeed", "StartSpeed", and "Acceleration" parameters. The global constant "_nbits_cf" is 7754.73550222 and the values given are multiplied by that constant. This converts degrees / second (or degrees / second / second in the case of Acceleration) into nbits. Setting these values too low with effectively lockup the FPGA as it will take far too long to complete a movement.
 
 <a name="2">Note 2</a> Frictions can be fractional, but are limited to a range of +-(256 + 1/256). E.g. 1.1 becomes 1 plus a fractional value of 25/256
+
+Test for new table format:
+
+|# Name | DDE/Human units default(min&rarr;max) | Dexter/robot units default(min&rarr;max) | Description 
+| ----- | ------------------------------------- | ---------------------------------------- | --------
+|0&nbsp;**MaxSpeed** | 30&nbsp;(0.001&rarr;45)deg/s | 232642&nbsp;(8&rarr;348963) integer nbits | Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 250000. See also StartSpeed below.
+|1&nbsp;**Acceleration** | 0.0001&nbsp;(0.0001&rarr;0.1)deg/s<sup>2</sup> | 3&nbsp;(1&rarr;775) integer nbits | Maximum acceleration of next move in  "nbits"<sup><a href="#1">1</a></sup>. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 3.
+
 
