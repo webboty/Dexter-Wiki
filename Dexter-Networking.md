@@ -75,9 +75,9 @@ iface eth0 inet static
 ````
 
 # Shell Access via SSH
-Once you are connected, you can shell into Dexter to update the [firmware](Firmware) or do development in the onboard Linux OS, or just connect via [DDE](DDE) to develop and run jobs. 
+Once you are connected, you can [shell into Dexter](SSH-into-Dexter) to update the [firmware](Firmware) or do development in the onboard Linux OS, or just connect via [DDE](DDE) to develop and run jobs. 
 
-On Windows, to **SSH into Dexter**, you will need an [SSH client](https://en.wikipedia.org/wiki/Comparison_of_SSH_clients) (e.g. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) or [Remmina](https://remmina.org/) for Linux ). Configure the IP address in the client software to [Dexter's IP address](Dexter-Networking#ip-address), set the port to 22, and select SSH. 
+On Windows, to **[SSH into Dexter](SSH-into-Dexter)**, you will need an [SSH client](https://en.wikipedia.org/wiki/Comparison_of_SSH_clients) (e.g. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) or [Remmina](https://remmina.org/) for Linux ). Configure the IP address in the client software to [Dexter's IP address](Dexter-Networking#ip-address), set the port to 22, and select SSH. 
 
 Username: `root`
 <br>password: `klg`
