@@ -1,6 +1,6 @@
 SSH stands for "Secure SHell. It is an application running on a computer that gives you a command line interface to typing in 'shell' commands into another computer such as Dexter's Linux operating system. Here's how to use it to control your Dexter:
 ### All Operating Systems
-1. Connect an Ethernet cable between your computer and the Dexter processor board.
+1. [Connect to your Dexter](https://github.com/HaddingtonDynamics/Dexter/wiki/Dexter-Networking). Usually via an Ethernet cable between your computer (set the network adapter to 192.168.1.100) and the Dexter processor board.
 2. Username: root
 3. password: klg
 ### Windows OS
