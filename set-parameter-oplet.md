@@ -63,9 +63,9 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 
 Test for new table format:
 
-|# Name | DDE/Human units default(min&rarr;max) | Dexter/robot units default(min&rarr;max) | Description 
-| ----- | ------------------------------------- | ---------------------------------------- | --------
-|0,&nbsp;**MaxSpeed** | 30&nbsp;(0.001&rarr;45)deg/s | 232642&nbsp;(8&rarr;348963) integer nbits | Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 250000. See also StartSpeed below.
-|1,&nbsp;**Acceleration** | 0.0001&nbsp;(0.0001&rarr;0.1)deg/s<sup>2</sup> | 3&nbsp;(1&rarr;775) integer nbits | Maximum acceleration of next move in  "nbits"<sup><a href="#1">1</a></sup>. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 3.
+|#, Name <br>(use either) | DDE/Human units min(default)max | Dexter/robot units min(default)max | Description 
+| ----------------------- | ------------------------------- | ---------------------------------- | --------
+|0,&nbsp;**MaxSpeed** | 0.001(30)45 <br>deg/s | 8(250000)348963 <br>integer nbits | Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 250000. See also StartSpeed below.
+|1,&nbsp;**Acceleration** | 0.0001(0.0001)0.1 <br>deg/s<sup>2</sup> | 1(3)775 <br>integer nbits | Maximum acceleration of next move in  "nbits"<sup><a href="#1">1</a></sup>. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 3.
 
 
