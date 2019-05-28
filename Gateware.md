@@ -22,7 +22,7 @@ Mainly the group delay is so low that we don’t need any filtering.
 ### Viva
 Dexters gateware is written in Viva, a graphical system for defining logic. This (very) large picture shows the overview of that logic diagram: [Dexter FPGA logic diagram overview](https://user-images.githubusercontent.com/419392/57746151-be2ea780-7684-11e9-80b5-95490f015973.png)
 
-### Xilinx ISC Toolchain
+### Xilinx ISC
 To program the FPGA on Dexter, you will need to install the Xilinx ISC. We know the 14.6 version works. (14.7 probably works as well, we just haven't tested it.)<br>
 https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/design-tools/archive.html
 - Extract the Xilinx_ISE_DS_Win_14.6_P.68d_3.tar file to a folder.
