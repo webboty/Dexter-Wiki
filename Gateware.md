@@ -13,7 +13,19 @@ https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav
 - Select "ISE Webpack" for installation.
 - Accept the default settings (you can change install location, but make sure it's off a root directory. E.g. D:\Xillinx is fine)
 - Continue to setup the Visual C++ 2008 runtime system
-- 
+- Continue to allow the device drivers to be installed
+
+When the install finishes and the License Configuration Manager appears, 
+- select "Get free Vivado/ISE WebPack license". 
+- You will need to connect, and sign into Xilinx web site (create an account if you don't have one). 
+- Select "ISE WebPack license" and click "Generate Node-Locked License". 
+- Continue through the wizard and complete the license request. 
+- On the "Manage Licenses" screen, press the download arrow icon (lower left corner). 
+- Back in the License Configuration Manager, load the Xilinx.lic file and close.
+ 
+ 
+ 
+
 
 The [SD card image](SD-Card-Image) has multiple partitions, one is the actual hard drive image when running in the robot. Another is the FAT partition which contains UBOOT, ZIMAGE, DTS (Device Tree) and the Gateware .BIT file. [Those can be updated individually](../blob/master/Gateware/README.md). 
 
