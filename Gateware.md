@@ -4,9 +4,16 @@
 
 Dexters gateware configures the [Xilinx Inc. XC7Z010-1CLG400C FPGA](http://www.xilinx.com/support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf) from the image of the [micro SD card](SD-Card-Image) on the [microzed](http://zedboard.org/product/microzed) board. 
 
-We know the 14.6 version of the Xillinx ISC works:<br>
+To program the FPGA on Dexter, you will need to install the Xilinx ISC. We know the 14.6 version works:<br>
 https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/design-tools/archive.html
 <br>14.7 probably works as well, we just haven't tested it.
+- Extract the Xilinx_ISE_DS_Win_14.6_P.68d_3.tar file to a folder.
+- Run the xsetup.exe installer
+- Accept the license terms.
+- Select "ISE Webpack" for installation.
+- Accept the default settings (you can change install location, but make sure it's off a root directory. E.g. D:\Xillinx is fine)
+- Continue to setup the Visual C++ 2008 runtime system
+- 
 
 The [SD card image](SD-Card-Image) has multiple partitions, one is the actual hard drive image when running in the robot. Another is the FAT partition which contains UBOOT, ZIMAGE, DTS (Device Tree) and the Gateware .BIT file. [Those can be updated individually](../blob/master/Gateware/README.md). 
 
