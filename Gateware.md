@@ -22,6 +22,11 @@ Mainly the group delay is so low that we don’t need any filtering.
 ### Viva
 Dexters gateware is written in Viva, a graphical system for defining logic. This (very) large picture shows the overview of that logic diagram: [Dexter FPGA logic diagram overview](https://user-images.githubusercontent.com/419392/57746151-be2ea780-7684-11e9-80b5-95490f015973.png)
 
+To install Viva, 
+- Download the Azido.msi installer and install the program on your system. 
+- Download the SystemDescriptions.zip file and copy the SystemDescriptions folder under the "Azido" install folder. e.g. `C:\Program Files (x86)\Azido\SystemDescriptions` (you may need administrative rights)
+- Run VivaSD.exe, and on the System menu select "Open System" and select the .sd file for the desired system. For Dexter, it would be the OpalKelly subfolder, and the "PMODBCSxAXIuZNObcs.sd" file. This file contains the system descriptions for both the [MicroZed](MicroZed) board and the OpalKelly XEM6002 FPGA board. This board is used as an ICE for the MicroZed board.
+
 ### Xilinx ISC
 To program the FPGA on Dexter, you will need to install the Xilinx ISC. We know the 14.6 version works. (14.7 probably works as well, we just haven't tested it.)<br>
 https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/design-tools/archive.html
