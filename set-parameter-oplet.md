@@ -63,9 +63,9 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 
 Test for new table format:
 
-|#, Name <br>(use either) | min\|default\|max <br>in DDE units | min\|initial\|max <br>in Dexter units  | Description 
+|#, Name <br>(use either) | min\|initial\|max <br>in DDE units | min\|initial\|max <br>in Dexter units  | Description 
 | ----------------------- | ------------------------------- | ---------------------------------- | --------
 |0,&nbsp;**MaxSpeed** | 0.001&nbsp;\|&nbsp;30&nbsp;\|&nbsp;45 <br>deg/s | 8&nbsp;\|&nbsp;[250000](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF)&nbsp;\|&nbsp;348963 <br>integer nbits | Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also StartSpeed below.
-|1,&nbsp;**Acceleration** | 0.0001&nbsp;\|&nbsp;0.0001&nbsp;\|&nbsp;0.1 <br>deg/s<sup>2</sup> | 1&nbsp;\|&nbsp;3&nbsp;\|&nbsp;775 <br>integer nbits | Maximum acceleration of next move in  "nbits"<sup><a href="#1">1</a></sup>. [Default](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF) is 3.
+|1,&nbsp;**Acceleration** | 0.0001&nbsp;\|&nbsp;0.0001&nbsp;\|&nbsp;0.1 <br>deg/s<sup>2</sup> | 1&nbsp;\|&nbsp;[3](https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF)&nbsp;\|&nbsp;775 <br>integer nbits | Maximum acceleration of next move in "nbits"<sup><a href="#1">1</a></sup>. 
 
 
