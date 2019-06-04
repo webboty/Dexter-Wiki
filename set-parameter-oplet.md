@@ -80,7 +80,7 @@ Test for new table format:
 |12,&nbsp;**J1BoundryHigh** | -180&nbsp;\|&nbsp;150&nbsp;\|&nbsp;180 deg | -648000&nbsp;\|&nbsp;540000&nbsp;\|&nbsp;648000 integer arcsec  | Set all Boundaries at once with "B" [Oplet](Command-oplet-instruction)
 |13,&nbsp;**J1BoundryLow** | -180&nbsp;\|&nbsp;-150&nbsp;\|&nbsp;180 deg | -648000&nbsp;\|&nbsp;-540000&nbsp;\|&nbsp;648000 integer arcsec | 
 |14,&nbsp;**J3BoundryHigh** | -180&nbsp;\|&nbsp;150&nbsp;\|&nbsp;180 deg | -648000&nbsp;\|&nbsp;540000&nbsp;\|&nbsp;648000 integer arcsec  | (note order: Joint 3 and 2 are swapped here)
-|15,&nbsp;**J3BoundryLow** | -180&nbsp;\|&nbsp;150&nbsp;\|&nbsp;180 deg | -648000&nbsp;\|&nbsp;540000&nbsp;\|&nbsp;648000 integer arcsec  | 
+|15,&nbsp;**J3BoundryLow** | -180&nbsp;\|&nbsp;-150&nbsp;\|&nbsp;180 deg | -648000&nbsp;\|&nbsp;-540000&nbsp;\|&nbsp;648000 integer arcsec  | 
 |16,&nbsp;**J2BoundryHigh** | -180&nbsp;\|&nbsp;90&nbsp;\|&nbsp;180 deg | -648000&nbsp;\|&nbsp;324000&nbsp;\|&nbsp;648000 integer arcsec  | 
 |17,&nbsp;**J2BoundryLow** | -180&nbsp;\|&nbsp;-90&nbsp;\|&nbsp;180 deg | -648000&nbsp;\|&nbsp;-324000&nbsp;\|&nbsp;648000 integer arcsec  | 
 |18,&nbsp;**J4BoundryHigh** | -180&nbsp;\|&nbsp;90&nbsp;\|&nbsp;180 deg | -648000&nbsp;\|&nbsp;324000&nbsp;\|&nbsp;648000 integer arcsec  | 
