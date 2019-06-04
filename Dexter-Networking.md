@@ -13,7 +13,11 @@ Dexter has an RJ-45 connector for CAT5 Ethernet connection. Because of issues wi
 ## Direct to PC
 Although Dexter does have the ability to connect directly to the internet via a CAT5 cable to a local router, the easiest way to connect from a PC is to simply connect that CAT5 cable directly between the network port on the PC and Dexter. This is perfectly acceptable and works very well. The network adapter on the PC should be configured to the 192.168.1. network. (Since 201903, the [SD card image](https://github.com/HaddingtonDynamics/Dexter/wiki/SD-Card-Image) supports both 192.168.1 and 192.168.0 networks at the same time). 
 
-For instructions to configure your PC's CAT5 Network adapter, go into DDE or go to [the HDRobotic.com Software page](http://hdrobotic.com/software) and on the Doc panel, under **User Guide**, **Configure Dexter**, **Data Connection**, follow the directions for your operating system.
+For instructions to configure your PC's CAT5 Network adapter, go into [DDE](DDE) or go to [the HDRobotic.com Software page](http://hdrobotic.com/software) and on the Doc panel, under **User Guide**, **Configure Dexter**, **Data Connection**, follow the directions for your operating system.
+
+Note: You may find that the WiFi network and the Dexter network need to be on seperate subnets. E.g. If WiFI is using 192.168.1. something, then try setting the CAT5 adapter for Dexter to 192.168.0.142
+
+In most cases, for most users, this is all that is required. You can start using [DDE](DDE) to program your robot. For other options, continue on here... 
 
 ## Direct to Network Router
 If you can connect a CAT5 cable between Dexter and your network router, Dexter will have access to NTP time, and can be reached from any PC in your internal network (assuming your router allows it). If your network is 192.168.1 or 192.168.0 this should work as long as no other device is at 192.168.x.142. You may need to change Dexters fixed IP address, or change Dexter to DHCP. (see below)
