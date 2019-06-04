@@ -65,32 +65,39 @@ Test for new table format:
 
 <table>
  <tr>
-   <td>#, Name <br>(use either) </td>
+   <td>#, <b>Name</b> <br>(use either) </td>
    <td> min|initial|max <br>in DDE units </td>
    <td> min|initial|max <br>in Dexter units  </td>
-   <td> Description </td>
+   </tr>
+ <tr>
+   <td colspan=3>Description </td>
    </tr>
  <tr>
    <td>0,&nbsp;<b>MaxSpeed</b></td>
    <td>0.001&nbsp;|&nbsp;30&nbsp;|&nbsp;45 <br>deg/s</td>
    <td>8&nbsp;|&nbsp;<a href="https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF">250000</a>&nbsp;|&nbsp;348963 <br>integer nbits</td>
-   <td>Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also StartSpeed below. </td>
+   </tr>
+ <tr>
+   <td colspan=3>Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also StartSpeed below. </td>
    </tr>
  <tr>
    <td>1,&nbsp;<b>Acceleration</b> </td>
    <td> 0.0001&nbsp;|&nbsp;0.0001&nbsp;|&nbsp;0.1 <br>deg/s<sup>2</sup> </td>
    <td> 1&nbsp;|&nbsp;<a href="https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF">3</a>&nbsp;|&nbsp;775 <br>integer nbits </td>
-   <td> Maximum acceleration of next move in "nbits"<sup><a href="#1">1</a></sup>. </td>
+   </tr>
+ <tr>
+   <td colspan=3>Maximum acceleration of next move in "nbits"<sup><a href="#1">1</a></sup>. </td>
    </tr>
  <tr>
    <td>2, <b>J1Force</b> </td>
    <td>  </td>
    <td>  </td>
-   <td> How hard each joint tries to return to commanded position in force protect modes </td>
+   </tr>
+ <tr>
+   <td colspan=3>How hard each joint tries to return to commanded position in force protect modes </td>
    </tr>
  <tr>
    <td>3, <b>J3Force</b> </td>
-   <td>  </td>
    <td>  </td>
    <td>  </td>
    </tr>
@@ -98,11 +105,9 @@ Test for new table format:
    <td>4, <b>J2Force</b> </td>
    <td>  </td>
    <td>  </td>
-   <td>  </td>
    </tr>
  <tr>
    <td>5, <b>J4Force</b> </td>
-   <td>  </td>
    <td>  </td>
    <td>  </td>
    </tr>
@@ -110,156 +115,197 @@ Test for new table format:
    <td>6, <b>J5Force</b> </td>
    <td>  </td>
    <td>  </td>
-   <td>  </td>
    </tr>
  <tr>
    <td>7, <b>J1Friction</b> </td>
    <td> 5 unitless </td>
    <td> 0-50 fixed point 8.8 </td>
-   <td> <sup><a href="#2">2</a></sup> The friction felt during FollowMe mode </td>
+   </tr>
+ <tr>
+   <td colspan=3><sup><a href="#2">2</a></sup> The friction felt during FollowMe mode </td>
    </tr>
  <tr>
    <td>8, <b>J3Friction</b> </td>
    <td> 5 unitless </td>
    <td> 0-50 fixed point 8.8  </td>
-   <td>  </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>9, <b>J2Friction</b> </td>
    <td> 5 unitless </td>
    <td> 0-50 fixed point 8.8  </td>
-   <td>  </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>10, <b>J4Friction</b> </td>
    <td> 15 unitless </td>
    <td> 0-150 fixed point 8.8  </td>
-   <td>  </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>11, <b>J5Friction</b> </td>
    <td> 15 unitless </td>
    <td> 0-150 fixed point 8.8  </td>
-   <td>  </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>12,&nbsp;<b>J1BoundryHigh</b> </td>
    <td> -180&nbsp;|&nbsp;150&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;540000&nbsp;|&nbsp;648000 integer arcsec  </td>
-   <td> Set all Boundaries at once with "B" <a href="Command-oplet-instruction">Oplet</a> </td>
+   </tr>
+ <tr>
+   <td colspan=3>Set all Boundaries at once with "B" <a href="Command-oplet-instruction">Oplet</a> </td>
    </tr>
  <tr>
    <td>13,&nbsp;<b>J1BoundryLow</b></td>
    <td>-180 | -150 | 180 deg</td>
    <td>-648000 | -540000 | 648000 integer arcsec</td>
-   <td> </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>14,&nbsp;<b>J3BoundryHigh</b> </td>
    <td> -180&nbsp;|&nbsp;150&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;540000&nbsp;|&nbsp;648000 integer arcsec  </td>
-   <td> (note order: Joint 3 and 2 are swapped here) </td>
+   </tr>
+ <tr>
+   <td colspan=3>(note order: Joint 3 and 2 are swapped here) </td>
    </tr>
  <tr>
    <td>15,&nbsp;<b>J3BoundryLow</b> </td>
    <td> -180&nbsp;|&nbsp;-150&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;-540000&nbsp;|&nbsp;648000 integer arcsec </td>
-   <td>  </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>16,&nbsp;<b>J2BoundryHigh</b> </td>
    <td> -180&nbsp;|&nbsp;90&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;324000&nbsp;|&nbsp;648000 integer arcsec </td>
-   <td>  </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>17,&nbsp;<b>J2BoundryLow</b> </td>
    <td> -180&nbsp;|&nbsp;-90&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;-324000&nbsp;|&nbsp;648000 integer arcsec </td>
-   <td>  </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>18,&nbsp;<b>J4BoundryHigh</b> </td>
    <td> -180&nbsp;|&nbsp;90&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;324000&nbsp;|&nbsp;648000 integer arcsec </td>
-   <td>  </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>19,&nbsp;<b>J4BoundryLow</b> </td>
    <td> -180&nbsp;|&nbsp;-90&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;-324000&nbsp;|&nbsp;648000 integer arcsec </td>
-   <td>  </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>20,&nbsp;<b>J5BoundryHigh</b> </td>
    <td> -180&nbsp;|&nbsp;90&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;324000&nbsp;|&nbsp;648000 integer arcsec </td>
-   <td>  </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>21,&nbsp;<b>J5BoundryLow</b> </td>
    <td> -180&nbsp;|&nbsp;-90&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;-324000&nbsp;|&nbsp;648000 integer arcsec </td>
-   <td>  </td>
+   </tr>
+ <tr>
+   <td colspan=3></td>
    </tr>
  <tr>
    <td>22,&nbsp;<b>GripperMotor</b></td>
    <td> 0|0|1&nbsp;ON/OFF, 0|0|12000&nbsp;ON_PWM, 0|0|12000&nbsp;OFF_PWM bool, int, int </td>
    <td> 0|0|1(ON/OFF), 0|0|12000(ON_PWM), 0|0|12000(OFF_PWM) bool, int, int </td>
-   <td>(see next line)</td>
    </tr>
  <tr>
-   <td colspan=4>Set PWM output on J19 1st parameter starts PWM with 1, stop with 0. After 2019/05/23: 2nd parameter is PWM on time, 3rd is off time. See W commands 73 - 74. </td>
+   <td colspan=3>Set PWM output on J19 1st parameter starts PWM with 1, stop with 0. After 2019/05/23: 2nd parameter is PWM on time, 3rd is off time. See W commands 73 - 74. </td>
    </tr>
  <tr>
    <td>23,&nbsp;<b>EERoll</b></td>
    <td> 0-300 deg </td>
    <td> 0|512|~1023 0.29*deg </td>
-   <td> 6th axis position / Tool Interface Roll (was standard servo, <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">May 29,2018</a> changed to <a href="End-Effector-Servos">Dynamixel</a>) </td>
+   </tr>
+ <tr>
+   <td colspan=3>6th axis position / Tool Interface Roll (was standard servo, <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">May 29,2018</a> changed to <a href="End-Effector-Servos">Dynamixel</a>) </td>
    </tr>
  <tr>
    <td>24,&nbsp;<b>EESpan</b> </td>
    <td> 0-300 deg </td>
    <td> 0\|0\|~1023 0.29*deg </td>
-   <td> 7th axis position / End Effector actuation (was standard servo, <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">May 29,2018</a> changed to <a href="End-Effector-Servos">Dynamixel</a>) </td>
+   </tr>
+ <tr>
+   <td colspan=3>7th axis position / End Effector actuation (was standard servo, <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">May 29,2018</a> changed to <a href="End-Effector-Servos">Dynamixel</a>) </td>
    </tr>
  <tr>
    <td>25,&nbsp;<b>StartSpeed</b> </td>
    <td> 0.0001|1|? </td>
    <td> 1|7754|? nbits </td>
-   <td> Velocity at start (and currently, the end as well) of the next move in "nbits"<sup><a href="#1">1</a></sup> </td>
+   </tr>
+ <tr>
+   <td colspan=3>Velocity at start (and currently, the end as well) of the next move in "nbits"<sup><a href="#1">1</a></sup> </td>
    </tr>
  <tr>
    <td>26,&nbsp;<b>EndSpeed</b> </td>
    <td>  </td>
    <td>  </td>
-   <td>  (not implemented) Currently StartSpeed is the speed for both the start and end of each move.  </td>
+   </tr>
+ <tr>
+   <td colspan=3>(not implemented) Currently StartSpeed is the speed for both the start and end of each move.  </td>
    </tr>
  <tr>
    <td>27,&nbsp;<b>ServoSet2X</b></td>
    <td>  </td>
    <td>  </td>
-   <td>  Address, Register, Value (as of <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a> was "End")  see: <a href="End-Effector-Servos">Servo</a> </td>
+   </tr>
+ <tr>
+   <td colspan=3>Address, Register, Value (as of <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a> was "End")  see: <a href="End-Effector-Servos">Servo</a> </td>
    </tr>
  <tr>
    <td>28,&nbsp;<b>ServoSet</b></td>
    <td>  </td>
    <td>  </td>
-   <td> Address, Register, String <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a>. Needs work see <a href="https://github.com/HaddingtonDynamics/Dexter/issues/32">Issue 32</a> <a href="../issues/32">Needed</a> for <a href="End-Effector-Screen">Screen</a> </td>
+   </tr>
+ <tr>
+   <td colspan=3> Address, Register, String <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a>. Needs work see <a href="https://github.com/HaddingtonDynamics/Dexter/issues/32">Issue 32</a> <a href="../issues/32">Needed</a> for <a href="End-Effector-Screen">Screen</a> </td>
    </tr>
  <tr>
    <td>29,&nbsp;<b>RebootServo</b></td>
    <td> n/a </td>
    <td> n/a </td>
-   <td><a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a></td>
+      </tr>
+ <tr>
+   <td colspan=3><a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a></td>
    </tr>
  <tr>
    <td>30,&nbsp;<b>RunFile</b></td>
    <td> FilePathName  </td>
    <td> FilePathName  </td>
-   <td>(see next line)</td>
    </tr>
  <tr>
-   <td colspan=4><a href="../commit/e3cccb88cf9b1671c5b2f13c77d1ee00a967a528#diff-691272021fae98368efb598f8e089c16">2018/10/12</a> If it exists, the file will be opened and all instructions from it parsed and executed. By convention, files end with `.make_ins` extension. Each line should be one instruction just like any sent over the socket connection (the job, instruction, start, and end time values are NOT included; start with the oplet). A sample line might be <BR>`S J1_PID_P 0.2 ; set base drive` <BR>Anything after a ';' is ignored allowing comments. <BR>Was <a href="../commit/f0d9fa772ba6c3eee979e62a071bca487a084c21">2018/08/24</a> `"Ctrl" parms/values` for compact setting of values related to operational mode but this was depreciated and replaced with RunFile. </td>
+   <td colspan=3><a href="../commit/e3cccb88cf9b1671c5b2f13c77d1ee00a967a528#diff-691272021fae98368efb598f8e089c16">2018/10/12</a> If it exists, the file will be opened and all instructions from it parsed and executed. By convention, files end with `.make_ins` extension. Each line should be one instruction just like any sent over the socket connection (the job, instruction, start, and end time values are NOT included; start with the oplet). A sample line might be <BR>`S J1_PID_P 0.2 ; set base drive` <BR>Anything after a ';' is ignored allowing comments. <BR>Was <a href="../commit/f0d9fa772ba6c3eee979e62a071bca487a084c21">2018/08/24</a> `"Ctrl" parms/values` for compact setting of values related to operational mode but this was depreciated and replaced with RunFile. </td>
    </tr>
  </table>
