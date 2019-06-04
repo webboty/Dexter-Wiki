@@ -149,10 +149,10 @@ Test for new table format:
    <td> Set all Boundaries at once with "B" <a href="Command-oplet-instruction">Oplet</a> </td>
    </tr>
  <tr>
-   <td>13,&nbsp;<b>J1BoundryLow</b> </td>
-   <td> -180&nbsp;\|&nbsp;-150&nbsp;\|&nbsp;180 deg </td>
-   <td> -648000&nbsp;\|&nbsp;-540000&nbsp;\|&nbsp;648000 integer arcsec </td>
-   <td>  </td>
+   <td>13,&nbsp;<b>J1BoundryLow</b></td>
+   <td>-180 | -150 | 180 deg</td>
+   <td>-648000 | -540000 | 648000 integer arcsec</td>
+   <td> </td>
    </tr>
  <tr>
    <td>14,&nbsp;<b>J3BoundryHigh</b> </td>
