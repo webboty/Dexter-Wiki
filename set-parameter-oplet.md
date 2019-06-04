@@ -204,8 +204,12 @@ Test for new table format:
    </tr>
  <tr>
    <td>22,&nbsp;<b>GripperMotor</b></td>
+   <td> 0|0|1&nbsp;ON/OFF, 0|0|12000&nbsp;ON_PWM, 0|0|12000&nbsp;OFF_PWM bool, int, int </td>
    <td> 0|0|1(ON/OFF), 0|0|12000(ON_PWM), 0|0|12000(OFF_PWM) bool, int, int </td>
-   <td colspan=2> Set PWM output on J19 1st parameter starts PWM with 1, stop with 0. After 2019/05/23: 2nd parameter is PWM on time, 3rd is off time. See W commands 73 - 74. </td>
+   <td>(see next line)</td>
+   </tr>
+ <tr>
+   <td colspan=4>Set PWM output on J19 1st parameter starts PWM with 1, stop with 0. After 2019/05/23: 2nd parameter is PWM on time, 3rd is off time. See W commands 73 - 74. </td>
    </tr>
  <tr>
    <td>23,&nbsp;<b>EERoll</b></td>
@@ -252,6 +256,10 @@ Test for new table format:
  <tr>
    <td>30,&nbsp;<b>RunFile</b></td>
    <td> FilePathName  </td>
-   <td colspan=2><a href="../commit/e3cccb88cf9b1671c5b2f13c77d1ee00a967a528#diff-691272021fae98368efb598f8e089c16">2018/10/12</a> If it exists, the file will be opened and all instructions from it parsed and executed. By convention, files end with `.make_ins` extension. Each line should be one instruction just like any sent over the socket connection (the job, instruction, start, and end time values are NOT included; start with the oplet). A sample line might be <BR>`S J1_PID_P 0.2 ; set base drive` <BR>Anything after a ';' is ignored allowing comments. <BR>Was <a href="../commit/f0d9fa772ba6c3eee979e62a071bca487a084c21">2018/08/24</a> `"Ctrl" parms/values` for compact setting of values related to operational mode but this was depreciated and replaced with RunFile. </td>
+   <td> FilePathName  </td>
+   <td>(see next line)</td>
+   </tr>
+ <tr>
+   <td colspan=4><a href="../commit/e3cccb88cf9b1671c5b2f13c77d1ee00a967a528#diff-691272021fae98368efb598f8e089c16">2018/10/12</a> If it exists, the file will be opened and all instructions from it parsed and executed. By convention, files end with `.make_ins` extension. Each line should be one instruction just like any sent over the socket connection (the job, instruction, start, and end time values are NOT included; start with the oplet). A sample line might be <BR>`S J1_PID_P 0.2 ; set base drive` <BR>Anything after a ';' is ignored allowing comments. <BR>Was <a href="../commit/f0d9fa772ba6c3eee979e62a071bca487a084c21">2018/08/24</a> `"Ctrl" parms/values` for compact setting of values related to operational mode but this was depreciated and replaced with RunFile. </td>
    </tr>
  </table>
