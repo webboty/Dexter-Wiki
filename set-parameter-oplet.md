@@ -202,7 +202,7 @@ Test for new table format:
    </tr>
  <tr>
    <td>22,&nbsp;<b>GripperMotor</b></td>
-   <td> 0|0|1&nbsp;ON/OFF, 0|0|100%&nbsp;ON_PWM, 0|0|100%&nbsp;OFF_PWM </td>
+   <td> 0|0|1&nbsp;ON/OFF, 0|0|100&nbsp;ON_PWM%, 0|0|100&nbsp;OFF_PWM% </td>
    <td> 0|0|1&nbsp;bool, 0|0|12000&nbsp;int, 0|0|12000&nbsp;int</td>
    </tr>
  <tr>
