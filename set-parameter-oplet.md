@@ -94,9 +94,6 @@ Test for new table format:
    <td>  </td>
    </tr>
  <tr>
-   <td colspan=3>How hard each joint tries to return to commanded position in force protect modes </td>
-   </tr>
- <tr>
    <td>3, <b>J3Force</b> </td>
    <td>  </td>
    <td>  </td>
@@ -117,12 +114,12 @@ Test for new table format:
    <td>  </td>
    </tr>
  <tr>
+   <td colspan=3>Joint Forces: How hard each joint tries to return to commanded position in force protect modes </td>
+   </tr>
+ <tr>
    <td>7, <b>J1Friction</b> </td>
    <td> 5 unitless </td>
    <td> 0-50 fixed point 8.8 </td>
-   </tr>
- <tr>
-   <td colspan=3><sup><a href="#2">2</a></sup> The friction felt during FollowMe mode </td>
    </tr>
  <tr>
    <td>8, <b>J3Friction</b> </td>
@@ -130,15 +127,9 @@ Test for new table format:
    <td> 0-50 fixed point 8.8  </td>
    </tr>
  <tr>
-   <td colspan=3></td>
-   </tr>
- <tr>
    <td>9, <b>J2Friction</b> </td>
    <td> 5 unitless </td>
    <td> 0-50 fixed point 8.8  </td>
-   </tr>
- <tr>
-   <td colspan=3></td>
    </tr>
  <tr>
    <td>10, <b>J4Friction</b> </td>
@@ -146,23 +137,17 @@ Test for new table format:
    <td> 0-150 fixed point 8.8  </td>
    </tr>
  <tr>
-   <td colspan=3></td>
-   </tr>
- <tr>
    <td>11, <b>J5Friction</b> </td>
    <td> 15 unitless </td>
    <td> 0-150 fixed point 8.8  </td>
    </tr>
  <tr>
-   <td colspan=3></td>
+   <td colspan=3><sup><a href="#2">Joint Frictions: 2</a></sup> The friction felt during FollowMe mode </td>
    </tr>
  <tr>
    <td>12,&nbsp;<b>J1BoundryHigh</b> </td>
    <td> -180&nbsp;|&nbsp;150&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;540000&nbsp;|&nbsp;648000 integer arcsec  </td>
-   </tr>
- <tr>
-   <td colspan=3>Set all Boundaries at once with "B" <a href="Command-oplet-instruction">Oplet</a> </td>
    </tr>
  <tr>
    <td>13,&nbsp;<b>J1BoundryLow</b></td>
@@ -178,15 +163,9 @@ Test for new table format:
    <td> -648000&nbsp;|&nbsp;540000&nbsp;|&nbsp;648000 integer arcsec  </td>
    </tr>
  <tr>
-   <td colspan=3>(note order: Joint 3 and 2 are swapped here) </td>
-   </tr>
- <tr>
    <td>15,&nbsp;<b>J3BoundryLow</b> </td>
    <td> -180&nbsp;|&nbsp;-150&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;-540000&nbsp;|&nbsp;648000 integer arcsec </td>
-   </tr>
- <tr>
-   <td colspan=3></td>
    </tr>
  <tr>
    <td>16,&nbsp;<b>J2BoundryHigh</b> </td>
@@ -194,15 +173,9 @@ Test for new table format:
    <td> -648000&nbsp;|&nbsp;324000&nbsp;|&nbsp;648000 integer arcsec </td>
    </tr>
  <tr>
-   <td colspan=3></td>
-   </tr>
- <tr>
    <td>17,&nbsp;<b>J2BoundryLow</b> </td>
    <td> -180&nbsp;|&nbsp;-90&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;-324000&nbsp;|&nbsp;648000 integer arcsec </td>
-   </tr>
- <tr>
-   <td colspan=3></td>
    </tr>
  <tr>
    <td>18,&nbsp;<b>J4BoundryHigh</b> </td>
@@ -210,15 +183,9 @@ Test for new table format:
    <td> -648000&nbsp;|&nbsp;324000&nbsp;|&nbsp;648000 integer arcsec </td>
    </tr>
  <tr>
-   <td colspan=3></td>
-   </tr>
- <tr>
    <td>19,&nbsp;<b>J4BoundryLow</b> </td>
    <td> -180&nbsp;|&nbsp;-90&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;-324000&nbsp;|&nbsp;648000 integer arcsec </td>
-   </tr>
- <tr>
-   <td colspan=3></td>
    </tr>
  <tr>
    <td>20,&nbsp;<b>J5BoundryHigh</b> </td>
@@ -226,20 +193,17 @@ Test for new table format:
    <td> -648000&nbsp;|&nbsp;324000&nbsp;|&nbsp;648000 integer arcsec </td>
    </tr>
  <tr>
-   <td colspan=3></td>
-   </tr>
- <tr>
    <td>21,&nbsp;<b>J5BoundryLow</b> </td>
    <td> -180&nbsp;|&nbsp;-90&nbsp;|&nbsp;180 deg </td>
    <td> -648000&nbsp;|&nbsp;-324000&nbsp;|&nbsp;648000 integer arcsec </td>
    </tr>
  <tr>
-   <td colspan=3></td>
+   <td colspan=3>Joint Boundaries: Set all Boundaries at once with "B" <a href="Command-oplet-instruction">Oplet</a>. (note order if referencing by number, Joint 3 and 2 are swapped here) </td>
    </tr>
  <tr>
    <td>22,&nbsp;<b>GripperMotor</b></td>
-   <td> 0|0|1&nbsp;ON/OFF, 0|0|12000&nbsp;ON_PWM, 0|0|12000&nbsp;OFF_PWM bool, int, int </td>
-   <td> 0|0|1(ON/OFF), 0|0|12000(ON_PWM), 0|0|12000(OFF_PWM) bool, int, int </td>
+   <td> 0|0|1&nbsp;ON/OFF, 0|0|100%&nbsp;ON_PWM, 0|0|100%&nbsp;OFF_PWM </td>
+   <td> 0|0|1&nbsp;bool, 0|0|12000&nbsp;int, 0|0|12000&nbsp;int</td>
    </tr>
  <tr>
    <td colspan=3>Set PWM output on J19 1st parameter starts PWM with 1, stop with 0. After 2019/05/23: 2nd parameter is PWM on time, 3rd is off time. See W commands 73 - 74. </td>
@@ -247,7 +211,7 @@ Test for new table format:
  <tr>
    <td>23,&nbsp;<b>EERoll</b></td>
    <td> 0-300 deg </td>
-   <td> 0|512|~1023 0.29*deg </td>
+   <td> 0|512|~1023 servo units (0.29*deg) </td>
    </tr>
  <tr>
    <td colspan=3>6th axis position / Tool Interface Roll (was standard servo, <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">May 29,2018</a> changed to <a href="End-Effector-Servos">Dynamixel</a>) </td>
@@ -255,14 +219,14 @@ Test for new table format:
  <tr>
    <td>24,&nbsp;<b>EESpan</b> </td>
    <td> 0-300 deg </td>
-   <td> 0\|0\|~1023 0.29*deg </td>
+   <td> 0|0|~1023 servo units (0.29*deg) </td>
    </tr>
  <tr>
    <td colspan=3>7th axis position / End Effector actuation (was standard servo, <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">May 29,2018</a> changed to <a href="End-Effector-Servos">Dynamixel</a>) </td>
    </tr>
  <tr>
-   <td>25,&nbsp;<b>StartSpeed</b> </td>
-   <td> 0.0001|1|? </td>
+   <td>25,&nbsp;<b>StartSpeed</b></td>
+   <td> 0.0001|1|? degrees/second</td>
    <td> 1|7754|? nbits </td>
    </tr>
  <tr>
@@ -278,34 +242,61 @@ Test for new table format:
    </tr>
  <tr>
    <td>27,&nbsp;<b>ServoSet2X</b></td>
-   <td>  </td>
-   <td>  </td>
+   <td></td>
+   <td>Servo Address, Register, Value</td>
    </tr>
  <tr>
-   <td colspan=3>Address, Register, Value (as of <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a> was "End")  see: <a href="End-Effector-Servos">Servo</a> </td>
+   <td colspan=3>Low level servo register write (as of <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a> was "End")  see: <a href="End-Effector-Servos">Servo</a> </td>
    </tr>
  <tr>
    <td>28,&nbsp;<b>ServoSet</b></td>
    <td>  </td>
-   <td>  </td>
+   <td>Servo Address, Register, String</td>
    </tr>
  <tr>
-   <td colspan=3> Address, Register, String <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a>. Needs work see <a href="https://github.com/HaddingtonDynamics/Dexter/issues/32">Issue 32</a> <a href="../issues/32">Needed</a> for <a href="End-Effector-Screen">Screen</a> </td>
+   <td colspan=3>Send string to servo <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a>. Needs work see <a href="https://github.com/HaddingtonDynamics/Dexter/issues/32">Issue 32</a> <a href="../issues/32">Needed</a> for <a href="End-Effector-Screen">Screen</a> </td>
    </tr>
  <tr>
    <td>29,&nbsp;<b>RebootServo</b></td>
-   <td> n/a </td>
-   <td> n/a </td>
+   <td></td>
+   <td>Servo Address</td>
       </tr>
  <tr>
-   <td colspan=3><a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a></td>
+   <td colspan=3>Reset servo. <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a></td>
    </tr>
  <tr>
    <td>30,&nbsp;<b>RunFile</b></td>
-   <td> FilePathName  </td>
-   <td> FilePathName  </td>
+   <td>FilePathName</td>
+   <td>FilePathName</td>
    </tr>
  <tr>
-   <td colspan=3><a href="../commit/e3cccb88cf9b1671c5b2f13c77d1ee00a967a528#diff-691272021fae98368efb598f8e089c16">2018/10/12</a> If it exists, the file will be opened and all instructions from it parsed and executed. By convention, files end with `.make_ins` extension. Each line should be one instruction just like any sent over the socket connection (the job, instruction, start, and end time values are NOT included; start with the oplet). A sample line might be <BR>`S J1_PID_P 0.2 ; set base drive` <BR>Anything after a ';' is ignored allowing comments. <BR>Was <a href="../commit/f0d9fa772ba6c3eee979e62a071bca487a084c21">2018/08/24</a> `"Ctrl" parms/values` for compact setting of values related to operational mode but this was depreciated and replaced with RunFile. </td>
+   <td colspan=3>RunFile: Added<a href="../commit/e3cccb88cf9b1671c5b2f13c77d1ee00a967a528#diff-691272021fae98368efb598f8e089c16">2018/10/12</a> If it exists, the file will be opened and all instructions from it parsed and executed. By convention, files end with <tt>.make_ins</tt> extension. Each line should be one instruction just like any sent over the socket connection (the job, instruction, start, and end time values are NOT included; start with the oplet). A sample line might be <BR><tt>S J1_PID_P 0.2 ; set base drive</tt> <BR>Anything after a ';' is ignored allowing comments. <BR>Was <a href="../commit/f0d9fa772ba6c3eee979e62a071bca487a084c21">2018/08/24</a> <tt>"Ctrl" parms/values</tt> for compact setting of values related to operational mode but this was depreciated and replaced with RunFile. </td>
+   </tr>
+ <tr>
+   <td>31, <b>J1_PID_P</b></td>
+   <td>0 | 0.2 | 1 unitless</td>
+   <td>0 | 0.2 | 1 float</td>
+   </tr>
+ <tr>
+   <td>32, <b>J2_PID_P</b></td>
+   <td>0 | 0.2 | 1 unitless</td>
+   <td>0 | 0.2 | 1 float</td>
+   </tr>
+ <tr>
+   <td>33, <b>J3_PID_P</b></td>
+   <td>0 | 2 | 4 unitless</td>
+   <td>0 | 2 | 4 float</td>
+   </tr>
+ <tr>
+   <td>34, <b>J4_PID_P</b></td>
+   <td>0 | 0.1 | 0.5 unitless</td>
+   <td>0 | 0.1 | 0.5 float</td>
+   </tr>
+ <tr>
+   <td>35, <b>J5_PID_P</b></td>
+   <td>0 | 0.1 | 0.5 unitless</td>
+   <td>0 | 0.1 | 0.5 float</td>
+ <tr>
+   <td colspan=3><a href="../commit/e3cccb88cf9b1671c5b2f13c77d1ee00a967a528#diff-691272021fae98368efb598f8e089c16">2018/08/12</a> Set Joint PID P with a floating point number. Helps with <a href="https://github.com/HaddingtonDynamics/Dexter/issues/33#issuecomment-427921288">Issue #33</a>
    </tr>
  </table>
