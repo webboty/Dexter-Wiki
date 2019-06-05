@@ -142,7 +142,7 @@ Test for new table format:
    <td> 0-150 fixed point 8.8  </td>
    </tr>
  <tr>
-   <td colspan=3><sup><a href="#2">Joint Frictions: 2</a></sup> The friction felt during FollowMe mode </td>
+   <td colspan=3>Joint Frictions: <sup><a href="#2">2</a></sup> The friction felt during FollowMe mode. Frictions can be fractional, but are limited to a range of +-(256 + 1/256). E.g. 1.1 becomes 1 plus a fractional value of 25/256.</td>
    </tr>
  <tr>
    <td>12,&nbsp;<b>J1BoundryHigh</b> </td>
