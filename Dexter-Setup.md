@@ -6,7 +6,9 @@ When removing a Dexter from it's shipping / storage case, please be very careful
 The standard Dexter base is NOT intended to be perfectly stable. It must be mounted to a stable surface by gluing, screwing, or clamping the legs down. 
 - If the surface has a lip, you can clamp 2 or 3 of the feet down.<br><img src="https://user-images.githubusercontent.com/419392/58844223-183edf00-862b-11e9-8197-37fc97029a21.png">
 - For wooden, metal, or other surfaces which can have holes, screw or bolt the feet down.<br><img src="https://user-images.githubusercontent.com/419392/58844593-c5febd80-862c-11e9-9076-bd438fcaf95d.png">
-- For a flat, inviolate surface like steel, marble, cement, etc... use large amounts of hot glue injected up into the "foot"<br><img src="https://user-images.githubusercontent.com/419392/58844667-183fde80-862d-11e9-8bcc-aeaed5865306.png">
+- For a flat, inviolate surface like steel, marble, cement, etc... use large amounts of hot glue injected up into the "foot"<br>
+<img src="https://user-images.githubusercontent.com/419392/58922776-4dae0000-86f1-11e9-9b93-85de3b98551f.png">
+<img src="https://user-images.githubusercontent.com/419392/58844667-183fde80-862d-11e9-8bcc-aeaed5865306.png">
 
 ## Position
 Before powering on Dexter, position each joint at a known position. The default position is with all the joints vertical, and the tool interface (the last segment) pointed to the right when facing the joints, as shown here:<br> <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Positive_Joint_Directions_J234.PNG">
