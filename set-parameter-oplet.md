@@ -19,34 +19,34 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    </tr>
  <tr>
    <td>1,&nbsp;<b>Acceleration</b> </td>
-   <td> 0.0001&nbsp;|&nbsp;0.0001&nbsp;|&nbsp;0.1 <br>deg/s<sup>2</sup> </td>
-   <td> 1&nbsp;|&nbsp;<a href="https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF">3</a>&nbsp;|&nbsp;775 <br>integer nbits </td>
+   <td> 0.0001&nbsp;|&nbsp;0.0001&nbsp;|&nbsp;0.1 deg/s<sup>2</sup> </td>
+   <td> 1&nbsp;|&nbsp;<a href="https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF">3</a>&nbsp;|&nbsp;775 integer nbits </td>
    </tr>
  <tr>
    <td colspan=3>Maximum acceleration of next move in "nbits"<sup><a href="#1">1</a></sup>. </td>
    </tr>
  <tr>
-   <td>2, <b>J1Force</b> </td>
+   <td>2,&nbsp;<b>J1Force</b> </td>
    <td>  </td>
    <td>  </td>
    </tr>
  <tr>
-   <td>3, <b>J3Force</b> </td>
+   <td>3,&nbsp;<b>J3Force</b> </td>
    <td>  </td>
    <td>  </td>
    </tr>
  <tr>
-   <td>4, <b>J2Force</b> </td>
+   <td>4,&nbsp;<b>J2Force</b> </td>
    <td>  </td>
    <td>  </td>
    </tr>
  <tr>
-   <td>5, <b>J4Force</b> </td>
+   <td>5,&nbsp;<b>J4Force</b> </td>
    <td>  </td>
    <td>  </td>
    </tr>
  <tr>
-   <td>6, <b>J5Force</b> </td>
+   <td>6,&nbsp;<b>J5Force</b> </td>
    <td>  </td>
    <td>  </td>
    </tr>
@@ -54,27 +54,27 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3>Joint Forces: How hard each joint tries to return to commanded position in force protect modes </td>
    </tr>
  <tr>
-   <td>7, <b>J1Friction</b> </td>
+   <td>7,&nbsp;<b>J1Friction</b> </td>
    <td> 5 unitless </td>
    <td> 0-50 fixed point 8.8 </td>
    </tr>
  <tr>
-   <td>8, <b>J3Friction</b> </td>
+   <td>8,&nbsp;<b>J3Friction</b> </td>
    <td> 5 unitless </td>
    <td> 0-50 fixed point 8.8  </td>
    </tr>
  <tr>
-   <td>9, <b>J2Friction</b> </td>
+   <td>9,&nbsp;<b>J2Friction</b> </td>
    <td> 5 unitless </td>
    <td> 0-50 fixed point 8.8  </td>
    </tr>
  <tr>
-   <td>10, <b>J4Friction</b> </td>
+   <td>10,&nbsp;<b>J4Friction</b> </td>
    <td> 15 unitless </td>
    <td> 0-150 fixed point 8.8  </td>
    </tr>
  <tr>
-   <td>11, <b>J5Friction</b> </td>
+   <td>11,&nbsp;<b>J5Friction</b> </td>
    <td> 15 unitless </td>
    <td> 0-150 fixed point 8.8  </td>
    </tr>
@@ -88,7 +88,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    </tr>
  <tr>
    <td>13,&nbsp;<b>J1BoundryLow</b></td>
-   <td>-180 | -150 | 180 deg</td>
+   <td>-150 -180 to 180 deg</td>
    <td>-648000 | -540000 | 648000 integer arcsec</td>
    </tr>
  <tr>
@@ -236,7 +236,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    </tr>
 
  <tr>
-   <td>36, <b>AngularSpeed</b></td>
+   <td>36,&nbsp;<b>AngularSpeed</b></td>
    <td>1 | 30 | 45 deg/s</td>
    <td>3600 | 108000 | 162000 integer arcsec/s</td>
    </tr>
@@ -244,7 +244,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3>Speed to ramp up to at given acceleration. Same as MaxSpeed but with human readable units.</td>
    </tr>
  <tr>
-   <td>37, <b>AngularSpeedStartAndEnd</b></td>
+   <td>37,&nbsp;<b>AngularSpeedStartAndEnd</b></td>
    <td>1 | 30 | 45 float deg/s</td>
    <td>3600 | 108000 | 162000 integer arcsec/s</td>
    </tr>
@@ -252,7 +252,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3>Speed to ramp up from and down to. Same as StartSpeed but with human readable units. </td>
    </tr>
  <tr>
-   <td>38, <b>AngularAcceleration</b></td>
+   <td>38,&nbsp;<b>AngularAcceleration</b></td>
    <td>0.0003 | 0.1 | 0.1? float deg/s<sup>2</sup></td>
    <td>1 | 360 | 360? integer arcsec/s<sup>2</sup></td>
    </tr>
@@ -260,7 +260,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3>Replaces Acceleration, specifying with human readable units. </td>
    </tr>
  <tr>
-   <td>39, <b>CartesianSpeed</b></td>
+   <td>39,&nbsp;<b>CartesianSpeed</b></td>
    <td>0.01 | 0.3 | 0.5 meters/s</td>
    <td>10000 | 300000 | 500000 integer micron/s</td>
    </tr>
@@ -268,7 +268,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3></td>
    </tr>
  <tr>
-   <td>40, <b>CartesianSpeedStart</b></td>
+   <td>40,&nbsp;<b>CartesianSpeedStart</b></td>
    <td>0 | 0 | 0.5 meters/s</td>
    <td>0 | 0 | 500000 integer micron/s</td>
    </tr>
@@ -276,7 +276,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3></td>
    </tr>
  <tr>
-   <td>41, <b>CartesianSpeedEnd</b></td>
+   <td>41,&nbsp;<b>CartesianSpeedEnd</b></td>
    <td>0 | 0 | 0.5 meters/s</td>
    <td>0 | 0 | 500000 integer micron/s</td>
    </tr>
@@ -284,7 +284,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3></td>
    </tr>
  <tr>
-   <td>42, <b>CartesianAcceleration</b></td>
+   <td>42,&nbsp;<b>CartesianAcceleration</b></td>
    <td>0 | 0.1 | 0.5 meters/s<sup>2</sup></td>
    <td>0 | 1000000 | 500000 integer micron/s<sup>2</sup></td>
    </tr>
@@ -292,7 +292,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3></td>
    </tr>
  <tr>
-   <td>43, <b>CartesianStepSize</b></td>
+   <td>43,&nbsp;<b>CartesianStepSize</b></td>
    <td>0.000001 | 0.00001 | 0.01 meter</td>
    <td>1 | 10 | 10000 integer micron</td>
    </tr>
@@ -300,7 +300,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3></td>
    </tr>
  <tr>
-   <td>44, <b>CartesianPivotSpeed</b></td>
+   <td>44,&nbsp;<b>CartesianPivotSpeed</b></td>
    <td>0.00027777 | 30 | 100 float deg</td>
    <td>1 | 108000 | 360000 integer arcsec/s</td>
    </tr>
@@ -308,7 +308,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3></td>
    </tr>
  <tr>
-   <td>45, <b>CartesianPivotSpeedStart</b></td>
+   <td>45,&nbsp;<b>CartesianPivotSpeedStart</b></td>
    <td>?</td>
    <td>1 | 0? | 360000 integer arcsec/s</td>
    </tr>
@@ -316,7 +316,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3></td>
    </tr>
  <tr>
-   <td>46, <b>CartesianPivotSpeedEnd</b></td>
+   <td>46,&nbsp;<b>CartesianPivotSpeedEnd</b></td>
    <td></td>
    <td>1 | 0? | 360000 |integer arcsec/s</td>
    </tr>
@@ -324,15 +324,15 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3></td>
    </tr>
  <tr>
-   <td>47, <b>CartesianPivotAcceleration</b></td>
+   <td>47,&nbsp;<b>CartesianPivotAcceleration</b></td>
    <td></td>
-   <td>/ 1 | 10800000 | 10800000 integer arcsec/s<sup>2</sup></td>
+   <td>1 | 10800000 | 10800000 integer arcsec/s<sup>2</sup></td>
    </tr>
  <tr>
    <td colspan=3></td>
    </tr>
  <tr>
-   <td>48, <b>CartesianPivotStepSize</b></td>
+   <td>48,&nbsp;<b>CartesianPivotStepSize</b></td>
    <td></td>
    <td> ? / ? | arcsec | integer</td>
    </tr>
@@ -340,7 +340,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3></td>
    </tr>
  <tr>
-   <td>49, <b>EyeNumbers</b></td>
+   <td>49,&nbsp;<b>EyeNumbers</b></td>
    <td></td>
    <td> -200 | 0 | +200 (5 integers)</td>
    </tr>
@@ -348,7 +348,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3>Sets the index for which Eye Dexter thinks it is at. Where it is within an eye is calculated with encoder measurements and effectively cannot be set. Takes 5 signed integer arguments where 0 is the circle that contains 0 degrees. See [read_from_robot, #EyeNumbers](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords). </td>
    </tr>
  <tr>
-   <td>50, <b>CommandedAngles</b>|  </td>
+   <td>50,&nbsp;<b>CommandedAngles</b>|  </td>
    <td></td>
    <td> arcsec / arcsec (5 integers)</td>
    </tr>
@@ -356,7 +356,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3>Sets where Dexter thinks it is without actually moving the robot. Takes 5 angles in integer arcseconds. These are the same values that are returned in the robot status under [*_AT]( https://github.com/HaddingtonDynamics/Dexter/wiki/status-data#joint-data-meanings). </td>
    </tr>
  <tr>
-   <td>51, <b>LinkLengths</b></td>
+   <td>51,&nbsp;<b>LinkLengths</b></td>
    <td></td>
    <td> 82551, 50801, 330201, 320676, 228600 microns (5 integers, L5 to L1)</td>
    </tr>
@@ -364,7 +364,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3><a href="https://github.com/HaddingtonDynamics/Dexter/commit/08fb9a8ca9cee5ed71d580e834f16daa9561f4da#diff-691272021fae98368efb598f8e089c16">2019/05/29</a> Sets the lengths of each link in the arm for the onboard kinematics. Parameters:<br>L1: Base mount to Joint 2 pivot.<br>L2: Joint 2 pivot to Joint 3 pivot.<br>L3: Joint 3 pivot to Joint 4 pivot. <br>L4: Joint 4 pivot to axis of tool interface. <br>L5: Axis of Joint 4 to end effector (note: this depends on the end effector and is most likely to change). Note: <b>Order of parameters is J5 to J1 so that if only 1 is specified, it changes L5 vs L1.</b></td>
    </tr>
  <tr>
-   <td>52, <b>RawEncoderErrorLimits</b></td>
+   <td>52,&nbsp;<b>RawEncoderErrorLimits</b></td>
    <td></td>
    <td>0 | 3600 | 1296000 arcsec (5 integers)</td>
    </tr>
@@ -372,7 +372,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td colspan=3><a href="https://github.com/HaddingtonDynamics/Dexter/commit/8efff90396c50680f40f52a196b21d2c92cc0088">2019/04/22</a> The largest error allowed between the raw encoder reading of position and the expected position for each joint. Part of the status monitor. Will inject a returned error status on the next command and write out and entry with more information to /srv/samba/share/errors.log </td>
    </tr>
  <tr>
-   <td>53, <b>RawVelocityLimits</b></td>
+   <td>53,&nbsp;<b>RawVelocityLimits</b></td>
    <td></td>
    <td>0 | 3600 | 1296000 | arcsec (5 integers)</td>
    </tr>
