@@ -177,7 +177,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
  <tr>
    <td>27,&nbsp;<b>ServoSet2X</b></td>
    <td></td>
-   <td>Servo Address, Register, Value</td>
+   <td>Servo Address (3=J6, 1=J7), <a href="http://emanual.robotis.com/docs/en/dxl/x/xl320/#control-table-of-eeprom-area">Register</a>, Value</td>
    </tr>
  <tr>
    <td colspan=3>Low level servo register write (as of <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a> was "End")  see: <a href="End-Effector-Servos">Servo</a> </td>
