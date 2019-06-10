@@ -164,7 +164,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> 1|7754|? nbits </td>
    </tr>
  <tr>
-   <td colspan=3>Velocity at start (and currently, the end as well) of the next move in "nbits"<sup><a href="#1">1</a></sup> </td>
+   <td colspan=3>Velocity at start (and currently, the end as well) of the next move in "nbits"<sup><a href="#1">1</a></sup>. See #36 "AngularSpeed" below.</td>
    </tr>
  <tr>
    <td>26,&nbsp;<b>EndSpeed</b> </td>
@@ -172,7 +172,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td>  </td>
    </tr>
  <tr>
-   <td colspan=3>(not implemented) Currently StartSpeed is the speed for both the start and end of each move.  </td>
+   <td colspan=3>(not implemented) Currently StartSpeed is the speed for both the start and end of each move. See #37 "AngularSpeedStartAndEnd" below.</td>
    </tr>
  <tr>
    <td>27,&nbsp;<b>ServoSet2X</b></td>
