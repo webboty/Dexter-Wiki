@@ -156,7 +156,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> 0|0|~1023 servo units (0.29*deg) </td>
    </tr>
  <tr>
-   <td colspan=3>7th axis position / End Effector actuation (was standard servo, <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">May 29,2018</a> changed to <a href="End-Effector-Servos">Dynamixel</a>) </td>
+   <td colspan=3>7th axis position / <a href="End-Effectors">End Effector</a> actuation (was standard servo, <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">May 29,2018</a> changed to <a href="End-Effector-Servos">Dynamixel</a>) </td>
    </tr>
  <tr>
    <td>25,&nbsp;<b>StartSpeed</b></td>
