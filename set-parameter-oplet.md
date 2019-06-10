@@ -3,8 +3,8 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 <table>
  <tr>
    <td>#, <b>Name</b> <br>(use either)</td>
-   <td> min | initial | max in <a href="DDE">DDE</a> units</td>
-   <td> min | initial | max in Dexter <a href="Firmware">Firmware</a> units</td>
+   <td> min | initial | max <br>in <a href="DDE">DDE</a> units</td>
+   <td> min | initial | max <br>in Dexter <a href="Firmware">Firmware</a> units</td>
    </tr>
  <tr>
    <td colspan=3>Description</td>
@@ -88,12 +88,12 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    </tr>
  <tr>
    <td>13,&nbsp;<b>J1BoundryLow</b></td>
-   <td>-150, -180 to 180 deg</td>
+   <td>-150 (-180 to 180) deg</td>
    <td>-648000 | -540000 | 648000 integer arcsec</td>
    </tr>
  <tr>
    <td>14,&nbsp;<b>J3BoundryHigh</b> </td>
-   <td> -180&nbsp;|&nbsp;150&nbsp;|&nbsp;180 deg </td>
+   <td> (150) -180 to 180 deg </td>
    <td> -648000&nbsp;|&nbsp;540000&nbsp;|&nbsp;648000 integer arcsec  </td>
    </tr>
  <tr>
