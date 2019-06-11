@@ -305,23 +305,23 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td>1 | 108000 | 360000 integer arcsec/s</td>
    </tr>
  <tr>
-   <td colspan=3></td>
+   <td colspan=3>The angular speed of rotation around a fixed point by the end effector.</td>
    </tr>
  <tr>
    <td>45,&nbsp;<b>CartesianPivotSpeedStart</b></td>
-   <td>?</td>
-   <td>1 | 0? | 360000 integer arcsec/s</td>
+   <td>0 | 0 | 100 deg/s</td>
+   <td>0 | 0 | 360000 integer arcsec/s</td>
    </tr>
  <tr>
-   <td colspan=3></td>
+   <td colspan=3>The angular starting speed of rotation around a fixed point by the end effector.</td>
    </tr>
  <tr>
    <td>46,&nbsp;<b>CartesianPivotSpeedEnd</b></td>
-   <td></td>
-   <td>1 | 0? | 360000 |integer arcsec/s</td>
+   <td>0 | 0 | 100 deg/s</td>
+   <td>0 | 0 | 360000 |integer arcsec/s</td>
    </tr>
  <tr>
-   <td colspan=3></td>
+   <td colspan=3>The angular ending speed of rotation around a fixed point by the end effector.</td>
    </tr>
  <tr>
    <td>47,&nbsp;<b>CartesianPivotAcceleration</b></td>
@@ -329,31 +329,31 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td>1 | 10800000 | 10800000 integer arcsec/s<sup>2</sup></td>
    </tr>
  <tr>
-   <td colspan=3></td>
+   <td colspan=3>The angular acceleration of rotation around a fixed point by the end effector.</td>
    </tr>
  <tr>
    <td>48,&nbsp;<b>CartesianPivotStepSize</b></td>
    <td></td>
-   <td> ? / ? | arcsec | integer</td>
+   <td> ? / ? | arcsec integer</td>
    </tr>
  <tr>
-   <td colspan=3></td>
+   <td colspan=3>TBD. Granularity of rotation around a fixed point by the end effector</td>
    </tr>
  <tr>
    <td>49,&nbsp;<b>EyeNumbers</b></td>
    <td></td>
-   <td> -200 | 0 | +200 (5 integers)</td>
+   <td> 0 | 255 | 512 (5 integers)</td>
    </tr>
  <tr>
    <td colspan=3>Sets the index for which Eye Dexter thinks it is at. Where it is within an eye is calculated with encoder measurements and effectively cannot be set. Takes 5 signed integer arguments where 0 is the circle that contains 0 degrees. See [read_from_robot, #EyeNumbers](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords). </td>
    </tr>
  <tr>
-   <td>50,&nbsp;<b>CommandedAngles</b>|  </td>
+   <td>50,&nbsp;<b>CommandedAngles</b></td>
    <td></td>
-   <td> arcsec / arcsec (5 integers)</td>
+   <td>arcsec (5 integers)</td>
    </tr>
  <tr>
-   <td colspan=3>Sets where Dexter thinks it is without actually moving the robot. Takes 5 angles in integer arcseconds. These are the same values that are returned in the robot status under [*_AT]( https://github.com/HaddingtonDynamics/Dexter/wiki/status-data#joint-data-meanings). </td>
+   <td colspan=3>Sets where Dexter thinks it is without actually moving the robot. Takes 5 angles in integer arcseconds. These are the same values that are returned in the robot status under <a href="https://github.com/HaddingtonDynamics/Dexter/wiki/status-data#joint-data-meanings">*_AT</a>. See boundaries for limits.</td>
    </tr>
  <tr>
    <td>51,&nbsp;<b>LinkLengths</b></td>
@@ -361,7 +361,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> 82551, 50801, 330201, 320676, 228600 microns (5 integers, L5 to L1)</td>
    </tr>
  <tr>
-   <td colspan=3><a href="https://github.com/HaddingtonDynamics/Dexter/commit/08fb9a8ca9cee5ed71d580e834f16daa9561f4da#diff-691272021fae98368efb598f8e089c16">2019/05/29</a> Sets the lengths of each link in the arm for the onboard kinematics. Parameters:<br>L1: Base mount to Joint 2 pivot.<br>L2: Joint 2 pivot to Joint 3 pivot.<br>L3: Joint 3 pivot to Joint 4 pivot. <br>L4: Joint 4 pivot to axis of tool interface. <br>L5: Axis of Joint 4 to end effector (note: this depends on the end effector and is most likely to change). Note: <b>Order of parameters is J5 to J1 so that if only 1 is specified, it changes L5 vs L1.</b></td>
+   <td colspan=3><a href="https://github.com/HaddingtonDynamics/Dexter/commit/08fb9a8ca9cee5ed71d580e834f16daa9561f4da#diff-691272021fae98368efb598f8e089c16">2019/05/29</a> Sets the lengths of each link in the arm for the onboard kinematics. Parameters:<br>L1: Base mount to Joint 2 pivot.<br>L2: Joint 2 pivot to Joint 3 pivot.<br>L3: Joint 3 pivot to Joint 4 pivot. <br>L4: Joint 4 pivot to axis of tool interface. <br>L5: Axis of Joint 4 to end effector (note: this depends on the end effector and is most likely to change). <br>Note: <b>Order of parameters is L5 to L1 so that if only 1 is specified, it changes L5 vs L1.</b></td>
    </tr>
  <tr>
    <td>52,&nbsp;<b>RawEncoderErrorLimits</b></td>
@@ -373,11 +373,11 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    </tr>
  <tr>
    <td>53,&nbsp;<b>RawVelocityLimits</b></td>
-   <td></td>
-   <td>0 | 3600 | 1296000 | arcsec (5 integers)</td>
+   <td>0 | 100 | deg/s</td>
+   <td>0 | 360000 | 1296000 | arcsec/s (5 integers)</td>
    </tr>
  <tr>
-   <td colspan=3><a href="https://github.com/HaddingtonDynamics/Dexter/commit/8efff90396c50680f40f52a196b21d2c92cc0088">2019/04/22</a> The largest velocity allowed between subsequent readings of the raw encoder position. Part of the status monitor. Will inject a returned error status on the next command and write out and entry with more information to /srv/samba/share/errors.log </td>
+   <td colspan=3><a href="https://github.com/HaddingtonDynamics/Dexter/commit/8efff90396c50680f40f52a196b21d2c92cc0088">2019/04/22</a> The largest velocity allowed between subsequent readings of the raw encoder position. Part of the status monitor. Will inject a returned error status on the next command and write out and entry with more information to /srv/samba/share/errors.log <b>and will switch to open loop mode</b>.</td>
    </tr>
 
  <tr>
