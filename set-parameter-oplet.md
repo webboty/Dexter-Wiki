@@ -345,7 +345,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> 0 | 255 | 512 (5 integers)</td>
    </tr>
  <tr>
-   <td colspan=3>Sets the index for which Eye Dexter thinks it is at. Where it is within an eye is calculated with encoder measurements and effectively cannot be set. Takes 5 signed integer arguments where 0 is the circle that contains 0 degrees. See [read_from_robot, #EyeNumbers](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords). </td>
+   <td colspan=3>Sets the index for which Eye Dexter thinks it is at. Where it is within an eye is calculated with encoder measurements and effectively cannot be set. Takes 5 signed integer arguments where 0 is the circle that contains 0 degrees. See <a href="https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords">read_from_robot, #EyeNumbers</a>. </td>
    </tr>
  <tr>
    <td>50,&nbsp;<b>CommandedAngles</b></td>
