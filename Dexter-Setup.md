@@ -20,7 +20,7 @@ Typically, you should grip it by the handle on Joint 3 aka "the elbow" (avoid gr
 ## Position
 Before powering on Dexter, position each joint at a known position. The default position is with all the joints vertical, and the tool interface (the last segment) pointed to the right when facing the joints, as shown here:<br> <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Positive_Joint_Directions_J234.PNG">
 
-Normally, when unpacking Dexter, all you should need to do is rotate Joint 3 in the direction shown by the arrow (clockwise, when facing the front) and make minor adjustments to the other joints. Each motor drive shaft has a small dial / handle which can be used to rotate it to a consistent position on startup. The exception is Joint 1, which can be aligned by simply rotating it. Wherever the robot is located when powered on is accepted as the zero or home position. For more on this, see [Encoder Calibration](Encoder-Calibration). 
+Normally, when unpacking Dexter, all you should need to do is rotate Joint 3 in the direction shown by the arrow (clockwise, when facing the motors) and make minor adjustments to the other joints. Each motor drive shaft has a small dial / handle which can be used to rotate it to a consistent position on startup. The exception is Joint 1, which can be aligned by simply rotating it. Wherever the robot is located when powered on is accepted as the zero or home position. For more on this, see [Encoder Calibration](Encoder-Calibration). 
 
 DDE will walk you through initial calibration.
 
