@@ -13,7 +13,7 @@ The top layer of the case will contain the base, remove it and place it with the
 - Other options are available for customization, please contact us.
 
 ## Assemble
-Now remove the Dexter robot from the lower level of the case. Typically, you should grip it by the handel on Joint 3 aka "the elbow" (avoid gripping the side of joint 3 which has the belts) and by the external gear housing of Joint 2, "the shoulder" or by the base mounting column. Align the strake with holes in the base mount and slide it in. Tighten the base clamp. 
+Now remove the Dexter robot from the lower level of the case. Typically, you should grip it by the handle on Joint 3 aka "the elbow" (avoid gripping the side of joint 3 which has the belts) and by the external gear housing of Joint 2, "the shoulder" or by the base mounting column. Align the strake with holes in the base mount and slide it in. Tighten the base clamp. It requires a Phillips head screwdriver. 
 
 ## Position
 Before powering on Dexter, position each joint at a known position. The default position is with all the joints vertical, and the tool interface (the last segment) pointed to the right when facing the joints, as shown here:<br> <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Positive_Joint_Directions_J234.PNG">
