@@ -9,8 +9,9 @@ The top layer of the case will contain the base, remove it and place it with the
 - If the surface has a lip, you can clamp 2 or 3 of the feet down.<br><img src="https://user-images.githubusercontent.com/419392/58844223-183edf00-862b-11e9-8197-37fc97029a21.png">
 - For wooden, metal, or other surfaces which can have holes, screw or bolt the feet down.<br><img src="https://user-images.githubusercontent.com/419392/58844593-c5febd80-862c-11e9-9076-bd438fcaf95d.png">
 - For a flat, inviolate surface like steel, marble, cement, etc... use large amounts of hot glue injected up into the bottom of each "foot"<br>
+<img src="https://user-images.githubusercontent.com/419392/58844667-183fde80-862d-11e9-8bcc-aeaed5865306.png"> 
 <img src="https://user-images.githubusercontent.com/419392/58922776-4dae0000-86f1-11e9-9b93-85de3b98551f.png">
-<img src="https://user-images.githubusercontent.com/419392/58844667-183fde80-862d-11e9-8bcc-aeaed5865306.png">
+- Other options are available for customization, please contact us.
 
 ## Assemble
 Now remove the Dexter robot from the lower level of the case. Typically, you should grip it by the handel on Joint 3 aka "the elbow" (avoid gripping the side of joint 3 which has the belts) and by the external gear housing of Joint 2, "the shoulder" or by the base mounting column. Align the strake with holes in the base mount and slide it in. Tighten the base clamp. 
