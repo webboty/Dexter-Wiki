@@ -24,5 +24,8 @@ Normally, when unpacking Dexter, all you should need to do is rotate Joint 3 in 
 
 DDE will walk you through initial calibration.
 
-## Connect
-Plug in the power cord to fire up your Dexter robot. Wait for the "boot dance" to complete (if it's enabled). Continue to [connect to Dexter](Dexter-Networking).
+## Power
+Plug in the power cord to fire up your Dexter robot. Wait for the "boot dance" to complete (if it's enabled). 
+
+If you don't see the boot dance, or the board doesn't light up, see [Troubleshooting](Troubleshooting)
+Continue to [connect to Dexter](Dexter-Networking).
