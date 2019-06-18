@@ -26,7 +26,7 @@ Most often, this is caused by a problem with the encoder. E.g. an LED or photose
 To diagnose this, in [DDE](DDE), from the "Calibrate Dexter..." dialog on the "Jobs" menu, do the eye calibration for the affected joint. Here is an example of an encoder which is NOT working correctly:<br>
 ![Bad encoder eye. Sensor pulled out of encoder block.](https://user-images.githubusercontent.com/419392/59715702-4f83c300-91c9-11e9-85df-87ec6569a9de.png)
 And another example of one that is correct (after being fixed)<br>
-![Good encoder, after replacing Sensor in hole of encoder block.](https://user-images.githubusercontent.com/419392/59715702-4f83c300-91c9-11e9-85df-87ec6569a9de.png)
+![Good encoder, after replacing Sensor in hole of encoder block.](https://user-images.githubusercontent.com/419392/59716213-6d9df300-91ca-11e9-87d6-0b530f39fb61.png)
 
 #### LED or Photo Sensor Loose
 
