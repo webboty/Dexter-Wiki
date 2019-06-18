@@ -14,3 +14,23 @@ If you see the green light, but don't see the blue or red light, check that the 
 
 ### SD Card
 The [SD Card](SD-Card-Image) is difficult to insert and can easily be partially inserted or just fall out. It is on the opposite side of the MicroZed board from the USB Micro B at the bottom of the PCB, just left of center. If you have a fan installed for the stepper drivers, you will need to remove it. The contacts of the SD Card should be facing you, and pointing upward. 
+
+## [Calibration](Encoder-Calibration)
+
+### Freak Out
+
+After calibration, when going into a closed loop mode where the [Encoders](Encoders) are feeding position information into the [FPGA](FPGA) to correct each joint to an exact location, one or more joints may start to shake or vibrate, and may squeal and lose position badly. Here is a [video of a customers Dexter in that state](https://youtu.be/S1g-IPPbs4I).
+
+Most often, this is caused by a problem with the encoder. E.g. an LED or photosensor has come out of the hole in the encoder block, the encoder block has been pulled out of mesh with the disk, a connector is loose or a wire broken, or the encoder is simply not [calibrated](Encoder-Calibration) correctly. 
+
+To diagnose this, in [DDE](DDE), from the "Calibrate Dexter..." dialog on the "Jobs" menu, do the eye calibration for the affected joint. Here is an example of an encoder which is NOT working correctly:<br>
+![Bad encoder eye. Sensor pulled out of encoder block.](https://user-images.githubusercontent.com/419392/59715702-4f83c300-91c9-11e9-85df-87ec6569a9de.png)
+And another example of one that is correct (after being fixed)<br>
+![Good encoder, after replacing Sensor in hole of encoder block.](https://user-images.githubusercontent.com/419392/59715702-4f83c300-91c9-11e9-85df-87ec6569a9de.png)
+
+#### LED or Photo Sensor Loose
+
+Here is an example of a Sensor that was accidentally pulled out of it's hole in the encoder block:<br>
+![](https://user-images.githubusercontent.com/419392/59716415-cff6f380-91ca-11e9-94e7-980a95b79e56.png)
+
+Replacing it and hot glueing it in place corrected the example issue shown with the eyes above. 
