@@ -26,9 +26,16 @@ https://raw.githubusercontent.com/Kenny2github/scratch-dexter/master/httpd.js
 
 Once you have all that setup, 
 - <TT>nodejs httpd.js <i>dexter_ip</i></TT> where dexter_ip  is the IP address of the dexter robot.
+
+For Scratch 2 (FLASH based)
 - Go to<br>
 https://scratchx.org/?url=https://kenny2github.github.io/scratch-dexter/ext.js#scratch
 <br>and accept the warning. Drag the black "move all joints" block over into the script area on the right. You can click on "events" above and drag a "when (flag) clicked" over on top of it, then click the green flag on the left or just double click the move all joints block. 
+
+For Scratch 3 (HTML5 based)
+- Go to<br>
+https://kenny2github.github.io/scratch-gui/ 
+<br> and click "add extension" (bottom left), then scroll down and choose the one called “Dexter HD”
 
 ## Examples
 ![](https://user-images.githubusercontent.com/419392/57275528-b8690e80-7053-11e9-8ebf-120c13898d7f.png)
