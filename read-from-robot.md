@@ -68,6 +68,8 @@ Int | Address | Description | Sample
 
 Note that the PAYLOAD_LENGTH of 48 is less than MAX_CONTENT_CHARS and so we have completed reading the file. Concatenating the second returned PAYLOAD_DATA string to the first results in the complete original file content.
 
+If there is an error, the [standard Linux error number](https://github.com/torvalds/linux/blob/master/include/uapi/asm-generic/errno-base.h) will be returned. The most common error is 2: "No such file or directory"
+
 The incoming socket handler should not assume that each packet of data received is an 'r' as ['g' status](status-data) responses will also be received. Check the integer 4 Oplet value and process each type of data accordingly. 
 
 *Note that this release of DexRun.c requires an updated [FPGA image](SD-Card-Image). Contact us for that file before updating the code.
