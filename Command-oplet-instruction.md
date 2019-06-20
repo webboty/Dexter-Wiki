@@ -1,14 +1,18 @@
 The list of commands or "oplets" that Dexter knows are defined by the [HashInputCMD function](https://github.com/HaddingtonDynamics/Dexter/search?utf8=%E2%9C%93&q=HashInputCMD+filename%3ADexRun.c&type=) in the [DexRun.c](../blob/master/Firmware/DexRun.c) [Firmware](firmware) and are described by [Dexter.instruction_type_to_function_name_map](https://github.com/cfry/dde/search?q=Dexter.instruction_type_to_function_name_map+filename%3Arobot.js&unscoped_q=Dexter.instruction_type_to_function_name_map+filename%3Arobot.js) in DDE. 
 
-This wiki page attempts to expand on those source documents to explain the instructions. **Q'd** instructions are stored in an internal movement FIFO by DexRun.c and executed sequentially. Other instructions are executed as soon as they are recieved. In addition to this list, the ['w' Write FPGA](oplet-write), and ['S' SetParameter](set-parameter-oplet) oplets also have lists of addresses and sub-commands.
+This wiki page attempts to expand on those source documents to explain the instructions. In addition to this list, the ['w' Write FPGA](oplet-write), and ['S' SetParameter](set-parameter-oplet) oplets also have lists of addresses and sub-commands.
 
-Note that non-movement instructions may not have any effect until a move instruction is sent. This helps to coordinate movement with things like end effector actuation. However, it can be confusing if you just want to e.g. turn a laser end effector on and off and nothing happens. Just send a move all joints with the current joint positions to enable your other commands.
+**Q'd** instructions are stored in an internal movement FIFO by DexRun.c and executed sequentially. Other instructions are executed as soon as they are recieved. When the que is full, that last movement command submitted will not return a status, and DexRun will not respond to _any_ commands until a movement is complete, opening a space on the queue. 
+
+Note that non-movement instructions may not have any effect until a move instruction is sent. This helps to coordinate movement with things like end effector actuation. However, it can be confusing if you just want to e.g. turn a laser end effector on and off and nothing happens. Just send a movement command with the current positions to enable your other commands.
+
+To ensure that a movement has completed, use the 'F' oplet, as it will not return a status until the que is empty.
 
 See [DDE](DDE) documentation for the use of the DDE version of each command. E.g. for `move_to` use `Dexter.move_to (...)`
 
 &nbsp; | DDE name | DexRun | Description
 --- | --- | --- | ---
-**a**|"move_all_joints"|MOVEALL_CMD|Q'd. Arguments: 5 to 7 goal joint angles. The goal can not be changed during the move. Trapezoidal speed ramping is used with coordination so all the joints arrive at their goals at the same time. Acceleration, MaxSpeed, and StartSpeed can be set via the ["S" SetParameter oplet](set-parameter-oplet). Does not require calibration, works even in Open Loop mode (w/ lower accuracy).
+**a**|"move_all_joints"|MOVEALL_CMD|Q'd. Arguments: 5 to 7 goal joint angles. The goal can not be changed during the move. Trapezoidal speed ramping is used with coordination so the first 5 joints arrive at their goals at the same time. Acceleration, MaxSpeed, and StartSpeed can be set via the ["S" SetParameter oplet](set-parameter-oplet). Does not require calibration, works even in Open Loop mode (w/ lower accuracy).
 **b**|"move_to"|n/a|Q'd. Use "Dexter.move_to" in DDE. In DexRun, this oplet is obsolete. See "M"
 B|"set_boundries"|SET_ALL_BOUNDRY|10 args: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow. Set individually with ["S" oplet subcommands](set-parameter-oplet)
 c|"capture_ad"|CAPTURE_AD_CMD|
