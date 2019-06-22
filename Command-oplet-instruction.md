@@ -2,7 +2,7 @@ The list of commands or "oplets" that Dexter knows are defined by the [HashInput
 
 This wiki page attempts to expand on those source documents to explain the instructions. In addition to this list, the ['w' Write FPGA](oplet-write), and ['S' SetParameter](set-parameter-oplet) oplets also have lists of addresses and sub-commands.
 
-**Q'd** instructions are stored in an internal movement FIFO by DexRun.c and executed sequentially. Other instructions are executed as soon as they are recieved. When the que is full, that last movement command submitted will not return a status, and DexRun will not respond to _any_ commands until a movement is complete, opening a space on the queue. 
+**Q'd** instructions are stored in an internal movement FIFO by DexRun.c and executed sequentially. Other instructions are executed as soon as they are recieved. When the queue is full, that last movement command submitted will not return a status, and DexRun will not respond to _any_ commands until a movement is complete, opening a space on the queue. 
 
 Note that non-movement instructions may not have any effect until a move instruction is sent. This helps to coordinate movement with things like end effector actuation. However, it can be confusing if you just want to e.g. turn a laser end effector on and off and nothing happens. Just send a movement command with the current positions to enable your other commands.
 
