@@ -1,4 +1,4 @@
-Dexter's "brain" is a [ZedBoard.org](http://zedboard.org) [MicroZed](http://zedboard.org/product/microzed) board. [Schematic Rev F](http://microzed.org/sites/default/files/documentations/MicroZed_Rev_F_Schematic_141212.pdf) 
+Dexter's "brain" is a [ZedBoard.org](http://zedboard.org) [MicroZed](http://zedboard.org/product/microzed) board. The [7020 commercial](https://www.avnet.com/shop/us/products/avnet-engineering-services/aes-z7mb-7z020-som-g-rev-g-3074457345635208188/) version, NOT the 7010. [Schematic Rev F](http://microzed.org/sites/default/files/documentations/MicroZed_Rev_F_Schematic_141212.pdf) 
 
 <img src="http://zedboard.org/sites/default/files/product_spec_images/front_view_overlay.png" width=729 height=404>
 
