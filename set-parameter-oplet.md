@@ -1,5 +1,7 @@
 High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [Oplet](Command-oplet-instruction). For direct control of low level [FPGA](Gateware) parameters, see the ["w" Oplet](oplet-write)
 
+**Q'd** instructions are stored in the FPGA in an internal movement FIFO and executed sequentially.
+
 <table>
  <tr>
    <td>#, <b>Name</b> <br>(use either)</td>
@@ -15,7 +17,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td>8&nbsp;|&nbsp;<a href="https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF">250000</a>&nbsp;|&nbsp;348963 integer nbits</td>
    </tr>
  <tr>
-   <td colspan=3>Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also StartSpeed below. </td>
+   <td colspan=3>Q'd. Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also StartSpeed below. </td>
    </tr>
  <tr>
    <td>1,&nbsp;<b>Acceleration</b> </td>
@@ -23,7 +25,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> 1&nbsp;|&nbsp;<a href="https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF">3</a>&nbsp;|&nbsp;775 integer nbits </td>
    </tr>
  <tr>
-   <td colspan=3>Maximum acceleration of next move in "nbits"<sup><a href="#1">1</a></sup>. </td>
+   <td colspan=3>Q'd. Maximum acceleration of next move in "nbits"<sup><a href="#1">1</a></sup>. </td>
    </tr>
  <tr>
    <td>2,&nbsp;<b>J1Force</b> </td>
