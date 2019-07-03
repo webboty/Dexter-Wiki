@@ -1,5 +1,10 @@
 The new [Tool Interface](End-Effectors) for end effectors incorporates 2 [Dynamixel XL-320 servos](http://emanual.robotis.com/docs/en/dxl/x/xl320/) which use a [single wire, half duplex, serial interface](http://emanual.robotis.com/docs/en/dxl/x/xl320/#connector-information) and a data format known as the [Dynamixel v.20 Protocol](http://emanual.robotis.com/docs/en/dxl/protocol2/). These become the 6th and 7th axis for the robot. Data for the servo bus comes from the main controller board.
 
+Joint | Dynamixel Address | Description
+----- | ----------------- | --------------
+ 6    | 3                 | Roll
+ 7    | 1                 | Span (open close gripper)
+
 The connector on the servo is a Molex Microlatch 3 pin. For a PCB, the mating part is the [Molex 53253-0370](https://www.mouser.com/ProductDetail/Molex/53253-0370?qs=sGAEpiMZZMs%252bGHln7q6pm%2fK1Y9dcUIE1bkILUHD%2fB%252bE%3d)
 
 Pin | Signal @Servo | Signal @[MicroZed Board](MicroZed)
