@@ -195,7 +195,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
  <tr>
    <td>29,&nbsp;<b>RebootServo</b></td>
    <td></td>
-   <td>Servo Address</td>
+   <td><a href="End-Effector-Servos">Servo Address</a></td>
       </tr>
  <tr>
    <td colspan=3>Reset servo. <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a></td>
