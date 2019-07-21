@@ -1,16 +1,39 @@
 # [Dexter Firmware](../blob/master/Firmware)
 
-Dexter runs "Ubuntu 16.04 LTS" from the [micro SD card](SD-Card-Image) on it's [MicroZed](MicroZed) board and automatically starts a program called [DexRun.c](../blob/master/Firmware/DexRun.c) (used to be iotest.c)
+_Note: To update the onboard firmware, follow the directions in the [/Firmware/README.md](../blob/master/Firmware#readme)_
+
+Dexter runs "Ubuntu 16.04 LTS" from the [micro SD card](SD-Card-Image) on it's [MicroZed](MicroZed) board and automatically starts a program called [DexRun.c](../blob/master/Firmware/DexRun.c) (used to be iotest.c) in the /srv/samba/share folder.
 
 DexRun.c is the interface between the ethernet port and the [FPGA](Gateware) which controls Dexters hardware (motors, encoders, etc...). It opens a socket and accepts [commands](Command-oplet-instruction) from [DDE](DDE) and sends data back. See [DexRun-DDE-communications](DexRun-DDE-communications) for more detail.
 
 DexRun.c also provides a few local functions. For example, onboard motion planning is being developed. 
 
-To update the onboard firmware, follow the directions at:
-https://github.com/HaddingtonDynamics/Dexter/blob/master/Firmware/README.md
+Other files in the /srv/samba/share folder include
+- `autoexec.make_ins` which calls `Defaults.make_ins` which sets the default values for several items in the robot. e.g. "LengthLength" which are the length of each segment (or link) of the arm. This file can be read and parsed to ensure the control software (such as DDE) is aware of the robots settings. These .make_ins files contain [oplets](Command-oplet-instruction) in the same format used to control Dexter, but without the job, instruction, and start and end time values. They /start/ with the oplet letter. Other make_ins files contain sequences of instructions to set modes, re-calibrate, etc...
+- `RunDexRun` is a bash script that checks versions and writes them to Defaults.make_ins, updates the DexRun program when it finds a new DexRun.c file, and optionally starts `autoexec.dde` in the onboard DDE Job Engine
+- `autoexec.dde` if present, can be started as soon as the robot boots.
+- `AdcCenters.txt` contains the X and Y locations of the center of each [encoder](Encoders) "eye". 
+- `AxisCal.txt` is calculated from from Gear Ratio and Microstepping as follows (in DDE)
+````
+//Input:
+var diff_pulley_small_num_teeth = 16
+var diff_pulley_large_num_teeth = 90
+var micro_step = 16
+var motor_steps = 400
+var gear_ratios = [
+	52,
+    52,
+    52,
+    diff_pulley_large_num_teeth / diff_pulley_small_num_teeth,
+    diff_pulley_large_num_teeth / diff_pulley_small_num_teeth
+]
+//Output:
+var AxisCal_string = ""
+for(let i = 0; i < 5; i++){
+	AxisCal_string += -(gear_ratios[i]*micro_step*motor_steps) / (3600*360) + "\n"
+}
+AxisCal_string += -Math.round(gear_ratios[3] / gear_ratios[1] * Math.pow(2, 24))
+````
 
-Although the version of the microzed board doesn't have a screen, your can [SSH into Dexter](SSH-into-Dexter) from any network connected PC. 
-
-Once you are at the command prompt in Dexter, you can verify that DexRun is active with `pgrep DexRun` which will return the process id number. If nothing is returned DexRun isn't active. To stop DexRun (e.g. after compiling a new version) the quickest way is `pkill DexRun`. To start DexRun, the typical [options](https://github.com/HaddingtonDynamics/Dexter/blob/master/Firmware/README.md#run-the-new-program) are `./DexRun 1 3 1 &` after you `cd /srv/samba/share` to get to the directory where the program is kept. The `&` at the end allows it to run in the background, so your session is still available to take other commands. This can be a very useful way to run the program as it will still display messages about some commands. These debug messages aren't typically returned for commands which are time sensitive because they can cause serious slowdowns when DexRun does not have access to a session for those messages to be displayed into.
-
+## Other Firmware
 It is very possible to install and run other programs on Dexter. For example, you can install [Node.js and run a web server / socket interface](nodejs-webserver) in order to access the robot without any installed software on your PC.
