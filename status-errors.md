@@ -1,7 +1,10 @@
 Errors that occur on Dexter are communicated in the next returned packet.
 - Most oplets will return a [status](status-data) with a standard error code (see list below)
-- [Read From Robot](read-from-robot) and [Write To Robot](write-to-robot) deal with file IO and so return the [standard Linux error numbers](https://github.com/torvalds/linux/blob/master/include/uapi/asm-generic/errno-base.h) 
+- [Read From Robot](read-from-robot) and [Write To Robot](write-to-robot) deal with file IO and so return the [standard Linux error numbers](https://github.com/torvalds/linux/blob/master/include/uapi/asm-generic/errno-base.h) _and NOT any of the errors below_. E.g. a 1 error from a Read From Robot means there is "No such file or directory"; it does NOT mean "Bad Request". 
 - The Monitor can override any of the above, replacing the status error with a number in the 600-699 range. In that case, it is possible that a prior error may be overwritten. E.g. If a monitor error occurs during a Read From Robot or Write To Robot which also generated an error, that error would be lost. Any such operation should be restarted once the monitor error is resolved. 
+
+### Standard Dexter Error Codes
+_Note: These do NOT apply to [Read From Robot](read-from-robot) and [Write To Robot](write-to-robot)_
 
  No | Description
 --- | -------------------
