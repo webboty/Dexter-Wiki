@@ -12,7 +12,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> min | initial | max <br>in Dexter <a href="Firmware">Firmware</a> units</td>
    </tr>
  <tr>
-   <td colspan=3>Queued. Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also StartSpeed below. </td>
+   <td colspan=3><a name="MaxSpeed">MaxSpeed</a>: Queued. Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also StartSpeed below. </td>
    </tr>
  <tr>
    <td>0,&nbsp;<b>MaxSpeed</b></td>
@@ -193,13 +193,13 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td>Servo Address, Register, String</td>
    </tr>
  <tr>
+   <td colspan=3>Reset servo. <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a></td>
+   </tr>
+ <tr>
    <td>29,&nbsp;<b>RebootServo</b></td>
    <td></td>
    <td><a href="End-Effector-Servos">Servo Address</a></td>
       </tr>
- <tr>
-   <td colspan=3>Reset servo. <a href="../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93">2018/05/29</a></td>
-   </tr>
  <tr>
    <td colspan=3>RunFile: Added<a href="../commit/e3cccb88cf9b1671c5b2f13c77d1ee00a967a528#diff-691272021fae98368efb598f8e089c16">2018/10/12</a> If it exists, the file will be opened and all instructions from it parsed and executed. By convention, files end with <tt>.make_ins</tt> extension. Each line should be one instruction just like any sent over the socket connection (the job, instruction, start, and end time values are NOT included; start with the oplet). A sample line might be <BR><tt>S J1_PID_P 0.2 ; set base drive</tt> <BR>Anything after a ';' is ignored allowing comments. <BR>Was <a href="../commit/f0d9fa772ba6c3eee979e62a071bca487a084c21">2018/08/24</a> <tt>"Ctrl" parms/values</tt> for compact setting of values related to operational mode but this was depreciated and replaced with RunFile. </td>
    </tr>
