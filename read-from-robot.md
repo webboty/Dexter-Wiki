@@ -42,7 +42,9 @@ The returned data includes the number of bytes actually read as a binary integer
 
 For example, assuming the example commands shown above were sent, and assuming the AdcCenters.txt file contained "0x5960000\r\n0x6540000\r\n0x47e0000\r\n0x46a0000\r\n0x3f20000\r\n0x3e80000\r\n0x4920000\r\n0x73a0000\r\n0x5000000\r\n0x51e0000\r\n" (where the \r is a 0x0D or carriage return, and the \n is a 0x0A or line feed), then the following packets would be recieved:
 
-Int | Address | Description | Sample
+Packet #1:
+
+Int | Addr | Description | Sample
 --- | --- | --- | ---
   0 |  00 | Job number | 1
   1 |  04 | Instruction number | 1
@@ -53,9 +55,11 @@ Int | Address | Description | Sample
   6 |  40 | PAYLOAD_LENGTH | 62
   7-|  48-| PAYLOAD_DATA | "0x5960000\r\n0x6540000\r\n0x47e0000\r\n0x46a0000\r\n0x3f20000\r\n0x3e800"
 
-Note that from address 48 on to 110, we are using the BYTE form of the data, NOT the Integer form. Also, note that the PAYLOAD_LENGTH in integer 6 is 62 which is the MAX_CONTENT_CHARS value. This indicates that the entire file has NOT been read, and triggers another request, with an increased block number after the 'r' oplet.
+_Note that from address 48 on to 110, we are using the BYTE form of the data, NOT the Integer form. Also, note that the PAYLOAD_LENGTH in integer 6 is 62 which is the MAX_CONTENT_CHARS value. This indicates that the entire file has NOT been read, and triggers another request, with an increased block number after the 'r' oplet._
 
-Int | Address | Description | Sample
+Packet #2
+
+Int | Addr | Description | Sample
 --- | --- | --- | ---
   0 |  00 | Job number | 1
   1 |  04 | Instruction number | 2
@@ -66,14 +70,14 @@ Int | Address | Description | Sample
   6 |  40 | PAYLOAD_LENGTH | 48
   7-|  48-| PAYLOAD_DATA | "00\r\n0x4920000\r\n0x73a0000\r\n0x5000000\r\n0x51e0000\r\n"
 
-Note that the PAYLOAD_LENGTH of 48 is less than MAX_CONTENT_CHARS and so we have completed reading the file. Concatenating the second returned PAYLOAD_DATA string to the first results in the complete original file content.
+_Note that the PAYLOAD_LENGTH of 48 is less than MAX_CONTENT_CHARS and so we have completed reading the file. Concatenating the second returned PAYLOAD_DATA string to the first results in the complete original file content._
 
-If there is an error, the [standard Linux error number](https://github.com/torvalds/linux/blob/master/include/uapi/asm-generic/errno-base.h) will be returned. The most common error is 2: "No such file or directory"
+### Errors
+If there is an error, the [standard Linux error number](https://github.com/torvalds/linux/blob/master/include/uapi/asm-generic/errno-base.h) will be returned instead of the standard [status errors](status errors). The most common error is 2: "No such file or directory"
 
-The incoming socket handler should not assume that each packet of data received is an 'r' as ['g' status](status-data) responses will also be received. Check the integer 4 Oplet value and process each type of data accordingly. 
+The incoming socket handler should not assume that each packet of data received is an 'r' as ['g' status](status-data) responses may also be received. Check the integer 4 Oplet value and process each type of data accordingly. 
 
 *Note that this release of DexRun.c requires an updated [FPGA image](SD-Card-Image). Contact us for that file before updating the code.
-
 
 ## Keywords
 
