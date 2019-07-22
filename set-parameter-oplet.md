@@ -321,7 +321,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    </tr>
  <tr>
    <td>49,&nbsp;<b>EyeNumbers</b></td>
-   <td></td>
+   <td> 0 | 255 | 512 (5 integers)</td>
    <td> 0 | 255 | 512 (5 integers)</td>
    </tr>
  <tr>
@@ -337,7 +337,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    </tr>
  <tr>
    <td>51,&nbsp;<b>LinkLengths</b></td>
-   <td>meters</td>
+   <td>meters (5 floats, L5 to L1)</td>
    <td> 82551, 50801, 330201, 320676, 228600 microns (5 integers, L5 to L1)</td>
    </tr>
  <tr>
