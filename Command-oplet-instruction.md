@@ -20,7 +20,7 @@ d|"dma_read"|DMAREAD_CMD|Writes the FPGA DMA data into the specified file. 3 arg
 e|"cause_dexter_error"|n/a|Used only in DDE
 E|"empty_instruction_ queue_immediately"<br>Since 2016.09.01|n/a|Apparently never implemented in firmware?
 **F**|"empty_instruction_ queue"|HEART_BEAT<br>Since 2016.09.01|Queued. Does `wait_fifo_flush()` first. Was SET_FORCE_MOVE_POINT. This instruction will not return a status until it actually executes. Instructions before this one will be executed first. Very useful to synchronize robot motion with control software. e.g. To wait until a move is complete before activating an end effector.
-f|"find_home"|FIND_HOME_CMD||
+f|"find_home"|FIND_HOME_CMD|_Depreciated_ Use job engine.|
 G|"get_robot_status_ immediately"|Since 2016.09.01 HEART_BEAT| (Same as 'g'?) 
 g|"[get_robot_status](status-data)"|SEND_HEARTBEAT|Returns the current [status](status-data) of the robot.//fry
 h|"get_robot_status_ heartbeat"|HEART_BEAT|obsolete //fry
@@ -31,7 +31,7 @@ m|"record_movement"|RECORD_MOVEMENT||
 n|"find_index"|FIND_INDEX_CMD||
 o|"replay_movement"|REPLAY_MOVEMENT||
 P|"pid_move_all_joints"|PID_FINEMOVE|Chases a goal position on each joint using the PID control system which must be enabled. Requires [calibration](Encoder-calibration). The goal can change in the middle of the move. Movement is not coordinated so each joint may arrive at the goal at a different time. The standard trapezoidal speed ramping is not used. See "a".|
-p|"find_home_rep"|FIND_HOME_REP_CMD||
+p|"find_home_rep"|FIND_HOME_REP_CMD|_Depreciated_ Use job engine.|
 **R**|"move_all_joints_ relative"|MOVEALL_RELATIVE|Queued. Like 'a' but the joint is moved relative to it's prior position. E.g. `R 0 0 -36000 0 0;` will move joint 3 ccw 10 degrees.
 r|"[read_from_robot](read-from-robot)"<br>[Since v2.3.16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)|READ_CMD<br>[Since 2018.07.26](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)|Reads files or string data from the robot. Also reads and prints locally values from the memory mapped FPGA interface.
 s|"slow_move"|SLOWMOVE_CMD<br>[Since 2018.10.9](https://github.com/HaddingtonDynamics/Dexter/commit/78bc04dfae5166d8889e1fba36540a3de3ea836b#diff-691272021fae98368efb598f8e089c16)||
