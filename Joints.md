@@ -1,12 +1,12 @@
 Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool Interface](End-Effectors) adds 2 more for a total of 7. Each [FPGA](Gateware) measured joint has an [encoder](Encoders). Also: [Kinematics](Kinematics)
 
-|#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation* |
-| ----  | ----- | ------------- | ------------------------------------- | ----- | ------------ |
-|1	|1	|Base		|Roll. Shoulder rotate (vertical)      	| 200	|Counter	
-|2	|3**	|Pivot		|Pitch. Shoulder lift	               	| 180	|Counter	
-|3	|2	|End		|Pitch. Elbow. Pwr set R65/66       	| 157	|Counter	
-|4	|4	|Angle		|Pitch.  [DiffA1 Differential](Differential-Joint) with 5 	| 115	|Counter	
-|5	|5	|Rotate		|Yaw.  [DiffA2](Differential-Joint). J4 and 5 make the wrist	| 100	|<strike>Clockwise</strike> Counter on HD
+|#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation*  |Disk dir
+| ----  | ----- | ------------- | ------------------------------------- | ----- | ------------- | --------- |
+|1	|1	|Base		|Roll. Shoulder rotate (vertical)      	| 200	| Counter	| Even right
+|2	|3**	|Pivot		|Pitch. Shoulder lift	               	| 180	| Counter	| Even left
+|3	|2	|End		|Pitch. Elbow. Pwr set R65/66       	| 157	| Counter	| Even right
+|4	|4	|Angle		|Pitch.  [DiffA1 Differential](Differential-Joint) with 5 	| 115	|Counter | Even right
+|5	|5	|Rotate		|Yaw.  [DiffA2](Differential-Joint). J4 and 5 make the wrist	| 100	|<strike>Clockwise</strike><br>Counter on HD | Odd right 
 |6	|6	|External	|(not used, could be extrude)		|	|
 |6	| n/a	|J20 bottom pin	|Rotate [Dynamixel](End-Effector-Servos)| n/a	| n/a
 |7	| n/a	|J20 bottom pin	|Gripper [Dynamixel](End-Effector-Servos)| n/a	| n/a
