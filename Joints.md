@@ -6,7 +6,7 @@ Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool I
 |2	|3**	|Pivot		|Pitch. Shoulder lift	               	| 180	|Counter	
 |3	|2	|End		|Pitch. Elbow. Pwr set R65/66       	| 157	|Counter	
 |4	|4	|Angle		|Pitch.  [DiffA1 Differential](Differential-Joint) with 5 	| 115	|Counter	
-|5	|5	|Rotate		|Yaw.  [DiffA2](Differential-Joint). J4 and 5 make the wrist	| 100	|Clockwise	
+|5	|5	|Rotate		|Yaw.  [DiffA2](Differential-Joint). J4 and 5 make the wrist	| 100	|<strike>Clockwise</strike> Counter on HD
 |6	|6	|External	|(not used, could be extrude)		|	|
 |6	| n/a	|J20 bottom pin	|Rotate [Dynamixel](End-Effector-Servos)| n/a	| n/a
 |7	| n/a	|J20 bottom pin	|Gripper [Dynamixel](End-Effector-Servos)| n/a	| n/a
