@@ -3,7 +3,7 @@ Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool I
 |#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation*  | Index Even dir
 | ----  | ----- | ------------- | ------------------------------------- | ----- | ------------- | --------- |
 |1	|1	|Base		|Roll. Shoulder rotate (vertical)      	| 200	| Counter	| CW
-|2	|3<sup>1</sup>	|Pivot		|Pitch. Shoulder lift	               	| 180	| Counter	| CCW<sup>3</sup>
+|2	|3<sup>1</sup>	|Pivot		|Pitch. Shoulder lift	               	| 180	| Counter	| CW<sup>3</sup>
 |3	|2	|End		|Pitch. Elbow. Pwr set R65/66       	| 157	| Counter	| CCW<sup>3</sup>
 |4	|4	|Angle		|Pitch.  [DiffA1 Differential](Differential-Joint) with 5 	| 115	|Counter | CCW<sup>3</sup>
 |5	|5	|Rotate		|Yaw.  [DiffA2](Differential-Joint). J4 and 5 make the wrist	| 100	|<strike>Clockwise</strike><br>Counter<sup>2</sup> | CCW 
