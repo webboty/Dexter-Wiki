@@ -15,6 +15,10 @@ If you see the green light, but don't see the blue or red light, check that the 
 ### SD Card
 The [SD Card](SD-Card-Image) is difficult to insert and can easily be partially inserted or just fall out. It is on the opposite side of the MicroZed board from the USB Micro B at the bottom of the PCB, just left of center. If you have a fan installed for the stepper drivers, you will need to remove it. The contacts of the SD Card should be facing you, and pointing upward. 
 
+The [SD Card](SD-Card-Image) can be difficult to get into the socket correctly and can easily be partially inserted or just fall out. It is on the opposite side of the MicroZed board from the USB Micro B at the bottom of the PCB, just left of center. If you have a fan installed for the stepper drivers, you will need to remove it. You can't really see the socket to get the correct orientation, so make sure the contacts of the SD card are facing you, and on the top.
+
+When you push it up, it may jam or want to twist to the side. Keep moving it around a bit until you can feel it working against a spring, and moving up and down smoothly then press it in until it sort of clicks, not that you will hear the click, but it will suddenly not press back against you as you lower your finger, and you can press it up again and it will release, then again and it will stay. 
+
 ### Console connection
 If the robot doesn't seem to be booting, or you can't connect via DDE or ping, a great way to troubleshoot is by using the built in console port. This will allow you to watch the MicroZed board boot (which it will start to do even without an SD Card) and so you can see exactly where it stops or what error messages it displays. For detailed directions see [Dexter USB Connection](Dexter-USB-Connection)
 
