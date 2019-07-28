@@ -16,6 +16,8 @@ Open the image file in the program and write it to the SD card. Be very careful 
 
 If you get an "error 32" saying the device is already in use, or "error 6" the issue is likely that the program needs administrative rights. Right click the icon and select "Run as administrator"
 
+On Linux systems, you can also do this from the command line. To be sure you have the right device, start with the SD card out of the PC, and at the command prompt, enter `journalctl -f` or `tail -f /var/log/syslog` if it isn't a systemd based version of Linux. Then insert the SD Card and watch the screen to see which device shows up. Ctrl+C to stop watching. You can also look at the output of the `mount` command to see a list of your main drives which should NOT be written. Once you are sure what device the SD card showed up as, enter the command: `dd bs=1M if=Dexter16_20190308.img of=/dev/xxx` replacing the xxx with the device name for the SD card, and replacing Dexter16_20190308.img with the current image you downloaded. _(Thanks to Scott for this info)_
+
 ## Delete partitions from SD Card
 You may need to delete any existing partitions on the SD Card or allow the tool to do so. With USB Image Tool, you can use the "Reset" button. If the tool you are using can't remove the existing partition, you may need to delete it yourself before writing the image. 
 
