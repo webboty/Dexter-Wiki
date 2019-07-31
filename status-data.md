@@ -43,7 +43,7 @@ Address | Description | Sample
  02 | Start time <sup><a href="#times">1</a></sup> | 1531787828
  03 | End time <sup><a href="#times">1</a></sup> | 349602
  04 | Oplet (e.g. 'g') | 103
- 05 | ERROR | 0
+ 05 | [ERROR](status-errors) | 0
  06 | DMA_READ_DATA | 0
  07 | DMA_READ_DATA | 0
  08 | RECORD_BLOCK_SIZE | 0
