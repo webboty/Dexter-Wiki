@@ -25,7 +25,8 @@ Communications are at 115,200 baud. Joint 4 is Servo ID 3, and Joint 5 is Servo 
 // ========================================
 // Dynamixel XL-320 Setup for Dexter
 // ========================================
-
+// Talking standard serial, so connect servo data line to Arduino Digital TX 1
+// Servo VDD needs to be +5, and of course, GND is GND.
 #include "XL320.h"
 // You will need to install the XL320 library from:
 // https://github.com/hackerspace-adelaide/XL320
