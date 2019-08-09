@@ -6,9 +6,11 @@ Dexters gateware configures the [Xilinx Inc. XC7Z010-1CLG400C FPGA](http://www.x
 
 The [SD card image](SD-Card-Image) has multiple partitions, one is the actual hard drive image when running in the robot. Another is the FAT partition which contains UBOOT, ZIMAGE, DTS (Device Tree) and the Gateware .BIT file. [Those can be updated individually](../blob/master/Gateware/README.md). 
 
-The DexRun.c [firmware](Firmware) communicates with the gateware by setting and reading [memory mapped registers](oplet-write) through the ['w' command oplet](oplet-write)
+The DexRun.c [firmware](Firmware) communicates with the gateware by setting memory mapped registers through the ['w' command oplet](oplet-write). They can be read via the ['r' oplet](read-from-robot), and a standard set is returned in the [status reply](status-data)
 
-The ultra fast update has several benefits:
+The number of interfaces is the second highest byte in the first memory address plus 1, and the following addresses contain run length encoded type data expressing the size in bits of each memory mapped location. 
+
+The ultra fast response rate provided by the FPGA has several benefits:
 1. We can run the P term in the PID controller up and not have oscillations. Actually since it’s integrated, and the time base is so fast, the P term is less than 1, but the point is that it tracks so close that in a slower system, it would oscillate. It doesn’t have time to overshoot. And that gives us better accuracy.
 
 2. Small perturbations in the sensor system just get swamped by the good data around them. The mechanical system filters them out because it doesn’t have time to jerk. The motor inertia starts filtering mechanically at a few kHz, but If you get the update speed up over 50 kHz the motor inductance filters out the control signals as well.
