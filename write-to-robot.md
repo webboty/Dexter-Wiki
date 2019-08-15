@@ -1,16 +1,19 @@
-In DDE, robot.js, the [Dexter.write_to_robot](https://github.com/cfry/dde/search?utf8=%E2%9C%93&q=Dexter.write_to_robot+filename%3Arobot.js&type=) function writes file data to the Dexter filesystem via the capital 'W' [oplet](Command-oplet-instruction). The code as it was first released starts at:
-https://github.com/cfry/dde/blob/99e37f9f466b3c374953581aefde0e27e1582fcd/robot.js#L1585
-
+In DDE, robot.js, the [Dexter.write_to_robot](https://github.com/cfry/dde/search?utf8=%E2%9C%93&q=Dexter.write_to_robot+filename%3Arobot.js&type=) function writes file data to the Dexter filesystem via the capital 'W' [oplet](Command-oplet-instruction). 
 Subcommands:
 * f: File name. e.g. <BR>`make_ins("W", "f", 0, file_name)`
 * <strike>s: Start file data. <BR>`make_ins("W", "s", max_content_chars, a_string.substring(next_start_index, max_content_chars))`</strike> _not used_
 * m: Middle file data. <BR>`make_ins("W", "m", max_content_chars, a_string.substring(next_start_index, next_start_index + max_content_chars))`
 * e: End File data. <BR>`make_ins("W", "e", chars_left, a_string.substring(next_start_index, a_string.length))`
 
-In the original version, there is no function in the DexRun.c [Firmware](Firmware) to process these commands on the Dexter side. That has been added in this release:
+Binary data is supported by standard URL escaping. E.g. a binary value of 0 is written in the data as %00. This decreases the payload size by a factor of three, but is worth doing for binary file support. In addition, any text data with a ';' (semicolon, ASCII 59 0x3B) must be escaped to avoid confusion with the ending character in a command, and the escape letter '%' (percent, ASCII 37 0x25) must be escaped as well. Other than null, ; and %, other binary data actually shouldn't need to be escaped. 
+
+### History
+The code as it was first released starts at:
+https://github.com/cfry/dde/blob/99e37f9f466b3c374953581aefde0e27e1582fcd/robot.js#L1585
+At that time, there was no function in the DexRun.c [Firmware](Firmware) to process these commands on the Dexter side. That was added in this release:
 https://github.com/HaddingtonDynamics/Dexter/commit/19d08c26abacf4c81fc2c5427b03adc24d37b51b
 
-Because certain characters need to be escaped, the DDE code must be changed. The following, placed in dde_init.js in the dde_apps document folder will allow binary transfers to Dexters file system given good connectivity. There are concerns about packet order, but so far it seems to work reliably.
+Because certain characters need to be escaped, the DDE code had to be changed and the MAX_CONTENT_CHARS had to be reduced by a factor of 3. The following, placed in dde_init.js in the dde_apps document folder allowed binary transfers to Dexters file system given good connectivity. There are concerns about packet order, but it generally seems to work reliably. All of this has since been implemented in DDE via the Dexter.write_to_robot and write_file commands.
 
 ````
 Dexter.socket_encode = function(c) {
@@ -21,7 +24,9 @@ Dexter.socket_encode = function(c) {
 }
 
 Dexter.write_to_robot = function(a_string="", file_name=null){
-    let max_content_chars = 64 //244 //252 //ie 256 - 4 for (instruction_id, oplet, suboplet, length
+    let max_content_chars = 62 //244 //252 //ie 256 - 4 for (instruction_id, oplet, suboplet, length
+    //Limiting to 62 bytes makes it easy to avoid overrunning the packet when all bytes are escaped.
+    //About 3 times faster processing can be achieved with more intelligent escaping / breaking
     let i = 0
     let code = 0
     let payload = ""
@@ -49,8 +54,4 @@ Dexter.write_to_robot = function(a_string="", file_name=null){
 	}
 ````
 
-In the future, subcommands to retrieve file data will also be needed. These might be added under the 'r' (not 'R') oplet. Suggestions:
-* f: File name. As above to set the file name or directory path to be read
-* r: Read data. Reads the next block of data. Dexter will return an error when an attempt is made to read past end of file.
 
-At this time, DexRun.c only returns the robot status data to DDE, and DDE only expects status data, so both will have to be extended to handle returned file data.
