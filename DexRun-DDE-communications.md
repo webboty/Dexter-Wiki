@@ -1,29 +1,23 @@
 # Dexter <=> DDE communications: 
 
-Uses sockets, over an [Ethernet link](Dexter-Networking).
-
-The DDE code is in socket.js. Data is sent via send, and recieved via on_recieve which is setup as the socket response handler. 
+DDE, and most other applications communicate with Dexter via raw sockets, over an [Ethernet link](Dexter-Networking).
 
 ### Data Format
 Fields are separated by space (but could be comma) and the request is terminated by a ';' (semicolon).
 
 **Header**
 
-- ​<i>job_id</i>: Mapped to an actual job object. There can be many jobs and this number indexes the job the data came from.
+- ​<i>job_id</i>: Mapped to an actual job object. There can be many jobs and this number indexes the job the data came from. 
 - _instruction id_: Index of the instruction in the jobs do_list array. e.g. In a Job with 4 instructions, the id will be 4 for the last instruction. 
 - _start_: Time (in milliseconds since Jan 1, 1970) when the instruction was started.
 - _end_: Time the instruction ended. Since the instruction hasn't ended, its end time is "undefined."
 - [_instruction_](Command-oplet-instruction): The command / oplet / instruction to be executed.
 
-for example, `1 1 1528438131 undefined g ;` will return a status update
+for example, `1 2 1528438131 undefined g ;` will return a status update. This is job 1, the 2nd instruction of the job, it was sent on Friday, June 8, 2018 6:08:51 AM GMT, the end time is unknown, and the oplet is 'g'.
 
-**Data**
-
-All of the header data is included in the same format in respose packets sent back to DDE from Dexter
-
-The ID's and Oplet allow DDE to know what that response is to. 
-
-The times are useful tools for debugging. We can know the timing of an instruction to compare it with other instructions in the job as well as instructions from other jobs. In a post-motem analysis of two cooperating jobs, you can see which instructions (from both jobs) happened first.​
+Dexter does not check or use this "header" information, it simply returns it to the host. All of the header data is included in response packets sent back to DDE from Dexter:
+- The ID's and Oplet allow DDE to know what that response is to. 
+- The times are useful tools for debugging. We can know the timing of an instruction to compare it with other instructions in the job as well as instructions from other jobs. In a post-mortem analysis of two cooperating jobs, you can see which instructions (from both jobs) happened first.​
 
 The DexRun code is implemented in several different ways which are selected by the second command line argument. 
 * ./DexRun # 1 # uses [StartServerSocket](../search?utf8=%E2%9C%93&q=StartServerSocket+filename%3ADexRun.c&type=) which is a generic server interface. 
@@ -38,3 +32,4 @@ The ParseInput routine then tokenizes the payload input via the standard C [strt
 
 Every command sent by DDE is then replied to via [ProcessServerSendDataDDE](../search?utf8=%E2%9C%93&q=ProcessServerSendDataDDE+filename%3ADexRun.c&type=) which again strtok's the (cleaned up) command from the recieved data and then simply returns it as an integer in an array along with some time information, an error code, and the current robot [status](status-data).
 
+The DDE code is in socket.js. Data is sent via send, and recieved via on_recieve which is setup as the socket response handler. 
