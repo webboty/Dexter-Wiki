@@ -2,6 +2,7 @@ The list of commands or "oplets" that Dexter knows are defined by the [HashInput
 
 This wiki page attempts to expand on those source documents to explain the instructions. In addition to this list, the ['w' Write FPGA](oplet-write), and ['S' SetParameter](set-parameter-oplet) oplets also have lists of addresses and sub-commands.
 
+
 **Queued** instructions are stored in the FPGA in an internal movement FIFO and executed sequentially. Other instructions are executed as soon as they are recieved. When the queue is full, that last movement command submitted will not return a status, and DexRun will not respond to _any_ commands until a movement is complete, opening a space on the queue. 
 
 Note that non-movement instructions may not have any effect until a move instruction is sent. This helps to coordinate movement with things like end effector actuation. However, it can be confusing if you just want to e.g. turn a laser end effector on and off and nothing happens. Just send a movement command with the current positions to enable your other commands.
@@ -9,6 +10,8 @@ Note that non-movement instructions may not have any effect until a move instruc
 To ensure that a movement has completed, use the 'F' oplet, as it will not return a status until the que is empty.
 
 See [DDE](DDE) documentation for the use of the DDE version of each command. E.g. for `move_to` use `Dexter.move_to (...)`
+
+These oplets are sent to Dexter via a raw socket connection on port 50000 in a format fully documented in [DexRun-DDE-communications](DexRun-DDE-communications). Basically, a job number, instruction number, start POSIX time, end time (unknown) and the oplet and it's parameters are sent followed by a ';' to close the line. e.g. for the 'g' (get_robot_status) oplet you might send `1 2 1528438131 undefined g ;` where this is the first job, the 2nd instruction in that job, it was sent at 06/08/2018 @ 6:08am (UTC), the end time is not known (it will be set by Dexter in the returned status). Note: All these values must be present, but are not checked. e.g. `1 1 1 1 g ;` works just fine; the return status just won't tell you what instruction # it's for, or when the command was started. 
 
 &nbsp; | DDE name | DexRun | Description
 --- | --- | --- | ---
