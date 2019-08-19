@@ -89,6 +89,8 @@ Keyword | Datatype | Description | Sample
   #EyeNumbers | ascii, 5 space delimited integers | Each encoder can measure where it is in the current eye but has to keep track of when it transitions between eyes. These 5 values are the indices for which eye number each encoder is on. The range is 0 to 512, center is 255. Note, they will not move all the way to 0 or 512.| `"286, 255, 255, 255, 324"`
   #RawEncoders | ascii JSON, undocumented | RawEncoders is the uncorrected data about each joints position, prior to calibration. It does not take into account the slight changes in the "eye" from one slot to the next, or any mispositioning of the eye center. Calibration is NOT required. The data format is complex and not yet documented. | `"[14319360, 596611840, 2108160, -1794560, -172800]"`
  #measured_angles | ascii JSON, 5 integers | The measured angles. Calibration IS required. | `"[0, 0, 0, 0, 0]"`
+ #Steps | ascii JSON, 5 integers | The position the motor has been commanded to move to in steps. Added [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72). Calibration is not required.| `"[0, 0, 0, 0, 0]"` 
+#StepAngles | ascii JSON, 5 integer arcseconds | The position the motor has been commanded to move to in arcseconds. Added [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72).  Calibration is not required.| `"[0, 0, 0, 0, 0]"`
 
 ## Read from FPGA memory
 
