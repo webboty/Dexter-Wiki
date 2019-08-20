@@ -97,10 +97,10 @@ Keyword | Datatype | Description | Sample
 
 ## BASH Shell Commands
 
-Starting [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72), if the `'r' 0` is followed by a \` "backtick" (ASCII 96 0x60) character before the command. 
-e.g. `r 0 \`ls` will return a directory listing; use `r 1 \`` (or "r" with any number >0 and a backtick) repeatedly to get the rest of the data.
+Starting [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72), if the "r 0" is followed by a \` or "backtick" (ASCII 96 0x60) character, the rest of the command will be sent to a child processes started with the BASH shell. 
+e.g. "r 0 \`ls" will return a directory listing; use "r 1 \` " (or "r" with any number >0 and a backtick) repeatedly to get the rest of the data.
 
-NOTE: It is critical when using this feature to read all the way to the end until an error 10 is returned. Do not stop sending `r 1 \`` commands just because you get back less than MAX_CONTENT_CHARS data. The reason for this is that the BASH command may require time to complete it's output. It might send back a few bytes at a time and not fill the return buffer completely with every read. When the child process has completed, doing a read will return an "end of stream" error which clearly indicates the process has finished. Until then, the process is running and may continue to generate output. New 'r' shell commands will fail because the file handle is still in use. 
+NOTE: It is critical when using this feature to read all the way to the end until an error 10 is returned. Do not stop sending "r 1 \`" commands just because you get back less than MAX_CONTENT_CHARS data. The reason for this is that the BASH command may require time to complete it's output. It might send back a few bytes at a time and not fill the return buffer completely with every read. When the child process has completed, doing a read will return an "end of stream" error which clearly indicates the process has finished. Until then, the process is running and may continue to generate output. New 'r' shell commands will fail because the file handle is still in use. 
 
 CAUTION: If this function is not used correctly, it can really scramble the system. E.g. you can format the SD card with this. Or you can lose connectivity because the system is waiting on the child process to stop. 
 
