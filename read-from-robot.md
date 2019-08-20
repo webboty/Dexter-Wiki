@@ -1,5 +1,8 @@
 Read From Robot is a protocol which allows data to be read from the Dexter file system without having to use a SAMBA share (which was blocked by Windows 10, see [Issue 50](https://github.com/HaddingtonDynamics/Dexter/issues/58)). The protocol is implemented on the Dexter [Firmware](firmware) side via the 'r' [oplet](Command-oplet-instruction) in [DexRun.c on the TDint branch on 2018/07/26](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)*  (see below for more) and on the PC side in [DDE version 2.3.16, on 2018/06/04](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905) as Dexter.read_from_robot(pathfile, user_variable) where:
-- pathfile is the path and file name from root e.g. "/srv/samba/share/err.txt" or a "fake" file name starting with "#" which returns data without actually creating a file. E.g. "#XYZ" (this is being changed to #POM) returns a cartesian coordinate matrix of position and orientation which was added in [DexRun.c TDint branch](https://github.com/HaddingtonDynamics/Dexter/blob/e6db50da946176123e191e9af6660a318f240489/Firmware/DexRun.c#L2117)* 
+- pathfile is one of the following:
+  - the path and file name from root e.g. "/srv/samba/share/err.txt" 
+  - a <a href="Keywords">#Keyword</a> which returns data without actually creating a file. E.g. "#POM" (was #XYZ) returns a cartesian coordinate matrix of position and orientation which was added [2018/08/04](https://github.com/HaddingtonDynamics/Dexter/blob/e6db50da946176123e191e9af6660a318f240489/Firmware/DexRun.c#L2117)* 
+  - a <a href="#bash_shell_commands">BASH Shell command</a> starting with "`" or backtick (ASCII 96 0x60) character
 - user_variable is the name of the variable to add to the user_data object. e.g. "foo" would put the returned text of the file in user_data.foo
 
 For example in DDE:
@@ -92,6 +95,17 @@ Keyword | Datatype | Description | Sample
  #Steps | ascii JSON, 5 integers | The position the motor has been commanded to move to in steps. Added [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72). Calibration is not required.| `"[0, 0, 0, 0, 0]"` 
 #StepAngles | ascii JSON, 5 integer arcseconds | The position the motor has been commanded to move to in arcseconds. Added [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72).  Calibration is not required.| `"[0, 0, 0, 0, 0]"`
 
+## BASH Shell Commands
+
+Starting [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72), if the `'r' 0` is followed by a \` "backtick" (ASCII 96 0x60) character before the command. 
+e.g. `r 0 \`ls` will return a directory listing; use `r 1 \`` (or "r" with any number >0 and a backtick) repeatedly to get the rest of the data.
+
+NOTE: It is critical when using this feature to read all the way to the end until an error 10 is returned. Do not stop sending `r 1 \`` commands just because you get back less than MAX_CONTENT_CHARS data. The reason for this is that the BASH command may require time to complete it's output. It might send back a few bytes at a time and not fill the return buffer completely with every read. When the child process has completed, doing a read will return an "end of stream" error which clearly indicates the process has finished. Until then, the process is running and may continue to generate output. New 'r' shell commands will fail because the file handle is still in use. 
+
+CAUTION: If this function is not used correctly, it can really scramble the system. E.g. you can format the SD card with this. Or you can lose connectivity because the system is waiting on the child process to stop. 
+
 ## Read from FPGA memory
 
-This has an internal debug function which reads and prints to the local console values from the [FPGA](Gateware) memory mapped IO. In that case, the first parameter is the address and the second the length. For example, `r 0 20` will display, on the stdout console (not returned via the socket), the first 20 memory values which list the types of the I/O data passed in the higher addresses. Each value encodes the width and the type of each interface. The number of interfaces is the second highest byte in the first memory address plus 1, but it will be obvious by the number of non-zero values returned. This can help making sure you have the correct firmware by looking for a match with the INPUT_OFFSET value in the DexRun.c code. 
+This has an internal debug function which reads and prints to the local console values from the [FPGA](Gateware) memory mapped IO. In that case, the first parameter is the address and the second the length. For example, `r 0 20` will display, on the stdout console (not returned via the socket), the first 20 memory values which list the types of the I/O data passed in the higher addresses. Each value encodes the width and the type of each interface. The number of interfaces is the second highest byte in the first memory address plus 1, but it will be obvious by the number of non-zero values returned. 
+
+Note, Starting [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72), the interface count in the .bit file is checked, and if it does not match the INPUT_OFFSET in DexRun.c, a "fake" RAM array will be created and referenced instead of the FPGA's mapped memory to keep any commands from writing to the wrong places and causing damage. The firmware will continue to run and can be used to update the files via [write-to-robot](write-to-robot).
