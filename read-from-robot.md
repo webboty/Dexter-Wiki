@@ -1,8 +1,8 @@
 Read From Robot is a protocol which allows data to be read from the Dexter file system without having to use a SAMBA share (which was blocked by Windows 10, see [Issue 50](https://github.com/HaddingtonDynamics/Dexter/issues/58)). The protocol is implemented on the Dexter [Firmware](firmware) side via the 'r' [oplet](Command-oplet-instruction) in [DexRun.c on the TDint branch on 2018/07/26](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)*  (see below for more) and on the PC side in [DDE version 2.3.16, on 2018/06/04](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905) as Dexter.read_from_robot(pathfile, user_variable) where:
 - pathfile is one of the following:
   - the path and file name from root e.g. "/srv/samba/share/err.txt" 
-  - a <a href="Keywords">#Keyword</a> which returns data without actually creating a file. E.g. "#POM" (was #XYZ) returns a cartesian coordinate matrix of position and orientation which was added [2018/08/04](https://github.com/HaddingtonDynamics/Dexter/blob/e6db50da946176123e191e9af6660a318f240489/Firmware/DexRun.c#L2117)* 
-  - a <a href="#bash_shell_commands">BASH Shell command</a> starting with "`" or backtick (ASCII 96 0x60) character
+  - a <a href="#keywords">#Keyword</a> which returns data without actually creating a file. E.g. "#POM" (was #XYZ) returns a cartesian coordinate matrix of position and orientation which was added [2018/08/04](https://github.com/HaddingtonDynamics/Dexter/blob/e6db50da946176123e191e9af6660a318f240489/Firmware/DexRun.c#L2117)* 
+  - a <a href="#bash-shell-commands">BASH Shell command</a> starting with "`" or backtick (ASCII 96 0x60) character
 - user_variable is the name of the variable to add to the user_data object. e.g. "foo" would put the returned text of the file in user_data.foo
 
 For example in DDE:
