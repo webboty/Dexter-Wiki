@@ -7,7 +7,7 @@ Joint | Dynamixel Address | Description
 
 The connector on the servo is a Molex Microlatch 3 pin. For a PCB, the mating part is the [Molex 53253-0370](https://www.mouser.com/ProductDetail/Molex/53253-0370?qs=sGAEpiMZZMs%252bGHln7q6pm%2fK1Y9dcUIE1bkILUHD%2fB%252bE%3d)
 
-Pin | Signal @Servo | Signal @[MicroZed Board](MicroZed)
+Pin | Signal @Servo | Signal @Motor Board
 --- | ---- | ---
  1 | GND (nearest the feedhorn) | J25 top pin
  2 | VDD | J25 bottom pin*
