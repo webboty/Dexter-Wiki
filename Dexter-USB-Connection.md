@@ -17,6 +17,8 @@ CP2104 USB Port Installed<BR>
 
 Once the driver is installed, you should see it under Ports, as COM# where # is some number. E.g. COM63 in this case.
 
+On Linux or Mac, from Terminal, `ls /dev/tty*` and then plug in the cable, wait a bit and repeat. Whatever showed up new is the correct port.
+
 ## Linux via 'screen'
 
 On a Linux (or mac?), from Terminal, the command line:<br>
