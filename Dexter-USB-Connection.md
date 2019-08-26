@@ -19,9 +19,9 @@ Once the driver is installed, you should see it under Ports, as COM# where # is 
 
 ## Linux via 'screen'
 
-On a Linux (or mac?) the command line:<br>
+On a Linux (or mac?), from Terminal, the command line:<br>
 `screen /dev/ttyUSB0 115200`<br>
-will get you a connection, where ttyUSB0 is whatever port showed up when you plugged in.
+will get you a connection, where ttyUSB0 is whatever port showed up when you plugged in. If you don't have "screen" you should be able to install it with `sudo apt-get install screen`
 
 ## PuTTY
 - In [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/), on the "Session" screen, select "Serial". 
