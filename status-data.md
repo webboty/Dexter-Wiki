@@ -22,7 +22,7 @@ SENT\_  | Little used? Commanded position goal.
 SLOPE\_ | Unused. Was rate of change of \_AT. Measurement of joint speed. April 2018 changed to servo information on some joints (see below)
 
 ## Changes
-In April 2018, the FPGA and [Firmware](https://github.com/HaddingtonDynamics/Dexter/commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (see line 2455) code was changed so that the [Dynamixel servo](End-Effector-Servos) data is returned in the SLOPE items as follows:
+In April 2018, the FPGA and [Firmware](https://github.com/HaddingtonDynamics/Dexter/commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) (see line 2455) code was changed so that the [Dynamixel servo](End-Effector-Servos) data is returned by the getNormalizedInput function for the SLOPE items as follows:
 <BR>Joint 6 position replaces SLOPE_BASE_POSITION,
 <BR>Joint 6 force replaces SLOPE_PIVOT_POSITION,
 <BR>Joint 7 position replaces SLOPE_END_POSITION,
