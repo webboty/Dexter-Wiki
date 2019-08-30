@@ -67,10 +67,10 @@ Some Dexters may have been configured to use DHCP, and so need to be CAT5 cabled
 - Android or iOS Smartphone: Install and use the Fing app<BR>
 https://www.fing.io/
 - on Linux / Mac use `arp -a`. You may need to ping broadcast first. Or `sudo apt-get nmap` and then `nmap -rP _ip_/24` where _ip_ is your local network address. e.g. 192.168.1.1
-- on Windows, `arp -a` returns the ip address, but no machine names. Or you can download and install<BR>
+- on Windows, `arp -a` returns the ip address, but no machine names. The MAC address of the CAT5 adapter will always start with "00:5D:03" so you can do `arp -a | find "00-5d-03"` and the result is almost certainly your Dexter. Or you can download and install<BR>
 http://www.advanced-ip-scanner.com
 
-If you don't have a CAT5 connection to the network, you can connect directly via CAT5 to your computer, after making some changes to Dexters networking. See [Issue 37](https://github.com/HaddingtonDynamics/Dexter/issues/37) for more information. You may need to use a [Serial USB connection](Dexter-USB-Connection) to gain access to make those changes.
+If you don't have a CAT5 connection to the network, you can connect directly via CAT5 to your computer, (see above) but if Dexter has been setup for DHCP, you will need to make some changes to Dexters networking. See [Issue 37](https://github.com/HaddingtonDynamics/Dexter/issues/37) for more information. You may need to use a [Serial USB connection](Dexter-USB-Connection) to gain access to make those changes.
 
 To disable DHCP and return to a static IP address, connect to Dexter and at the command line, enter<BR>
 `nano /etc/network/interfaces`
