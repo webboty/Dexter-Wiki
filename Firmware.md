@@ -38,4 +38,4 @@ AxisCal_string += -Math.round(gear_ratios[3] / gear_ratios[1] * Math.pow(2, 24))
 ## Other Firmware
 It is very possible to install and run other programs on Dexter. For example, you can install [Node.js and run a web server / socket interface](nodejs-webserver) in order to access the robot without any installed software on your PC. 
 
-[ROS Kenetic](http://wiki.ros.org/kinetic/Installation/Ubuntu) can probably be installed.
+[ROS Kenetic](http://wiki.ros.org/kinetic/Installation/Ubuntu) can probably be installed. Or the node.js httpd web server / port gateway can be updated to [provide ROS messaging](https://github.com/RethinkRobotics-opensource/rosnodejs/issues/131) as well. 
