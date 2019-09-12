@@ -29,7 +29,7 @@ If your [SD Card](SD-Card-Image) is up to date, you should be able to install a 
 3. You will need to connect via CAT5 or [Serial USB connection](Dexter-USB-Connection) then SSH in to Dexter and configure the SSID and password to match your router. You can use `iwconfig wlan0 essid <name> key s:<password>` or `nmcli` (see below) from the command line or setup <a href="#x-windows">Remote GUI interface via X-Windows</a> and use the network manager. It's icon is in the bottom right (just left of the time) on Dexter's desktop.
 
 Units known to work:
-- [EDIMAX EW-7811Un](https://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY)
+- [EDIMAX EW-7811Un](https://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY) It does get hot and may fail just from overheating.
 
 ### Using nmcli to setup WiFi on Dexter.
 nmcli is the command line version of the network manager GUI. It can be used to set up WiFi on Dexter.
