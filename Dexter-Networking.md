@@ -31,6 +31,9 @@ If your [SD Card](SD-Card-Image) is up to date, you should be able to install a 
 Units known to work:
 - [EDIMAX EW-7811Un](https://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY) It does get hot and may fail just from overheating.
 
+Units known to NOT work:
+- [Panda brand](https://www.amazon.com/Panda-300Mbps-Wireless-USB-Adapter/dp/B00EQT0YK2/) does NOT work. No pre-compiled driver available and no coherent documentation or source for a driver.
+
 ### Using nmcli to setup WiFi on Dexter.
 nmcli is the command line version of the network manager GUI. It can be used to set up WiFi on Dexter.
 - `nmcli dev wifi` to see WiFi access points available to Dexter.
