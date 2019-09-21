@@ -2,8 +2,8 @@ The Write (`w`) [oplet](Command-oplet-instruction) writes low level values to th
 
 _Note: This represents the "virtual" address list as used by the 'w' command. The actual FPGA addresses have been changed since (TODO: get date) to use a "keyhole window" to reduce the number of mapped addresses used by the FPGA. In the keyhole system, one address in a block will select what the next address actually changes. DexRun.c on the TDInt branch still interprets 'w' commands with these addresses, but it translates them into the keyhole system._
 
-Addr | Purpose           | Description
----- | ----------------- | ----------------------------
+Addr | Name               | Description
+---- | ------------------ | ----------------------------
  0 | BASE_POSITION        | J1 Motor position index
  1 | END_POSITON          | J2 ...where the joint has been
  2 | PIVOT_POSITON        | J3 ...commanded to go to
