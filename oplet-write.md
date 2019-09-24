@@ -4,15 +4,15 @@ _Note: This represents the "virtual" address list as used by the 'w' command. Th
 
 Addr | Name               | Description
 ---- | ------------------ | ----------------------------
- 0 | BASE_POSITION_AT     | <strike>J1 Motor position index</strike> Use the "A" [oplet](Command-oplet-instruction)
+ 0 | BASE_POSITION_AT     | <strike>J1 Motor position index</strike> 
  1 | END_POSITION_AT      | <strike>J2 ...where the joint has been</strike>
  2 | PIVOT_POSITION_AT    | <strike>J3 ...commanded to go to</strike>
- 3 | ANGLE_POSITION_AT    | <strike>J4</strike>
+ 3 | ANGLE_POSITION_AT    | <strike>J4</strike> Use the "a" [oplet](Command-oplet-instruction#a)
  4 | ROT_POSITION_AT      | <strike>J5</strike>
  5 | ACCELERATION_MAXSPEED| Acceleration [20:31] and max speed [0:19] (shared register)
- 6 | BASE_SIN_CENTER      | <strike>J1 DC bias parameters</strike> Use the "W" or [write-to-robot](write-to-robot) [oplet](Command-oplet-instruction) to write 
- 7 | BASE_COS_CENTER      | <strike>J1 </strike>.. the [AdcCenters.txt](Encoders#adc-centers) file
- 8 | END_SIN_CENTER       | <strike>J2</strike>
+ 6 | BASE_SIN_CENTER      | <strike>J1 DC bias parameters</strike> 
+ 7 | BASE_COS_CENTER      | <strike>J1</strike> Use the "W" or [write-to-robot](write-to-robot) [oplet](Command-oplet-instruction) 
+ 8 | END_SIN_CENTER       | <strike>J2</strike> to write the [AdcCenters.txt](Encoders#adc-centers) file.
  9 | END_COS_CENTER       | <strike>J2</strike>
 10 | PIVOT_SIN_CENTER    | <strike>J3</strike>
 11 | PIVOT_COS_CENTER    | <strike>J3</strike>
@@ -62,10 +62,10 @@ Addr | Name               | Description
 55 |  DIFF_FORCE_SPEED_FACTOR_ANGLE| Multiplier (coefficient / master gain) for the force calculator on J4. Like SPEED_FACTORA
 56 |  DIFF_FORCE_SPEED_FACTOR_ROT  | Multiplier (coefficient / master gain) for the force calculator on J5. Like SPEED_FACTORA
 57 |  DIFF_FORCE_ANGLE_COMPENSATE  | <strike>Unused. </strike>
-58 |  FINE_ADJUST_BASE             | <strike>Position offset to commanded joint angle into the PID. See PID_MOVE</strike>
+58 |  FINE_ADJUST_BASE             | <strike>Position offset to commanded joint angle into the PID. </strike>
 59 |  FINE_ADJUST_END              | <strike>Has the same effect as offsetting the error signal. </strike>
 60 |  FINE_ADJUST_PIVOT            | <strike>Allows moves to be made by the PID only vs the coupled acceleration calculator + PID</strike>
-61 |  FINE_ADJUST_ANGLE            | <strike>"</strike>
+61 |  FINE_ADJUST_ANGLE            | <strike>"</strike> See PID_MOVE. Use the "P" [oplet](Command-oplet-instruction#P)
 62 |  FINE_ADJUST_ROT              | <strike>"</strike>
 63 |  RECORD_LENGTH                | <strike>Length of the recording to be played back</strike>
 64 |  END_EFFECTOR_IO              | <strike>Controls the configuration of the bits that go to the end effector.  See [End-Effectors](End-Effectors)</strike>
