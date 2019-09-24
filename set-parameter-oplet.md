@@ -12,7 +12,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> min | initial | max <br>in Dexter <a href="Firmware">Firmware</a> units</td>
    </tr>
  <tr>
-   <td colspan=3><a name="MaxSpeed"><b>MaxSpeed</b></a>: Queued. Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also <a href="StartSpeed">StartSpeed</a> below. </td>
+   <td colspan=3><a name="MaxSpeed"><b>MaxSpeed</b></a>: Queued. Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also <a href="#StartSpeed">StartSpeed</a> below. </td>
    </tr>
  <tr>
    <td>0,&nbsp;MaxSpeed</td>
@@ -20,7 +20,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td>8&nbsp;|&nbsp;<a href="https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF">250000</a>&nbsp;|&nbsp;348963 integer nbits</td>
    </tr>
  <tr>
-   <td colspan=3><a name="Acceleration"><b>Acceleration</b></a>: Queued. Maximum acceleration of next move in "nbits"<sup><a href="#1">1</a></sup>. Replaced by <a href="AngularAcceleration">AngularAcceleration</a> below</td>
+   <td colspan=3><a name="Acceleration"><b>Acceleration</b></a>: Queued. Maximum acceleration of next move in "nbits"<sup><a href="#1">1</a></sup>. Replaced by <a href="#AngularAcceleration">AngularAcceleration</a> below</td>
    </tr>
  <tr>
    <td>1,&nbsp;Acceleration </td>
