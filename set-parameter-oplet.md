@@ -12,18 +12,18 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> min | initial | max <br>in Dexter <a href="Firmware">Firmware</a> units</td>
    </tr>
  <tr>
-   <td colspan=3><a name="MaxSpeed">MaxSpeed</a>: Queued. Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also StartSpeed below. </td>
+   <td colspan=3><a name="MaxSpeed"><b>MaxSpeed</b></a>: Queued. Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also <a href="StartSpeed">StartSpeed</a> below. </td>
    </tr>
  <tr>
-   <td>0,&nbsp;<b>MaxSpeed</b></td>
+   <td>0,&nbsp;MaxSpeed</td>
    <td>0.001&nbsp;|&nbsp;30&nbsp;|&nbsp;45 deg/s</td>
    <td>8&nbsp;|&nbsp;<a href="https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF">250000</a>&nbsp;|&nbsp;348963 integer nbits</td>
    </tr>
  <tr>
-   <td colspan=3><a name="Acceleration">Acceleration</a>: Queued. Maximum acceleration of next move in "nbits"<sup><a href="#1">1</a></sup>. </td>
+   <td colspan=3><a name="Acceleration"><b>Acceleration</b></a>: Queued. Maximum acceleration of next move in "nbits"<sup><a href="#1">1</a></sup>. Replaced by <a href="AngularAcceleration">AngularAcceleration</a> below</td>
    </tr>
  <tr>
-   <td>1,&nbsp;<b>Acceleration</b> </td>
+   <td>1,&nbsp;Acceleration </td>
    <td> 0.0001&nbsp;|&nbsp;0.0001&nbsp;|&nbsp;0.1 deg/s<sup>2</sup> </td>
    <td> 1&nbsp;|&nbsp;<a href="https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF">3</a>&nbsp;|&nbsp;775 integer nbits </td>
    </tr>
