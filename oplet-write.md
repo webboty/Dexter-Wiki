@@ -26,7 +26,7 @@ Addr | Name               | Description
 19 | PID_I               | <strike>PID Integral Term</strike>
 20 | PID_P               | PID Proportional Term <A HREF="https://github.com/HaddingtonDynamics/Dexter/issues/33#issuecomment-427921288">in Floating point</A>
 21 | PID_ADDRESS         | Sets the joint number for the above PID_ settings to be written into. Multiple sets are available for PID_SCHEDULE_INDEX
-22 | BOUNDRY_BASE        | <strike>Maximum position past which the force position override will be reduced for each joint.</strike>
+22 | BOUNDRY_BASE        | <strike>Maximum position past which the force position override will be reduced for each joint.</strike> Use [B oplet](Command-oplet-instruction#B) to set all joint boundaries or [SetParameter oplet: S J#Boundry\[High\|Low\]](set-parameter-oplet#JointBoundaries)
 23 | BOUNDRY_END         | <strike>Injects a negative force opposing the external force to limit the amount the joint will move to avoid external forces.</strike>
 24 | BOUNDRY_PIVOT       | <strike>The low boundary is [0:15] and the high boundary is [16:31]</strike>
 25 | BOUNDRY_ANGLE       | <strike>Changed along with TDInt branch via a keyhole to make low and high boundary +-18 bits (19 bits total) each. Use ["S" command](set-parameter-oplet) to set boundaries, or the "B" command, instead of 'w' command.</strike>
@@ -41,7 +41,7 @@ Addr | Name               | Description
 34 | MOVE_TRHESHOLD      | Maximum force before joint 1,2,3 position starts changing. See follow mode.
 35 | F_FACTOR            | Like SPEED_FACTORA, but for PID controller. Affects all joints at once. 
 36 | MAX_ERROR           | Speed limit for PID controller. Clips the velocity of the step signals going to the motor. 
-37 | FORCE_BIAS_BASE     | <strike>Adds to the force (position error) on each joint. Useful for removing the force of gravity.</strike>
+37 | FORCE_BIAS_BASE     | <strike>Adds to the force (position error) on each joint. Useful for removing the force of gravity.</strike> 
 38 | FORCE_BIAS_END      | <strike>Also used to provide haptic force feedback in teleoperation or VR systems.</strike>
 39 | FORCE_BIAS_PIVOT    | <strike> </strike>
 40 | FORCE_BIAS_ANGLE    | <strike> </strike>
