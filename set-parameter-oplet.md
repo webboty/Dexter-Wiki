@@ -84,7 +84,8 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> 0-150 fixed point 8.8  </td>
    </tr>
  <tr>
-   <td colspan=3><a name="JointBoundaries">Joint Boundaries</a>: Set all Boundaries at once with "B" <a href="Command-oplet-instruction">Oplet</a>. (note order if referencing by number, Joint 3 and 2 are swapped here) </td>
+   <td colspan=3><a name="JointBoundaries">Joint Boundaries</a>: Set all Boundaries at once with "B" <a href="Command-oplet-instruction">Oplet</a>. Maximum position past which the force position override will be reduced for each joint.
+Injects a negative force opposing the external force to limit the amount the joint will move to avoid external forces. (note order if referencing by number, Joint 3 and 2 are swapped here) </td>
    </tr>
  <tr>
    <td>12,&nbsp;<b>J1BoundryHigh</b> </td>
