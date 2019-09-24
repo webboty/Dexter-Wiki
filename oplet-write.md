@@ -77,7 +77,7 @@ Addr | Name               | Description
 70 |  ANGLE_FORCE_DECAY            | See Protect mode
 71 |  ROTATE_FORCE_DECAY           | "
 72 |  PID_SCHEDULE_INDEX           | <strike>Gain scheduling. Changes the offset to the PID parameters. Multiplies PID_ADDRESS. To quickly change settings.</strike>
-73 |  GRIPPER_MOTOR_CONTROL        | <strike>PWM output from 7 pin SIL connector on the side (near bottom) of the motor board. Just the first bit is used to enable / disable.</strike>
+73 |  GRIPPER_MOTOR_CONTROL        | <strike>PWM output from 7 pin SIL connector on the side (near bottom) of the motor board. Just the first bit is used to enable / disable.</strike> Use [oplet S GripperMotor](set-parameter-oplet#GripperMotor)
 74 |  GRIPPER_MOTOR_OFF_WIDTH      | <strike>"</strike>
 75 |  GRIPPER_MOTOR_ON_WIDTH       | <strike>"</strike>
 76 |  START_SPEED                  | <strike>Starting speed into this move.</strike>
