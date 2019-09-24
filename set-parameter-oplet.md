@@ -28,7 +28,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> 1&nbsp;|&nbsp;<a href="https://github.com/HaddingtonDynamics/Dexter/search?q=ACCELERATION_MAXSPEED_DEF&unscoped_q=ACCELERATION_MAXSPEED_DEF">3</a>&nbsp;|&nbsp;775 integer nbits </td>
    </tr>
  <tr>
-   <td colspan=3><a name="JointForces">Joint Forces</a>: How hard each joint tries to return to commanded position in force protect modes </td>
+   <td colspan=3><a name="JointForces">Joint Forces</a>: How hard each joint tries to return to commanded position in force protect modes. Useful for removing the force of gravity. Also used to provide haptic force feedback in teleoperation or VR systems. </td>
    </tr>
  <tr>
    <td>2,&nbsp;<b>J1Force</b> </td>
