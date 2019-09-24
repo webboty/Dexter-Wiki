@@ -137,7 +137,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> -648000&nbsp;|&nbsp;-324000&nbsp;|&nbsp;648000 integer arcsec </td>
    </tr>
  <tr>
-   <td colspan=3><a name="GripperMotor">Gripper Motor</a>: Set PWM output on J19 1st parameter starts PWM with 1, stop with 0. After 2019/05/23: 2nd parameter is PWM on time, 3rd is off time. See W commands 73 - 74. </td>
+   <td colspan=3><a name="GripperMotor">Gripper Motor</a>: Set PWM output on [J19 pin 7](End-Effectors#j19-pin-7) 1st parameter starts PWM with 1, stop with 0. After 2019/05/23: 2nd parameter is PWM on time, 3rd is off time. Originally controlled by W commands 73 - 74. </td>
    </tr>
  <tr>
    <td>22,&nbsp;<b>GripperMotor</b></td>
