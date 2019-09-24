@@ -56,7 +56,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td>  </td>
    </tr>
  <tr>
-   <td colspan=3><a name="JointFrictions">Joint Frictions</a>: <sup><a href="#2">2</a></sup> The friction felt during FollowMe mode. Frictions can be fractional, but are limited to a range of +-(256 + 1/256). E.g. 1.1 becomes 1 plus a fractional value of 25/256.</td>
+   <td colspan=3><a name="JointFrictions">Joint Frictions</a>: <sup><a href="#2">2</a></sup> The friction felt during FollowMe mode. Coefficient to scale the position error; feels like friction. Can be negative. Used in most modes, very important in follow mode. Frictions can be fractional, but are limited to a range of +-(256 + 1/256). E.g. 1.1 becomes 1 plus a fractional value of 25/256.</td>
    </tr>
  <tr>
    <td>7,&nbsp;<b>J1Friction</b> </td>
