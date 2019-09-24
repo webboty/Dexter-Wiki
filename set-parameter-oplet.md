@@ -12,7 +12,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> min | initial | max <br>in Dexter <a href="Firmware">Firmware</a> units</td>
    </tr>
  <tr>
-   <td colspan=3><a name="MaxSpeed"><b>MaxSpeed</b></a>: Queued. Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. See also <a href="#StartSpeed">StartSpeed</a> below. </td>
+   <td colspan=3><a name="MaxSpeed"><b>MaxSpeed</b></a>: Queued. Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. Replaced by <a href="#AngularSpeed">AngularSpeed</a>. See also <a href="#StartSpeed">StartSpeed</a> below. </td>
    </tr>
  <tr>
    <td>0,&nbsp;MaxSpeed</td>
@@ -238,10 +238,10 @@ Injects a negative force opposing the external force to limit the amount the joi
    <td>0 | 0.1 | 0.5 float</td>
    </tr>
  <tr>
-   <td colspan=3><a name="AngularSpeed">Angular Speed</a>: Speed to ramp up to at given acceleration. Same as MaxSpeed but with human readable units.</td>
+   <td colspan=3><a name="AngularSpeed"><b>AngularSpeed</b></a>: Speed to ramp up to at given acceleration. Same as <a href="#MaxSpeed">MaxSpeed</a> but with human readable units.</td>
    </tr>
  <tr>
-   <td>36,&nbsp;<b>AngularSpeed</b></td>
+   <td>36,&nbsp;AngularSpeed</td>
    <td>1 | 30 | 45 deg/s</td>
    <td>3600 | 108000 | 162000 integer arcsec/s</td>
    </tr>
