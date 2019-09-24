@@ -26,26 +26,26 @@ Addr | Name               | Description
 19 | PID_I               | <strike>PID Integral Term</strike>
 20 | PID_P               | PID Proportional Term <A HREF="https://github.com/HaddingtonDynamics/Dexter/issues/33#issuecomment-427921288">in Floating point</A>
 21 | PID_ADDRESS         | Sets the joint number for the above PID_ settings to be written into. Multiple sets are available for PID_SCHEDULE_INDEX
-22 | BOUNDRY_BASE        | <strike>Maximum position past which the force position override will be reduced for each joint.</strike> Use [B oplet](Command-oplet-instruction#B) to set all joint boundaries or [SetParameter oplet: S J#Boundry\[High\|Low\]](set-parameter-oplet#JointBoundaries)
+22 | BOUNDRY_BASE        | <strike>Maximum position past which the force position override will be reduced for each joint.</strike> 
 23 | BOUNDRY_END         | <strike>Injects a negative force opposing the external force to limit the amount the joint will move to avoid external forces.</strike>
 24 | BOUNDRY_PIVOT       | <strike>The low boundary is [0:15] and the high boundary is [16:31]</strike>
-25 | BOUNDRY_ANGLE       | <strike>Changed along with TDInt branch via a keyhole to make low and high boundary +-18 bits (19 bits total) each. Use ["S" command](set-parameter-oplet) to set boundaries, or the "B" command, instead of 'w' command.</strike>
-26 | BOUNDRY_ROT         | <strike>"</strike>
+25 | BOUNDRY_ANGLE       | <strike>Changed along with TDInt branch via a keyhole to make low and high boundary +-18 bits (19 bits total) each.</strike> 
+26 | BOUNDRY_ROT         | <strike>"</strike> Use [B oplet](Command-oplet-instruction#B) to set all joint boundaries or [SetParameter oplet: S J#Boundry\[High\|Low\]](set-parameter-oplet#JointBoundaries)
 27 | SPEED_FACTORA       | Multiplier (coefficient / master gain) for the force calculator. Allows quick adjustments.
 28 | SPEED_FACTORB       | B not used. 
-29 | FRICTION_BASE       | <strike>Coefficient to scale the position error. Can be negative. </strike>
+29 | FRICTION_BASE       | <strike>Coefficient to scale the position error. Can be negative. </strike> 
 30 | FRICTION_END        | <strike>Feels like friction. Used in most modes, very important in follow mode.</strike>
-31 | FRICTION_PIVOT      | <strike> </strike>
-32 | FRICTION_ANGLE      | <strike> </strike>
-33 | FRICTION_ROT        | <strike> </strike>
+31 | FRICTION_PIVOT      | <strike>"</strike> Use [SetParameter oplet: S J#Friction](set-parameter-oplet#JointFrictions) 
+32 | FRICTION_ANGLE      | <strike>"</strike>
+33 | FRICTION_ROT        | <strike>"</strike>
 34 | MOVE_TRHESHOLD      | Maximum force before joint 1,2,3 position starts changing. See follow mode.
 35 | F_FACTOR            | Like SPEED_FACTORA, but for PID controller. Affects all joints at once. 
 36 | MAX_ERROR           | Speed limit for PID controller. Clips the velocity of the step signals going to the motor. 
 37 | FORCE_BIAS_BASE     | <strike>Adds to the force (position error) on each joint. Useful for removing the force of gravity.</strike> 
 38 | FORCE_BIAS_END      | <strike>Also used to provide haptic force feedback in teleoperation or VR systems.</strike>
-39 | FORCE_BIAS_PIVOT    | <strike> </strike>
-40 | FORCE_BIAS_ANGLE    | <strike> </strike>
-41 | FORCE_BIAS_ROT      | <strike> </strike>
+39 | FORCE_BIAS_PIVOT    | <strike>"</strike> Use [SetParameter oplet: S J#Force](set-parameter-oplet#JointForces) 
+40 | FORCE_BIAS_ANGLE    | <strike>"</strike>
+41 | FORCE_BIAS_ROT      | <strike>"</strike>
 42 | COMMAND_REG         | control state register. Bits:<BR>0 CMD_CAPCAL_BASE 1 <BR>1 CMD_CAPCAL_END 2 <BR>2 CMD_CAPCAL_PIVOT 4 <BR>3 CMD_MOVEEN 8 <BR>4 CMD_MOVEGO 16 <BR>5 CMD_ENABLE_LOOP 32 <BR>6 CMD_CLEAR_LOOP 64 <BR>7 CMD_CALIBRATE_RUN 128 <BR>8 CMD_RESET_POSITION 256 <BR>9 CMD_RESET_FORCE 512 <BR>10 CMD_CAPCAL_ANGLE 1024 <BR>11 CMD_CAPCAL_ROT 2048 <BR>12 CMD_ANGLE_ENABLE 4096 <BR>13 CMD_ROT_ENABLE 8196 <BR>see <a href="http://JamesNewton.github.io/Dexter.html">cmd calc</a>
 43 | DMA_CONTROL         | Used to read and write tables and other large data objects. Bits:<BR>0 DMA_WRITE_ENQUEUE 1<BR>1 DMA_WRITE_INITIATE 2<BR>2 DMA_READ_DEQUEUE 4<BR>3 DMA_READ_BLOCK 8<BR>4 DMA_RESET_ALL 16
 44 |  DMA_WRITE_DATA     |
