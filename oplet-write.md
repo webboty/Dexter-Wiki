@@ -9,7 +9,7 @@ Addr | Name               | Description
  2 | PIVOT_POSITION_AT    | <strike>J3 ...commanded to go to</strike>
  3 | ANGLE_POSITION_AT    | <strike>J4</strike> Use the "a" [oplet](Command-oplet-instruction#a)
  4 | ROT_POSITION_AT      | <strike>J5</strike>
- 5 | ACCELERATION_MAXSPEED| Acceleration [20:31] and max speed [0:19] (shared register)
+ 5 | ACCELERATION_MAXSPEED| Acceleration [20:31] and max speed [0:19] (shared register). Use the [oplet S AngularAcceleration](set-parameter-oplet#AngularAcceleration) and Use [oplet S AngularSpeed](set-parameter-oplet#AngularSpeed)
  6 | BASE_SIN_CENTER      | <strike>J1 DC bias parameters</strike> 
  7 | BASE_COS_CENTER      | <strike>J1</strike> Use the "W" or [write-to-robot](write-to-robot) [oplet](Command-oplet-instruction) 
  8 | END_SIN_CENTER       | <strike>J2</strike> to write the [AdcCenters.txt](Encoders#adc-centers) file.
@@ -80,7 +80,7 @@ Addr | Name               | Description
 73 |  GRIPPER_MOTOR_CONTROL        | <strike>PWM output from 7 pin SIL connector on the side (near bottom) of the motor board. Just the first bit is used to enable / disable.</strike> 
 74 |  GRIPPER_MOTOR_OFF_WIDTH      | <strike>"</strike> Use [oplet S GripperMotor](set-parameter-oplet#GripperMotor)
 75 |  GRIPPER_MOTOR_ON_WIDTH       | <strike>"</strike>
-76 |  START_SPEED                  | <strike>Starting speed into this move.</strike> Use [oplet S AngularSpeed](set-parameter-oplet#AngularSpeed)
+76 |  START_SPEED                  | <strike>Starting speed into this move.</strike> Use [oplet S AngularSpeedStartAndEnd](set-parameter-oplet#AngularSpeedStartAndEnd)
 77 |  ANGLE_END_RATIO              | <strike>Difference in the transmission ratios for the differential joint.</strike>
 78 | RESET_PID_AND_FLUSH_QUEUE     | bit 0 resets PID_DELTA. Bit 1 is E_STOP? Set to all zero for normal operation.
 79 | XYZ_FORCE_TIMEBASE            | Timebase Divisor
