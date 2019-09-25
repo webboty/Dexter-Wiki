@@ -55,13 +55,13 @@ Addr | Name               | Description
 48 |  DMA_READ_ADDRESS             |
 49 |  REC_PLAY_CMD                 | Bits:<BR>0 CMD_RESET_RECORD 1<BR>1 CMD_RECORD 2<BR>2 CMD_RESET_PLAY 4<BR>3 CMD_PLAYBACK 8<BR>4 CMD_RESET_PLAY_POSITION
 50 |  REC_PLAY_TIMEBASE            |
-51 |  DIFF_FORCE_TIMEBASE          | Timebase for PID and Force calculators. Depreciated
+51 |  <strike>DIFF_FORCE_TIMEBASE</strike> (Now MAXSPEED_XYZ)          | <strike>Timebase for PID and Force calculators. Depreciated</strike>
 52 |  DIFF_FORCE_BETA              | Scaling factor for boundaries for the differential 
 53 |  DIFF_FORCE_MOVE_THRESHOLD    | Maximum force before joint 4, 5 position starts changing. See follow mode.
 54 |  DIFF_FORCE_MAX_SPEED         | Maximum speed the force calculator can generate. Like MAX_ERROR (but for force, not PID)
 55 |  DIFF_FORCE_SPEED_FACTOR_ANGLE| Multiplier (coefficient / master gain) for the force calculator on J4. Like SPEED_FACTORA
 56 |  DIFF_FORCE_SPEED_FACTOR_ROT  | Multiplier (coefficient / master gain) for the force calculator on J5. Like SPEED_FACTORA
-57 |  DIFF_FORCE_ANGLE_COMPENSATE  | <strike>Unused. </strike>
+57 |  <strike>DIFF_FORCE_ANGLE_COMPENSATE</strike> (Now EXTRUDER_CONTROL)  | <strike>Unused. </strike>
 58 |  FINE_ADJUST_BASE             | <strike>Position offset to commanded joint angle into the PID. </strike>
 59 |  FINE_ADJUST_END              | <strike>Has the same effect as offsetting the error signal. </strike>
 60 |  FINE_ADJUST_PIVOT            | <strike>Allows moves to be made by the PID only vs the coupled acceleration calculator + PID</strike>
