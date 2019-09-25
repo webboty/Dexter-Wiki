@@ -74,7 +74,7 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
    <td> 0-50 fixed point 8.8  </td>
    </tr>
  <tr>
-   <td>10,&nbsp;<b>J4Friction</b> </td>
+   <td>10,&nbsp;J4Friction </td>
    <td> 15 unitless </td>
    <td> 0-150 fixed point 8.8  </td>
    </tr>
@@ -254,10 +254,10 @@ Injects a negative force opposing the external force to limit the amount the joi
    <td>3600 | 108000 | 162000 integer arcsec/s</td>
    </tr>
  <tr>
-   <td colspan=3><a name="AngularAcceleration">Angular Acceleration</a>: Replaces Acceleration, specifying with human readable units. </td>
+   <td colspan=3><a name="AngularAcceleration"><b>Angular Acceleration</b></a>: Replaces Acceleration, specifying with human readable units. </td>
    </tr>
  <tr>
-   <td>38,&nbsp;<b>AngularAcceleration</b></td>
+   <td>38,&nbsp;AngularAcceleration</td>
    <td>0.0003 | 0.1 | 0.1? float deg/s<sup>2</sup></td>
    <td>1 | 360 | 360? integer arcsec/s<sup>2</sup></td>
    </tr>
@@ -318,42 +318,42 @@ Injects a negative force opposing the external force to limit the amount the joi
    <td> ? / ? | arcsec integer</td>
    </tr>
  <tr>
-   <td colspan=3><a name="EyeNumbers">Eye Numbers</a>: Sets the index for which Eye Dexter thinks it is at. Where it is within an eye is calculated with encoder measurements and effectively cannot be set. Takes 5 signed integer arguments where 0 is the circle that contains 0 degrees. See <a href="https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords">read_from_robot, #EyeNumbers</a>. </td>
+   <td colspan=3><a name="EyeNumbers"><b>Eye Numbers</b></a>: Sets the index for which Eye Dexter thinks it is at. Where it is within an eye is calculated with encoder measurements and effectively cannot be set. Takes 5 signed integer arguments where 0 is the circle that contains 0 degrees. See <a href="https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords">read_from_robot, #EyeNumbers</a>. </td>
    </tr>
  <tr>
-   <td>49,&nbsp;<b>EyeNumbers</b></td>
+   <td>49,&nbsp;EyeNumbers</td>
    <td> 0 | 255 | 512 (5 integers)</td>
    <td> 0 | 255 | 512 (5 integers)</td>
    </tr>
  <tr>
-   <td colspan=3><a name="CommandedAngles">Commanded Angles</a>: Sets where Dexter thinks it is without actually moving the robot. Takes 5 angles in integer arcseconds. These are the same values that are returned in the robot status under <a href="https://github.com/HaddingtonDynamics/Dexter/wiki/status-data#joint-data-meanings">*_AT</a>. See boundaries for limits.</td>
+   <td colspan=3><a name="CommandedAngles"><b>Commanded Angles</b></a>: Sets where Dexter thinks it is without actually moving the robot. Takes 5 angles in integer arcseconds. These are the same values that are returned in the robot status under <a href="https://github.com/HaddingtonDynamics/Dexter/wiki/status-data#joint-data-meanings">*_AT</a>. See boundaries for limits.</td>
    </tr>
  <tr>
-   <td>50,&nbsp;<b>CommandedAngles</b></td>
+   <td>50,&nbsp;CommandedAngles</td>
    <td>degrees</td>
    <td>arcsec (5 integers)</td>
    </tr>
  <tr>
-   <td colspan=3><a name="LinkLengths">Link Lengths</a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/08fb9a8ca9cee5ed71d580e834f16daa9561f4da#diff-691272021fae98368efb598f8e089c16">2019/05/29</a> Sets the lengths of each link in the arm for the onboard kinematics. Parameters:<br>L1: Base mount to Joint 2 pivot.<br>L2: Joint 2 pivot to Joint 3 pivot.<br>L3: Joint 3 pivot to Joint 4 pivot. <br>L4: Joint 4 pivot to axis of tool interface. <br>L5: Axis of Joint 4 to end effector (note: this depends on the end effector and is most likely to change). <br>Note: <b>Order of parameters is L5 to L1 so that if only 1 is specified, it changes L5 vs L1.</b></td>
+   <td colspan=3><a name="LinkLengths"><b>Link Lengths</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/08fb9a8ca9cee5ed71d580e834f16daa9561f4da#diff-691272021fae98368efb598f8e089c16">2019/05/29</a> Sets the lengths of each link in the arm for the onboard kinematics. Parameters:<br>L1: Base mount to Joint 2 pivot.<br>L2: Joint 2 pivot to Joint 3 pivot.<br>L3: Joint 3 pivot to Joint 4 pivot. <br>L4: Joint 4 pivot to axis of tool interface. <br>L5: Axis of Joint 4 to end effector (note: this depends on the end effector and is most likely to change). <br>Note: <i>Order of parameters is L5 to L1 so that if only 1 is specified, it changes L5 vs L1.</i></td>
    </tr>
  <tr>
-   <td>51,&nbsp;<b>LinkLengths</b></td>
+   <td>51,&nbsp;LinkLengths</td>
    <td>meters (5 floats, L5 to L1)</td>
    <td> 82551, 50801, 330201, 320676, 228600 microns (5 integers, L5 to L1)</td>
    </tr>
  <tr>
-   <td colspan=3><a name="RawEncoderErrorLimits">Raw Encoder Error Limits</a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/8efff90396c50680f40f52a196b21d2c92cc0088">2019/04/22</a> The largest error allowed between the raw encoder reading of position and the expected position for each joint. Part of the status monitor. Will inject a returned error status on the next command and write out and entry with more information to /srv/samba/share/errors.log </td>
+   <td colspan=3><a name="RawEncoderErrorLimits"><b>Raw Encoder Error Limits</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/8efff90396c50680f40f52a196b21d2c92cc0088">2019/04/22</a> The largest error allowed between the raw encoder reading of position and the expected position for each joint. Part of the status monitor. Will inject a returned error status on the next command and write out and entry with more information to /srv/samba/share/errors.log. Default values set in Defaults.make_ins. </td>
    </tr>
  <tr>
-   <td>52,&nbsp;<b>RawEncoderErrorLimits</b></td>
+   <td>52,&nbsp;RawEncoderErrorLimits</td>
    <td>deg</td>
    <td>0 | 3600 | 1296000 arcsec (5 integers)</td>
    </tr>
  <tr>
-   <td colspan=3><a name="RawVelocityLimits">Raw Velocity Limits</a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/8efff90396c50680f40f52a196b21d2c92cc0088">2019/04/22</a> The largest velocity allowed between subsequent readings of the raw encoder position. Part of the status monitor. Will inject a returned error status on the next command and write out and entry with more information to /srv/samba/share/errors.log <b>and will switch to open loop mode</b>.</td>
+   <td colspan=3><a name="RawVelocityLimits"><b>Raw Velocity Limits</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/8efff90396c50680f40f52a196b21d2c92cc0088">2019/04/22</a> The largest velocity allowed between subsequent readings of the raw encoder position. Part of the status monitor. Will inject a returned error status on the next command and write out and entry with more information to /srv/samba/share/errors.log <b>and will switch to open loop mode</b>. Default values set in Defaults.make_ins.</td>
    </tr>
  <tr>
-   <td>53,&nbsp;<b>RawVelocityLimits</b></td>
+   <td>53,&nbsp;RawVelocityLimits</td>
    <td>0 | 100 | deg/s</td>
    <td>0 | 360000 | 1296000 | arcsec/s (5 integers)</td>
    </tr>
