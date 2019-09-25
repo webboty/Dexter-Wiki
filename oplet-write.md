@@ -71,16 +71,16 @@ Addr | Name               | Description
 64 |  END_EFFECTOR_IO              | <strike>Controls the configuration of the bits that go to the end effector.  See [End-Effectors](End-Effectors)</strike>
 65 |  SERVO_SETPOINT_A             | <strike>PWM value in PWM mode on end effector pins.</strike>
 66 |  SERVO_SETPOINT_B             | <strike>"</strike>
-67 |  BASE_FORCE_DECAY             | <strike>How hard the joint tries to return to the commanded position when the position </strike>
+67 |  BASE_FORCE_DECAY             | How hard the joint tries to return to the commanded position when the position.
 68 |  END_FORCE_DECAY              | has been changed to avoid exceeding the maximum force. 
 69 |  PIVOT_FORCE_DECAY            | Subtracts out the offset introduced by the force controller.
 70 |  ANGLE_FORCE_DECAY            | See Protect mode
 71 |  ROTATE_FORCE_DECAY           | "
 72 |  PID_SCHEDULE_INDEX           | <strike>Gain scheduling. Changes the offset to the PID parameters. Multiplies PID_ADDRESS. To quickly change settings.</strike>
-73 |  GRIPPER_MOTOR_CONTROL        | <strike>PWM output from 7 pin SIL connector on the side (near bottom) of the motor board. Just the first bit is used to enable / disable.</strike> Use [oplet S GripperMotor](set-parameter-oplet#GripperMotor)
-74 |  GRIPPER_MOTOR_OFF_WIDTH      | <strike>"</strike>
+73 |  GRIPPER_MOTOR_CONTROL        | <strike>PWM output from 7 pin SIL connector on the side (near bottom) of the motor board. Just the first bit is used to enable / disable.</strike> 
+74 |  GRIPPER_MOTOR_OFF_WIDTH      | <strike>"</strike> Use [oplet S GripperMotor](set-parameter-oplet#GripperMotor)
 75 |  GRIPPER_MOTOR_ON_WIDTH       | <strike>"</strike>
-76 |  START_SPEED                  | <strike>Starting speed into this move.</strike>
+76 |  START_SPEED                  | <strike>Starting speed into this move.</strike> Use [oplet S AngularSpeed](set-parameter-oplet#AngularSpeed)
 77 |  ANGLE_END_RATIO              | <strike>Difference in the transmission ratios for the differential joint.</strike>
 78 | RESET_PID_AND_FLUSH_QUEUE     | bit 0 resets PID_DELTA. Bit 1 is E_STOP? Set to all zero for normal operation.
 79 | XYZ_FORCE_TIMEBASE            | Timebase Divisor
