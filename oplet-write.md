@@ -24,8 +24,8 @@ Addr | Name               | Description
 17 | PID_DELTAT          | <strike>delta t. float * 0.0001 seconds</strike>
 18 | PID_D               | <strike>PID Differential Term</strike>
 19 | PID_I               | <strike>PID Integral Term</strike>
-20 | PID_P               | PID Proportional Term <A HREF="https://github.com/HaddingtonDynamics/Dexter/issues/33#issuecomment-427921288">in Floating point</A>
-21 | PID_ADDRESS         | Sets the joint number for the above PID_ settings to be written into. Multiple sets are available for PID_SCHEDULE_INDEX
+20 | PID_P               | PID Proportional Term <A HREF="https://github.com/HaddingtonDynamics/Dexter/issues/33#issuecomment-427921288">in Floating point</A>. Use [SetParameter oplet S J#PID_P](set-parameter-oplet#JointPID)
+21 | PID_ADDRESS         | Sets the joint number for the above PID_ settings to be written into. <strike>Multiple sets are available for PID_SCHEDULE_INDEX</strike>
 22 | BOUNDRY_BASE        | <strike>Maximum position past which the force position override will be reduced for each joint.</strike> 
 23 | BOUNDRY_END         | <strike>Injects a negative force opposing the external force to limit the amount the joint will move to avoid external forces.</strike>
 24 | BOUNDRY_PIVOT       | <strike>The low boundary is [0:15] and the high boundary is [16:31]</strike>
