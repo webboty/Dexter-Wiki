@@ -1,6 +1,6 @@
 The Write (`w`) [oplet](Command-oplet-instruction) writes low level values to the [FPGA / Gateware](Gateware) and in some cases also sets variables in the [firmware](Firmware). This is the lower case 'w'; the upper case 'W' is [Write to Robot](write_to_robot). The second parameter (the value) is written to the address of the FPGA specified by the first parameter.  e.g. `w 42 64` writes the value 64 into the address 42 in the FPGA. Some addresses are also "tracked" by the C firmware (DexRun) for example, `w 5 6516872` writes a new value to FPGA register #5, ACCELERATION_MAXSPEED but the maxSpeed and coupledAcceleration variables in DexRun will also be updated. For higher level settings in the [Firmware](Firmware), see the ['S' oplet](set-parameter-oplet)
 
-_Note: This represents the "virtual" address list as used by the 'w' command. The actual FPGA addresses have been changed since (TODO: get date) to use a "keyhole window" to reduce the number of mapped addresses used by the FPGA. In the keyhole system, one address in a block will select what the next address actually changes. DexRun.c still interprets 'w' commands with the original addresses when the function has not been converted to a keyhole system via the array "OldMemMapInderection". Items which have been struck out below are not available via 'w' and must be set via other commands which are linked here._
+_Note: This represents the "virtual" address list as used by the 'w' command. The actual FPGA addresses have been changed since [2018.05.29](https://github.com/HaddingtonDynamics/Dexter/commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) to use a "keyhole window" to reduce the number of mapped addresses used by the FPGA. In the keyhole system, one address in a block will select what the next address actually changes. DexRun.c still interprets 'w' commands with the original addresses when the function has not been converted to a keyhole system via the array "<a href="https://github.com/HaddingtonDynamics/Dexter/search?q=OldMemMapInderection&unscoped_q=OldMemMapInderection">OldMemMapInderection</a>". Items which have been struck out below are not available via 'w' and must be set via other commands which are linked here._
 
 Addr | Name               | Description
 ---- | ------------------ | ----------------------------
@@ -70,7 +70,7 @@ Addr | Name               | Description
 63 |  RECORD_LENGTH                | <strike>Length of the recording to be played back</strike>
 64 |  END_EFFECTOR_IO              | <strike>Controls the configuration of the bits that go to the end effector.  See [End-Effectors](End-Effectors)</strike>
 65 |  SERVO_SETPOINT_A             | <strike>PWM value in PWM mode on end effector pins.</strike>
-66 |  SERVO_SETPOINT_B             | <strike>"</strike>
+66 |  SERVO_SETPOINT_B             | <strike>"</strike> See <a href="https://github.com/HaddingtonDynamics/Dexter/issues/73">Issue 73</a>
 67 |  BASE_FORCE_DECAY             | How hard the joint tries to return to the commanded position when the position.
 68 |  END_FORCE_DECAY              | has been changed to avoid exceeding the maximum force. 
 69 |  PIVOT_FORCE_DECAY            | Subtracts out the offset introduced by the force controller.
