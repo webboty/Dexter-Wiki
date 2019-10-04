@@ -262,58 +262,58 @@ Injects a negative force opposing the external force to limit the amount the joi
    <td>1 | 360 | 360? integer arcsec/s<sup>2</sup></td>
    </tr>
  <tr>
-   <td colspan=3><a name="CartesianParameters">Cartesian Parameters</a>: These affect the onboard kinematics.</td>
+   <td colspan=3><a name="CartesianParameters"><b>Cartesian Parameters</b></a>: These affect the onboard kinematics.</td>
    </tr>
  <tr>
-   <td>39,&nbsp;<b>CartesianSpeed</b></td>
+   <td>39,&nbsp;<a name="CartesianSpeed"><b>CartesianSpeed</b></a></td>
    <td>0.01 | 0.3 | 0.5 meters/s</td>
    <td>10000 | 300000 | 500000 integer micron/s</td>
    </tr>
  <tr>
-   <td>40,&nbsp;<b>CartesianSpeedStart</b></td>
+   <td>40,&nbsp;<a name="CartesianSpeedStart"><b>CartesianSpeedStart</b></a></td>
    <td>0 | 0 | 0.5 meters/s</td>
    <td>0 | 0 | 500000 integer micron/s</td>
    </tr>
  <tr>
-   <td>41,&nbsp;<b>CartesianSpeedEnd</b></td>
+   <td>41,&nbsp;<a name="CartesianSpeedEnd"><b>CartesianSpeedEnd</b></a></td>
    <td>0 | 0 | 0.5 meters/s</td>
    <td>0 | 0 | 500000 integer micron/s</td>
    </tr>
  <tr>
-   <td>42,&nbsp;<b>CartesianAcceleration</b></td>
+   <td>42,&nbsp;<a name="CartesianAcceleration"><b>CartesianAcceleration</b></a></td>
    <td>0 | 0.1 | 0.5 meters/s<sup>2</sup></td>
    <td>0 | 1000000 | 500000 integer micron/s<sup>2</sup></td>
    </tr>
  <tr>
-   <td>43,&nbsp;<b>CartesianStepSize</b></td>
+   <td>43,&nbsp;<a name="CartesianStepSize"><b>CartesianStepSize</b></a></td>
    <td>0.000001 | 0.00001 | 0.01 meter</td>
    <td>1 | 10 | 10000 integer micron</td>
    </tr>
  <tr>
-   <td colspan=3><a name="CartesianPivot">Cartesian Pivot</a>: The angular speed of rotation around a fixed point by the end effector. The start and ending speeds, and acceleration can also be set. Step Size is the granularity of rotation around a fixed point by the end effector, and is not yet implemented</td>
+   <td colspan=3><a name="CartesianPivot"><b>Cartesian Pivot Parameters</b></a>: The angular speed of rotation around a fixed point by the end effector. The start and ending speeds, and acceleration can also be set. Step Size is the granularity of rotation around a fixed point by the end effector, and is not yet implemented</td>
    </tr>
  <tr>
-   <td>44,&nbsp;<b>CartesianPivotSpeed</b></td>
+   <td>44,&nbsp;<a name="CartesianPivotSpeed"><b>CartesianPivotSpeed</b></a></td>
    <td>0.00027777 | 30 | 100 float deg</td>
    <td>1 | 108000 | 360000 integer arcsec/s</td>
    </tr>
  <tr>
-   <td>45,&nbsp;<b>CartesianPivotSpeedStart</b></td>
+   <td>45,&nbsp;<a name="CartesianPivotSpeedStart"><b>CartesianPivotSpeedStart</b></a></td>
    <td>0 | 0 | 100 deg/s</td>
    <td>0 | 0 | 360000 integer arcsec/s</td>
    </tr>
  <tr>
-   <td>46,&nbsp;<b>CartesianPivotSpeedEnd</b></td>
+   <td>46,&nbsp;<a name="CartesianPivotSpeedEnd"><b>CartesianPivotSpeedEnd</b></a></td>
    <td>0 | 0 | 100 deg/s</td>
    <td>0 | 0 | 360000 |integer arcsec/s</td>
    </tr>
  <tr>
-   <td>47,&nbsp;<b>CartesianPivotAcceleration</b></td>
+   <td>47,&nbsp;<a name="CartesianPivotAcceleration"><b>CartesianPivotAcceleration</b><a></td>
    <td>deg/s<sup>2</sup></td>
    <td>1 | 10800000 | 10800000 integer arcsec/s<sup>2</sup></td>
    </tr>
  <tr>
-   <td>48,&nbsp;<b>CartesianPivotStepSize</b></td>
+   <td>48,&nbsp;<a name="CartesianPivotStepSize"><b>CartesianPivotStepSize</b></a></td>
    <td>deg?</td>
    <td> ? / ? | arcsec integer</td>
    </tr>
@@ -359,15 +359,14 @@ Injects a negative force opposing the external force to limit the amount the joi
    </tr>
 
  <tr>
-   <td></td>
-   <td></td>
-   <td></td>
+   <td colspan=3><a name=""><b> </b></a>: Added <a href="">2019/mm/dd</a> 
+      </td>
    </tr>
  <tr>
-   <td colspan=3></td>
+   <td>#,&nbsp; </td>
+   <td> min | initial | max in DDE units</td>
+   <td> min | initial | max in Firmware units</td>
    </tr>
-
-
 
  </table>
 
