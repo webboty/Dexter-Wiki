@@ -359,13 +359,13 @@ Injects a negative force opposing the external force to limit the amount the joi
    </tr>
 
  <tr>
-   <td colspan=3><a name=""><b> </b></a>: Added <a href="">2019/mm/dd</a> 
+   <td colspan=3><!--- <a name=""><b> </b></a>: Added <a href="">2019/mm/dd --></a> 
       </td>
    </tr>
  <tr>
-   <td>#,&nbsp; </td>
-   <td> min | initial | max in DDE units</td>
-   <td> min | initial | max in Firmware units</td>
+   <td><!--- #,&nbsp;  --></td>
+   <td><!--- min | initial | max in DDE units --></td>
+   <td><!--- min | initial | max in Firmware units --></td>
    </tr>
 
  </table>
