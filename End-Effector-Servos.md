@@ -17,9 +17,30 @@ Pin | Signal @Servo | Signal @Motor Board
 
 The firmware was [changed May 29th on the TDInt branch](../commit/42df0e01285ef8b67764ed53f3cc697df44d4d93) to accept servo commands via the [Set Parameter](set-parameter-oplet) command and to include measured angle and force data via the returned [status data](status-data)
 
-Communications are at 115,200 baud. Joint 4 is Servo ID 3, and Joint 5 is Servo ID 1 on the Dynamixel Protocol 2.0 bus. The following Arduino program will setup the servos for use in Dexter.
+Communications are at 115,200 baud. Joint 4 is Servo ID 3, and Joint 5 is Servo ID 1 on the Dynamixel Protocol 2.0 bus. 
+
+### Servo Errors
+
+The servos monitor operation and blink red when they encounter an [error](status-errors). They also return a bit code[^](http://emanual.robotis.com/docs/en/dxl/x/xl320/#shutdown18):
+
+Bit | Value | Description 
+--- | ----- | -------------
+Bit 3~7	| Unused
+Bit 2 |	ERROR_INPUT_VOLTAGE	| Voltage is out of operational voltage range
+Bit 1 |	ERROR_OVER_HEATING	| Temperature is out of operational temperature range
+Bit 0 |	ERROR_OVERLOAD  	| Motor cannot output max load due to load being applied continuously
+
+These are binary additive. E.g. If the input voltage dips too low and the motor is also overloaded, the returned value will be 5 = 1*2^0 + 0*2^1 + 1*2^2. Or to decode the value:
+````
+if (error>=4) { error -= 4; //voltage error }
+if (error>=2) { error -= 2; //overheated }
+if (error>=1) { error -= 1; //overloaded }
+````
 
 ### Servo Setup
+
+The following Arduino program will setup the servos for use in Dexter.
+
 
 ````C++
 // ========================================
