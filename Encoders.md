@@ -6,6 +6,8 @@ Encoders provide closed loop feedback of the actual position of each [joint](Joi
 ### Unit Circle
 There are two light sources and sensors for each disk to provide quadrature directional data. These are placed such that the signals generated are 90 degrees out of phase with each other. This makes them sin and cosine. If they are plotted on a graph, as each slot passes the sensors, they form a circle. 
 
+![Good encoder, after replacing Sensor in hole of encoder block.](https://user-images.githubusercontent.com/419392/59716213-6d9df300-91ca-11e9-87d6-0b530f39fb61.png)
+
 ### ADC Centers
 The light sources can be adjusted to change their intensity. This changes the maximum readings returned by Analog to Digital Conversion (ADC), thereby expanding the circle. Minimum readings, when the light is blocked, might be zero or slightly higher if any light is leading around the disk. The center of the circle must be marked, and those coordinate values are stored in the AdcCenters.txt file in the /srv/samba/share folder. On startup those values are read in by the firmware and set into the FPGA. The robot _must_ be restarted (power cycled) after the file is updated.
 
