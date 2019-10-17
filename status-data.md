@@ -68,7 +68,7 @@ Address | Description | Sample
  25 | PIVOT_COS | 56
  26 | PLAYBACK_PIVOT_POSITION (Now PIVOT_MEASURED_ANGLE) | 0
  27 | SENT_PIVOT_POSITION | 0
- 28 | SLOPE_PIVOT_POSITION (Now Joint 6 force) | 0
+ 28 | SLOPE_PIVOT_POSITION (Now Joint 6 torque) | 0
  29 | empty | 2147483647
  &nbsp; | **Joint 3: END**
  30 | END_POSITION_AT | 0
@@ -90,7 +90,7 @@ Address | Description | Sample
  45 | ANGLE_COS | 3675
  46 | PLAYBACK_ANGLE_POSITION (Now ANGLE_MEASURED_ANGLE) | 0
  47 | SENT_ANGLE_POSITION | 0
- 48 | SLOPE_ANGLE_POSITION (Now Joint 7 force)| 0
+ 48 | SLOPE_ANGLE_POSITION (Now Joint 7 torque)| 0
  49 | empty | 2147483647
  &nbsp; | **Joint 5: ROT**
  50 | ROT_POSITION_AT | 0
