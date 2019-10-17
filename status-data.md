@@ -57,7 +57,7 @@ Address | Description | Sample
  15 | BASE_COS | 2967
  16 | PLAYBACK_BASE_POSITION (Now BASE_MEASURED_ANGLE) | 0
  17 | SENT_BASE_POSITION | 0
- 18 | SLOPE_BASE_POSITION (Now Joint 6 angle) | 0
+ 18 | SLOPE_BASE_POSITION (Now Joint 6 measured angle) | 0
  19 | empty | 2147483647
  &nbsp; | **Joint 2: PIVOT**
  20 | PIVOT_POSITION_AT | 0
@@ -79,7 +79,7 @@ Address | Description | Sample
  35 | END_COS | 3063
  36 | PLAYBACK_END_POSITION (Now END_MEASURED_ANGLE) | 0
  37 | SENT_END_POSITION | 0
- 38 | SLOPE_END_POSITION (Now Joint 7 position)| 0
+ 38 | SLOPE_END_POSITION (Now Joint 7 measured angle)| 0
  39 | empty | 2147483647
  &nbsp; | **Joint 4: ANGLE**
  40 | ANGLE_POSITION_AT | 0
