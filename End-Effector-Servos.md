@@ -37,6 +37,16 @@ if (error>=2) { error -= 2; //overheated }
 if (error>=1) { error -= 1; //overloaded }
 ````
 
+If the error has been resolved, you can clear it with an `S RebootServo #` where # is the number of the servo. E.g. it's good to have the following code at the start of each job when you will be using the end effector servos:
+
+````
+do_list [
+    set_parameter("RebootServo", 1), //reset J7 SPAN
+    set_parameter("RebootServo", 3), //reset J6 ROLL
+    sleep(2), //give the servos time to reset.
+    ...
+````
+
 ### Servo Setup
 
 The following Arduino program will setup the servos for use in Dexter.
