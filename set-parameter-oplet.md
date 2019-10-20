@@ -1,6 +1,6 @@
 High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [Oplet](Command-oplet-instruction). For direct control of low level [FPGA](Gateware) parameters, see the ["w" Oplet](oplet-write)
 
-**Queued** instructions are stored in the FPGA in an internal movement FIFO and executed sequentially.
+Instructions marked as "**Queued**" are stored in the FPGA in the 16 level internal movement FIFO and executed sequentially.
 
 <table>
  <tr>
