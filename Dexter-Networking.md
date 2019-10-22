@@ -26,7 +26,9 @@ If you can connect a CAT5 cable between Dexter and your network router, Dexter w
 If your [SD Card](SD-Card-Image) is up to date, you should be able to install a WiFi adapter via the USB Host connection on the [MicroZed board](MicroZed), and configure it for access to your WiFi router. However, 
 1. The WiFi adapter will overheat next to the stepper drivers, so it's best to install it via a USB A extension cable. e.g. [USB 3.0 A Male to A Female 6" extension cable](https://www.amazon.com/KabelDirekt-Extension-Connect-Socket-Suitable/dp/B07D8Y6MNX)
 2. The USB connector is not reachable if a fan is installed directly over the stepper drivers, so that will need to be moved back. There are holes in the motor driver PCB below the terminal blocks that work well for stand-offs. 
-3. You will need to connect via CAT5 or [Serial USB connection](Dexter-USB-Connection) then SSH in to Dexter and configure the SSID and password to match your router. You can use `iwconfig wlan0 essid <name> key s:<password>` or `nmcli` (see below) from the command line or setup <a href="#x-windows">Remote GUI interface via X-Windows</a> and use the network manager. It's icon is in the bottom right (just left of the time) on Dexter's desktop.
+3. You will need to connect via CAT5 or [Serial USB connection](Dexter-USB-Connection) then SSH in to Dexter and configure the SSID and password to match your router. You can use `sudo nmcli dev wifi connect "ESSID_NAME" password "ESSID_PASSWORD"` from the command line to add a new connection to those Dexter knows. For more `nmcli` commands see below. Or setup <a href="#x-windows">Remote GUI interface via X-Windows</a> and use the network manager. It's icon is in the bottom right (just left of the time) on Dexter's desktop.
+
+Note: `sudo iwconfig wlan0 essid "<name>" key s:"<password>"` does NOT support WPA authentication.
 
 Units known to work:
 - [EDIMAX EW-7811Un](https://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY) It does get hot and may fail just from overheating. Probably anything with the same chipset (RTL8188CUS) will work.
@@ -41,7 +43,7 @@ nmcli is the command line version of the network manager GUI. It can be used to 
 - `nmcli dev wifi connect ESSID_NAME password ESSID_PASSWORD` to add a new connection to those Dexter knows.
 - `nmcli nm` to see the current status of Dexter's WiFi.
 - `nmcli c` shows a list of connections known to Dexter. 
-- `nmcli c delete id CONNECTION_NAME` will delete the specified connection from Dexters memory. 
+- `nmcli c delete id CONNECTION_NAME` will delete the specified connection from Dexter's memory. 
 
 ### Automatic WiFi connection by Dexter
 To automatically connect to a WiFI access point on startup, you can SSH into Dexter, then `sudo nano /etc/network/interfaces` and add the necessary information there. It should look something like
