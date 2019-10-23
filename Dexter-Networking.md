@@ -116,9 +116,11 @@ In PuTTY, under Connection / SSH / X11, check "Enable X11 forwarding", set the d
 In Linux, just run any GUI application on Dexter. On Windows, you can just start XMing, then and it will start a big blank "desktop" window. Alt tab to see the Windows taskbar, and minimize the empty desktop (you can't close it) by right clicking the preview from the taskbar and selecting "Minimize". Then from Dexter and start "nautilus" from the command line, but use "nautilus &" to run it in the background. Navigate to the /srv/samba/share folder to work, or to the /usr/share/applications folder to launch other applications. You can "Bookmark" these folders for faster access. This is kind of nice, because the applications each run in their own window in Windows making it easy to arrange them. 
 
 ## Desktop / Command line
-You can also start the standard Ubuntu desktop with the command: `gnome-session --session=ubuntu-2d &` or for a lighter desktop, try `/usr/bin/startlxde &`. But from Windows, if you have multiple monitors, you may wish to configure XMing to use only one monitor. XMing comes with XLaunch which allows you to configure how XMing display things. On the first "Display settings" panel, select "One window" and then keep the defaults for the other panels. Save that configuration file and use it to launch XMing in the future. 
+You can also start the standard Ubuntu desktop with the command: or for a lighter desktop, try `/usr/bin/startlxde &` or `/usr/bin/lxsession -s Lubuntu -e LXDE &`. But from Windows, if you have multiple monitors, you may wish to configure XMing to use only one monitor. XMing comes with XLaunch which allows you to configure how XMing display things. On the first "Display settings" panel, select "One window" and then keep the defaults for the other panels. Save that configuration file and use it to launch XMing in the future. 
 
-In Linux, the Dexter desktop show up on the PC desktop, mixing both on the same screen. Luckily, the XDE desktop `/sr/bin/startlxde &` uses the bottom and left corner, and the Ubuntu desktop uses the top and left side, so they co-exist pretty well. It's fun keeping track of which application is running on which device.
+Note: On Ubuntu 12, we could do `gnome-session --session=ubuntu-2d &`  but that seems to not work on 16.
+
+In Linux, the Dexter desktop show up on the PC desktop, mixing both on the same screen. Luckily, the XDE desktop `/usr/bin/startlxde &` uses the bottom and left corner, and the Ubuntu desktop uses the top and left side, so they co-exist pretty well. It's fun keeping track of which application is running on which device.
 
 In the Mac, the XQuartz application shows up at the top.
 
