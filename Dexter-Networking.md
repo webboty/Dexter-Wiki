@@ -26,7 +26,7 @@ If you can connect a CAT5 cable between Dexter and your network router, Dexter w
 If your [SD Card](SD-Card-Image) is up to date, you should be able to install a WiFi adapter via the USB Host connection on the [MicroZed board](MicroZed), and configure it for access to your WiFi router. However, 
 1. The WiFi adapter will overheat next to the stepper drivers, so it's best to install it via a USB A extension cable. e.g. [USB 3.0 A Male to A Female 6" extension cable](https://www.amazon.com/KabelDirekt-Extension-Connect-Socket-Suitable/dp/B07D8Y6MNX)
 2. The USB connector is not reachable if a fan is installed directly over the stepper drivers, so that will need to be moved back. There are holes in the motor driver PCB below the terminal blocks that work well for stand-offs. 
-3. You will need to connect via CAT5 or [Serial USB connection](Dexter-USB-Connection) then SSH in to Dexter and configure the SSID and password to match your router. 
+3. You will need to connect via CAT5 or [Serial USB connection](Dexter-USB-Connection) then [SSH in](shell-access-via-ssh) to Dexter and configure the SSID and password to match your router. 
 
 In general you just want to use `nmtui` from the command line and follow the prompts to connect to your WiFi. It should automatically reconnect and "just work".
 
