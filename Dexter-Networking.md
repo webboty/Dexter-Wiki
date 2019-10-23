@@ -128,7 +128,7 @@ In the Mac, the XQuartz application shows up at the top.
 But the easiest way to set up the full desktop is to use XLaunch to make a workable config file for XMing and then use that config to launch it. 
 - On the first "Display settings" panel, select "One window", on display 0. That zero is port 6000. e.g. 1 would be port 6001. If you use the "...without titlebar" version, you can't move the window. You can still alt tab, but if you have multiple monitors, it's nice to be able to put it elsewhere. Click "Next"
 - On the "Session type" panel select "Start a program", click "Next"
-- On the "Start Program" panel set the "Start program" to `gnome-session --session=ubuntu-2d` and under "Run Remote" do "Using PuTTY" then put in the IP address of Dexter under "Connect to computer" and also put in root and klg as the user and pass. Click "Next"
+- On the "Start Program" panel set the "Start program" to `/usr/bin/startlxde` and under "Run Remote" do "Using PuTTY" then put in the IP address of Dexter under "Connect to computer" and also put in root and klg as the user and pass. Click "Next"
 - Leave the Clipboard and other stuff as default. Click "Next"
 - On the last "Finish" panel, check "Include PuTTY  Password as insecure plain text" and save the config.
 - It will automatically start when you hit the "Finish" button. It does take some time to start; ~10 seconds. In the future, you can just XLaunch your configuration file. 
