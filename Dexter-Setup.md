@@ -22,7 +22,7 @@ Before powering on Dexter, position each joint at the home position. This is les
 
 On the Dexter HDI, there is an "X" on the base that indicates the home position.
 
-Normally, when unpacking Dexter, all you should need to do is rotate Joint 3 in the direction shown by the arrow (clockwise, when facing the motors) and make minor adjustments to the other joints. Each motor drive shaft has a small dial / handle which can be used to rotate it to a consistent position on startup. The exception is Joint 1, which can be aligned by simply rotating it. Wherever the robot is located when powered on is accepted as the zero or home position. For more on this, see [Encoder Calibration](Encoder-Calibration). DDE will walk you through initial calibration. ** Note: The Dexter HDI should NEVER be calibrated outside the factory as it is not necessary and is a complex process. **
+Normally, when unpacking Dexter, all you should need to do is rotate Joint 3 in the direction shown by the arrow (clockwise, when facing the motors) and make minor adjustments to the other joints. Each motor drive shaft has a small dial / handle which can be used to rotate it to a consistent position on startup. The exception is Joint 1, which can be aligned by simply rotating it. Wherever the robot is located when powered on is accepted as the zero or home position. For more on this, see [Encoder Calibration](Encoder-Calibration). DDE will walk you through initial calibration. **Note: The Dexter HDI should NEVER be calibrated outside the factory as it is not necessary and is a complex process.**
 
 ## Power
 Plug in the power cord to fire up your Dexter robot. Wait for the "boot dance" to complete (if it's enabled). 
