@@ -1,10 +1,10 @@
-# PUI: Physical User Interface
+# Physical User Interface
 
 The physical robot can be a user interface by sensing and then resisting or complying with touches from the user. For example, the robot could be programmed to start recording a new sequence of positions in "follow mode" when it feels a downward tap on the end effector. A more interesting example is when the robot resists side to side motion somewhat, but when pushed hard enough will "pop" or "cog" to a new location, where it again resists motion. This presents a feeling of turning a rotary switch through multiple positions. Combined with an up or down motion, this can be used to select from several options. 
 
-Dexter HDI now ship with a PUI script installed as the default startup script for the onboard [DDE job engine](DDE#job-engine-on-dexter). After boot up, Dexter HDI will find it's home position, then enter PUI and wait for mechanical commands. During this time, Dexter HDI will NOT respond to commands from [DDE](DDE) or other control software.
+Dexter HDI now ship with a Physical User Interface script called "PhUI" (pronounced "phooey") installed as the default startup script for the onboard [DDE job engine](DDE#job-engine-on-dexter). After boot up, Dexter HDI will find it's home position, then enter PhUI and wait for mechanical commands. During this time, Dexter HDI will NOT respond to commands from [DDE](DDE) or other control software.
 
-## Dexter HDI PUI Commands
+## Dexter HDI PhUI Commands
 
 - Exit: "cog" 7 places to the right and then up twice to exit PUI mode. That is "right" while facing the robot, meaning CCW when looking down on the robot from the top. After exiting, Dexter [firmware](Firmware) will respond to commands from a PC or other connected device.
 
