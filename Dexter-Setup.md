@@ -18,11 +18,11 @@ Now remove the Dexter robot from the lower level of the case. <br>
 Typically, you should grip it by the handle on Joint 3 aka "the elbow" (avoid gripping the side of joint 3 which has the belts) and by the base mounting column. Align the strakes with holes in the base mount and slide it in. Tighten the base clamp. It requires a Phillips head screwdriver. 
 
 ## Position
-Before powering on Dexter, position each joint at a known position. The default position is with all the joints vertical, and the tool interface (the last segment) pointed to the right when facing the joints, as shown here:<br> <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Positive_Joint_Directions_J234.PNG">
+Before powering on Dexter, position each joint at the home position. This is less important for the Dexter HDI models as it will find it's own home position when powered up, however, it's faster if it's already closer to home. Prior models will need to be placed as close to home position as is possible using the knobs on the motors. The default position is with all the joints vertical, and the tool interface (the last segment) pointed to the right when facing the joints, as shown here:<br> <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Positive_Joint_Directions_J234.PNG">
 
-Normally, when unpacking Dexter, all you should need to do is rotate Joint 3 in the direction shown by the arrow (clockwise, when facing the motors) and make minor adjustments to the other joints. Each motor drive shaft has a small dial / handle which can be used to rotate it to a consistent position on startup. The exception is Joint 1, which can be aligned by simply rotating it. Wherever the robot is located when powered on is accepted as the zero or home position. For more on this, see [Encoder Calibration](Encoder-Calibration). 
+On the Dexter HDI, there is an "X" on the base that indicates the home position.
 
-DDE will walk you through initial calibration.
+Normally, when unpacking Dexter, all you should need to do is rotate Joint 3 in the direction shown by the arrow (clockwise, when facing the motors) and make minor adjustments to the other joints. Each motor drive shaft has a small dial / handle which can be used to rotate it to a consistent position on startup. The exception is Joint 1, which can be aligned by simply rotating it. Wherever the robot is located when powered on is accepted as the zero or home position. For more on this, see [Encoder Calibration](Encoder-Calibration). DDE will walk you through initial calibration. ** Note: The Dexter HDI should NEVER be calibrated outside the factory as it is not necessary and is a complex process. **
 
 ## Power
 Plug in the power cord to fire up your Dexter robot. Wait for the "boot dance" to complete (if it's enabled). 
