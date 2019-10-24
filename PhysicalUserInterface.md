@@ -1,0 +1,16 @@
+# PUI: Physical User Interface
+
+The physical robot can be a user interface by sensing and then resisting or complying with touches from the user. For example, the robot could be programmed to start recording a new sequence of positions in "follow mode" when it feels a downward tap on the end effector. A more interesting example is when the robot resists side to side motion somewhat, but when pushed hard enough will "pop" or "cog" to a new location, where it again resists motion. This presents a feeling of turning a rotary switch through multiple positions. Combined with an up or down motion, this can be used to select from several options. 
+
+Dexter HDI now ship with a PUI script installed as the default startup script for the onboard [DDE job engine](DDE#job-engine-on-dexter). After boot up, Dexter HDI will find it's home position, then enter PUI and wait for mechanical commands. During this time, Dexter HDI will NOT respond to commands from [DDE](DDE) or other control software.
+
+## Dexter HDI PUI Commands
+
+- Exit: "cog" 7 places to the right and then up twice to exit PUI mode. That is "right" while facing the robot, meaning CCW when looking down on the robot from the top. After exiting, Dexter [firmware](Firmware) will respond to commands from a PC or other connected device.
+
+- Record / Play: To program or play recordings, grab the tool interface and turn it to one of the other slots and either replay by tilting the end effector up or down to program. 
+
+  Record: To record an action in the select slot, and tilt the head down, up, and then down again. Dexter will go into follow mode and allow you to record by moving the arm through a series of motions. It does take a number of seconds to be ready so be patient. To end a recording push the robot away from you so that joint 2 is tilted back and it will stop recording and return to home position. 
+
+  Play: To replay a recording tilt the end effector up, down, then up once more. It should then reposition itself and begin to replay after 30 seconds or so. If nothing was recorded in the slot then it will do a small rotation and stop. 
+To stop it from playing just pop the end effector in a upward position with your hand. This is not a slow nudge; it's more like a smack with your flat hand in an upward position.
