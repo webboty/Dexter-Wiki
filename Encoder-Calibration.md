@@ -1,3 +1,5 @@
+**Note: The new Dexter HDI shouldn't need calibration, and the re-calibration process is complex. _Don't calibrate a Dexter DHI!_**
+
 When Dexter starts, it does not know where it is. And it does not have it's normal precision in detecting movements. The [encoders](Encoders) send signals back to the FPGA, but the FPGA doesn't know what those signals mean, because it hasn't seen the sequence of signals for each slot. Because of small variations in the printing of the slots, each slot is unique. Also, there are variations introduced by the positioning of the sensors with respect to the disk, drive level of the LEDs, etc... As a result, the signals recieved are different for each slot. 
 
 So, before the encoders can work, each joint must be moved through it's entire range of motion and the signals for each slot recorded into the FPGAs memory. We call that "movement calibration" or just "calibration" or just "cal" as opposed to "eye calibration" (which is finding the center point of the sin/cos plot of the [encoders](Encoders) ). This can be done in several ways:
