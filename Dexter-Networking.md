@@ -27,8 +27,14 @@ If your [SD Card](SD-Card-Image) is up to date, you should be able to install a 
 1. The WiFi adapter will overheat next to the stepper drivers, so it's best to install it via a USB A extension cable. e.g. [USB 3.0 A Male to A Female 6" extension cable](https://www.amazon.com/KabelDirekt-Extension-Connect-Socket-Suitable/dp/B07D8Y6MNX)
 2. The USB connector is not reachable if a fan is installed directly over the stepper drivers, so that will need to be moved back. There are holes in the motor driver PCB below the terminal blocks that work well for stand-offs. 
 3. You will need to connect via CAT5 or [Serial USB connection](Dexter-USB-Connection) then [SSH in](shell-access-via-ssh) to Dexter and configure the SSID and password to match your router. 
-4. Use `ifconfig` to verify that the WiFi adapter is working and available as a network adapter device. It should show up after the standard "eth0" and "lo" adapters with a name starting with "w". e.g. "w1x74de38aef0ea" which is based on the mac address of the adapter.
-5. Use `nmtui` from the command line and follow the prompts to connect to your WiFi. It should automatically reconnect and "just work". Use `ifconfig` again to verify that there is an ip address listed under the adapter entry. That is Dexter's WiFi IP address.
+4. Use `ifconfig` to verify that the WiFi adapter is working and available as a network adapter device. It should show up after the standard "eth0" and "lo" adapters with a name starting with "w" followed by a large hexadecimal number e.g. "w1x74de38aef0ea" which is based on the mac address of the adapter. <BR>[(screen shot)](https://user-images.githubusercontent.com/419392/67534526-56dd4080-f683-11e9-87b8-1a84c22a2c8d.png)
+5. Use `nmtui` from the command line and follow the prompts to connect to your WiFi. It should automatically reconnect and "just work". First, use the arrow keys to "Activate a connection" <BR>
+![](https://user-images.githubusercontent.com/419392/67534741-64df9100-f684-11e9-8679-df477c2321a2.png)<BR>
+Then select the WiFi SSID <BR>
+![](https://user-images.githubusercontent.com/419392/67534796-acfeb380-f684-11e9-81fc-42a530e2b3dd.png)<BR>
+A popup will ask you for the password, enter that. It should now appear with a "*" to the left of the SSID name, indicating it's connected. Use the right arrow and down arrow to select Quit from the program. 
+Use `ifconfig` again to verify that there is an ip address listed under the adapter entry. That is Dexter's WiFi IP address.<BR>
+![](https://user-images.githubusercontent.com/419392/67534884-0e268700-f685-11e9-9cb1-673706d8b68b.png)
 
 If you have issues, you can try `sudo nmcli dev wifi connect "ESSID_NAME" password "ESSID_PASSWORD"` from the command line to add a new connection to those Dexter knows. For more `nmcli` commands see below. Or setup <a href="#x-windows">Remote GUI interface via X-Windows</a> and use the network manager. It's icon is in the bottom right (just left of the time) on Dexter's desktop.
 
