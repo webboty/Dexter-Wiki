@@ -42,8 +42,9 @@ If the error has been resolved, you can clear it with an `S RebootServo #` where
 ````
 do_list [
     set_parameter("RebootServo", 1), //reset J7 SPAN
+    sleep(1), //give the servo time to reset.
     set_parameter("RebootServo", 3), //reset J6 ROLL
-    sleep(2), //give the servos time to reset.
+    sleep(1), //give the servo time to reset.
     ...
 ````
 
