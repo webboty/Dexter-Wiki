@@ -1,12 +1,12 @@
 Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool Interface](End-Effectors) adds 2 more for a total of 7. Each [FPGA](Gateware) measured joint has an [encoder](Encoders). Also: [Kinematics](Kinematics)
 
-|#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation*  | Index Even dir
+|#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation*  | Index + move
 | ----  | ----- | ------------- | ------------------------------------- | ----- | ------------- | --------- |
-|1	|1	|Base		|Roll. Shoulder rotate (vertical)      	| 200	| Counter	| CW
-|2	|3<sup>1</sup>	|Pivot		|Pitch. Shoulder lift	               	| 180	| Counter	| CW<sup>3</sup>
-|3	|2	|End		|Pitch. Elbow. Pwr set R65/66       	| 157	| Counter	| CCW<sup>3</sup>
-|4	|4	|Angle		|Pitch.  [DiffA1 Differential](Differential-Joint) with 5 	| 115	|Counter | CCW<sup>3</sup>
-|5	|5	|Rotate		|Yaw.  [DiffA2](Differential-Joint). J4 and 5 make the wrist	| 100	|<strike>Clockwise</strike><br>Counter<sup>2</sup> | CCW 
+|1	|1	|Base		|Roll. Shoulder rotate (vertical)      	| 200	| Counter	| even?
+|2	|3<sup>1</sup>	|Pivot		|Pitch. Shoulder lift	               	| 180	| Counter	| odd<sup>3</sup>
+|3	|2	|End		|Pitch. Elbow. Pwr set R65/66       	| 157	| Counter	| even<sup>3</sup><sup>4</sup>
+|4	|4	|Angle		|Pitch.  [DiffA1 Differential](Differential-Joint) with 5 	| 115	|Counter | even?<sup>3</sup>
+|5	|5	|Rotate		|Yaw.  [DiffA2](Differential-Joint). J4 and 5 make the wrist	| 100	|<strike>Clockwise</strike><br>Counter<sup>2</sup> | even?
 |6	|6	|External	|(not used, could be extrude)		|	|
 |6	| n/a	|J20 bottom pin	|Rotate [Dynamixel](End-Effector-Servos)| n/a	| n/a
 |7	| n/a	|J20 bottom pin	|Gripper [Dynamixel](End-Effector-Servos)| n/a	| n/a
@@ -16,6 +16,8 @@ Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool I
 <sup>2</sup> _The direction of the rotation of the eye for Joint 5 was the opposite of the others because the phase was reversed. This was corrected for consistency on the HD._
 
 <sup>3</sup> The code disks for joints 2, 3, and 4 are designed from the opposite side shown in the diagram below. From the CAD point of view, the Index Even Dir is CW from home for those joints.
+
+<sup>4</sup> On Joint 2, the sensor block moves and the code disk is fixed. This reverses the order of the index pulses.
 
 ### AxisCal.txt
 Because joints may (do) have different gearing and drive systems, the conversion between one step of the motor and 1 degree of motion for the joint requires a factor. These also account for microstepping and the conversion from degrees to arc seconds. There is also an compensation factor required for joints 4 and 5 when joint 3 is moved (<tt>ANGLE_END_RATIO</tt>). All of this information is stored in the **AxisCal.txt** file on the share. Anytime an angle value is sent or recieved by the Firmware, it is multiplied by the conversion factor for that joint (<tt>JointsCal</tt> array). The following Javascript (for use in DDE) calculates the correct values given the gear ratios, stepper motor steps per revolution, and stepper driver microstepping setting. The gear_ratios shown are for the Dexter 1 and Dexter HD, with the 52:1 Harmonic Drive [hardware](Hardware).
