@@ -1,6 +1,6 @@
 Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool Interface](End-Effectors) adds 2 more for a total of 7. Each [FPGA](Gateware) measured joint has an [encoder](Encoders). Also: [Kinematics](Kinematics)
 
-|#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation*  | Index + move
+|#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation*  | Index spacing on pos eye no. move from home
 | ----  | ----- | ------------- | ------------------------------------- | ----- | ------------- | --------- |
 |1	|1	|Base		|Roll. Shoulder rotate (vertical)      	| 200	| Counter	| even?
 |2	|3<sup>1</sup>	|Pivot		|Pitch. Shoulder lift	               	| 180	| Counter	| odd<sup>3</sup>
