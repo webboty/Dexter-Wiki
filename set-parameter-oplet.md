@@ -359,6 +359,36 @@ Injects a negative force opposing the external force to limit the amount the joi
    </tr>
 
  <tr>
+   <td colspan=3><a name="MaxTorque"><b>Max Torque</b></a>: Not yet released, don't use. Maximum Torque before each joint stops trying. 
+      </td>
+   </tr>
+ <tr>
+   <td>54,&nbsp;MaxTorque</td>
+   <td><!--- min | initial | max in DDE units --></td>
+   <td><!--- min | initial | max in Firmware units --></td>
+   </tr>
+ <tr>
+   <td colspan=3><a name="AxisCal"><b>AxisCal</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5#diff-a940a548ba41bc988f99d51fd02f21de">2019/10/10 on StepAngles branch</a>. Set JointsCal and ANGLE_END_RATIO via SetParameter instead of via AxisCal.txt. This allows it to be in the Defaults.make_ins file which then holds all the unique data about each robot. Values are the number of steps per joint rotation and can be calculated as gear ratio times the steps per revolution times the microstepping mode.<PRE>
+;S, AxisCal, -332800, -332800, -332800, -36000, -36000 ;Defaults for Dexter HD
+S, AxisCal, -332800, -332800, -332800, -86400, -86400 ;Defaults for Dexter HDI
+</PRE>
+      </td>
+   </tr>
+ <tr>
+   <td>55,&nbsp;AxisCal</td>
+   <td colspan=2>Gear_Ratio * Motor_Steps_per_Revolution * Microstepping</td>
+   </tr>
+ <tr>
+   <td colspan=3><a name="Interpolation"><b>Interpolation</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5#diff-a940a548ba41bc988f99d51fd02f21de">2019/10/10 on StepAngles branch</a>. Set interpolation factors for each joint. This defaults to `1 1 1 16 16` for the Dexter 1 and HD and is changed to all 1's for the HDI. Primarily to maintain backwards compatibility; the DexRun.C code will continue to work on the prior version, but can be set to work with the HDI by using this parameter.
+      </td>
+   </tr>
+ <tr>
+   <td>56,&nbsp;Interpolation</td>
+   <td>1 | 1 | 16 sub-ustep per ustep</td>
+   <td>1 | 1 | 16 sub-ustep per ustep</td>
+   </tr>
+
+ <tr>
    <td colspan=3><!--- <a name=""><b> </b></a>: Added <a href="">2019/mm/dd --></a> 
       </td>
    </tr>
