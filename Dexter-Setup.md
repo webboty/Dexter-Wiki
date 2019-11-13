@@ -29,3 +29,7 @@ Plug in the power cord to fire up your Dexter robot. Wait for the "boot dance" t
 
 If you don't see the boot dance, or the board doesn't light up, see [Troubleshooting](Troubleshooting)
 Continue to [connect to Dexter](Dexter-Networking).
+
+# Bootup
+
+On power up, Dexter will load the OS, then move slightly to let you know it's working. That's it for the Dexter 1 and HD models. On the new HDI, the robot will start looking for home position via the [Find_Index_Pulses_HDI](https://github.com/HaddingtonDynamics/Dexter/blob/StepAngles/Firmware/dde_apps/Find_Index_Pulses_HDI.dde) [Job Engine](DDE#job-engine-on-dexter) script. This may take a minute or two. If so configured, it may then go into [PHUI mode](PhysicalUserInterface) where it is waiting for you to move the end effector and record or play back recordings. While in any of these startup modes, you will NOT be able to communicate with the robot via [DDE](DDE). You can use [SSH](Dexter-Networking#shell-access-via-ssh) or the [console cable](Dexter-USB-Connection). Once those startup modes end, you will be able to communicate with the robot via DDE.
