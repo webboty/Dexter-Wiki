@@ -87,6 +87,7 @@ Then push the finger in until the dial points toward the Tool Interface, and sli
 
 - [Cutting Shears](http://hdrobotic.com/store/hd-gripper-6th-and-7th-axis-force-feedback-and-trainable-brsfj-9bh6n-c7bmw)
 
+Note: If you wish to leave the robot powered on while changing tools, position Joint 7 at about 170 degrees. (The raw value is 585)
 
 # See also:
 - Current Tool Interface CAD files (note: this will be replaced): [OnShape](https://cad.onshape.com/documents/2af8ed0e61a34ebf69284c68/w/72caf65e51bde98e456925d2/e/b03fb46577fe162df32757e9), [STL](https://www.thingiverse.com/download:3318346) There is room in the body for wiring and a [Tinyduino ](https://tinycircuits.com/collections/kits/products/tinyduino-basic-kit) interface device which can be attached with [slightly longer bolts](https://www.mcmaster.com/#91251a059/=17p3i1d). 
