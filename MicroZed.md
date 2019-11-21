@@ -1,8 +1,8 @@
-Dexter's "brain" is a [ZedBoard.org](http://zedboard.org) [MicroZed](http://zedboard.org/product/microzed) board. The [7020 commercial](https://www.avnet.com/shop/us/products/avnet-engineering-services/aes-z7mb-7z020-som-g-rev-g-3074457345635208188/) version, NOT the 7010. [Schematic Rev F](http://microzed.org/sites/default/files/documentations/MicroZed_Rev_F_Schematic_141212.pdf) 
+Dexter's "brain" is a [ZedBoard.org](http://zedboard.org) [MicroZed](http://zedboard.org/product/microzed) board. The [7020 commercial](https://www.avnet.com/shop/us/products/avnet-engineering-services/aes-z7mb-7z020-som-g-rev-g-3074457345635208188/) version, NOT the 7010. [Schematic Rev F](http://microzed.org/sites/default/files/documentations/MicroZed_Rev_F_Schematic_141212.pdf), [Hardware Guide](http://zedboard.org/sites/default/files/documentations/5276-MicroZed-HW-UG-v1-7-V1.pdf)
 
 <img src="http://zedboard.org/sites/default/files/product_spec_images/front_view_overlay.png" width=729 height=404>
 
-Note: The [SD Card](SD-Card-Image) slot is directly under the Micro USB connector, on the opposite side of the board. To boot from the SD card, the jumpers must be set as follows:  JP1: 1-2, JP2: 2-3, JP3: 2-3
+Note: The [SD Card](SD-Card-Image) slot is directly under the Micro USB connector, on the opposite side of the board. To boot from the SD card, the jumpers must be set as follows:  JP1: 1-2, JP2: 2-3, JP3: 2-3. _Note: An internal diagnostic boot from the onboard QSPI is available by moving JP2: 1-2. This is only useful when connected via the [micro USB port](Dexter-USB-Connection)._
 
 ## Specs
 **Processor:** [Zynq™-7000](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) AP [SoC XC7Z020-CLG400-1](https://www.xilinx.com/support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf), with two ARM 7 cores and an [FPGA](Gateware)<BR>
