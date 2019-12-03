@@ -1,3 +1,5 @@
+All of the below is in the current image already. Files which may be more up to date are available in the [Firmware www folder](https://github.com/HaddingtonDynamics/Dexter/tree/StepAngles/Firmware/www)
+
 Contents:
 - <a href="#installing-node-js-on-dexter">Installing Node.js on Dexter</a>
 - <a href="#a-node-js-websocket-server">A Node.js Websocket server</a>
