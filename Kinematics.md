@@ -17,6 +17,6 @@ Dexter also directly supports the 'M' and 'T' [oplets](command-oplets) which tak
 
 **Direction** controls what direction the last part of the arm is pointing. It will be at X, Y, Z, but should it be pointing straight down? [0, 0, -1] does that. Or should it be pointed out? [0, 1, 0] does that. Or maybe you want it pointed in? [0, -1, 0]. You can also use an array of 2 values in DDE, which will be used as pitch and roll angles, but be careful not to use 90 as _both_ of the angles because it will cause a "singularity"
 
-**Singularity**  "A point at which a function takes an infinite value" In many cases, there are more than one way to get to the target. If you specify [90,90] for wrist pitch and roll, there are an infinite number of ways to get to that direction.
+**Singularity**  "A point at which a function takes an infinite value" In many cases, there are more than one way to get to the target. If you specify [90,90] for wrist pitch and roll, there are an infinite number of ways to get to that direction. A good starting point for xyz is: [0, 0.5, 0.075].
 
 <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Direction_Vector.PNG">
