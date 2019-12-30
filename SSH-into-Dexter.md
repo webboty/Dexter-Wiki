@@ -27,7 +27,7 @@ SSH stands for "Secure SHell. It is an application running on a computer that gi
         <br/>Use arrow keys to move the cursor.
         <br/>delete/backspace to delete chars before the cursor. 
         <br/>ctrl+o Outputs a file... this is SAVE not open.
-        <br/>ctrl+x to eXit. Shows prompt to allow saving file.
+        <br/>ctrl+x to eXit. Shows prompt to allow saving file. After pressing "Y", the file name can be changed if desired. Note: If you see `[MAC format]` or `[DOS format]` after the `File Name to Write` prompt, then the file has extra line ending characters that you probably don't want. Press Alt M until you do not see those strings and then press enter to save the file without them. 
         <br/>To select text, move the cursor to the start of the text you want to select, press the Alt-A key combination to mark the start, then move the cursor to the end of the section you want to select.
         <br/>Ctrl+K to cut your selection
         <br/>Ctrl+U to paste it.)
