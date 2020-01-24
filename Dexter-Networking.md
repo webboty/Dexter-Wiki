@@ -97,6 +97,14 @@ iface eth0 inet static
     address 192.168.1.142
 ````
 
+To enable DHCP, just change the `static` to `dhcp`. It should look like this:<BR>
+````
+auto eth0
+iface eth0 inet dhcp
+    address 192.168.1.142
+````
+
+The `address` line shouldn't cause any problems, but you can always comment it out by adding a `# ` at the start of the line.
 # Shell Access via SSH
 Once you are connected, you can [shell into Dexter](SSH-into-Dexter) to update the [firmware](Firmware) or do development in the onboard Linux OS, or just connect via [DDE](DDE) to develop and run jobs. 
 
