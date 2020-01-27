@@ -2,14 +2,14 @@ High level Parameters in the Dexter [Firmware](Firmware) are set with the "S" [O
 
 Instructions marked as "**Queued**" are stored in the FPGA in the 16 level internal movement FIFO and executed sequentially.
 
-<table>
+<table style="overflow-y: auto; height: 100px;">
  <tr>
-   <td colspan=3>Description</td>
+   <td colspan=3 style="position: sticky; top: 0;"><b>Description</b></td>
    </tr>
  <tr>
-   <td>#, <b>Name</b> <br>(use either)</td>
-   <td> min | initial | max <br>in <a href="DDE">DDE</a> units</td>
-   <td> min | initial | max <br>in Dexter <a href="Firmware">Firmware</a> units</td>
+   <td style="position: sticky; top: 50;"><b>#, Name</b> <br>(use either)</td>
+   <td style="position: sticky; top: 50;"> min | initial | max <br>in <a href="DDE">DDE</a> units</td>
+   <td style="position: sticky; top: 50;"> min | initial | max <br>in Dexter <a href="Firmware">Firmware</a> units</td>
    </tr>
  <tr>
    <td colspan=3><a name="MaxSpeed"><b>MaxSpeed</b></a>: Queued. Maximum velocity of next move in "nbits"<sup><a href="#1">1</a></sup>. Replaced by <a href="#AngularSpeed">AngularSpeed</a>. See also <a href="#StartSpeed">StartSpeed</a> below. </td>
