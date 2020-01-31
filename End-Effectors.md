@@ -45,7 +45,7 @@ In PWM modes, the associated tristate bit must be zero, and the duty cycle is se
 ## Version 2
 ![Version 2 Tool Interface Exploded View.](https://github.com/HaddingtonDynamics/Dexter/raw/master/Hardware/GripperAssembly.PNG)
 
-The standard going forward will be a new tool interface which incorporates 2 [Dynamixel XL-320 servos](End-Effector-Servos) and a [Tinyscreen+](End-Effector-Screen) (ARM based, small OLED screen, 4 buttons, lots of IO). One FPGA IO pin will be configured to send and receive data via the [Dynamixel protocol 2.0](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm). This requires an update to the [FPGA](Gateware) image. <BR>
+The standard going forward will be a [new tool interface](https://www.thingiverse.com/thing:3166448) which incorporates 2 [Dynamixel XL-320 servos](End-Effector-Servos) and a [Tinyscreen+](End-Effector-Screen) (ARM based, small OLED screen, 4 buttons, lots of IO). One FPGA IO pin will be configured to send and receive data via the [Dynamixel protocol 2.0](http://support.robotis.com/en/product/actuator/dynamixel_pro/communication.htm). This requires an update to the [FPGA](Gateware) image. <BR>
 
 To move the Dynamixel servos, the standard ["a" move all joints command ](Command-oplet-instruction#a) has been extended to include two more (optional) joint angles. E.g.:<BR>
 `Dexter.move_all_joints(J1, J2, J3, J4, J5, J6, J7) //assumes variables J1-7 are set to degrees`<BR>
@@ -88,7 +88,7 @@ If the end effector isn't all the way on, usually the power takeoff will pull it
 - http://www.appropedia.org/User:Zsarnold#Enterprise See "Semester 2" A Mantis gripper was adapted to Dexter for a great demo of removing parts from a 3D printer. [Mantis Gripper Design](https://www.thingiverse.com/thing:1480408) and [Dexter adapter files](https://www.thingiverse.com/thing:2877079). Demo setup: [Video](https://www.youtube.com/watch?v=g7vwe5gVP3k), [Images](https://imgur.com/a/42GDrtg), and [DDE code](https://pastebin.com/EKfpEdBR). 
 
 ## New Servo Tool Interface
-- [Curved gripper](http://hdrobotic.com/store/hd-gripper-6th-and-7th-axis-force-feedback-and-trainable)
+- [Curved gripper](https://www.thingiverse.com/thing:3166448) 
 - Straight fingered gripper 
 <table><tr><td width=207 valign="top">
 To insert the removable finger into the gripper, and install it into Tool Interface, first turn the knob so that the dial points to the line as shown here:<br>
