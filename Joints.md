@@ -1,4 +1,4 @@
-Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool Interface](End-Effectors) adds 2 more for a total of 7. Each [FPGA](Gateware) measured joint has an [encoder](Encoders). Also: [Kinematics](Kinematics)
+Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool Interface](End-Effectors) adds 2 more for a total of 7. Joints 1 to 5 use a stepper motor, transmission, and then an [encoder](Encoders) _after_ the gearing, directly on the joint. The [FPGA](Gateware) measures the encoder position and adjusts the stepped angle of the motor to correct for any error. The difference between the stepped motor shaft position and the actual joint position accommodates any springiness in the drive, but the joint position always returns back to the exact commanded location. Also: [Kinematics](Kinematics)
 
 |#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation*  | Index spacing on pos move
 | ----  | ----- | ------------- | ------------------------------------- | ----- | ------------- | --------- |
