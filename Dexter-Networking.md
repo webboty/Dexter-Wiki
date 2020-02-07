@@ -108,7 +108,7 @@ The `address` line shouldn't cause any problems, but you can always comment it o
 # Shell Access via SSH
 Once you are connected, you can [shell into Dexter](SSH-into-Dexter) to update the [firmware](Firmware) or do development in the onboard Linux OS, or just connect via [DDE](DDE) to develop and run jobs. 
 
-On Windows prior to Windows 10, to **[SSH into Dexter](SSH-into-Dexter)**, you will need an [SSH client](https://en.wikipedia.org/wiki/Comparison_of_SSH_clients) (e.g. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) or [Remmina](https://remmina.org/) for Linux ). Configure the IP address in the client software to [Dexter's IP address](Dexter-Networking#ip-address), set the port to 22, and select SSH. 
+On Windows prior to Windows 10, to **[SSH into Dexter](SSH-into-Dexter)**, you will need an [SSH client](https://en.wikipedia.org/wiki/Comparison_of_SSH_clients) (e.g. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) 64 bit for a 64 bit OS, or [Remmina](https://remmina.org/) ). Configure the IP address in the client software to [Dexter's IP address](Dexter-Networking#ip-address), set the port to 22, and select SSH. 
 
 Username: `root`
 <br>password: `klg`
@@ -146,6 +146,11 @@ But the easiest way to set up the full desktop, _after doing the above_, is to u
 - Leave the Clipboard and other stuff as default. Click "Next"
 - On the last "Finish" panel, check "Include PuTTY  Password as insecure plain text" and save the config.
 - It will automatically start when you hit the "Finish" button. It does take some time to start; ~10 seconds. In the future, you can just XLaunch your configuration file. 
+
+If you get a "key exchange" error, see this:<BR>
+https://www.opentechguides.com/askotg/question/106/putty-fatal-error-expected-key-exchange-group-packet-from-server
+
+
 
 Once in the desktop, you can start the file manager and navigate to the /srv/samba/share folder to edit files, or to the /usr/share/applications folder to launch other applications. This works a bit faster than the standard Dash home. If you "Browse Network" you may be able to access local NAS or other Linux shares, but Windows shared folders probably won't appear. 
 
