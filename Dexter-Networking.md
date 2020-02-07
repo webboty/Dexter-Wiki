@@ -139,7 +139,7 @@ In Linux, the Dexter desktop show up on the PC desktop, mixing both on the same 
 In the Mac, the XQuartz application shows up at the top.
 
 ## Easy Desktop
-But the easiest way to set up the full desktop is to use XLaunch to make a workable config file for XMing and then use that config to launch it. 
+But the easiest way to set up the full desktop, _after doing the above_, is to use XLaunch to make a workable config file for XMing and then use that config to launch it. 
 - On the first "Display settings" panel, select "One window", on display 0. That zero is port 6000. e.g. 1 would be port 6001. If you use the "...without titlebar" version, you can't move the window. You can still alt tab, but if you have multiple monitors, it's nice to be able to put it elsewhere. Click "Next"
 - On the "Session type" panel select "Start a program", click "Next"
 - On the "Start Program" panel set the "Start program" to `/usr/bin/startlxde` and under "Run Remote" do "Using PuTTY" then put in the IP address of Dexter under "Connect to computer" and also put in root and klg as the user and pass. Click "Next"
