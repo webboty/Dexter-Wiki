@@ -4,7 +4,7 @@ To use it connect a USB A to USB Micro B cable between the PC and Dexter. Then i
 
 [Picture of USB A to USB Micro B cable](https://commons.wikimedia.org/wiki/File:MicroB_USB_Plug.jpg)
 
-_Note: As soon as you connect a USB cable between your PC and the MicroZed, it will be powered up and start booting. If Dexters power brick isn't plugged in, the motors, etc... will not be able to move and the software may be quite confused. Always power up Dexter first, THEN connect the USB cable. If you need to see the boot messages (to troubleshoot problems) use the [Reset button](https://camo.githubusercontent.com/71b95488d2947c80f954373e1d576248aca85ae8/687474703a2f2f7a6564626f6172642e6f72672f73697465732f64656661756c742f66696c65732f70726f647563745f737065635f696d616765732f66726f6e745f766965775f6f7665726c61792e706e67) (marked "SW2") on the MicroZed Board to restart._
+_Note: As soon as you connect a USB cable between your PC and the MicroZed, it will be powered up and start booting. If Dexters power brick isn't plugged in, the motors, etc... will not be able to move and the software may be quite confused. Always power up Dexter first, THEN connect the USB cable. If you need to see the boot messages (to troubleshoot problems) use the [Reset button](http://zedboard.org/sites/default/files/product_spec_images/front_view_overlay.png) (marked "SW2") on the MicroZed Board to restart._
 
 Once the cable is connected, the driver should automatically be installed. It is commonly available and should be automatic on Windows, Mac, and most Linux distributions.
 
