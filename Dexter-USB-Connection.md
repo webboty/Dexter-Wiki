@@ -17,7 +17,7 @@ https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vc
 CP2104 USB Port Installed<BR>
 <a href="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installed.png"><img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/DexterCP2104Installed.png" height=366 width=496></a>
 
-Once the driver is installed, you should see it under Ports, as COM# where # is some number. E.g. COM63 in this case.
+Once the driver is installed, click Start and enter devmgmt.msc, press enter. you should see it under Ports, as COM# where # is some number. E.g. COM63 in this case.
 
 On Linux or Mac, from Terminal, `ls /dev/tty*` and then plug in the cable, wait a bit and repeat. Whatever showed up new is the correct port.
 
