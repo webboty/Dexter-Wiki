@@ -1,3 +1,8 @@
+_WARNING: Use *only* SanDisk 16GB Ultra MicroSDHC UHS-I Memory Card with Adapter - 98MB/s, C10, U1, Full HD, A1, Micro SD Card - SDSQUAR-016G-GN6MA, and no other. Failure to use this specific card may fry the MicroZed._
+
+https://www.amazon.com/dp/B073K14CVB/ref=cm_sw_r_other_apa_i_LgyvEbC27VXPP
+
+
 All of Dexters [Firmware](Firmware) and [Gateware](Gateware) as well as the Ubuntu OS and configuration files are stored on the micro SD card inserted into the microzed board. Although all the files on that card can be edited once Dexter is running, installing a new image is a quick way to make sure everything is setup correctly and is needed when building a new Dexter.
 
 There are two partitions on the card. 
