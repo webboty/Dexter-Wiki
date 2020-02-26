@@ -29,15 +29,13 @@ One way to eliminate the possibility of the SD card image being the issue is to 
 
 Then, to boot the MicroZed card with a formatted SD card, change the boot jumpers to use QSPI which is the internal boot rom. Those settings are JP1:1-2, JP2:1-2, JP3:2-3.  Note, the SD card must be inserted, and must be formatted FAT32, but it doesn't have to have anything on it. If you have the main power connection for Dexter plugged in, you will need to disconnect and reconnect it; just pressing the reset switch doesn't change the boot mode.
 
-If you get a blue light after about 10 seconds, and get a `zynq>` prompt on the console connection (see above), then the FGPA is probably good and the problem was a bad image on the SD card. Be sure to change back to  JP1:1-2, JP22-3, JP3:2-3 to boot from the SD card after you re-image it. And if you have the main power connection plugged in, you will need to disconnect and re-connect it; just pressing the reset switch doesn't change the boot mode.
+If you get a blue light after about 10 seconds, and get a `zynq>` prompt on the console connection (see above), then the FGPA is probably good and the problem was a bad image on the SD card. Be sure to change back to  JP1:1-2, JP22-3, JP3:2-3 to boot from the SD card after you [re-image](SD-Card-Image#writing-a-new-sd-card-image) it. And if you have the main power connection plugged in, you will need to disconnect and re-connect it; just pressing the reset switch doesn't change the boot mode.
 
 If you still don't get a blue light, and you are sure the SD card is formatted FAT32 and is inserted correctly, then the FPGA board may need to be replaced. You might want to remove the MicroZed board from Dexter, so that only a know good FAT 32 SD card is connected, and then power it via the USB cable from your PC. If you get the blue light and `zynq>` prompt then the issue is the Green HDR Motor board. 
 
-## [Calibration](Encoder-Calibration)
-
 ### Freak Out
 
-After calibration, when going into a closed loop mode where the [Encoders](Encoders) are feeding position information into the [FPGA](FPGA) to correct each joint to an exact location, one or more joints may start to shake or vibrate, and may squeal and lose position badly. Here is a [video of a customers Dexter in that state](https://youtu.be/S1g-IPPbs4I).
+When going into a closed loop mode where the [Encoders](Encoders) are feeding position information into the [FPGA](FPGA) to correct each joint to an exact location, one or more joints may start to shake or vibrate, and may squeal and lose position badly. Here is a [video of a customers Dexter in that state](https://youtu.be/S1g-IPPbs4I).
 
 Most often, this is caused by a problem with the encoder. E.g. an LED or photosensor has come out of the hole in the encoder block, the encoder block has been pulled out of mesh with the disk, a connector is loose or a wire broken, or the encoder is simply not [calibrated](Encoder-Calibration) correctly. 
 
@@ -53,3 +51,13 @@ Here is an example of a Sensor that was accidentally pulled out of it's hole in 
 ![](https://user-images.githubusercontent.com/419392/59716415-cff6f380-91ca-11e9-94e7-980a95b79e56.png)
 
 Replacing it and hot glueing it in place corrected the example issue shown with the eyes above. 
+
+### Failure to find home
+
+The defining feature of the Dexter HDI is it's ability to find home position automatically after power cycle. Previous versions needed to be manually homed before being turned on. If something is wrong with calibration, or if there is a mechanical problem, this may fail and the robot will not be accessible except via [SSH](Dexter-Networking) or [Console Cable connection](Dexter-USB-Connection). 
+
+To find the cause of the issue, we need to first stop Dexter from trying to find home on bootup. First, connect to Dexters command line via [SSH](Dexter-Networking) or [Console Cable connection](Dexter-USB-Connection). At the command prompt, enter `cd /srv/samba/share` and then, from that directory, run `nano RunDexRun` to edit that file. Use the down arrow or PgDn key to move to the bottom of the file. Find the line that mentions `Find_Index_Pulses`. The entire line is:<BR>
+`sleep 5 && sudo node core define_and_start_job /srv/samba/share/dde_apps/Find_Index_Pulses_HDI.dde`<br>
+comment out this line by inserting a '#' at the start of the line. Press Ctrl-X to close nano, and answer "Y" when asked to save the file and confirm the same file name by just pressing Enter. 
+
+Now power cycle the robot. Wait for it to "twitch" the end effector and then you can start DDE and connect to the robot. Note that you are in open loop mode, so PID moves will not work. Perform the [calibrated](Encoder-Calibration) procedure and look for problems with the encoder eyes, or with the joints not moving correctly through the entire range of motion. Do NOT save the calibration results! If you find problems, contact us. 
