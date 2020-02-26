@@ -1,8 +1,8 @@
 ## At Power On
 When powering on Dexter, you should see a series of lights. The processor board has 3 bright LEDs.
-- green lights when the processor board is getting power.
-- blue lights when the FPGA is programmed and ready for operation.
-- red lights during disk access (to the SD card.)
+- green (labeled "D5") lights when the processor board is getting power.
+- blue (labeled "D2") lights when the FPGA is loaded and ready for operation.
+- red (labeled "D3") lights during disk access (to the SD card.)
 
 ### Power source
 If you don't see any light, the power adapter may be disconnected, defective, etc...
@@ -19,6 +19,19 @@ When you push it up, it may jam or want to twist to the side. Keep moving it aro
 
 ### Console connection
 If the robot doesn't seem to be booting, or you can't connect via DDE or ping, a great way to troubleshoot is by using the built in console port. This will allow you to watch the MicroZed board boot (which it will start to do even without an SD Card) and so you can see exactly where it stops or what error messages it displays. For detailed directions see [Dexter USB Connection](Dexter-USB-Connection)
+
+If you don't see any messages, even after pressing the reset (SW2) button on the board, then the SD card may be defective, installed incorrectly, or may not have the correct image.
+
+### Boot test
+If the SD card has a bad image the system might try to boot, but not complete. 
+
+One way to eliminate the possibility of the SD card image being the issue is to just format the SD card using the FAT32 File System. [In Windows 10, use the command line tool to access the FAT32 format.](https://superuser.com/a/1179872/138765). In Linux or Mac, just right click the SD card in the file manager and select format, then FAT32. You can test the SD card in your PC by writing files to it, and reading them back. The details of the drive should show that the File System on it is formatted as FAT32.
+
+Then, to boot the MicroZed card with a formatted SD card, change the boot jumpers to use QSPI which is the internal boot rom. Those settings are JP1:1-2, JP2:1-2, JP3:2-3.  Note, the SD card must be inserted, and must be formatted FAT32, but it doesn't have to have anything on it. If you have the main power connection for Dexter plugged in, you will need to disconnect and reconnect it; just pressing the reset switch doesn't change the boot mode.
+
+If you get a blue light after about 10 seconds, and get a `zynq>` prompt on the console connection (see above), then the FGPA is probably good and the problem was a bad image on the SD card. Be sure to change back to  JP1:1-2, JP22-3, JP3:2-3 to boot from the SD card after you re-image it. And if you have the main power connection plugged in, you will need to disconnect and re-connect it; just pressing the reset switch doesn't change the boot mode.
+
+If you still don't get a blue light, and you are sure the SD card is formatted FAT32 and is inserted correctly, then the FPGA board may need to be replaced. You might want to remove the MicroZed board from Dexter, so that only a know good FAT 32 SD card is connected, and then power it via the USB cable from your PC. If you get the blue light and `zynq>` prompt then the issue is the Green HDR Motor board. 
 
 ## [Calibration](Encoder-Calibration)
 
