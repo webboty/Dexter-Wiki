@@ -6,7 +6,7 @@ Dexter HDI now ship with a Physical User Interface script called "PhUI" (pronoun
 
 ## Dexter HDI PhUI Commands
 
-- Exit: "cog" 7 places to the right and then up twice to exit PUI mode. That is "right" while facing the robot, meaning CCW when looking down on the robot from the top. After exiting, Dexter [firmware](Firmware) will respond to commands from a PC or other connected device.
+- Exit: Grab the tool interface and "cog" 7 places to the right and then up twice to exit PUI mode. That is "right" while facing the robot, meaning CCW when looking down on the robot from the top. After exiting, Dexter [firmware](Firmware) will respond to commands from a PC or other connected device.
 
 - Record / Play: To program or play recordings, grab the tool interface and turn it to one of the other slots and either replay by tilting the end effector up or down to program. 
 
