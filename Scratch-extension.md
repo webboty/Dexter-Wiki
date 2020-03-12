@@ -6,7 +6,10 @@ https://github.com/Kenny2github/scratch-dexter
 <BR>
 https://www.facebook.com/steamaker/videos/577470826025034/
 
-To setup communications between Dexter and your browser, a Node.JS proxy between websockets and [Dexter's raw socket interface](Dexter-Networking) is required. [Node.js and a proxy](nodejs-webserver#a-node-js-websocket-server) is available on the current image, but since it is running from Dexters IP address, the browser will see it as a cross site scripting security vulnerability and refuse to work. Running a Node.JS proxy on localhost, however, is allowed. To set that up:
+If your Dexter image has scratch, you should be able to hit Dexters IP address and then click on "scratch" to use it. If you see the web page there and get a 404 when continuing on to /scratch, then you may need to follow the directions here:<BR>
+https://github.com/HaddingtonDynamics/Dexter/issues/55#issuecomment-519360374
+
+In general: To setup communications between Dexter and your browser, a Node.JS proxy between websockets and [Dexter's raw socket interface](Dexter-Networking) is required. [Node.js and a proxy](nodejs-webserver#a-node-js-websocket-server) is available on the current image, but since it is running from Dexters IP address, the browser will see it as a cross site scripting security vulnerability and refuse to work. Running a Node.JS proxy on localhost, however, is allowed. To set that up:
 - `nodejs` installed on your local machine<br>
 https://nodejs.org/en/download/<br>
 On Ubuntu, use:<br>
