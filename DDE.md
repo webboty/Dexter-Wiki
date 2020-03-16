@@ -14,7 +14,7 @@ Download and run the .exe
 <img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/DDE/doc/installDDEUbuntu.png">
 
 ### DDE on Dexter
-In this case, we don't need to make a distributable package, we just want to run the source. And having the source directly run means we can develop on Dexter and also use parts of it in other ways (see Job Engine below). So instead of installing the Electron package, we just install the source and use npm to pull in the dependencies. Note: This requires the 16.04 version of the operating system on Dexter.
+In this case, we don't need to make a distributable package, we just want to run the source. And having the source directly run means we can develop on Dexter and also use parts of it in other ways (see Job Engine below). So instead of installing the Electron package, we just install the source and use npm to pull in the dependencies. Note: This requires the 16.04 version of the operating system on Dexter, and Dexter must be connected to the internet directly (not just to your PC).
 ````
 $ git clone https://github.com/cfry/dde
 $ cd dde
