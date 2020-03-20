@@ -14,7 +14,7 @@ http://processors.wiki.ti.com/index.php/Linux_Core_U-Boot_User%27s_Guide
 
 The location of the SD card is VERY difficult to access. It is on the opposite side of the [MicroZed board](MicroZed) from the USB Micro B at the bottom of the PCB, just left of center. If you have a fan installed for the stepper drivers, you will need to remove it. The contacts of the SD Card should be facing you, and pointing upward. See [Issue 52](https://github.com/HaddingtonDynamics/Dexter/issues/52) for progress / workarounds.
 
-It can help to use small pliers if they have a rough inner surface. Be very careful not to crush the card. Turn power off to avoid shorts. 
+It can help to use small pliers if they have a rough inner surface. Be very careful not to crush the card. Turn power off to avoid shorts. <BR>
 ![Re-inserting the SDCard with small pliers, held very gently](https://user-images.githubusercontent.com/419392/77209850-a736be00-6abc-11ea-9a6d-8ea40118f6dd.png)
 
 ## Writing a new SD Card Image
