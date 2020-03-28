@@ -35,3 +35,6 @@ stty -F /dev/ttyUSB0 ospeed 57600 ispeed 57600 raw
 cat /dev/ttyUSB0 & cat > /dev/ttyUSB0
 ````
 Press Ctrl+Z to exit.
+
+Next, we want to use the "serial" functions in the "job engine" (dde on Dexter) but there have been issues which require a little hacking depending on the version you have:<br>
+https://github.com/HaddingtonDynamics/Dexter/issues/60#issuecomment-605376411
