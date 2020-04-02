@@ -89,7 +89,7 @@ If the end effector isn't all the way on, usually the power takeoff will pull it
 
 ## New Servo Tool Interface
 - [Curved gripper](https://www.thingiverse.com/thing:3166448) 
-- Straight fingered gripper 
+- [Straight fingered gripper](https://www.thingiverse.com/thing:3166448)
 <table><tr><td width=207 valign="top">
 To insert the removable finger into the gripper, and install it into Tool Interface, first turn the knob so that the dial points to the line as shown here:<br>
 <img src="https://user-images.githubusercontent.com/419392/57670426-1baeef80-75c4-11e9-8f35-2c820016c5ce.JPG"  width=207 height=155>
