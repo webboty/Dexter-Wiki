@@ -12,6 +12,9 @@ Note: The install will take a while.
 
 If your Dexter is NOT directly connected to your PC and does not have ModBus installed, you can try to install it locally, and then copy the files over into the `node_modules` folder and trigger the make in the node_modules/modbus-serial/node_modules/@serialport/bindings/build folder. This is not well documented. Hopefully you can get an updated image with the ModBus support pre-installed, or [connect your Dexter to the internet](Dexter-Networking#internet-access) for this process.
 
+Once the module is installed, you can use it via node.js. Examples are found here:<br>
+https://github.com/yaacov/node-modbus-serial/tree/master/examples
+
 ## Job Engine Support
 
 To access the new module from DDE jobs, we need to update the core files [SSHing into Dexter](Dexter-Networking#shell-access-via-ssh) and then:
