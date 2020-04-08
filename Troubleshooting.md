@@ -17,6 +17,10 @@ The [SD Card](SD-Card-Image) can be difficult to get into the socket correctly a
 
 When you push it up, it may jam or want to twist to the side. Keep moving it around a bit until you can feel it working against a spring, and moving up and down smoothly then press it in until it sort of clicks, not that you will hear the click, but it will suddenly not press back against you as you lower your finger, and you can press it up again and it will release, then again and it will stay. 
 
+### Network setup
+For detailed instructions on how to connect to Dexter via the network, see [Dexter Networking](Dexter-Networking). Here are a few common errors:
+- DDE can ping Dexter, but can not connect: When you are connecting your PC directly to Dexter via a CAT5 cable from the PC network adapter, be sure to set up the properties of the adapter so that your PC is NOT on the same IP address as the robot. If you set it to the same IP, then DDE will see the PC when it pings, but of course won't be able to connect to the firmware in the robot to actually operate.
+
 ### Console connection
 If the robot doesn't seem to be booting, or you can't connect via DDE or ping, a great way to troubleshoot is by using the built in console port. This will allow you to watch the MicroZed board boot (which it will start to do even without an SD Card) and so you can see exactly where it stops or what error messages it displays. For detailed directions see [Dexter USB Connection](Dexter-USB-Connection)
 
