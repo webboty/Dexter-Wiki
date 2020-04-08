@@ -86,7 +86,7 @@ https://www.fing.io/
 - on Windows, `arp -a` returns the ip address, but no machine names. The MAC address of the CAT5 adapter will always start with "00:5D:03" so you can do `arp -a | find "00-5d-03"` and the result is almost certainly your Dexter. Or you can download and install<BR>
 http://www.advanced-ip-scanner.com
 
-If you don't have a CAT5 connection to the network, you can connect directly via CAT5 to your computer, (see above) but if Dexter has been setup for DHCP, you will need to make some changes to Dexters networking. See [Issue 37](https://github.com/HaddingtonDynamics/Dexter/issues/37) for more information. You may need to use a [Serial USB connection](Dexter-USB-Connection) to gain access to make those changes.
+If you don't have a CAT5 connection to the network, you can connect directly via CAT5 to your computer, (see above) but if Dexter has been setup for DHCP, you will need to make some changes to Dexter's networking. See [Issue 37](https://github.com/HaddingtonDynamics/Dexter/issues/37) for more information. You may need to use a [Serial USB connection](Dexter-USB-Connection) to gain access to make those changes.
 
 To disable DHCP and return to a static IP address, connect to Dexter and at the command line, enter<BR>
 `nano /etc/network/interfaces`
@@ -184,20 +184,22 @@ If you are using Linux or MAC, you can transfer files via the terminal window us
 <BR> where "Find_Index_Pulses_HDI.dde" is the file being transferred, "192.168.1.142" is the IP address of the Dexter, and "/srv/samba/share" is the destination address.
 
 # Internet access
-You generally should NOT need to actually give Dexter access to the internet, but if you need that for some reason, you will need that CAT5 cable to run between Dexter and your Router. After a restart, Dexter should automatically connect and have internet access. You can test that from your command prompt with `ping 192.168.1.142` or ping and whatever Dexters IP address is (press Ctrl+C to stop). If it works, [SSH into Dexter](#shell-access-via-ssh) and try `ping www.google.com` from Dexter. If that works, great! If not, here are some common errors and how to resolve them.
+You generally should NOT need to actually give Dexter access to the internet, but if you need that for some reason, you will need that CAT5 cable to run between Dexter and your Router. After a restart, Dexter may automatically connect and have internet access, if the network is 192.168.0.x and your gateway is 192.168.0.1. You can test that from your command prompt with `ping 192.168.0.142` or ping and whatever Dexters IP address is (press Ctrl+C to stop). If it works, [SSH into Dexter](#shell-access-via-ssh) and try `ping www.google.com` from Dexter. If that works, great! If not, here are some common errors and how to resolve them.
 
-<B>WARNING: If you change Dexters network setup, you may lose the ability to connect to Dexter from your PC. It might be best to setup the [USB connection](Dexter-USB-Connection) FIRST as that will work in any case.</B>
+<B>WARNING: If you change Dexters network setup, you may lose the ability to connect to Dexter from your PC. It might be best to setup the [USB connection](Dexter-USB-Connection) FIRST as that will work in any case. The directions below assume you are connected to Dexter via USB.</B>
 
-- "...unreachable" There is no internet connection. Check that Dexter is configured and on the same network as your router. E.g. If your local network is 172.16.x.x or 10.x.x.x you will need to edit the IP address in both Dexter and DDE to match, giving Dexter an unused IP in the range, and setting the gateway correctly for your network. 
-In DDE, you will need to change the default address for your Dexter robot in the dde_init.js file in your documents dde_apps folder. e.g. `persistent_set("default_dexter_ip_address", "192.168.0.142")`. [SSH into Dexter](#shell-access-via-ssh), or use the [USB connection](Dexter-USB-Connection) then `sudo nano /etc/network/interfaces` to edit the "address" there to match. You will also need to make sure the correct gateway and nameservers are set. A typical setup looks like this:
+- "...unreachable" There is no internet connection. Check that Dexter is configured and on the same network as your router. E.g. If your local network is 172.16.x.x or 10.x.x.x or 192.168.1.x you will need to edit the IP address in both Dexter and DDE to match, giving Dexter an unused IP in the range, and setting the gateway correctly for your network. 
+In DDE, you will need to change the default address for your Dexter robot in the dde_init.js file in your documents dde_apps folder. e.g. `persistent_set("default_dexter_ip_address", "192.168.1.142")` but using whatever Dexters IP address happens to be. Use the [USB connection](Dexter-USB-Connection) to access Dexters command shell, then `sudo nano /etc/network/interfaces` to edit the "address" line there to match. You will also need to make sure the correct gateway and nameservers are set. A typical setup looks like this: (other lines in the file should be commented out with a #)
 ````
-address 192.168.1.142
-#set Dexters fixed IP address here
-netmask 255.255.255.0
-gateway 192.168.1.1
-#set your gateway address (router)
-dns-nameservers 192.168.1.1 8.8.8.8
-#set your local DNS server and/or 8.8.8.8 to use google
+auto eth0
+iface eth0 inet static
+    address 192.168.1.142
+    #set Dexters fixed IP address here
+    netmask 255.255.255.0
+    gateway 192.168.1.1
+    #set your gateway address (router)
+    dns-nameservers 192.168.1.1 8.8.8.8
+    #set your local DNS server and/or 8.8.8.8 to use google
 ````
 
 - "Unknown host" The DNS system could not resolve the name to an IP address. Try `ping 8.8.8.8` instead. If you CAN ping 8.8.8.8 but still have no DNS (e.g. `ping www.google.com`) fails, then try adding 
@@ -209,7 +211,9 @@ type in
 `nameserver 8.8.8.8 `
 save it, and then restart.   
 
-- The ethernet adapter on the Xilix chips all come with the same MAC address and IP address. If there is more than one Dexter on the CAT5 network (doesn't apply to WiFi) you will need to edit both. See [Issue 57](https://github.com/HaddingtonDynamics/Dexter/issues/57) for more information. 
+- The ethernet adapter on the Xilinx chips all come with the same MAC address and IP address. If there is more than one Dexter on the CAT5 network (doesn't apply to WiFi) you will need to edit both. See [Issue 57](https://github.com/HaddingtonDynamics/Dexter/issues/57) for more information. 
+
+- IP address crashes: If you have multiple Dexters on the same IP address, or if there happens to be some other device on the network with the same IP address, you will not be able to reliably communicate with Dexter. On a large network, or one that uses DHCP over all addresses, you should probably [convert to using DHCP](#dhcp-assigned). See [the DHCP section](#dhcp-assigned) for information on how to set that up, and how to find Dexters IP address when it's being assigned by a DHCP service. 
 
 # See also
 - https://help.ubuntu.com/lts/serverguide/network-configuration.html General information on Network configuration for servers. Dexter is basically a server. 
