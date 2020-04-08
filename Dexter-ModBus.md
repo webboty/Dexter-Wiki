@@ -1,4 +1,4 @@
-There are two ways to connect to a ModBus device: Serial and TCP. In either case, a the protocol needs to be processed.
+There are two ways to connect to a ModBus device: Serial and TCP. In either case, the protocol needs to be processed.
 
 ## Module
 If your [job engine](DDE#dde-on-dexter) doesn't already have it, you will need to install support for ModBus protocol into Dexter. We have tested the [modbus-serial](https://www.npmjs.com/package/modbus-serial) NPM package. Despite the name, modbus-serial supports both serial and TCP connections.
