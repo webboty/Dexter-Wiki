@@ -17,10 +17,10 @@ https://github.com/yaacov/node-modbus-serial/tree/master/examples
 
 ## Job Engine Support
 
-To access the new module from DDE jobs, we need to update the core files [SSHing into Dexter](Dexter-Networking#shell-access-via-ssh) and then:
+To access the new module from DDE jobs, until support is built in, we need to update the core files [SSHing into Dexter](Dexter-Networking#shell-access-via-ssh) and then:
 ````
 cd /root/Documents/dde
- nano core/index.js
+nano core/index.js
 ````
 Scroll down to the `global.` section near the end and add the line:<br>
 `var ModbusRTU = require("modbus-serial")`
