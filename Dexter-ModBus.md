@@ -82,6 +82,8 @@ function close() {
 }
 ````
 
+[A more extensive example](https://github.com/HaddingtonDynamics/Dexter/blob/StepAngles/Firmware/dde_apps/modbus_test.dde) is available.
+
 When working with ModBusTCP, it would be best for Dexter to be listening for a message all the time, and to start a job if a new message is recieved. This ability will be integrated into the onboard [node web server](nodejs-webserver) in time. 
 
 ## ModBus Serial
