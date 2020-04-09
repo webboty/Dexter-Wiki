@@ -86,7 +86,7 @@ When working with ModBusTCP, it would be best for Dexter to be listening for a m
 
 ## ModBus Serial
 
-Of course, accessing a serial modbus device requires a serial adapter, either one with built in RS485 support <sup>[^](https://www.amazon.com/dp/B0721BB8PQ)</sup>, or standard serial unit [1](https://www.tindie.com/products/Power_Modules/miniature-micro-usb-serial-uart-ttl-33v-5v-out/), <sup>[2](http://massmind.ecomorder.com/techref/ecomprice.asp?p=416063)</sup> with a TTL to RS485 adapter <sup>[1](https://www.digitspace.com/ttl-to-rs485module-rs485-to-ttl-uart)</sup>. USB adapters based on the CP2102 or CP2104 are known to work with Dexter. 
+Of course, accessing a serial modbus device requires a serial adapter, either one with built in RS485 support <sup>[1](https://www.amazon.com/dp/B0721BB8PQ)</sup>, or standard serial unit <sup>[1](https://www.tindie.com/products/Power_Modules/miniature-micro-usb-serial-uart-ttl-33v-5v-out/)</sup>, <sup>[2](http://massmind.ecomorder.com/techref/ecomprice.asp?p=416063)</sup> with a TTL to RS485 adapter <sup>[1](https://www.digitspace.com/ttl-to-rs485module-rs485-to-ttl-uart)</sup>. USB adapters based on the CP2102 or CP2104 are known to work with Dexter. 
 
 See [Dexter-Serial-Peripherals](Dexter-Serial-Peripherals) for installation, testing and troubleshooting of serial adapters in general. 
 
