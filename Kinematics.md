@@ -2,8 +2,6 @@ Movement of any robot depends on it's motors or other actuators. In Dexter, ther
 
 In general, all you need to do is tell Dexter where to move each [joint](Joints) and they will get to exactly that position or die trying. But sometimes you want to move towards a goal position with a certain amount of force, or you want to bring the end effector to a position and not worry about the joint angles. 
 
-## MOVEALL
-
 Here is a summary of the different movement methods, including related parameters, settings you can change in the environment that affect that method, and its pros and cons. 
 
 | [Oplet](Command-oplet-instruction) | Parameters | Environment | Pros | Cons  |
