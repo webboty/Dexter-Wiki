@@ -4,7 +4,7 @@ In general, all you need to do is tell Dexter where to move each [joint](Joints)
 
 Here is a summary of the different movement methods, including related parameters, settings you can change in the environment that affect that method, and its pros and cons. 
 
-| [Oplet](Command-oplet-instruction) | Parameters | Environment | Pros | Cons  |
+| [Oplet](Command-oplet-instruction) | Parameters | Settings | Pros | Cons  |
 | ----- | ---------- | ----------- | ---- | ----- |
 | ['a' MOVEALL](Command-oplet-instruction#a) | 5-7 joint angles<br>(arcseconds) | [Acceleration](set-parameter-oplet#Acceleration)<BR>[MaxSpeed](set-parameter-oplet#MaxSpeed)<BR>[StartSpeed](set-parameter-oplet#StartSpeed) | Coordinated (joints finish together),<BR>Trapezoidal Ramping joints 1-5,<BR>Works w/o Cal (at lower precision) | Can not change goal,<BR>No Trapezoidal Ramping on joint 6-7,<br>No separate ending speed |
 | ['p' PID_FINEMOVE](Command-oplet-instruction#p) | 5-7 joint angles<br>(arcseconds) | [PID drive](set-parameter-oplet#JointPID),<br>Max Speed via [`w, 36`](oplet-write) | Can change goal,<BR>Force based ramping<BR>&nbsp; | Non-coordinated (joints finish whenever),<BR>Force based ramping,<br>Requires Cal |
