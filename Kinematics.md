@@ -1,3 +1,18 @@
+Movement of any robot depends on it's motors or other actuators. In Dexter, there are stepper motors on each axis. But we have a complex and powerful [FPGA](Gateware) based control system which integrates existing position, commanded position, forces, and time in order to provide fantastic accuracy and response times. 
+
+In general, all you need to do is tell Dexter where to move each [joint](Joints) and they will get to exactly that position or die trying. But sometimes you want to move towards a goal position with a certain amount of force, or you want to bring the end effector to a position and not worry about the joint angles. 
+
+## MOVEALL
+
+Here is a summary of the different movement methods, including related parameters, settings you can change in the environment that affect that method, and its pros and cons. 
+
+| [Oplet](Command-oplet-instruction) | Parameters | Environment | Pros | Cons  |
+| ----- | ---------- | ----------- | ---- | ----- |
+| ['a' MOVEALL](Command-oplet-instruction#a) | 5-7 joint angles<br>(arcseconds) | [Acceleration](set-parameter-oplet#Acceleration)<BR>[MaxSpeed](set-parameter-oplet#MaxSpeed)<BR>[StartSpeed](set-parameter-oplet#StartSpeed) | Coordinated (joints finish together)<BR>Trapezoidal Ramping joints 1-5<BR>Works w/o Cal (at lower precision) | Can not change goal<BR>No Trapezoidal Ramping on joint 6,7<br>No separate ending speed |
+| ['p' PID_FINEMOVE](Command-oplet-instruction#p) | 5-7 joint angles<br>(arcseconds) | [Acceleration](set-parameter-oplet#Acceleration)<BR>[MaxSpeed](set-parameter-oplet#MaxSpeed)<BR>[StartSpeed](set-parameter-oplet#StartSpeed) | Can change goal<BR>Force based ramping<BR>&nbsp; | Non-coordinated (joints finish whenever)<BR>Force based ramping<br>Requires Cal |
+| ['M' MOVETO](Command-oplet-instruction#M) | XYZ (integer microns)<br>XYZ direction (unit vector)<br>configuration (booleans).  | [Acceleration](set-parameter-oplet#Acceleration)<BR>[MaxSpeed](set-parameter-oplet#MaxSpeed)<BR>[StartSpeed](set-parameter-oplet#StartSpeed) | Onboard Kinematics<br>Coordinated (straight line)<BR>Trapezoidal Ramping joints 1-5<BR>Works w/o Cal (at lower precision) | Can not change goal<BR>No Trapezoidal Ramping on joint 6,7<br>No separate ending speed |
+
+
 ## Kinematics
 Convert XYZ to [Joint](Joints) Angles for J1, J2, J3, J4, and J5. Dexter follows the common convention is that Z is up / down, X is right / left, and Y is out / back. (see picture below)
 
