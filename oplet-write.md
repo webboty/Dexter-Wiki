@@ -40,7 +40,7 @@ Addr | Name               | Description
 33 | FRICTION_ROT        | <strike>"</strike>
 34 | MOVE_TRHESHOLD      | Maximum force before joint 1,2,3 position starts changing. See follow mode.
 35 | F_FACTOR            | Like SPEED_FACTORA, but for PID controller. Affects all joints at once. 
-36 | MAX_ERROR           | Speed limit for PID controller. Clips the velocity of the step signals going to the motor. 
+36 | MAX_ERROR           | Speed limit for PID controller. Clips the velocity of the step signals going to the motor. eg. `w, 36, (2000 ^ (PID_max_speed_degrees * 312))`
 37 | FORCE_BIAS_BASE     | <strike>Adds to the force (position error) on each joint. Useful for removing the force of gravity.</strike> 
 38 | FORCE_BIAS_END      | <strike>Also used to provide haptic force feedback in teleoperation or VR systems.</strike>
 39 | FORCE_BIAS_PIVOT    | <strike>"</strike> Use [SetParameter oplet: S J#Force](set-parameter-oplet#JointForces) 
