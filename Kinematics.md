@@ -7,7 +7,7 @@ Here is a summary of the different movement methods, including related parameter
 | [Oplet](Command-oplet-instruction) | Parameters | Environment | Pros | Cons  |
 | ----- | ---------- | ----------- | ---- | ----- |
 | ['a' MOVEALL](Command-oplet-instruction#a) | 5-7 joint angles<br>(arcseconds) | [Acceleration](set-parameter-oplet#Acceleration)<BR>[MaxSpeed](set-parameter-oplet#MaxSpeed)<BR>[StartSpeed](set-parameter-oplet#StartSpeed) | Coordinated (joints finish together),<BR>Trapezoidal Ramping joints 1-5,<BR>Works w/o Cal (at lower precision) | Can not change goal,<BR>No Trapezoidal Ramping on joint 6-7,<br>No separate ending speed |
-| ['p' PID_FINEMOVE](Command-oplet-instruction#p) | 5-7 joint angles<br>(arcseconds) | [PID drive](set-parameter-oplet#JointPID), [w 36 "max_error"](oplet-write) | Can change goal,<BR>Force based ramping<BR>&nbsp; | Non-coordinated (joints finish whenever),<BR>Force based ramping,<br>Requires Cal |
+| ['p' PID_FINEMOVE](Command-oplet-instruction#p) | 5-7 joint angles<br>(arcseconds) | [PID drive](set-parameter-oplet#JointPID),<br>[w 36 "max_error"](oplet-write) | Can change goal,<BR>Force based ramping<BR>&nbsp; | Non-coordinated (joints finish whenever),<BR>Force based ramping,<br>Requires Cal |
 | ['M' MOVETO](Command-oplet-instruction#M) | XYZ (integer microns)<br>XYZ direction (unit vector)<br>configuration (booleans).  | [Acceleration](set-parameter-oplet#Acceleration)<BR>[MaxSpeed](set-parameter-oplet#MaxSpeed)<BR>[StartSpeed](set-parameter-oplet#StartSpeed) | Onboard Kinematics<br>Coordinated (straight line),<BR>Trapezoidal Ramping joints 1-5,<BR>Works w/o Cal (at lower precision) | Can not change goal,<BR>No Trapezoidal Ramping on joint 6-7,<br>No separate ending speed |
 
 
