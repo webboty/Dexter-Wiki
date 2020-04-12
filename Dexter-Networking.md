@@ -15,7 +15,7 @@ Although Dexter does have the ability to connect directly to the internet via a 
 
 For instructions to configure your PC's CAT5 Network adapter, go into [DDE](DDE) or go to [the HDRobotic.com Software page](http://hdrobotic.com/software) and on the Doc panel, under **User Guide**, **Configure Dexter**, **Data Connection**, follow the directions for your operating system.
 
-Note: You may find that the WiFi network and the Dexter network need to be on seperate subnets. E.g. If WiFI is using 192.168.1. something, then try setting the CAT5 adapter for Dexter to 192.168.0.142
+Note: You may find that the WiFi network and the Dexter network need to be on separate subnets. E.g. If WiFI is using 192.168.1. something, then try setting the CAT5 adapter for Dexter to 192.168.0.142
 
 In most cases, for most users, this is all that is required. You can start using [DDE](DDE) to program your robot. For other options, continue on here... 
 
