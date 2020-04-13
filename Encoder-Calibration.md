@@ -4,7 +4,7 @@ When Dexter starts, it does not know where it is. And it does not have it's norm
 
 So, before the encoders can work, each joint must be moved through it's entire range of motion and the signals for each slot recorded into the FPGAs memory. We call that "movement calibration" or "power on calibration" or "calibration" or just "cal" as opposed to "[eye calibration](Encoders#calibration)" (which is finding the center point of the sin/cos plot of the [encoders](Encoders) ). 
 
-[Eye calibration](Encoders#calibration) must be completed before the calibration described here can be successful. HDI's are calibrated (both eye and movement) at the factory. _Don't calibrate a Dexter DHI!_
+[Eye calibration](Encoders#unit-circle) must be completed before the calibration described here can be successful. HDI's are calibrated (both eye and movement) at the factory. _Don't calibrate a Dexter DHI!_
 
 Power on calibration can be done in several ways:
 - [DDE](DDE) has a "Calibrate Dexter..." dialog on the "Jobs" menu. There are 3 sections, first to select which robot to talk to, then a middle part for each joint to help adjust the "eye" pattern for each set of sensors and to mark the center. The last part, at the bottom, "3. Calibrate optical encoders", starts the calibration. This movement calibration is slow as it does each joint individually and it requires a lot of space, however, it is very smooth and provides the best results. **DO NOT SAVE CALIBRATION ON A DEXTER HDI** <BR>![Good encoder, after replacing Sensor in hole of encoder block.](https://user-images.githubusercontent.com/419392/59716213-6d9df300-91ca-11e9-87d6-0b530f39fb61.png)
