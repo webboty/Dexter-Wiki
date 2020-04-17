@@ -4,7 +4,7 @@ _Note: This represents the "virtual" address list as used by the 'w' command. Th
 
 Addr | Name               | Description
 ---- | ------------------ | ----------------------------
- 0 | BASE_POSITION_AT     | <strike>J1 Motor position index</strike> 
+ <a name="0">0</a> | BASE_POSITION_AT     | <strike>J1 Motor position index</strike> 
  1 | END_POSITION_AT      | <strike>J2 ...where the joint has been</strike>
  2 | PIVOT_POSITION_AT    | <strike>J3 ...commanded to go to</strike>
  3 | ANGLE_POSITION_AT    | <strike>J4</strike> Use the "a" [oplet](Command-oplet-instruction#a)
