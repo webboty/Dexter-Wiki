@@ -5,13 +5,13 @@ _Note: This represents the "virtual" address list as used by the 'w' command. Th
 Addr | Name               | Description
 ---- | ------------------ | ----------------------------
  <a name="0">0</a> | BASE_POSITION_AT     | <strike>J1 Motor position index</strike> 
- 1 | END_POSITION_AT      | <strike>J2 ...where the joint has been</strike>
- 2 | PIVOT_POSITION_AT    | <strike>J3 ...commanded to go to</strike>
- 3 | ANGLE_POSITION_AT    | <strike>J4</strike> Use the "a" [oplet](Command-oplet-instruction#a)
- 4 | ROT_POSITION_AT      | <strike>J5</strike>
- 5 | ACCELERATION_MAXSPEED| Acceleration [20:31] and max speed [0:19] (shared register). Use the [oplet S AngularAcceleration](set-parameter-oplet#AngularAcceleration) and Use [oplet S AngularSpeed](set-parameter-oplet#AngularSpeed)
- 6 | BASE_SIN_CENTER      | <strike>J1 DC bias parameters</strike> 
- 7 | BASE_COS_CENTER      | <strike>J1</strike> Use the "W" or [write-to-robot](write-to-robot) [oplet](Command-oplet-instruction) 
+ <a name="1">1</a> | END_POSITION_AT      | <strike>J2 ...where the joint has been</strike>
+ <a name="2">2</a> | PIVOT_POSITION_AT    | <strike>J3 ...commanded to go to</strike>
+ <a name="3">3</a> | ANGLE_POSITION_AT    | <strike>J4</strike> Use the "a" [oplet](Command-oplet-instruction#a)
+ <a name="4">4</a> | ROT_POSITION_AT      | <strike>J5</strike>
+ <a name="5">5</a> | ACCELERATION_MAXSPEED| Acceleration [20:31] and max speed [0:19] (shared register). Use the [oplet S AngularAcceleration](set-parameter-oplet#AngularAcceleration) and Use [oplet S AngularSpeed](set-parameter-oplet#AngularSpeed)
+ <a name="6">6</a> | BASE_SIN_CENTER      | <strike>J1 DC bias parameters</strike> 
+ <a name="7">7</a> | BASE_COS_CENTER      | <strike>J1</strike> Use the "W" or [write-to-robot](write-to-robot) [oplet](Command-oplet-instruction) 
  8 | END_SIN_CENTER       | <strike>J2</strike> to write the [AdcCenters.txt](Encoders#adc-centers) file.
  9 | END_COS_CENTER       | <strike>J2</strike>
 10 | PIVOT_SIN_CENTER    | <strike>J3</strike>
