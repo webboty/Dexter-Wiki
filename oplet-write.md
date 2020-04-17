@@ -68,18 +68,18 @@ Addr | Name               | Description
 61 |  FINE_ADJUST_ANGLE            | <strike>"</strike> See PID_MOVE. Use the "P" [oplet](Command-oplet-instruction#P)
 62 |  FINE_ADJUST_ROT              | <strike>"</strike>
 63 |  RECORD_LENGTH                | <strike>Length of the recording to be played back</strike>
-64 |  END_EFFECTOR_IO              | <strike>Controls the configuration of the bits that go to the end effector.  See [End-Effectors](End-Effectors)</strike>
-65 |  SERVO_SETPOINT_A             | <strike>PWM value in PWM mode on end effector pins.</strike>
-66 |  SERVO_SETPOINT_B             | <strike>"</strike> See <a href="https://github.com/HaddingtonDynamics/Dexter/issues/73">Issue 73</a>
+64 |  END_EFFECTOR_IO              | Controls the configuration of the bits that go to the end effector.  See [End-Effectors](End-Effectors), <a href="/HaddingtonDynamics/Dexter/issues/73">Issue 73</a>
+65 |  SERVO_SETPOINT_A             | PWM value in PWM mode on end effector pins.
+66 |  SERVO_SETPOINT_B             | " See <a href="/HaddingtonDynamics/Dexter/issues/73">Issue 73</a>
 67 |  BASE_FORCE_DECAY             | How hard the joint tries to return to the commanded position when the position.
 68 |  END_FORCE_DECAY              | has been changed to avoid exceeding the maximum force. 
 69 |  PIVOT_FORCE_DECAY            | Subtracts out the offset introduced by the force controller.
 70 |  ANGLE_FORCE_DECAY            | See Protect mode
 71 |  ROTATE_FORCE_DECAY           | "
 72 |  PID_SCHEDULE_INDEX           | <strike>Gain scheduling. Changes the offset to the PID parameters. Multiplies PID_ADDRESS. To quickly change settings.</strike>
-73 |  GRIPPER_MOTOR_CONTROL        | <strike>PWM output from 7 pin SIL connector on the side (near bottom) of the motor board. Just the first bit is used to enable / disable.</strike> 
-74 |  GRIPPER_MOTOR_OFF_WIDTH      | <strike>"</strike> Use [oplet S GripperMotor](set-parameter-oplet#GripperMotor)
-75 |  GRIPPER_MOTOR_ON_WIDTH       | <strike>"</strike>
+73 |  GRIPPER_MOTOR_CONTROL        | PWM output from 7 pin SIL connector on the side (near bottom) of the motor board. Just the first bit is used to enable / disable.
+74 |  GRIPPER_MOTOR_OFF_WIDTH      | " Use [oplet S GripperMotor](set-parameter-oplet#GripperMotor)
+75 |  GRIPPER_MOTOR_ON_WIDTH       | " See <a href="/HaddingtonDynamics/Dexter/issues/73">Issue 73</a>
 76 |  START_SPEED                  | <strike>Starting speed into this move.</strike> Use [oplet S AngularSpeedStartAndEnd](set-parameter-oplet#AngularSpeedStartAndEnd)
 77 |  ANGLE_END_RATIO              | <strike>Difference in the transmission ratios for the differential joint.</strike>
 78 | RESET_PID_AND_FLUSH_QUEUE     | bit 0 resets PID_DELTA. Bit 1 is E_STOP? Set to all zero for normal operation.
