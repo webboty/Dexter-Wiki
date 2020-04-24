@@ -94,29 +94,45 @@ Of course, accessing a serial modbus device requires a serial adapter, either on
 
 See [Dexter-Serial-Peripherals](Dexter-Serial-Peripherals) for installation, testing and troubleshooting of serial adapters in general. 
 
-This example job connects to a serial adapter at `/dev/ttyUSB0` and once the connection is established, it writes the values 0, 0xffff to registers starting at address 5 on device number 1, then reads the 2 registers starting at address 5.
+This example job connects to a serial adapter at `/dev/ttyUSB0` and once the connection is established, it turns on the relay coil, reads the switch input and then turns off the relay. It uses a device address of 0 which seems to work with the standard cheap chinese modbus devices<a href="https://www.aliexpress.com/item/4000014522532.html">^</a>.
 
 ````js
+const serial_path = "/dev/ttyUSB0"
+const client_id = 0;
+const coil_no = 0;
+
 // create an empty modbus client
-// var ModbusRTU = require("modbus-serial"); //For node.js, not needed in DDE
+var ModbusRTU = require("modbus-serial");
 var client = new ModbusRTU();
- 
-// open connection to a serial port
-client.connectRTUBuffered("/dev/ttyUSB0", { baudRate: 9600 }, write);
- 
+
+// open connection to a serial port, then callback write
+client.connectRTUBuffered(serial_path, { baudRate: 9600 }, write);
+
+//connection open, set client address and write
 function write() {
-    client.setID(1);
- 
-    // write the values 0, 0xffff to registers starting at address 5
-    // on device number 1.
-    client.writeRegisters(5, [0 , 0xffff])
-        .then(read);
-}
- 
+    client.setID(client_id);
+
+    // write the value to the coil
+    client.writeCoil(coil_no, 1)
+        .then(read) //promise to read
+    console.log("write done");
+    return
+    }
+
 function read() {
-    // read the 2 registers starting at address 5
-    // on device number 1.
-    client.readHoldingRegisters(5, 2)
-        .then(console.log);
-}
+    // read the register
+    client.readHoldingRegisters(0,1)
+        .then(function(data){
+                console.log(data)
+                client.writeCoil(coil_no, 0)
+                    .then(finish)
+                });
+    }
+
+function finish() {
+        client.close()
+        console.log("finished")
+        }
+
+
 ````
