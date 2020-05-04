@@ -1,3 +1,5 @@
+In most cases, you will control Dexter and other robots, or peripheral including serial devices from [DDE](dde) on a PC. That allows you to bring the power of the PC and the DDE IDE to bear on the overall control problem. However, in some cases you might want to connect something directly to Dexter and run a job via the [Job Engine, which is DDE running on Dexter](DDE#job-engine-on-dexter) vs DDE running on the PC. 
+
 Serial devices, such as TTL serial adapters, ModBus adapters, or other devices with a serial interface like the OpenMV camera can be connected to Dexter's USB A connector, found just under the CAT5 connector on the MicroZed board. 
 
 To verify the connection, you will need to SSH in or connect via the USB console cable.
@@ -36,5 +38,5 @@ cat /dev/ttyUSB0 & cat > /dev/ttyUSB0
 ````
 Press Ctrl+Z to exit.
 
-Next, we want to use the "serial" functions in the "job engine" (dde on Dexter) but there have been issues which require a little hacking depending on the version you have:<br>
+Next, we want to use the "serial" functions in the ["job engine"; DDE on Dexter)](DDE#job-engine-on-dexter) but there have been issues which require a little hacking depending on the version you have:<br>
 https://github.com/HaddingtonDynamics/Dexter/issues/60#issuecomment-605376411
