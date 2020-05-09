@@ -17,18 +17,21 @@ Now, plug in the device and wait a few moments, then enter those same commands a
 <br><tt><B>ls /dev/ttyUSB*</B></tt>
 <br><tt>/dev/ttyUSB0</tt>
 
-As you can see, the new device is there at `/dev/ttyUSB0`
+As you can see, the new device is there at `/dev/ttyUSB0`. 
+
+Arduino Unos may show up as `/dev/ttyACM0`.
 
 To test it's operation, you can even use the command line to send and receive data. e.g. Here is a sample session for an Arduino device programmed to respond with some binary data and a few analog port readings in response to a "?". You can find the code for that here: 
 https://gist.github.com/JamesNewton/8b994528ff3ce69e60bbb67c40954cd2
 
 ````
-stty -F /dev/ttyUSB0 ospeed 57600 ispeed 57600 raw
+stty -echo -F /dev/ttyUSB0 ospeed 57600 ispeed 57600 raw
 echo -ne '?' > /dev/ttyUSB0
 cat -v < /dev/ttyUSB0
 ````
 In that session, the following showed up at the console:
 `<10000000000000,470,419,423,389,362,343>^M`
+which is exactly what the device was programmed to return.
 
 You can have a two way conversation via typing in data and seeing the result via:
 
