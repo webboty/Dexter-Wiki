@@ -31,15 +31,19 @@ cat -v < /dev/ttyUSB0
 ````
 In that session, the following showed up at the console:
 `<10000000000000,470,419,423,389,362,343>^M`
-which is exactly what the device was programmed to return.
+which is exactly what the device was programmed to return. 
+
+Note that the `-v` after the `cat` causes control characters from the device to be displayed. For example, the carriage return is shown as `^M` and the end of the returned string. You can omit the -v if you don't want to see those. 
+
+The `-echo` in the setup of the port turns off automatic echoing of all recieved characters. If you omit this, you may find that the device also receives the data that it sends to you. 
 
 You can have a two way conversation via typing in data and seeing the result via:
 
 ````
-stty -F /dev/ttyUSB0 ospeed 57600 ispeed 57600 raw
-cat /dev/ttyUSB0 & cat > /dev/ttyUSB0
+stty -echo -F /dev/ttyUSB0 ospeed 57600 ispeed 57600 raw
+cat -v < /dev/ttyUSB0 & cat > /dev/ttyUSB0
 ````
-Press Ctrl+Z to exit.
+Press Ctrl+C to exit the cat from the console to the device, then enter `fg 1` and Ctrl+C to exit the cat from the device to the console, which is running in the background, because of the `&`. `jobs` should not show anything running.
 
 Next, we want to use the "serial" functions in the ["job engine"; DDE on Dexter)](DDE#job-engine-on-dexter) but there have been issues which require a little hacking depending on the version you have:<br>
 https://github.com/HaddingtonDynamics/Dexter/issues/60#issuecomment-605376411
