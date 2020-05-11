@@ -34,9 +34,9 @@ Bit | Wire | Function
 6, 7 | Blue | `6,7 Mode`<BR>`0,0 GPIO` (see bits 0, 1) <BR>`0,1 PWM` High speed (not for servos) <BR>`1,0 RC PWM` For standard servos <BR>`1,1 Dynamixel` 
 4, 5 | Green | `4,5 Mode`<BR>`0,0 GPIO` (see bits 2, 3) <BR>`0,1 PWM` High speed (not for servos) <BR>`1,0 RC PWM` For standard servos
 3 | Green | Output level: When Tristate is 0 and mode GPIO, 0=low, 1=high
-2 | Green | Tristate 0=output, 1=input
+2 | Green | Tristate 0=output (high or low), 1=input
 1 | Blue | Output level: When Tristate is 0 and mode GPIO, 0=low, 1=high
-0 | Blue | Tristate: 0=output, 1=input
+0 | Blue | Tristate: 0=output (high or low), 1=input
 
 E.g. `w 64 80` sets both wires for RC servo PWM output. 80 = 1010000 binary. 
 
