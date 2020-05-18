@@ -1,6 +1,9 @@
 # DEXTER HD BUILD PARTS & NOTES
+See also: [YouTube video series](https://www.youtube.com/watch?v=AYD2PSslqfU&list=PLEJQ7hsad17fC2tqTDGNFI_LPk1kX2aE6)
 
 ## DEXTER HD GLUE RIGS:
+
+
 PARTS NEEDED FOR ASSEMBLY:
 
 *	1 - 1” x 264mm CF Tube
