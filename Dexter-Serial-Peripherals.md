@@ -37,6 +37,10 @@ Note that the `-v` after the `cat` causes control characters from the device to 
 
 The `-echo` in the setup of the port turns off automatic echoing of all recieved characters. If you omit this, you may find that the device also receives the data that it sends to you. 
 
+(Note, if you are working on a Linux PC, where you do not have root permissions, you may need to:
+<BR>`sudo usermod -a -G dialout $USER`
+<br> in order to become part of the dialout group, which is required for access to tty devices. )
+
 You can have a two way conversation via typing in data and seeing the result via:
 
 ````
