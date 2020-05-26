@@ -86,7 +86,7 @@ function close() {
 
 A good tool for this is [QModMaster](https://sourceforge.net/projects/qmodmaster/) which can simulate a ModBus master and allow you to send test messages. 
 
-When working with ModBusTCP, it would be best for Dexter to be listening for a message all the time, and to start a job if a new message is recieved. This ability will be integrated into the onboard [node web server](nodejs-webserver) in time. 
+When working with ModBusTCP, it would be best for Dexter to be listening for a message all the time, and to start a job if a new message is recieved. This ability will be integrated into the onboard [node web server](nodejs-webserver) in time. See [Issue 34](https://github.com/HaddingtonDynamics/Dexter/issues/84) for progress.
 
 ## ModBus Serial
 
