@@ -21,7 +21,7 @@ $ cd dde
 $ npm i
 $ npm run start
 ````
-Note: If you find the dde won't build after the `npm i` command, try checking out a prior version. e.g. `git checkout v3.0.7` is known to work or `get checkout v3.5.2` may work for the Job Engine.
+Note: If you find the dde won't build after the `npm i` command, try checking out a prior version. e.g. `git checkout v3.0.7` is known to work or `git checkout v3.5.2` may work for the Job Engine.
 
 Of course, the GUI part of the app will only be visible with an X-Server running and since Dexter does not have a video adapter, this must be a remote the [X-Windows Desktop](Dexter-Networking#x-windows). On the current images, an icon is provided to launch DDE from the desktop when logged in via X-Windows. The program takes a while to load (need faster SD Card and interface?) but operation isn't horribly slow.
 
