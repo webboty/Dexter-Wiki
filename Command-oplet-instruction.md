@@ -23,7 +23,7 @@ These oplets are sent to Dexter via a raw socket connection on port 50000 in a f
 <a name="d">d</a>|"dma_read"|DMAREAD_CMD|Writes the FPGA DMA data into the specified file. 3 args: Address, Length, Filename.
 <a name="e">e</a>|"cause_dexter_error"|n/a|Used only in DDE
 <a name="E">E</a>|"empty_instruction_ queue_immediately"<br>Since 2016.09.01|n/a|Apparently never implemented in firmware?
-<a name="F">**F**</a>|"empty_instruction_ queue"|HEART_BEAT<br>Since 2016.09.01|Queued. Does `wait_fifo_flush()` first. Was SET_FORCE_MOVE_POINT. This instruction will not return a status until it actually executes. Instructions before this one will be executed first. Very useful to synchronize robot motion with control software. To <a href="#wait_for_movement">wait until a move is complete</a> send TWO moment commands to the same location before the 'F'.
+<a name="F">**F**</a>|"empty_instruction_ queue"|HEART_BEAT<br>Since 2016.09.01|Queued. Does `wait_fifo_flush()` first. Was SET_FORCE_MOVE_POINT. This instruction will not return a status until it actually executes. Instructions before this one will be executed first. Very useful to synchronize robot motion with control software. To <a href="#wait-for-movement">wait until a move is complete</a> send TWO moment commands to the same location before the 'F'.
 <a name="f">f</a>|"find_home"|FIND_HOME_CMD|_Depreciated_ Use job engine.|
 <a name="G">G</a>|"get_robot_status_ immediately"|Since 2016.09.01 HEART_BEAT| (Same as 'g'?) 
 <a name="g">g</a>|"[get_robot_status](status-data)"|SEND_HEARTBEAT|Returns the current [status](status-data) of the robot.//fry
