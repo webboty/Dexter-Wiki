@@ -8,7 +8,7 @@ This wiki page attempts to expand on those source documents to explain the instr
 Note that non-movement instructions may not have any effect until a move instruction is sent. This helps to coordinate movement with things like end effector actuation. However, it can be confusing if you just want to e.g. turn a laser end effector on and off and nothing happens. Just send a movement command with the current positions to enable your other commands.
 
 ### Wait for Movement
-To ensure that a movement has completed, use the <a href="#f">'F' oplet</a>, as it will not return a status until the que is empty. Note that the robot may still be moving when the que is empty, because it can take some time for the movement to finish. To wait for the movement to be completed, send a second movement command, moving to the same location before the 'F'. The 2nd movement command will stay in the que until the 1st movement command is completed, and will take no time to complete itself, but will then release the 'F' oplet to return a status.
+To ensure that a movement has completed, use the <a href="#f">'F' oplet</a>, as it will not return a status until the que is empty. 
 
 See [DDE](DDE) documentation for the use of the DDE version of each command. E.g. for `move_to` use `Dexter.move_to (...)`
 
@@ -23,7 +23,7 @@ These oplets are sent to Dexter via a raw socket connection on port 50000 in a f
 <a name="d">d</a>|"dma_read"|DMAREAD_CMD|Writes the FPGA DMA data into the specified file. 3 args: Address, Length, Filename.
 <a name="e">e</a>|"cause_dexter_error"|n/a|Used only in DDE
 <a name="E">E</a>|"empty_instruction_ queue_immediately"<br>Since 2016.09.01|n/a|Apparently never implemented in firmware?
-<a name="F">**F**</a>|"empty_instruction_ queue"|HEART_BEAT<br>Since 2016.09.01|Queued. Does `wait_fifo_flush()` first. Was SET_FORCE_MOVE_POINT. This instruction will not return a status until it actually executes. Instructions before this one will be executed first. Very useful to synchronize robot motion with control software. To <a href="#wait-for-movement">wait until a move is complete</a> send TWO moment commands to the same location before the 'F'.
+<a name="F">**F**</a>|"empty_instruction_ queue"|HEART_BEAT<br>Since 2016.09.01|Queued. Does `wait_fifo_flush()` first. Was SET_FORCE_MOVE_POINT. This instruction will not return a status until it actually executes. Instructions before this one will be executed first. Very useful to synchronize robot motion with control software. E.g. to wait until the arm has moved to a new position before closing the gripper.
 <a name="f">f</a>|"find_home"|FIND_HOME_CMD|_Depreciated_ Use job engine.|
 <a name="G">G</a>|"get_robot_status_ immediately"|Since 2016.09.01 HEART_BEAT| (Same as 'g'?) 
 <a name="g">g</a>|"[get_robot_status](status-data)"|SEND_HEARTBEAT|Returns the current [status](status-data) of the robot.//fry
