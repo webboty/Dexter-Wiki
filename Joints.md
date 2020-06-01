@@ -38,6 +38,23 @@ for(let i = 0; i < 5; i++){
 }
 AxisCal_string += -Math.round(gear_ratios[3] / gear_ratios[2] * Math.pow(2, 24))
 // gear_ratios is a zero index array so [3] is joint 4 and [2] is joint 3.
+
+new Job({
+    name: "Write_AxisCal",
+    inter_do_item_dur: 0,
+    show_instructions: false,
+    do_list: [
+        function(){
+	    let my_file_content = AxisCal_string
+            let filename = "AxisCal.txt"
+            out("Writing '" + filename + "' to Dexter's /srv/samba/share/" + filename + "...")
+            return Dexter.write_to_robot(my_file_content, "/srv/samba/share/" + filename)
+	},
+        function(){
+            out("Writing Complete. Power cycle Dexter or restart DexRun to re-load AxisCal.txt")
+        }
+    ]
+})
 ````
 The axis 5 line in the file, second line from the end, may need it's sign swapped. If you do a <tt>move_to([x,y,z], [-1,0,-1])</tt> the end effector should be pointing in the negative x direction. That is, if the [x,y,z] values are all positive, and you are standing behind the robot (robots point of view), then the end effector should be pointing to your left at 45' with a direction of [-1,0,-1]. If this is wrong, the position of the tip of the end effector will change when going to a point from different directions. E.g. <tt>move_to([0,0.5,0.075], [**-1**,0,-1])</tt> with place the end effector at a different point than <tt>move_to([0,0.5,0.075], [**1**,0,-1])</tt>
 
