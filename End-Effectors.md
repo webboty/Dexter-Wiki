@@ -1,5 +1,9 @@
 Note: Changing end effectors, assuming they have different lengths, changes Link Lengths, and that will make the [Kinematics](Kinematics) change. If you are using onboard Kin, via the ['M'](Command-oplet-instruction#M) and ['T'](Command-oplet-instruction#T) oplets, the [SetParameter LinkLengths](set-parameter-oplet#LinkLengths) needs to be updated with a single value to change length 5. 
 
+In DDE, when using the "move_to" or other Kinematics commands, search the help panel for "link lengths" to ensure it is setup correctly.
+
+[How to measure Length Links](https://github.com/cfry/dde/blob/master/doc/coor_images/Tooltip_Location.PNG)
+
 Table of contents:
 - <a href="#tool-interfaces"> Tool Interfaces</a>: <a href="#version-1">Version 1: RC servos</a> or <a href="#version-2">Version 2: Dynamixel servos</a> 
 - <a href="#end-effectors"> End Effectors </a>
