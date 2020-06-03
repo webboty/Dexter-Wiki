@@ -4,7 +4,7 @@ Caution: _When following the directions below to remove a Dexter from it's shipp
 Normally, all that is required is rotating Joint 3, "the elbow" up to a straight vertical position.
 
 ## Mount
-![](https://user-images.githubusercontent.com/419392/59459216-1c0ff580-8dd1-11e9-8ece-7ac85a8863e8.png)<br>
+![](https://user-images.githubusercontent.com/419392/83582361-281b2880-a4f6-11ea-931d-595f7a4cbbac.png)<br>
 The top layer of the case will contain the base, remove it and place it with the feet down, and the center mounting pole up. The standard Dexter base is NOT intended to be perfectly stable. It must be mounted to a stable surface by gluing, screwing, or clamping the legs down. 
 - If the surface has a lip, you can clamp 2 or 3 of the feet down.<br><img src="https://user-images.githubusercontent.com/419392/58844223-183edf00-862b-11e9-8197-37fc97029a21.png">
 - For wooden, metal, or other surfaces which can have holes, screw or bolt the feet down.<br><img src="https://user-images.githubusercontent.com/419392/58844593-c5febd80-862c-11e9-9076-bd438fcaf95d.png">
@@ -14,7 +14,9 @@ The top layer of the case will contain the base, remove it and place it with the
 
 ## Assemble
 Now remove the Dexter robot from the lower level of the case. <br>
+
 ![](https://user-images.githubusercontent.com/419392/59470338-36a39800-8dec-11e9-8b33-f0f3ae1827b8.png)<br>
+_This picture shows a Dexter without a skin, your's may have one._<br>
 Typically, you should grip it by the handle on Joint 3 aka "the elbow" (avoid gripping the side of joint 3 which has the belts) and by the base mounting column. Align the strakes with holes in the base mount and slide it in. Tighten the base clamp. It requires a Phillips head screwdriver. 
 
 ## Position
