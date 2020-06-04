@@ -27,7 +27,7 @@ Scroll down to the `global.` section near the end and add the line:<br>
 after the last var line above the global section, then below the other globals, add:<br>
 `global.ModbusRTU = ModbusRTU`
 
-After this change, any of the methods allowed by the module should be available in a DDE job via the ModbusRTU object.
+After this change, any of the [methods allowed by the library](https://github.com/JamesNewton/node-modbus-serial/tree/patch-1#these-classes-are-implemented) should be available in a DDE job via the ModbusRTU object.
 
 
 ## ModBus TCP
