@@ -33,53 +33,51 @@ After this change, any of the [methods allowed by the library](https://github.co
 ## ModBus TCP
 
 To access network modbus devices (other than you own PC), your Dexter will need to be [connected to the network](Dexter-Networking#internet-access). 
+The following classes are supported, when working as a client:
+
+| Class | Client Function |
+|-------|----------|
+| FC1 "Read Coil Status" | `readCoils(coil, len)` |
+| FC2 "Read Input Status" | `readDiscreteInputs(addr, arg)` |
+| FC3 "Read Holding Registers" | `readHoldingRegisters(addr, len) ` |
+| FC4 "Read Input Registers" | `readInputRegisters(addr, len) ` |
+| FC5 "Force Single Coil" | `writeCoil(coil, binary) //NOT setCoil` |
+| FC6 "Preset Single Register"
+| FC15 "Force Multiple Coil" | `writeRegister(addr, value)` |
+| FC16 "Preset Multiple Registers" | `writeRegisters(addr, valueAry)` |
+| FC43/14 "Read Device Identification" (supported ports: TCP, RTU) | `readDeviceIdentification(id, obj)` |
+
+For operation as a server, accepting requests from other modbus devices, see [Issue 34](https://github.com/HaddingtonDynamics/Dexter/issues/84) for progress on integrating a modbus server into the "always on" node.js web server on Dexter, and see this [more extensive example](https://github.com/HaddingtonDynamics/Dexter/blob/StepAngles/Firmware/dde_apps/modbus_test.dde) for two way modbus communications in a job engine job. 
 
 ````js
-//var ModbusRTU = require("modbus-serial") //for node.js, not needed in DDE
+var ModbusRTU = require("modbus-serial") //for node.js, not needed in DDE
 var client = new ModbusRTU();
-var plc = "192.168.1.24"; //change to the address of the remote device.
+var plc = "192.168.0.177"; //change to the address of the remote device.
 
-// open connection to remote device
-client.connectTCP(plc, { port: 8502 })
-    .then(setClient)
-    .then(function() {
-        console.log("Connected"); })
-    .catch(function(e) {
-        console.log(e.message); });
+// open connection to a tcp line
+client.connectTCP(plc, { port: 8502 });
+client.setID(1);
+client.setTimeout(3000);
+out(client)
 
-function setClient() {
-    // set the client's unit id
-    client.setID(1); //change to the correct unit id
-    // set a timeout for requests default is null (no timeout)
-    client.setTimeout(1000);
-    // run program
-    run();
-}
+client.callback = function(err, data) {
+	if (err) {
+    	Control.error(err);
+        }
+    else {
+        console.log(data.data);
+        }
+    }
 
-function run() {
-    // write to coil
-    client.writeCoil(5, true)
-        .then(function(d) {
-            console.log("Write true to coil 5", d); })
-        .catch(function(e) {
-            console.log(e.message); })
-        .then(writeRegisters);
-}
+new Job({ user_data: {state: 1},
+    name: "my_job",
+    do_list: [
+    	function() { client.writeCoil(5, this.user_data.state, client.callback)},
+        function() { this.user_data.state = 0 },
+        Control.wait_until(1),
+    	function() { client.writeCoil(5, this.user_data.state, client.callback)},
+    ]})
 
-function writeRegisters() {
-    // write 3 registers statrting at register 101
-    // negative values (< 0) have to add 65535 for Modbus registers
-    client.writeRegisters(101, [10, 9, 8, -20 + 65535, -10 + 65535])
-        .then(function(d) {
-            console.log("Write 10, 9, 8, -20, -10 to registers 101 to 105", d); })
-        .catch(function(e) {
-            console.log(e.message); })
-        .then(close);
-}
-
-function close() {
-    client.close();
-}
 ````
 
 [A more extensive example](https://github.com/HaddingtonDynamics/Dexter/blob/StepAngles/Firmware/dde_apps/modbus_test.dde) is available.
