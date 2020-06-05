@@ -24,6 +24,7 @@ Before powering on Dexter, position each joint at the home position. This is les
 
 On the Dexter HDI, there is a mark on the base that indicates the home position. The robot should be rotated until the mark is close to the J1 Opto block, as shown here:<BR>
 ![](https://user-images.githubusercontent.com/419392/83826349-8845d200-a690-11ea-8bba-e899748f2fb3.jpg)
+<BR>This easily visible alignment will place the "X" on the base mount directly behind the main arm body (where it is hard to see).
 
 Normally, when unpacking Dexter, all you should need to do is rotate Joint 3 in the direction shown by the arrow (clockwise, when facing the motors) and make minor adjustments to the other joints. Each motor drive shaft has a small dial / handle which can be used to rotate it to a consistent position on startup. The exception is Joint 1, which can be aligned by simply rotating it. Wherever the robot is located when powered on is accepted as the zero or home position. For more on this, see [Encoder Calibration](Encoder-Calibration). DDE will walk you through initial calibration. **Note: The Dexter HDI should NEVER be calibrated outside the factory as it is not necessary and is a complex process.**
 
