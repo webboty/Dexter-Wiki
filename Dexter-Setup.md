@@ -15,12 +15,12 @@ The top layer of the case will contain the base, remove it and place it with the
 ## Assemble
 Now remove the Dexter robot from the lower level of the case. <br>
 
-![](https://user-images.githubusercontent.com/419392/59470338-36a39800-8dec-11e9-8b33-f0f3ae1827b8.png)<br>
-_This picture shows a Dexter without a skin, your's may have one._<br>
+![](https://user-images.githubusercontent.com/419392/83825012-ea9cd380-a68c-11ea-8ad5-af9ef6979c80.jpg)<br>
+_This picture shows a Dexter with a skin, your's may not have one._<br>
 Typically, you should grip it by the handle on Joint 3 aka "the elbow" (avoid gripping the side of joint 3 which has the belts) and by the base mounting column. Align the strakes with holes in the base mount and slide it in. Tighten the base clamp. It requires a Phillips head screwdriver. 
 
 ## Position
-Before powering on Dexter, position each joint at the home position. This is less important for the Dexter HDI models as it will find it's own home position when powered up, however, it's faster if it's already closer to home. Prior models will need to be placed as close to home position as is possible using the knobs on the motors. The default position is with all the joints vertical, and the tool interface (the last segment) pointed to the right when facing the joints, as shown here:<br> <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Positive_Joint_Directions_J234.PNG">
+Before powering on Dexter, position each joint at the home position. This is less important for the Dexter HDI models as it will find it's own home position when powered up, however, it's faster if it's already closer to home. Prior models will need to be placed as close to home position as is possible using the knobs on the motors. The default position is with all the joints vertical, and the tool interface (the last segment) pointed to the right when facing the joints, as shown here:<br> <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Positive_Joint_Directions_J234.PNG">![](https://github.com/cfry/dde/blob/master/doc/coor_images/Positive_Joint_Directions_J15.PNG?raw=true)
 
 On the Dexter HDI, there is an "X" on the base that indicates the home position.
 
