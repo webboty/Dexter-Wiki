@@ -15,7 +15,7 @@ The top layer of the case will contain the base, remove it and place it with the
 ## Assemble
 Now remove the Dexter robot from the lower level of the case. <br>
 
-![](https://user-images.githubusercontent.com/419392/83825012-ea9cd380-a68c-11ea-8ad5-af9ef6979c80.jpg)<br>
+![](https://user-images.githubusercontent.com/419392/83826232-3e5cec00-a690-11ea-93a9-5d721a59ebe1.jpg)<br>
 _This picture shows a Dexter with a skin, your's may not have one._<br>
 Typically, you should grip it by the handle on Joint 3 aka "the elbow" (avoid gripping the side of joint 3 which has the belts) and by the base mounting column. Align the strakes with holes in the base mount and slide it in. Tighten the base clamp. It requires a Phillips head screwdriver. 
 
