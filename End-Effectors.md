@@ -70,7 +70,7 @@ Signals from the Dexter [Motor Control PCB](Motor-Control-PCB) to the Tool Inter
 - Supply power (18V to 36V DC from AC adapter J25?), Could be regulated to Servo power voltage (6 - 8.75V) at the interface by the servo power supply board  See: [Parts](https://octopart.com/bom-tool/4UgoKwTw), [source](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=da6dc9e512), [Schematic and PCB design](https://workspace.circuitmaker.com/Projects/Details/James-Newton-2/Dexter-Tool-Interface-Servo-Power-Supply). Note: The +5 supply line appears to work ok instead. 
 - Blue: Servo data bus, bidirectional. AUX1 via J20 (bottom pin, on bottom connector left side of motor board)
 - Green: Aux / Return serial data. AUX2 via J21?
-- The Dexter HD has 1 additional wire which could be used for the servo power (6 - 8.75V) if we want to route that separately from the main supply power.
+- White: The Dexter HD has 1 additional wire which could be used for the servo power (6 - 8.75V) if we want to route that separately from the main supply power. On the HDI, it is used as a second ground wire.
 
 _Note: J20 and J21 accept TE Connectivity part 2-179694-2_
 [^](http://www.te.com/usa-en/product-2-179694-2.html)
