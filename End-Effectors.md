@@ -64,6 +64,8 @@ Low level commands to directly communicate on the Dynamixel Protocol are also av
 The Tinyscreen+ will listen on the servo bus and may return data there or via the dedicated return data line. e.g.<BR>
 `make_ins("S", "ServoSet2X", 2, char1 + char2<<8, char3+char4<<8)`
 
+### Version 2 Wiring
+
 Signals from the Dexter [Motor Control PCB](Motor-Control-PCB) to the Tool Interface:
 - Black: Ground (J25 pin 1, top pin)
 - Red: Logic power +5 Volts (J25 pin 2, the bottom pin). Note: Although out of spec, this actually appears to work very well as a power supply for the servos, making the next signal unnecessary.
