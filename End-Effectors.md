@@ -95,7 +95,7 @@ If the end effector isn't all the way on, usually the power takeoff will pull it
 - [Laser with Microscope](http://hdrobotic.com/store/hd-gripper-6th-and-7th-axis-force-feedback-and-trainable-brsfj-9bh6n)
 - http://www.appropedia.org/User:Zsarnold#Enterprise See "Semester 2" A Mantis gripper was adapted to Dexter for a great demo of removing parts from a 3D printer. [Mantis Gripper Design](https://www.thingiverse.com/thing:1480408) and [Dexter adapter files](https://www.thingiverse.com/thing:2877079). Demo setup: [Video](https://www.youtube.com/watch?v=g7vwe5gVP3k), [Images](https://imgur.com/a/42GDrtg), and [DDE code](https://pastebin.com/EKfpEdBR). 
 
-## New Servo Tool Interface
+## V2 Tool Interface
 - [Curved gripper](https://www.thingiverse.com/thing:3166448) 
 - [Straight fingered gripper](https://www.thingiverse.com/thing:3166448)
 <table><tr><td width=207 valign="top">
