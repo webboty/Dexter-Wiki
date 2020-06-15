@@ -106,11 +106,6 @@ Then push the finger in until the dial points toward the Tool Interface, and sli
 <img src="https://user-images.githubusercontent.com/419392/57670424-18b3ff00-75c4-11e9-9521-967dbbd6b59b.JPG" width=146 height=155>
 </td></tr></table>
 
-- Cutting Shears were made but the CAD is not available.
-
-
-
-
 # See also:
 - Version 2 Tool Interface CAD files (note: needs to be expanded) 
 - - [Tool Interface Fusion 360 Assembly (Make your own tools)](https://a360.co/2V8DpoO)
