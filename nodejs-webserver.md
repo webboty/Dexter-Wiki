@@ -55,10 +55,11 @@ cd /srv/samba/share
 mkdir www
 cd www
 ````
-Now initialize the folder (just accept all the default answers to the questions), and install the ws websocket module
+Now initialize the folder (just accept all the default answers to the questions), and install the ws websocket, and formidable form post modules
 ````
 npm init
 npm install ws
+npm install formidable
 ````
 This folder will hold all the files your server will serve when a user connects. 
 
