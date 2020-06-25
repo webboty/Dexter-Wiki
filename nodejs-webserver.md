@@ -4,7 +4,7 @@ Contents:
 - <a href="#installing-node-js-on-dexter">Installing Node.js on Dexter</a>
 - <a href="#a-node-js-websocket-server">A Node.js Websocket server</a>
 - <a href="#browser-interface">Browser interface</a>
-- <a href="#scratch">Scratch</a>
+- <a href="#scratch">Scratch</a>, <a href="#web-editor">Web Editor</a>, <a href="#modbus-client">ModBus client</a>
 
 Node.js allows you to use Javascript as a scripting language on the host instead of just on the client in the browser. It's very commonly used to build things like web servers, apps that use sockets to communicate, and generally things that work between a computer and the internet.<BR>
 https://nodejs.org/en/ <BR>
@@ -101,12 +101,16 @@ The raw data returned would be something like:
 
 You can see the returned little endian integer values (4 bytes each) which are 1, 1, then the two times, and the 103 (67 hex) is the 'g'. The rest of the data includes all the [status values](status-data). See [Dexter - DDE communications](DexRun-DDE-communications) for more on how to talk to Dexter via the socket interface.
 
-## Scratch
+There are other capabilities which can be added to the node server as well:
+
+### Scratch
 With the Node Proxy, you can also add extensions to the [Scratch](https://scratch.mit.edu/) language to control Dexter, as demonstrated in [this video](https://www.facebook.com/steamaker/videos/577470826025034/). For more, see [Scratch extension](Scratch-extension)
 
-There are other capabilities which can be added to the node server as well:
-- Editing files on Dexter via a browser based web editor:<BR>
+### Web Editor
+Editing files on Dexter via a browser based web editor:<BR>
 https://github.com/HaddingtonDynamics/Dexter/issues/85
-- Acting as a ModBus server to set and read register values from a file or start and return values from Job Engine jobs:<BR>
+
+### ModBus client
+Acting as a ModBus server to set and read register values from a file or start and return values from Job Engine jobs:<BR>
 https://github.com/HaddingtonDynamics/Dexter/issues/84
 
