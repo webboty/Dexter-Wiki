@@ -1,6 +1,6 @@
 # Dexter <=> DDE communications: 
 
-DDE, and most other applications communicate with Dexter via raw sockets, over an [Ethernet link](Dexter-Networking).
+DDE, and most other applications communicate with Dexter via raw sockets, over an [Ethernet link](Dexter-Networking) on port 50000.
 
 ### Data Format
 Fields are separated by space (but could be comma) and the request is terminated by a ';' (semicolon).
