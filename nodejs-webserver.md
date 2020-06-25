@@ -18,23 +18,25 @@ Because we need to download files, your Dexter must be connected to your router 
 
 To ensure you have enough space check that `df -h ` shows more than 4.0G available.
 
-To install Node.js, you can use the method outlined at:<BR>
-https://www.liquidweb.com/kb/how-to-install-node-js-via-nvm-node-version-manager-on-ubuntu-12-04-lts/
-<BR>which uses NVM (Node Version Manager). And the procedure for installing that is described at:<BR>
+To install Node.js, you should first install NVM (Node Version Manager) you can can use the method outlined at:<BR>
+https://www.liquidweb.com/kb/how-to-install-node-version-manager-on-ubuntu/<BR>
+Or, if you have an older version of Dexter, with Ubuntu 12.04 (use `lsb_release -a` to check the OS version) you can use these instructions:<BR>
 https://www.liquidweb.com/kb/how-to-install-nvm-node-version-manager-for-node-js-on-ubuntu-12-04-lts/
-<BR>Everything is up to date, so you can start at:<BR> 
+<BR>Everything is up to date, and we already have a c compiler and build platform, so you should be able to skip the:<BR> 
 `apt-get install build-essential libssl-dev`
-<BR>that is 29 Megs, so we should have space for it. You can approve it. That takes quite a while. 
+<BR>but if you run into problems below, try that before giving up. It is 29 Megs, so we should have space for it. You can approve it. That takes quite a while. 
 
 To actually install NVM, you need curl, so you have to install that:<BR>
 `sudo apt-get install curl`
 
 The current version of NVM is 0.33.11 so I did<BR>
 `curl https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash`
-<BR>but you can probably use whatever the latest version is. It should complete quickly, and advise you to close and re-open your terminal, so log off and back on. And now we should have nvm. You can check with `nvm --help`
+<BR>but you can probably use whatever the latest version is as listed here:<BR>
+https://github.com/nvm-sh/nvm#installing-and-updating <BR>
+It should complete quickly, and advise you to close and re-open your terminal, so log off and back on. And now we should have nvm. You can check with `nvm --help`
 
-Now you can use NVM to install different versions of Node.js. The latest LTR (Long Term Release) version which is compatible with Ubuntu 12 is version 4.9. So install that with:<BR>
-`nvm install 4.9`
+Now you can use NVM to install different versions of Node.js. The latest LTR (Long Term Release) version which is compatible with Ubuntu 16.04 is 11.6 (for Ubuntu 12 is version 4.9). So install that with:<BR>
+`nvm install 11.6`
 
 Once that finishes, you should be able to run node:<BR>
 `node --help`
@@ -43,6 +45,7 @@ Notes:<BR>
 - If you install more than one version of node, you must select the default each time. To avoid this, use `nvm alias default 4.9.1` to set the default to e.g. 4.9.1 (use whatever version you have working)
 - If, when you type `node --help` (or any other node command) you get `node: command not found` try `nvm ls` to verify that you have 4.9.1 listed, then try `nvm use 4.9.1` to set that as the current version.
 - https://nodejs.org/docs/latest-v4.x/api/index.html API docs for node 4.x
+- https://nodejs.org/docs/latest-v11.x/api/index.html API docs for 11.x
 
 ## A Node js Websocket server
 
