@@ -103,3 +103,10 @@ You can see the returned little endian integer values (4 bytes each) which are 1
 
 ## Scratch
 With the Node Proxy, you can also add extensions to the [Scratch](https://scratch.mit.edu/) language to control Dexter, as demonstrated in [this video](https://www.facebook.com/steamaker/videos/577470826025034/). For more, see [Scratch extension](Scratch-extension)
+
+There are other capabilities which can be added to the node server as well:
+- Editing files on Dexter via a browser based web editor:<BR>
+https://github.com/HaddingtonDynamics/Dexter/issues/85
+- Acting as a ModBus server to set and read register values from a file or start and return values from Job Engine jobs:<BR>
+https://github.com/HaddingtonDynamics/Dexter/issues/84
+
