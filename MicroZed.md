@@ -5,6 +5,8 @@ Dexter's "brain" is a [ZedBoard.org](http://zedboard.org) [MicroZed](http://zedb
 
 Note: The [SD Card](SD-Card-Image) slot is directly under the Micro USB connector, on the opposite side of the board. To boot from the SD card, the jumpers must be set as follows:  JP1: 1-2, JP2: 2-3, JP3: 2-3. _Note: An internal diagnostic boot from the onboard QSPI is available by moving JP2: 1-2. This is only useful when connected via the [micro USB port](Dexter-USB-Connection)._
 
+Before powering up your Dexter, make sure the SD card is in place (powering on a microZed without an SD card will destroy it).
+
 ## Specs
 **Processor:** [Zynq™-7000](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) AP [SoC XC7Z020-CLG400-1](https://www.xilinx.com/support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf), with two ARM 7 cores and an [FPGA](Gateware)<BR>
 **Memory:** - 1 GB DDR3 - 128 Mb Quad-SPI Flash - [microSD card](SD-Card-Image) (just under the contains the ["Xillinux" Ubuntu operating system](http://xillybus.com/xillinux), DexRun [firmware](Firmware), and the .bit files to load the [FPGA](Gateware) 
