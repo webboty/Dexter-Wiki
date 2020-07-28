@@ -19,6 +19,9 @@ The ultra fast response rate provided by the FPGA has several benefits:
 
 Mainly the group delay is so low that we don’t need any filtering.
 
+### Overview of the FPGA operation:
+![Dexter Control System](https://user-images.githubusercontent.com/419392/88705673-b827b980-d0c4-11ea-9a36-98ca23db1be0.PNG)
+
 ## Tool Chain
 
 ### Viva
