@@ -22,6 +22,9 @@ Mainly the group delay is so low that we don’t need any filtering.
 ### Overview of the FPGA operation:
 ![Dexter Control System](https://user-images.githubusercontent.com/419392/88705673-b827b980-d0c4-11ea-9a36-98ca23db1be0.PNG)
 
+### Keep mode detail
+![Dexter Control Keep Mode section](https://user-images.githubusercontent.com/419392/88705907-03da6300-d0c5-11ea-9963-557346285f53.PNG)
+
 ## Tool Chain
 
 ### Viva
