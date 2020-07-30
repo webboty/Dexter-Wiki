@@ -28,6 +28,8 @@ In April 2018, the FPGA and [Firmware](https://github.com/HaddingtonDynamics/Dex
 <BR>Joint 7 position replaces SLOPE_END_POSITION,
 <BR>Joint 7 force replaces SLOPE_ANGLE_POSITION.
 
+Also, the SLOPE_ROT_POSITION was replaced with the error status of the two servos with J6 in the LSB and J7 in the next byte up (*256).
+
 In August 2018, the FPGA and [Firmware](https://github.com/HaddingtonDynamics/Dexter/commit/1ca9251b47468d9841713ec89b62e91050125188) was changed to return the actual measured angle of each joint encoder as follows:
 <BR> BASE_MEASURED_ANGLE replaces PLAYBACK_BASE_POSITION 
 <BR> PIVOT_MEASURED_ANGLE replaces PLAYBACK_PIVOT_POSITION 
@@ -101,7 +103,7 @@ Address | Description | Sample
  55 | ROT_COS | 218
  56 | PLAYBACK_ROT_POSITION (Now ROT_MEASURED_ANGLE) | 0
  57 | SENT_ROT_POSITION | 0
- 58 | SLOPE_ROT_POSITION | 0
+ 58 | SLOPE_ROT_POSITION (Now J6/7 servo error codes)| 0
  59 | empty | 2147483647
 
 ## Notes:
