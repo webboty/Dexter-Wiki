@@ -47,7 +47,7 @@ The following classes are supported, when working as a client:
 | FC16 "Preset Multiple Registers" | `writeRegisters(addr, valueAry)` |
 | FC43/14 "Read Device Identification" (supported ports: TCP, RTU) | `readDeviceIdentification(id, obj)` |
 
-For operation as a server, accepting requests from other modbus devices, see [Issue 34](https://github.com/HaddingtonDynamics/Dexter/issues/84) for progress on integrating a modbus server into the "always on" node.js web server on Dexter, and see this [more extensive example](https://github.com/HaddingtonDynamics/Dexter/blob/StepAngles/Firmware/dde_apps/modbus_test.dde) for two way modbus communications in a job engine job. 
+For operation as a server, accepting requests from other modbus devices, see [Issue 34](https://github.com/HaddingtonDynamics/Dexter/issues/84) for progress on integrating a modbus server into the "always on" node.js web server on Dexter, and see this [more extensive example](https://github.com/HaddingtonDynamics/Dexter/blob/StepAngles/Firmware/dde_apps/modbus_test.dde) from [DCISIV](www.dcisiv.com.au) for two way modbus communications in a job engine job. 
 
 ````js
 var ModbusRTU = require("modbus-serial") //for node.js, not needed in DDE
@@ -80,7 +80,7 @@ new Job({ user_data: {state: 1},
 
 ````
 
-[A more extensive example](https://github.com/HaddingtonDynamics/Dexter/blob/StepAngles/Firmware/dde_apps/modbus_test.dde) is available.
+[A more extensive example](https://github.com/HaddingtonDynamics/Dexter/blob/StepAngles/Firmware/dde_apps/modbus_test.dde) from [DCISIV](www.dcisiv.com.au) is available.
 
 A good tool for this is [QModMaster](https://sourceforge.net/projects/qmodmaster/) which can simulate a ModBus master and allow you to send test messages. 
 
