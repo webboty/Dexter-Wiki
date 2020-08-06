@@ -47,4 +47,4 @@ These oplets are sent to Dexter via a raw socket connection on port 50000 in a f
 <a name="X">x</a>|"exit"|EXIT_CMD||
 <a name="z">**z**</a>|"sleep"|SLEEP_CMD|Queued. Pause the robot for the specified uSeconds|
 
-1. The 'M' and 'T' oplets are not used in DDE because DDE does it's own [kinematics](Kinematics). 
+1. The 'M' and 'T' oplets are not used in DDE because DDE does its own [kinematics](Kinematics). 
