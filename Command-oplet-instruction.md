@@ -45,6 +45,6 @@ These oplets are sent to Dexter via a raw socket connection on port 50000 in a f
 <a name="w">w</a>|"[write](oplet-write)"|WRITE_CMD|Writes to the [FPGA / Gateware](Gateware). Does `wait_fifo_flush()` first.
 <a name="W">W</a>|"[write_to_robot](write-to-robot)"<br>Since [v2.3.15-16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)|WRITE_TO_ROBOT<br>[Since 20180418](https://github.com/HaddingtonDynamics/Dexter/commit/ef39cfe6effd36faeb9bd96b21a11a3dcd6b84ef)|Send files to the Dexter file system. 
 <a name="X">x</a>|"exit"|EXIT_CMD||
-<a name="z">**z**</a>|"sleep"|SLEEP_CMD|Queued. Pause the robot for the specified uSeconds|
+<a name="z">**z**</a>|"sleep"|SLEEP_CMD|Queued. Pause the robot for the specified uSeconds<br>(1 second = 1000000 uSeconds)|
 
 1. The 'M' and 'T' oplets are not used in DDE because DDE does its own [kinematics](Kinematics). 
