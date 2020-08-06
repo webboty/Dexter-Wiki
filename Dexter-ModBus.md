@@ -50,7 +50,8 @@ The following classes are supported, when working as a client:
 For operation as a server, accepting requests from other modbus devices, see [Issue 34](https://github.com/HaddingtonDynamics/Dexter/issues/84) for progress on integrating a modbus server into the "always on" node.js web server on Dexter, and see this [more extensive example](https://github.com/HaddingtonDynamics/Dexter/blob/StepAngles/Firmware/dde_apps/modbus_test.dde) from [DCISIV](www.dcisiv.com.au) for two way modbus communications in a job engine job. 
 
 ````js
-var ModbusRTU = require("modbus-serial") //for node.js, not needed in DDE
+//place this in /srv/samba/share/dde_apps/modbus.dde
+//var ModbusRTU = require("modbus-serial") //for node.js, not needed in DDE
 var client = new ModbusRTU();
 var plc = "192.168.0.177"; //change to the address of the remote device.
 
@@ -62,7 +63,7 @@ out(client)
 
 client.callback = function(err, data) {
 	if (err) {
-    	Control.error(err);
+    	Robot.error(err); //change Robot to Control in future versions
         }
     else {
         console.log(data.data);
@@ -70,11 +71,11 @@ client.callback = function(err, data) {
     }
 
 new Job({ user_data: {state: 1},
-    name: "my_job",
+    name: "modbus",
     do_list: [
     	function() { client.writeCoil(5, this.user_data.state, client.callback)},
         function() { this.user_data.state = 0 },
-        Control.wait_until(1),
+        Robot.wait_until(1), //change Robot to Control in future versions
     	function() { client.writeCoil(5, this.user_data.state, client.callback)},
     ]})
 
