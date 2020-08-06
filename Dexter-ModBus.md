@@ -79,6 +79,9 @@ new Job({ user_data: {state: 1},
     	function() { client.writeCoil(5, this.user_data.state, client.callback)},
     ]})
 
+//to run this from the terminal prompt (ssh in to Dexter), enter:
+//node core define_and_start_job /srv/samba/share/dde_apps/modbus.dde
+//Once that is working, you can add it to RunDexRun (see the bottom) or later to autoexec.jobs (if you have that)
 ````
 
 [A more extensive example](https://github.com/HaddingtonDynamics/Dexter/blob/StepAngles/Firmware/dde_apps/modbus_test.dde) from [DCISIV](www.dcisiv.com.au) is available.
