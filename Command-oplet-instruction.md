@@ -40,7 +40,7 @@ These oplets are sent to Dexter via a raw socket connection on port 50000 in a f
 <a name="r">r</a>|"[read_from_robot](read-from-robot)"<br>[Since v2.3.16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)|READ_CMD<br>[Since 2018.07.26](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)|Reads files or string data from the robot. Also reads and prints locally values from the memory mapped FPGA interface.
 <a name="s">s</a>|"slow_move"|SLOWMOVE_CMD<br>[Since 2018.10.9](https://github.com/HaddingtonDynamics/Dexter/commit/78bc04dfae5166d8889e1fba36540a3de3ea836b#diff-691272021fae98368efb598f8e089c16)||
 <a name="S">S</a>|"[set_parameter](set-parameter-oplet)"|SET_PARAM|Sets many different values
-<a name="T">**T**</a>|n/a<sup>1</sup>|MOVETOSTRAIGHT_CMD|Onboard [kinematics](Kinematics) move in a straight line from prior 'M' oplet position to new XYZ position, direction, and configuration. 
+<a name="T">**T**</a>|n/a<sup>1</sup>|MOVETOSTRAIGHT_CMD|Onboard [kinematics](Kinematics) move in a straight line from prior <a href="#M">'M' oplet</a> position to new XYZ position, direction, and configuration. 
 <a name="t">t</a>|"dma_write"|DMAWRITE_CMD||
 <a name="w">w</a>|"[write](oplet-write)"|WRITE_CMD|Writes to the [FPGA / Gateware](Gateware). Does `wait_fifo_flush()` first.
 <a name="W">W</a>|"[write_to_robot](write-to-robot)"<br>Since [v2.3.15-16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)|WRITE_TO_ROBOT<br>[Since 20180418](https://github.com/HaddingtonDynamics/Dexter/commit/ef39cfe6effd36faeb9bd96b21a11a3dcd6b84ef)|Send files to the Dexter file system. 
