@@ -39,6 +39,7 @@ To install Viva,
 - Set Tools / Preferences as follows<br>![](https://user-images.githubusercontent.com/419392/58519674-779f7980-8169-11e9-9146-c67a6d174f35.png)
 - Add an Environment Variable called XIL_INSTALL which points to the Xilinx install folder and the \ISE_DS\ISE\bin\nt folder e.g. `D:\Xilinx\14.6\ISE_DS\ISE\bin\nt` (Click start, search for and select "Edit environment variables for your account". 
 
+Note: Viva was written in Borland C++ Builder. It can be compiled in [Embarcadero C++ Builder 10.4 Pro](https://www.embarcadero.com/app-development-tools-store/cbuilder), but we hope to find community support to port it to another C++ compiler e.g. gcc.
 
 ### Xilinx ISC
 To program the FPGA on Dexter, you will need to install the Xilinx ISC. We know the 14.6 version works. (14.7 probably works as well, we just haven't tested it.)<br>
