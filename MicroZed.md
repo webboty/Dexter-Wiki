@@ -8,7 +8,7 @@ Note: The [SD Card](SD-Card-Image) slot is directly under the Micro USB connecto
 Before powering up your Dexter, make sure the SD card is in place (powering on a microZed without an SD card will destroy it).
 
 ## Specs
-**Processor:** [Zynq™-7000](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) AP [SoC XC7Z020-CLG400-1](https://www.xilinx.com/support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf), with a dual core ARMv7 Cortex A9 processor and an [FPGA](Gateware)<BR>
+**Processor:** [Zynq™-7000](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) AP [SoC XC7Z020-CLG400-1](https://www.xilinx.com/support/documentation/data_sheets/ds190-Zynq-7000-Overview.pdf), with a dual core ARMv7 Cortex A9 processor at 576MHz (Like an Intel Celeron or a RasPi B3 per core) and an [FPGA](Gateware)<BR>
 **Memory:** - 1 GB DDR3 - 128 Mb Quad-SPI Flash - [microSD card](SD-Card-Image) (just under the contains the ["Xillinux" Ubuntu operating system](http://xillybus.com/xillinux), DexRun [firmware](Firmware), and the .bit files to load the [FPGA](Gateware) 
 <BR>
 **I/O:**
@@ -19,7 +19,7 @@ Before powering up your Dexter, make sure the SD card is in place (powering on a
 (AMS)) which connect to the Motor Driver PCB [hardware](Hardware).
  - [Digilent Pmod™](https://store.digilentinc.com/pmod-expansion-modules/by-form-factor/2x4/) Compatible header (8 MIO)
 
-**Clocking:** 33.33333 MHz clock source for PS<BR>
+**Clocking:** 33.33333 MHz clock source for PS, CPU clock is 576Mhz.<BR>
 **Configuration and Debug:** Xilinx Platform Cable JTAG connector<BR>
 **General Purpose I/O:** 1 user LED, 1 push button (SW1). The [Getting Started Guide](http://www.zedboard.org/sites/default/files/documentations/5164-MicroZed-GettingStarted-V1.pdf) Chapter 9 contains extesive examples of IO via file read and write to /sys/class/gpio "folder". e.g. to turn on the red LED on the main board, which is connected to GPIO pin 47, from the command prompt after logging into Dexter:
 ````
