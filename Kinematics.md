@@ -33,3 +33,5 @@ Dexter also directly supports the 'M' and 'T' [oplets](command-oplets) for onboa
 **Singularity**  "A point at which a function takes an infinite value" In many cases, there are more than one way to get to the target. If you specify [90,90] for wrist pitch and roll, there are an infinite number of ways to get to that direction. A good starting point for xyz is: [0, 0.5, 0.075].
 
 <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Direction_Vector.PNG">
+
+See also: [Dynamics](Dynamics)
