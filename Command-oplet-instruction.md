@@ -18,7 +18,7 @@ These oplets are sent to Dexter via a raw socket connection on port 50000 in a f
 --- | --- | --- | ---
 <a name="a">**a**</a>|"move_all_joints"|MOVEALL_CMD|Queued. Arguments: 5 to 7 goal joint angles in arcseconds, space separated. E.g. `a 0 0 0 0 0` is home. The goal can not be changed during the move. Trapezoidal speed ramping is used with coordination so the first 5 joints arrive at their goals at the same time. Acceleration, MaxSpeed, and StartSpeed can be set via the ["S" SetParameter oplet](set-parameter-oplet). Does not require calibration, works even in Open Loop mode (w/ lower accuracy). <br>Since [2018.11.07](https://github.com/HaddingtonDynamics/Dexter/commit/c70abf71bca34aadf0850fbdd6b9b2bac969d221) accepts joint 6 and 7 positions.
 <a name="b">**b**</a>|"move_to"|n/a|Queued. Use "Dexter.move_to" in DDE. In DexRun, this oplet is obsolete. See "M"
-<a name="B">B</a>|"set_boundries"|SET_ALL_BOUNDRY|10 args: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow. Set individually with ["S" oplet subcommands](set-parameter-oplet)
+<a name="B">B</a>|"set_boundries"|SET_ALL_BOUNDRY|10 args in arcseconds: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow. Set individually with ["S" oplet subcommands](set-parameter-oplet)
 <a name="c">c</a>|"capture_ad"|CAPTURE_AD_CMD|
 <a name="d">d</a>|"dma_read"|DMAREAD_CMD|Writes the FPGA DMA data into the specified file. 3 args: Address, Length, Filename.
 <a name="e">e</a>|"cause_dexter_error"|n/a|Used only in DDE
