@@ -29,6 +29,8 @@ On a Linux (or mac?), from Terminal, the command line:<br>
 `screen /dev/ttyUSB0 115200`<br>
 will get you a connection, where ttyUSB0 is whatever port showed up when you plugged in. If you don't have "screen" you should be able to install it with `sudo apt-get install screen`
 
+Note: To exit screen, press Ctrl+a then type `:quit` and press enter. 
+
 ## PuTTY
 - In [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/), on the "Session" screen, select "Serial". 
 - Enter the port name (e.g. "COM" and the number as shown in the ports list. In the above image, this is the
