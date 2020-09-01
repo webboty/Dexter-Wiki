@@ -2,7 +2,7 @@ Read From Robot is a protocol which allows data to be read from the Dexter file 
 - pathfile is one of the following:
   - a file name from the /srv/samba/share folder. e.g. "AdcCenters.txt"
   - the path and file name from root e.g. "/srv/samba/share/err.txt" 
-  - a <a href="#keywords">#Keyword</a> which returns data without actually creating a file. E.g. "#POM" (was #XYZ) returns a cartesian coordinate matrix of position and orientation which was added [2018/08/04](https://github.com/HaddingtonDynamics/Dexter/blob/e6db50da946176123e191e9af6660a318f240489/Firmware/DexRun.c#L2117)* 
+  - a <a href="#keywords">#Keyword</a> which returns data without actually creating a file. E.g. "#POM" (was #XYZ) returns a Cartesian coordinate matrix of position and orientation which was added [2018/08/04](https://github.com/HaddingtonDynamics/Dexter/blob/e6db50da946176123e191e9af6660a318f240489/Firmware/DexRun.c#L2117)* 
   - a <a href="#bash-shell-commands">BASH Shell command</a> starting with "`" or backtick (ASCII 96 0x60) character
 - user_variable is the name of the variable to add to the user_data object. e.g. "foo" would put the returned text of the file in user_data.foo
 
@@ -29,16 +29,18 @@ In Dexters [Firmware](Firmware), Read From Robot is implemented via the 'r' ople
 - The first value in the string is an arbitrary integer job number. Any number is fine.
 - The second number is an arbitrary instruction number in that job. Normally this is incremented and is returned by DexRun so that you can tell which packet the response is for. Actually, this can be ignored and set to the same value every time.
 - The third value is the start time of the instruction in seconds since January 1, 1970. This is totally optional; a simple number 1 works fine.
-- The forth is the end time of the instruction, which is not known, and therefore the word "undefined" is sent. This can be replace with 1 or any other character.
+- The forth is the end time of the instruction, which is not known, and therefore the word "undefined" is sent. This can be replace with 0 or any other character. Note: In the future, this may be used to describe the desired format of return data, so for standard status packets, use "0".
 - Next is the oplet 'r'.
 - Next is the block number. This should start at 0 and increment by 1 as long as the returned packets have a PAYLOAD_LENGTH of MAX_CONTENT_CHARS.
 - Finally, the path and file name of the desired file is sent. 
 
 Because start and end times are not required, the requests above could have been sent as:
 ````
-1 1 1 1 r 0 /srv/samba/share/AdcCenters.txt
-1 2 1 1 r 1 /srv/samba/share/AdcCenters.txt
+1 1 1 0 r 0 /srv/samba/share/AdcCenters.txt
+1 2 1 0 r 1 /srv/samba/share/AdcCenters.txt
 ````
+
+Please note the incrementing number after the 'r' oplet. This "block number" is required. 
 
 ## 'r' returned data
 
@@ -53,13 +55,13 @@ Int | Addr | Description | Sample
   0 |  00 | Job number | 1
   1 |  04 | Instruction number | 1
   2 |  08 | Start time | 1543452381142 
-  3 |  16 | End time | 1543452391148 
-  4 |  24 | Oplet ('r') | 114
-  5 |  32 | ERROR | 0
-  6 |  40 | PAYLOAD_LENGTH | 62
-  7-|  48-| PAYLOAD_DATA | "0x5960000\r\n0x6540000\r\n0x47e0000\r\n0x46a0000\r\n0x3f20000\r\n0x3e800"
+  3 |  12 | End time | 1543452391148 
+  4 |  16 | Oplet ('r') | 114
+  5 |  20 | ERROR | 0
+  6 |  24 | PAYLOAD_LENGTH | 62
+  7-|  28-| PAYLOAD_DATA | "0x5960000\r\n0x6540000\r\n0x47e0000\r\n0x46a0000\r\n0x3f20000\r\n0x3e800"
 
-_Note that from address 48 on to 110, we are using the BYTE form of the data, NOT the Integer form. Also, note that the PAYLOAD_LENGTH in integer 6 is 62 which is the MAX_CONTENT_CHARS value. This indicates that the entire file has NOT been read, and triggers another request, with an increased block number after the 'r' oplet._
+_Note that from address 28 on to 86, we are using the BYTE form of the data, NOT the Integer form. Also, note that the PAYLOAD_LENGTH in integer 6 is 62 which is the MAX_CONTENT_CHARS value. This indicates that the entire file has NOT been read, and triggers another request, with an increased block number after the 'r' oplet._
 
 Packet #2
 
@@ -68,11 +70,11 @@ Int | Addr | Description | Sample
   0 |  00 | Job number | 1
   1 |  04 | Instruction number | 2
   2 |  08 | Start time | 1543452381197 
-  3 |  16 | End time | 1543452382199 
-  4 |  24 | Oplet ('r') | 114
-  5 |  32 | ERROR | 0
-  6 |  40 | PAYLOAD_LENGTH | 48
-  7-|  48-| PAYLOAD_DATA | "00\r\n0x4920000\r\n0x73a0000\r\n0x5000000\r\n0x51e0000\r\n"
+  3 |  12 | End time | 1543452382199 
+  4 |  16 | Oplet ('r') | 114
+  5 |  20 | ERROR | 0
+  6 |  24 | PAYLOAD_LENGTH | 48
+  7-|  28-| PAYLOAD_DATA | "00\r\n0x4920000\r\n0x73a0000\r\n0x5000000\r\n0x51e0000\r\n"
 
 _Note that the PAYLOAD_LENGTH of 48 is less than MAX_CONTENT_CHARS and so we have completed reading the file. Concatenating the second returned PAYLOAD_DATA string to the first results in the complete original file content._
 
@@ -85,7 +87,7 @@ The incoming socket handler should not assume that each packet of data received 
 
 ## Keywords
 
-There are special "file names" which start with the "#" symbol (and therefore can not be actual names in the file system) which return data which might not fit in a single socket payload. The read_from_robot functionality allows this data to be returned as if it were from a file, by transferring multiple blocks. 
+There are special "files" which are generated inside the firmware and not actually saved as files, with names which start with the "#" symbol (and therefore can not be actual names in the file system) which return data which might not fit in a single socket payload. The read_from_robot functionality allows this data to be returned as if it were from a file, by transferring multiple blocks. 
 
 Keyword | Datatype | Description | Sample
 --- | --- | --- | ---
@@ -95,6 +97,12 @@ Keyword | Datatype | Description | Sample
  #measured_angles | ascii JSON, 5 integers | The measured angles. Calibration IS required. | `"[0, 0, 0, 0, 0]"`
  #Steps | ascii JSON, 5 integers | The position the motor has been commanded to move to in steps. Added [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72). Calibration is not required.| `"[0, 0, 0, 0, 0]"` 
 #StepAngles | ascii JSON, 5 integer arcseconds | The position the motor has been commanded to move to in arcseconds. Added [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72).  Calibration is not required.| `"[0, 0, 0, 0, 0]"`
+
+
+**Example:** To read the current Cartesian "Position and Orientation Matrix" send:
+<br>`1 1 1543452381142 undefined r 0 #POW;` which will return 6 binary integers and then the first MAX_CONTENT_CHARS characters of file data. So, for example, you might see (expressed as 4 byte integers for the first 28 bytes, 0...27) 1,1,1543452381142,349602,114,62, and then (expressed as single bytes starting from byte 28) 91, 91, 49, 46, 48, 48, 48, 48, 48, 48, 44, 32, 48, 46, 48, 48, 48, 48, 48, 48, 44, 32, 48, 46, 48, 48, 48, 48, 48, 48, 44, 32, 48, 46, 48, 48, 48, 48, 48, 48, 93, 44, 91, 45, 48, 46, 48, 48, 48, 48, 48, 48, 44, 32, 49, 46, 48, 48, 48, 48, 48, 48. "#POM" returns ASCII JSON data which you will see starting at the 28th byte in the returned packet. In this example it's "[[1.000000, 0.000000, 0.000000, 0.000000],[-0.000000, 1.000000" The last binary integer, starting at 6 * 4 = 24 for 4 bytes, is the "length" of the data, and will almost certainly be MAX_CONTENT_CHARS. So you don't have all the data and then need to read the _next_ block:
+<br>`1 2 1543452381147 undefined r 1 #POW;` which will return, again, 6 integers and then more ASCII data. Append that data to the prior data and look at the last int. If it's less than MAX_CONTENT_CHARS, stop, otherwise keep going with increasing block number:
+<br>`1 3 1543452381152 undefined r 2 #POW;` Notice that the second value, the 1, 2, 3 does not need to be incremented.  It is just an "instruction number" to help you keep track of which status return you are looking at. Nor is the third value (it's just the time). Nor is the forth value; the "undefined" (it could just be "0"). But the 6th value, the "block number", after the 'r' oplet, which goes 0, 1, 2 IS required and MUST start from 0 and be increased without changing the "file name" in order to get all of the file data. 
 
 ## BASH Shell Commands
 
@@ -110,3 +118,7 @@ CAUTION: If this function is not used correctly, it can really scramble the syst
 This has an internal debug function which reads and prints to the local console values from the [FPGA](Gateware) memory mapped IO. In that case, the first parameter is the address and the second the length. For example, `r 0 10` will display, on the stdout console (not returned via the socket), the first 10 memory values which list the types of the I/O data passed in the higher addresses. Each value encodes the width and the type of each interface. The number of interfaces is the second highest byte in the first memory address plus 1, but it will be obvious by the number of non-zero values returned. 
 
 Note, Starting [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72), the interface count in the .bit file is checked, and if it does not match the INPUT_OFFSET in DexRun.c, a "fake" RAM array will be created and referenced instead of the FPGA's mapped memory to keep any commands from writing to the wrong places and causing damage. The firmware will continue to run and can be used to update the files via [write-to-robot](write-to-robot).
+
+### Notes
+
+The reason why we need a block number is because we have a very small returned packet. We limit the packet size because it gives us the fastest possible status return. If you increase the size of the return data (It's said you can do 65K bytes technically, but and MTU of 1600 is usually the limit, and 480 is sometimes the limit) but... when you go over 240, the data gets broken up into multiple packets. And then you loose speed. We wanted the absolute fastest possible response speed for tiny fast movements.
