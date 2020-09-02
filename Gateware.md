@@ -19,6 +19,18 @@ The ultra fast response rate provided by the FPGA has several benefits:
 
 Mainly the group delay is so low that we don’t need any filtering.
 
+## Modes
+
+Although they are made up of many different settings, we collect those together and tend to think of them as "modes" e.g.
+
+| Mode name | Description |
+| ---- | ---- |
+| Follow | The robot will move out of the way of any external force, actively driving the motors to avoid pressure. This allows you to move the robot as if it had no drive system |
+| Keep | The robot will move it's motors to maintain the commanded position on each joint. This corrects for any deformation in the drive between the motor and the joint (e.g. belts) and always quickly returns the joint to the /exactly/ correct position. |
+| Force Protect | A combination of Follow and Force Protect modes, this mode keeps the robot at it's commanded position unless it is hit, in which case, it will move out of the way of the strike and then slowly return. |
+
+A <A href="https://docs.google.com/spreadsheets/d/1bf2u-hSuzWSXB12lu0_LHWHDlJ-iFqffg0sEph-rPU4/edit#gid=0">Spreadsheet</A> lists additional modes and their exact settings.
+
 ### Overview of the FPGA operation:
 <a href="https://user-images.githubusercontent.com/419392/88705673-b827b980-d0c4-11ea-9a36-98ca23db1be0.PNG">
 <img src="https://user-images.githubusercontent.com/419392/88705673-b827b980-d0c4-11ea-9a36-98ca23db1be0.PNG">
