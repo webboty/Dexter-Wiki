@@ -20,7 +20,7 @@ new Job({name: "my_job",
 ````
 
 ## 'r' [Oplet](Command-oplet-instruction)
-In Dexters [Firmware](Firmware), Read From Robot is implemented via the 'r' oplet. Most oplets return the standard [status data ](status-data), but the 'r' oplet instead returns the contents of a file from the robots file system, in blocks of MAX_CONTENT_CHARS bytes. The parameters for the 'r' command are the block number to read, and the file name, both as null terminated strings. The block number is in human readable ASCII format and should start with 0 then increase until fewer than MAX_CONTENT_CHARS bytes are returned. e.g. to read the AdcCenters.txt file from the share, [DDE](DDE) will send:
+In Dexter's [Firmware](Firmware), Read From Robot is implemented via the 'r' oplet. Most oplets return the standard [status data ](status-data), but the 'r' oplet instead returns the contents of a file from the robots file system, in blocks of MAX_CONTENT_CHARS bytes. The parameters for the 'r' command are the block number to read, and the file name, both as null terminated strings. The block number is in human readable ASCII format and should start with 0 then increase until fewer than MAX_CONTENT_CHARS bytes are returned. e.g. to read the AdcCenters.txt file from the share, [DDE](DDE) will send:
 ````
 1 1 1543452381142 undefined r 0 /srv/samba/share/AdcCenters.txt
 1 2 1543452381197 undefined r 1 /srv/samba/share/AdcCenters.txt
@@ -91,11 +91,11 @@ There are special "files" which are generated inside the firmware and not actual
 
 Keyword | Datatype | Description | Sample
 --- | --- | --- | ---
-  #POM |  ascii JSON, 4x4 matrix of floats | **P**osition and **O**rientation **M**atrix. (Was #XYZ) First three columns are the orientation unit vectors for the x, y, and z axes last column is xyz position in microns. The 4th row is always [0, 0, 0, 1] to maintain transformation matrix format. | `"[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]]"`
-  #EyeNumbers | ascii, 5 space delimited integers | Each encoder can measure where it is in the current eye but has to keep track of when it transitions between eyes. These 5 values are the indices for which eye number each encoder is on. The range is 0 to 512, center is 255. Note, they will not move all the way to 0 or 512.| `"286, 255, 255, 255, 324"`
-  #RawEncoders | ascii JSON, undocumented | RawEncoders is the uncorrected data about each joints position, prior to calibration. It does not take into account the slight changes in the "eye" from one slot to the next, or any mispositioning of the eye center. Calibration is NOT required. The data format is complex and not yet documented. | `"[14319360, 596611840, 2108160, -1794560, -172800]"`
- #measured_angles | ascii JSON, 5 integers | The measured angles. Calibration IS required. | `"[0, 0, 0, 0, 0]"`
- #Steps | ascii JSON, 5 integers | The position the motor has been commanded to move to in steps. Added [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72). Calibration is not required.| `"[0, 0, 0, 0, 0]"` 
+  #POM |  ASCII JSON, 4x4 matrix of floats | **P**osition and **O**rientation **M**atrix. (Was #XYZ aka Pose, Transformation Matrix, Transform, or Coordinate system matrix) First three columns are the orientation unit vectors for the x, y, and z axes aka DCM: Direction Cosine Matrix. The last column is xyz position in microns. The 4th row is always [0, 0, 0, 1] to maintain transformation matrix format. A direction vector can be made from the 3rd column, z, by multiplying by -1. | `"[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]]"`
+  #EyeNumbers | ASCII, 5 space delimited integers | Each encoder can measure where it is in the current eye but has to keep track of when it transitions between eyes. These 5 values are the indices for which eye number each encoder is on. The range is 0 to 512, center is 255. Note, they will not move all the way to 0 or 512.| `"286, 255, 255, 255, 324"`
+  #RawEncoders | ASCII JSON, undocumented | RawEncoders is the uncorrected data about each joints position, prior to calibration. It does not take into account the slight changes in the "eye" from one slot to the next, or any mis-positioning of the eye center. Calibration is NOT required. The data format is complex and not yet documented. | `"[14319360, 596611840, 2108160, -1794560, -172800]"`
+ #measured_angles | ASCII JSON, 5 integers | The measured angles. Calibration IS required. | `"[0, 0, 0, 0, 0]"`
+ #Steps | ASCII JSON, 5 integers | The position the motor has been commanded to move to in steps. Added [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72). Calibration is not required.| `"[0, 0, 0, 0, 0]"` 
 #StepAngles | ascii JSON, 5 integer arcseconds | The position the motor has been commanded to move to in arcseconds. Added [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72).  Calibration is not required.| `"[0, 0, 0, 0, 0]"`
 
 
@@ -106,8 +106,8 @@ Keyword | Datatype | Description | Sample
 
 ## BASH Shell Commands
 
-Starting [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72), if the "r 0" is followed by a \` or "backtick" (ASCII 96 0x60) character, the rest of the command will be sent to a child processes started with the BASH shell. 
-e.g. "r 0 \`ls" will return a directory listing; use "r 1 \` " (or "r" with any number >0 and a backtick) repeatedly to get the rest of the data.
+Starting [20190816](https://github.com/HaddingtonDynamics/Dexter/commit/ce61cf652dc591dab8ba1096834206f7c551ce72), if the "r 0" is followed by a \` or "back-tick" (ASCII 96 0x60) character, the rest of the command will be sent to a child processes started with the BASH shell. 
+e.g. "r 0 \`ls" will return a directory listing; use "r 1 \` " (or "r" with any number >0 and a back-tick) repeatedly to get the rest of the data.
 
 NOTE: It is critical when using this feature to read all the way to the end until an error 10 is returned. Do not stop sending "r 1 \`" commands just because you get back less than MAX_CONTENT_CHARS data. The reason for this is that the BASH command may require time to complete it's output. It might send back a few bytes at a time and not fill the return buffer completely with every read. When the child process has completed, doing a read will return an "end of stream" error which clearly indicates the process has finished. Until then, the process is running and may continue to generate output. New 'r' shell commands will fail because the file handle is still in use. 
 
