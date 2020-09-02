@@ -32,7 +32,7 @@ Addr | Name               | Description
 <a name="25">25</a> | BOUNDRY_ANGLE       | <strike>Changed along with TDInt branch via a keyhole to make low and high boundary +-18 bits (19 bits total) each.</strike> 
 <a name="26">26</a> | BOUNDRY_ROT         | <strike>"</strike> Use [B oplet](Command-oplet-instruction#B) to set all joint boundaries or [SetParameter oplet: S J#Boundry\[High\|Low\]](set-parameter-oplet#JointBoundaries)
 <a name="27">27</a> | SPEED_FACTORA       | Multiplier (coefficient / master gain) for the force calculator. Allows quick adjustments.
-<a name="28">28</a> | </strike>SPEED_FACTORB</strike> BETA_XYZ | Was SPEED_FACTORB, now BETA_XYZ: Reactivity of the boundary for Joints 1-3. Resistance to movement will be like a marshmallow vs brick wall. See also <a href="#52">DIFF_FORCE_BETA</A>
+<a name="28">28</a> | <strike>SPEED_FACTORB</strike> BETA_XYZ | Was SPEED_FACTORB, now BETA_XYZ: Reactivity of the boundary for Joints 1-3. Resistance to movement will be like a marshmallow vs brick wall. See also <a href="#52">DIFF_FORCE_BETA</A>
 <a name="29">29</a> | FRICTION_BASE       | <strike>Coefficient to scale the position error. Can be negative. </strike> 
 <a name="30">30</a> | FRICTION_END        | <strike>Feels like friction. Used in most modes, very important in follow mode.</strike>
 <a name="31">31</a> | FRICTION_PIVOT      | <strike>"</strike> Use [SetParameter oplet: S J#Friction](set-parameter-oplet#JointFrictions) 
