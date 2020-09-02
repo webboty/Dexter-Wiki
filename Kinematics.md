@@ -13,13 +13,15 @@ Here is a summary of the different movement methods, including related parameter
 ## Kinematics
 Convert XYZ to [Joint](Joints) Angles for J1, J2, J3, J4, and J5. Dexter follows the common convention is that Z is up / down, X is right / left, and Y is out / back. (see picture below)
 
-In [DDE](DDE) we can `move_to(X, Y, Z, direction, config)` where 
+**In [DDE](DDE):** We can `move_to(X, Y, Z, direction, config)` where 
 - X, Y, and Z are the destination in meters, 
 - `direction` is an array of unit vectors [X, Y, Z]. e.g. `[0, 0, -1]` is straight down,
 - `config` is an array of boolean options [right_arm, elbow_up, wrist_out]. See below for more.
 and DDE will use it's understanding of the Link Lengths and Dexters shape to calculate the joint angles to reach this point. Those values should be checked for accuracy to improve the accuracy of the resulting position.
 
-Dexter also directly supports the 'M' and 'T' [oplets](command-oplets) for onboard kinematics, which take the same parameters, but the X, Y, Z units are integer microns, aka "micrometers", or a millionths of a meter (1/1,000,000 meters). The link lengths for this calculation are set via the [Link Lengths](set-parameter-oplet#LinkLengths) Set Parameter command and can be stored in the Defaults.make_ins file for automatic setting on robot startup. 
+**Onboard:** Current firmware also directly supports the 'M' and 'T' [oplets](command-oplets) for onboard kinematics, which take the same parameters, but the X, Y, Z units are integer microns, aka "micrometers", or a millionths of a meter (1/1,000,000 meters). The link lengths for this calculation are set via the [Link Lengths](set-parameter-oplet#LinkLengths) Set Parameter command and can be stored in the Defaults.make_ins file for automatic setting on robot startup. Note that Length 5 (the length of the tool interface and end effector) is set /first/ in that command, and it will update as many lengths as you give it, so you can easily change the end effector length on the fly by specifying only it's length. 
+
+The current Cartesian position and orientation can be retrieved from the robot via the ['r' Read from robot oplet, and the #POM keyword](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords). 
 
 <img src="https://github.com/JamesNewton/AdvancedRoboticsWithJavascript/blob/master/docs/Configurations.png?raw=true" width=317 height=327 align="right">
 
