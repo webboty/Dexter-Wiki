@@ -379,13 +379,23 @@ S, AxisCal, -332800, -332800, -332800, -86400, -86400 ;Defaults for Dexter HDI
    <td colspan=2>Gear_Ratio * Motor_Steps_per_Revolution * Microstepping</td>
    </tr>
  <tr>
-   <td colspan=3><a name="Interpolation"><b>Interpolation</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5#diff-a940a548ba41bc988f99d51fd02f21de">2019/10/10 on StepAngles branch</a>. Set interpolation factors for each joint. This defaults to `1 1 1 16 16` for the Dexter 1 and HD and is changed to all 1's for the HDI. Primarily to maintain backwards compatibility; the DexRun.C code will continue to work on the prior version, but can be set to work with the HDI by using this parameter.
+   <td colspan=3><a name="Interpolation"><b>Interpolation</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5#diff-a940a548ba41bc988f99d51fd02f21de">2019/10/10</a>. Set interpolation factors for each joint. This defaults to `1 1 1 16 16` for the Dexter 1 and HD and is changed to all 1's for the HDI. Primarily to maintain backwards compatibility; the DexRun.C code will continue to work on the prior version, but can be set to work with the HDI by using this parameter.
       </td>
    </tr>
  <tr>
    <td>56,&nbsp;Interpolation</td>
    <td>1 | 1 | 16 sub-ustep per ustep</td>
    <td>1 | 1 | 16 sub-ustep per ustep</td>
+   </tr>
+
+ <tr>
+   <td colspan=3><a name="HomeOffset"><b>HomeOffset</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5#diff-a940a548ba41bc988f99d51fd02f21de">2019/10/10</a>. Set an offset for each joint. This defaults to zero. The values are subtracted before any PID movement ('P' or 'C' oplet) and are added back into measured angles or step angles when reporting status. Experimental. Do not use.
+      </td>
+   </tr>
+ <tr>
+   <td>57,&nbsp;HomeOffset</td>
+   <td><!-- 0 | 100 | deg/s -->N/A</td>
+   <td>0 | 360000 | 1296000 | arcsec/s (5 integers)</td>
    </tr>
 
  <tr>
