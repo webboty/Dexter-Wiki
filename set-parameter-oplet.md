@@ -397,6 +397,24 @@ S, AxisCal, -332800, -332800, -332800, -86400, -86400 ;Defaults for Dexter HDI
    <td><!-- 0 | 100 | deg/s -->N/A</td>
    <td>0 | 360000 | 1296000 | arcsec/s (5 integers)</td>
    </tr>
+ <tr>
+   <td colspan=3><a name="ServoSetX"><b>ServoSetX</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/f87b7c898d891604474573a44642c551488a667f">2020/08/10</a> to close #<a href="https://github.com/HaddingtonDynamics/Dexter/issues/94">94</a>. The parameters are <tt>ID Addr Len [Data]</tt>:<ul>
+<li> Servo ID: The expected ID number of the servo on the Dynamixel bus
+<li> Address: The address in the header or ram table in the servo
+<li> Data/Length: This can either be a single byte of data (which makes ServoSetX work just like ServoSet) or, if the next parameter is specified, then this is the length of the data string
+<li> Data String: (optional) If specified, this is a string of data. Because 0x00 (nulls), and 0x3B (;) can't pass initial parse, these are esc'd w/ 0x25 (%). And of course, that means the % must be escaped as well. For example: 0x00,0x3B,0x25 would become %00%3B%25 and have a Length parameter of 9 but would end up writing 3 bytes to the servo. Another example: AB%20 would become AB%2520 (the % is replaced with %25) and would have a length of 7 but would actually send 5 bytes.</ul>
+Examples:<ul>
+<li> <tt>S ServoSetX 1 116 12 %64%00%00%00; Move XC-420 servo 1 on Span / J7 to 100</tt>
+<li> <tt>S ServoSetX 1 64 1; Turn XC430 torque on</tt>
+<li> <tt>S ServoSetX 1 64 3 %01; Turn XC430 torque on</tt>
+</ul>
+      </td>
+   </tr>
+ <tr>
+   <td>58,&nbsp;ServoSetX</td>
+   <td><!--- min | initial | max in DDE units --></td>
+   <td>ID Addr Len [Data]</td>
+   </tr>
 
  <tr>
    <td colspan=3><!--- <a name=""><b> </b></a>: Added <a href="">2019/mm/dd --></a> 
