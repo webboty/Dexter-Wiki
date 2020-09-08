@@ -7,8 +7,7 @@ This wiki page attempts to expand on those source documents to explain the instr
 
 Note that non-movement instructions may not have any effect until a move instruction is sent. This helps to coordinate movement with things like end effector actuation. However, it can be confusing if you just want to e.g. turn a laser end effector on and off and nothing happens. Just send a movement command with the current positions to enable your other commands.
 
-### Wait for Movement
-To ensure that a movement has completed, use the <a href="#f">'F' oplet</a>, as it will not return a status until the que is empty. 
+**To wait for a movement** to completed, use the <a href="#f">'F' oplet</a>, as it will not return a status until the que is empty. 
 
 See [DDE](DDE) documentation for the use of the DDE version of each command. E.g. for `move_to` use `Dexter.move_to (...)`
 
