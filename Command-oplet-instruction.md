@@ -1,14 +1,16 @@
 The list of commands or "oplets" that Dexter knows are defined by the [HashInputCMD function](https://github.com/HaddingtonDynamics/Dexter/search?utf8=%E2%9C%93&q=HashInputCMD+filename%3ADexRun.c&type=) in the [DexRun.c](../blob/master/Firmware/DexRun.c) [Firmware](firmware) and are described by [Dexter.instruction_type_to_function_name_map](https://github.com/cfry/dde/search?q=Dexter.instruction_type_to_function_name_map+filename%3Arobot.js&unscoped_q=Dexter.instruction_type_to_function_name_map+filename%3Arobot.js) in DDE. 
 
-This wiki page attempts to expand on those source documents to explain the instructions. In addition to this list, the ['w' Write FPGA](oplet-write), and ['S' SetParameter](set-parameter-oplet) oplets also have lists of addresses and sub-commands. These oplets are sent to Dexter via a raw socket connection on port 50000 in a format fully documented in [DexRun-DDE-communications](DexRun-DDE-communications).
+This wiki page attempts to expand on that document to further explain the instructions. In addition to this list, the ['w' Write FPGA](oplet-write), and ['S' SetParameter](set-parameter-oplet) oplets also have lists of addresses and sub-commands. 
 
-**Always wait for return status** after sending an oplet, before sending the next oplet. 
+Oplets are sent to Dexter via a raw socket connection on port 50000 in a format fully documented in [DexRun-DDE-communications](DexRun-DDE-communications).
+
+**Always wait for return [status](status-data)** after sending an oplet, before sending the next oplet. 
 
 **Non-movement instructions may hold for a move instruction** to be sent. This helps to coordinate movement with things like end effector actuation. However, it can be confusing if you just want to e.g. turn a laser end effector on and off and nothing happens. Just send a movement command with the current positions to enable your prior command.
 
-**Certain instructions are queued** in the FPGA in an internal movement FIFO and executed sequentially but will instantly return a status when recieved even though the movement is not complete. Other instructions are executed as soon as they are recieved. When the queue is full, that last movement command submitted will not return a status, and DexRun will not respond to _any_ commands until a movement is complete, opening a space on the queue. 
+**Certain instructions are queued** in the FPGA in an internal movement FIFO and executed sequentially but will instantly return a status when recieved even though the movement is not complete. These are marked as "queued" in the list below. Other instructions are executed as soon as they are recieved. When the queue is full, that last movement command submitted will not return a status, and DexRun will not respond to _any_ commands until a movement is complete, opening a space on the queue. 
 
-**To wait for a movement** to completed, use the <a href="#f">'F' oplet</a>, as it will not return a status until the que is empty. 
+**To wait for a movement** to completed, use the <a href="#f">'F' oplet</a>, as it will not return a [status](status-data) until the queue is empty. 
 
 See [DDE](DDE) documentation for the use of the DDE version of each command. E.g. for `move_to` use `Dexter.move_to (...)`
 
