@@ -23,7 +23,7 @@ A job number, instruction number, start POSIX time, end time (unknown) and the o
 <a name="b">**b**</a>|"move_to"|n/a|Queued. Use "Dexter.move_to" in DDE. In DexRun, this oplet is obsolete. See "M"
 <a name="B">B</a>|"set_boundries"|SET_ALL_BOUNDRY|10 args in arcseconds: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow. Set individually with ["S" oplet subcommands](set-parameter-oplet)
 <a name="c">c</a>|"capture_ad"|CAPTURE_AD_CMD|
-<a name="C">C</A>|n/a|PID_MOVE_TO|Since [2019.10.10](https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5) Onboard [kinematics](Kinematics) move to XYZ (integer microns), with end effector in XYZ direction (unit vector), using configuration (booleans). Like 'M' but uses PID moves (like 'P') instead of 'a'. 
+<a name="C">C</A>|n/a|PID_MOVE_TO|Since [2019.10.10](https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5) Onboard [kinematics](Kinematics) move to XYZ (integer microns), with end effector in XYZ direction (unit vector), using configuration (booleans). Like <a href="#M">'M'</a> but uses PID moves like <a href="#P">'P'</a> instead of joint moves like <a href="#a">'a'</a>. See also [S PID_P](set-parameter-oplet#JointPID) and [w MAX_ERROR](oplet-write#36) to limit drive strength. |
 <a name="d">d</a>|"dma_read"|DMAREAD_CMD|Writes the FPGA DMA data into the specified file. 3 args: Address, Length, Filename.
 <a name="e">e</a>|"cause_dexter_error"|n/a|Used only in DDE
 <a name="E">E</a>|"empty_instruction_ queue_immediately"<br>Since 2016.09.01|n/a|Apparently never implemented in firmware?
