@@ -23,6 +23,7 @@ A job number, instruction number, start POSIX time, end time (unknown) and the o
 <a name="b">**b**</a>|"move_to"|n/a|Queued. Use "Dexter.move_to" in DDE. In DexRun, this oplet is obsolete. See "M"
 <a name="B">B</a>|"set_boundries"|SET_ALL_BOUNDRY|10 args in arcseconds: j1BoundryHigh, j1Boundrylow,  j2BoundryHigh, j2Boundrylow, j3BoundryHigh, j3Boundrylow, j4BoundryHigh, j4Boundrylow, j5BoundryHigh, j5Boundrylow. Set individually with ["S" oplet subcommands](set-parameter-oplet)
 <a name="c">c</a>|"capture_ad"|CAPTURE_AD_CMD|
+<a name="C">C</A>|n/a|PID_MOVE_TO|Since [2019.10.10](https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5) Onboard [kinematics](Kinematics) move to XYZ (integer microns), with end effector in XYZ direction (unit vector), using configuration (booleans). Like 'M' but uses PID moves (like 'P') instead of 'a'. 
 <a name="d">d</a>|"dma_read"|DMAREAD_CMD|Writes the FPGA DMA data into the specified file. 3 args: Address, Length, Filename.
 <a name="e">e</a>|"cause_dexter_error"|n/a|Used only in DDE
 <a name="E">E</a>|"empty_instruction_ queue_immediately"<br>Since 2016.09.01|n/a|Apparently never implemented in firmware?
@@ -37,7 +38,7 @@ A job number, instruction number, start POSIX time, end time (unknown) and the o
 <a name="m">m</a>|"record_movement"|RECORD_MOVEMENT||
 <a name="n">n</a>|"find_index"|FIND_INDEX_CMD||
 <a name="o">o</a>|"replay_movement"|REPLAY_MOVEMENT||
-<a name="P">P</a>|"pid_move_all_joints"|PID_FINEMOVE|Chases a goal position on each joint using the PID control system which must be enabled. Requires [calibration](Encoder-calibration). The goal can change in the middle of the move. Movement is not coordinated so each joint may arrive at the goal at a different time. The standard trapezoidal speed ramping is not used. See "a". Modified 201909 to optionally accept joint 6/7 angles. See [kinematics](https://github.com/HaddingtonDynamics/Dexter/wiki/Kinematics) for its comparison to move_all_joints |
+<a name="P">P</a>|"pid_move_all_joints"|PID_FINEMOVE|Chases a goal position on each joint using the PID control system which must be enabled. Requires [calibration](Encoder-calibration). The goal can change in the middle of the move. Movement is not coordinated so each joint may arrive at the goal at a different time. The standard trapezoidal speed ramping is not used. See "a". Modified 201909 to optionally accept joint 6/7 angles. See [kinematics](Kinematics) for its comparison to move_all_joints. See also [S PID_P](set-parameter-oplet#JointPID) and [w MAX_ERROR](oplet-write#36) to limit drive strength. |
 <a name="p">p</a>|"find_home_rep"|FIND_HOME_REP_CMD|_Depreciated_ Use job engine.|
 <a name="R">**R**</a>|"move_all_joints_ relative"|MOVEALL_RELATIVE|Queued. Like 'a' but the joint is moved relative to it's prior position. E.g. `R 0 0 -36000 0 0;` will move joint 3 ccw 10 degrees.
 <a name="r">r</a>|"[read_from_robot](read-from-robot)"<br>[Since v2.3.16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)|READ_CMD<br>[Since 2018.07.26](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)|Reads files or string data from the robot. Also reads and prints locally values from the memory mapped FPGA interface.
