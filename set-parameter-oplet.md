@@ -398,7 +398,7 @@ S, AxisCal, -332800, -332800, -332800, -86400, -86400 ;Defaults for Dexter HDI
    <td>0 | 360000 | 1296000 | arcsec/s (5 integers)</td>
    </tr>
  <tr>
-   <td colspan=3><a name="ServoSetX"><b>ServoSetX</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/f87b7c898d891604474573a44642c551488a667f">2020/08/10</a> to close #<a href="https://github.com/HaddingtonDynamics/Dexter/issues/94">94</a>. The parameters are <tt>ID Addr Len [Data]</tt>:<ul>
+   <td colspan=3><a name="ServoSetX"><b>ServoSetX</b></a>: Since <a href="https://github.com/HaddingtonDynamics/Dexter/commit/f87b7c898d891604474573a44642c551488a667f">2020/08/10</a> to close #<a href="https://github.com/HaddingtonDynamics/Dexter/issues/94">94</a>. The parameters are <tt>ID Addr Len [Data]</tt>:<ul>
 <li> Servo ID: The expected ID number of the servo on the Dynamixel bus
 <li> Address: The address in the header or ram table in the servo
 <li> Data/Length: This can either be a single byte of data (which makes ServoSetX work just like ServoSet) or, if the next parameter is specified, then this is the length of the data string
