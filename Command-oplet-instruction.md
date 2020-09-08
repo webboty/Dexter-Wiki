@@ -2,7 +2,7 @@ The list of commands or "oplets" that Dexter knows are defined by the [HashInput
 
 This wiki page attempts to expand on that document to further explain the instructions. In addition to this list, the ['w' Write FPGA](oplet-write), and ['S' SetParameter](set-parameter-oplet) oplets also have lists of addresses and sub-commands. 
 
-Oplets are sent to Dexter via a raw socket connection on port 50000 in a format fully documented in [DexRun-DDE-communications](DexRun-DDE-communications).
+**To send oplet to Dexter:** Oplets are sent to Dexter via a raw socket connection on port 50000 in a format fully documented in [DexRun-DDE-communications](DexRun-DDE-communications).
 
 **Always wait for return [status](status-data)** after sending an oplet, before sending the next oplet. 
 
