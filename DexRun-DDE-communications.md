@@ -1,6 +1,9 @@
-# Dexter <=> DDE communications: 
+# Dexter <=> DDE (or other) communications: 
 
-DDE, and most other applications communicate with Dexter via raw sockets, over an [Ethernet link](Dexter-Networking) on port 50000.
+DDE, and other applications communicate with Dexter via raw sockets, over an [Ethernet link](Dexter-Networking) on port 50000. The [DexRun firmware](firmware) accepts ASCII command ["oplets"](Command-oplet-instruction) and responds with BINARY [status](https://github.com/HaddingtonDynamics/Dexter/wiki/status-data). 
+
+### Wait for status after sending each oplet:
+After each ["oplet"](Command-oplet-instruction) is sent, the host application must wait for the [status](https://github.com/HaddingtonDynamics/Dexter/wiki/status-data) to be returned before sending the next oplet. Even if the status is ignored (not parsed) it is critical to wait for the status to be returned before continuing. In most cases, status will be returned almost instantly, but in some cases, it may take several seconds to process and return. Sending multiple oplets without waiting for a return status can result in unpredictable operation.
 
 ### Data Format
 Fields are separated by space (but could be comma) and the request is terminated by a ';' (semicolon).
