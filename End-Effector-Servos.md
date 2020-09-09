@@ -30,7 +30,7 @@ Bit 2 |	ERROR_INPUT_VOLTAGE	| Voltage is out of operational voltage range
 Bit 1 |	ERROR_OVER_HEATING	| Temperature is out of operational temperature range
 Bit 0 |	ERROR_OVERLOAD  	| Motor cannot output max load due to load being applied continuously
 
-These are binary additive. E.g. If the input voltage dips too low and the motor is also overloaded, the returned value will be 5 = 1*2^0 + 0*2^1 + 1*2^2. Or to decode the value:
+These are binary additive. E.g. If the input voltage dips too low and the motor is also overloaded, the returned value will be 5 = 1 * 2^0 + 0 * 2^1 + 1 * 2^2. Or to decode the value:
 ````
 if (error>=4) { error -= 4; //voltage error }
 if (error>=2) { error -= 2; //overheated }
