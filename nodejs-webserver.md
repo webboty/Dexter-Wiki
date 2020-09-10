@@ -114,3 +114,10 @@ https://github.com/HaddingtonDynamics/Dexter/issues/85
 Acting as a ModBus server to set and read register values from a file or start and return values from Job Engine jobs:<BR>
 https://github.com/HaddingtonDynamics/Dexter/issues/84
 
+## Batch Update
+After installing node on Dexter (or if it is already installed) it can be easy to update all the files related to the node server by simply downloading the current [www.zip](https://drive.google.com/file/d/1opXPhTBxCwHbTXl6UTgPAOxYyx3PuR4r/view?usp=sharing) file and extracting it, then copying all those files into the /srv/samba/share/www folder. Step by step:
+1. You will need a Dexter robot, and a [local network connection to it from a PC](Dexter-Networking#connection). 
+2. On the PC, you will need a way to quickly transfer a large number of files to [Dexter via the samba share or sftp](Dexter-Networking#file-sharing). The key is to be able to see the files on the robot in your file manager on the PC and move files back and forth.
+3. Download the [www.zip](https://drive.google.com/file/d/1opXPhTBxCwHbTXl6UTgPAOxYyx3PuR4r/view?usp=sharing) file and extract on your PC. Inside you will find a folder called 'www' and in that folder there are a bunch of files like "httpd.js" and others as well as sub folders like "node_modules" and "edit". You may see some of the same files and folders in the www folder under the share on Dexter. The goal is to /replace/ the files on Dexter with these new files. 
+4. Copy the www folder from the www.zip file over the top of the www folder on Dexter, telling it to replace any existing files. 
+5. Restart the robot once that is finished. Then when it has settled down after bootup, hit the robots IP address with your web browser and explore the options. 
