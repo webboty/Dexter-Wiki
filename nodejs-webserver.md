@@ -1,4 +1,4 @@
-All of the below is in the current image already. Files which may be more up to date are available in the [Firmware www folder](https://github.com/HaddingtonDynamics/Dexter/tree/StepAngles/Firmware/www)
+All of the below is in the current image already. Files which may be more up to date are available in the [Firmware www folder](https://github.com/HaddingtonDynamics/Dexter/tree/Stable_Conedrive/Firmware/www) and a [Batch Update](#update) can make it easy to install new versions.
 
 Contents:
 - <a href="#installing-node-js-on-dexter">Installing Node.js on Dexter</a>
