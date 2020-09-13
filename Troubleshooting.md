@@ -43,8 +43,13 @@ When going into a closed loop mode where the [Encoders](Encoders) are feeding po
 
 Most often, this is caused by a problem with the encoder. E.g. an LED or photosensor has come out of the hole in the encoder block, the encoder block has been pulled out of mesh with the disk, a connector is loose or a wire broken, or the encoder is simply not [calibrated](Encoder-Calibration) correctly. 
 
-To diagnose this, in [DDE](DDE), from the "Calibrate Dexter..." dialog on the "Jobs" menu, do the eye calibration for the affected joint. Here is an example of an encoder which is NOT working correctly:<br>
+To diagnose an encoder problem, in [DDE](DDE), from the "Calibrate Dexter..." dialog on the "Jobs" menu, do the eye calibration for the affected joint. Here is an example of an encoder which is NOT working correctly:<br>
 ![Bad encoder eye. Sensor pulled out of encoder block.](https://user-images.githubusercontent.com/419392/59715702-4f83c300-91c9-11e9-85df-87ec6569a9de.png)
+
+In this case, one of the two led / opto pairs is not working. Diagnose the cause of this type of problem by removing both LEDs and photosensors, then start calibration, but manually shine the LED's into the opto sensors.
+- You may see that one of the LEDS causes either photosensor to react. If that is the case, the other LED is backwards, dead, or the wires are bad, or the PCB is bad or the pot for that LED is turned down or bad. Try replacing the LED. Ohm out the wires (after disconnecting from the main PCB), etc... As a last resort, replace the opto PCB.
+- You may find that either LED causes either photosensor to move, If that is the case the issue is mechanical. E.g. the hole is plugged up, misaligned, etc...
+- You may find that either LED makes one photosensor react, but not the other. That photosensor is backwards, damaged, miswired, or the PCB is bad or the cable is bad or something. Try replacing it. Ohm out the wires (after disconnecting from the main PCB), etc... As a last resort, replace the opto PCB.
 
 And here is another example of one that is correct (after being fixed) showing the "eye" and the correct center dot placed by the user.<br>
 ![Good encoder, after replacing Sensor in hole of encoder block.](https://user-images.githubusercontent.com/419392/59716213-6d9df300-91ca-11e9-87d6-0b530f39fb61.png)
