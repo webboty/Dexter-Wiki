@@ -3,6 +3,9 @@ Encoders provide closed loop feedback of the actual position of each [joint](Joi
 
 <img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/EncoderOverview.png">
 
+Here you can see the slot passing under the mask. Notice the variation in light level inside the hole. This change in light level is what we are sensing; not just the passing of the slot, but the change in transmitted light as the slot passes.
+![Animation of one encoder sensor as the slot passes the mask.](https://user-images.githubusercontent.com/419392/93278868-a6849900-f77a-11ea-94a1-3a8694d31c93.gif)
+
 ### Unit Circle
 There are two light sources and sensors for each disk to provide quadrature directional data. These are placed such that the signals generated are 90 degrees out of phase with each other. This makes them sin and cosine. If they are plotted on a graph, as each slot passes the sensors, they form a circle. 
 
