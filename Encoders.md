@@ -7,7 +7,10 @@ Here you can see the slot passing under the mask. Notice the variation in light 
 ![Animation of one encoder sensor as the slot passes the mask.](https://user-images.githubusercontent.com/419392/93278868-a6849900-f77a-11ea-94a1-3a8694d31c93.gif)
 
 ### Unit Circle
-There are two light sources and sensors for each disk to provide quadrature directional data. These are placed such that the signals generated are 90 degrees out of phase with each other. This makes them sin and cosine. If they are plotted on a graph, as each slot passes the sensors, they form a circle. 
+There are two light sources and sensors for each disk to provide quadrature directional data. These are placed such that the signals generated are 90 degrees out of phase with each other. In this animation, you can see the phase difference between the two sensors:
+![Animation of the encoder showing the phase between the two sensors.](https://user-images.githubusercontent.com/419392/93278905-c025e080-f77a-11ea-936e-0685ca073cac.gif)
+
+This makes them sin and cosine. If they are plotted on a graph, as each slot passes the sensors, they form a circle. 
 
 ![Good encoder, after replacing Sensor in hole of encoder block.](https://user-images.githubusercontent.com/419392/59716213-6d9df300-91ca-11e9-87d6-0b530f39fb61.png)
 <BR>An acceptable encoder "eye" in the DDE Calibration dialog. The black dots are a sampling of ADC reading. When you click, you move the red dot to indicate the center of the eye. The blue dot near center indicates where the center is currently set in the robot; where it was previously set and saved. A green dot indicates the programs best guess of the center. 
