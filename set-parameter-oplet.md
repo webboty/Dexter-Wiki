@@ -334,12 +334,14 @@ Injects a negative force opposing the external force to limit the amount the joi
    <td>arcsec (5 integers)</td>
    </tr>
  <tr>
-   <td colspan=3><a name="LinkLengths"><b>Link Lengths</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/08fb9a8ca9cee5ed71d580e834f16daa9561f4da#diff-691272021fae98368efb598f8e089c16">2019/05/29</a> Sets the lengths of each link in the arm for the onboard kinematics. Parameters:<br>L1: Base mount to Joint 2 pivot.<br>L2: Joint 2 pivot to Joint 3 pivot.<br>L3: Joint 3 pivot to Joint 4 pivot. <br>L4: Joint 4 pivot to axis of tool interface. <br>L5: Axis of Joint 4 to end effector (note: this depends on the end effector and is most likely to change). <br>Note: <i>Order of parameters is L5 to L1 so that if only 1 is specified, it changes L5 vs L1.</i></td>
+   <td colspan=3><a name="LinkLengths"><b>Link Lengths</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/08fb9a8ca9cee5ed71d580e834f16daa9561f4da#diff-691272021fae98368efb598f8e089c16">2019/05/29</a> Sets the lengths of each link in the arm for the onboard kinematics. Parameters:<br>L1: Base mount to Joint 2 pivot.<br>L2: Joint 2 pivot to Joint 3 pivot.<br>L3: Joint 3 pivot to Joint 4 pivot. <br>L4: Joint 4 pivot to axis of tool interface. <br>L5: Axis of Joint 4 to end effector (note: this depends on the end effector and is most likely to change). <br>Note: <i>Order of parameters is L5 to L1 so that if only 1 is specified, it changes L5 vs L1. NEVER change anything but the first number, L5, unless you have actually rebuilt the robot. E.g. if you added an end effector which reached 7.1 inches from the center of joint 5, (instead of 3.25 inches) you might send `S LinkLengths 180340;`</i></td>
    </tr>
  <tr>
    <td>51,&nbsp;LinkLengths</td>
    <td>meters (5 floats, L5 to L1)</td>
-   <td> 82551, 50801, 330201, 320676, 228600 microns (5 integers, L5 to L1)</td>
+   <td> 
+For HDI: 82551, 50801, 330201, 320676, 228600 microns (5 integers, L5 to L1)
+</td>
    </tr>
  <tr>
    <td colspan=3><a name="RawEncoderErrorLimits"><b>Raw Encoder Error Limits</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/8efff90396c50680f40f52a196b21d2c92cc0088">2019/04/22</a> The largest error allowed between the raw encoder reading of position and the expected position for each joint. Part of the status monitor. Will inject a returned error status on the next command and write out and entry with more information to /srv/samba/share/errors.log. Default values set in Defaults.make_ins. </td>
