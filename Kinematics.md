@@ -74,6 +74,8 @@ and DDE will use it's understanding of the Link Lengths and Dexter's shape to ca
 ### Onboard 
 Current firmware also directly supports the ['M'](command-oplets#M) and ['T'](command-oplets#T) [oplets](command-oplets) for onboard kinematics, which take the same parameters, but the X, Y, Z units are integer microns, aka "micrometers", or a millionths of a meter (1/1,000,000 meters). The link lengths for this calculation are set via the [Link Lengths](set-parameter-oplet#LinkLengths) Set Parameter command and can be stored in the Defaults.make_ins file for automatic setting on robot startup. Note that Length 5 (the length of the tool interface and end effector) is set /first/ in that command, and it will update as many lengths as you give it, so you can easily change the end effector length on the fly by specifying only that ONE length. 
 
+## Forward Kinematics
+
 The current Cartesian position and orientation can be retrieved from the robot via the ['r' Read from robot oplet, and the #POM keyword](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords). 
 
 See also: [Dynamics](Dynamics)
