@@ -14,10 +14,11 @@ Here is a summary of the different movement methods, including related parameter
 ## Kinematics
 To move the end effector to a desired Cartesian point, we must convert the points X, Y, and Z values to [Joint](Joints) Angles for J1, J2, J3, J4, and J5. This is called "Inverse Kinematics". _Note: Dexter follows the common convention is that Z is up / down, X is right / left, and Y is out / back. (see picture below)._ Doing this computation correctly also requires that we know the correct lengths between each "link" on the robot. For example, L1 is from the mounting point to the axis of Joint 2 (J2). L2 is from J2 to J3, L3 from J3 to J4, L4 from J4 to J5, and L5 is from the axis of J5 to the tip of the end effector. This IK computation can be done by the control software, such as DDE, or onboard by Dexter. To specify the desired position and orientation, we use:
 
-`[X, Y, Z], direction, config`
-- X, Y, and Z indicate the destination point, but this isn't enough information;
-- `direction` or "orientation" is an array of unit vectors [X, Y, Z] which specify the direction to point the end effector. e.g. `[0, 0, -1]` is straight down,
-- `config` is an array of boolean options [right_arm, elbow_up, wrist_out] for how we should reach that point. See below for more.
+**`Position, Direction, Configuration`**
+
+- <a href="#position">`Position`</a> [X, Y, and Z] indicate the destination point, but this isn't enough information;
+- <a href="#direction">`Direction`</a> or "orientation" is an array of unit vectors [X, Y, Z] which specify the direction to point the end effector. e.g. `[0, 0, -1]` is straight down. See below for more information.
+- <a href="#configuration">`Configuration`</a> is an array of boolean options [right_arm, elbow_up, wrist_out] for how we should reach that point. See below for more.
 
 ### Position
 aka "**[X, Y, Z]**" this is the position that the tip of the end effector (assuming a correct LinkLength for L5) will be positioned at. It is not the position of the differential, or the end of the 5 axis, unless L5 is set to a very small value, e.g. 1 micron. Note that not every XYZ position can be reached, and that moving from one position to another can pass into unreachable areas, or cause the rotational speed of a joint to exceed maximums. A good starting point is: [0, 0.5, 0.075] and short movements around that point should be possible.
