@@ -12,17 +12,18 @@ Here is a summary of the different movement methods, including related parameter
 | ['C' PID_MOVE_TO](Command-oplet-instruction#p) | XYZ (integer microns)<br>XYZ direction (unit vector)<br>configuration (booleans). | [PID_P](set-parameter-oplet#JointPID),<br>PIDMaxSpeed via [`w, 36`](oplet-write) | Since [2019.10.10](https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5) Executes immediately,<BR>PID feedback loop based ramping,<BR>smooth deceleration.<BR>Good for smooth continuous motion through path and real-time control<BR>&nbsp; | Non-coordinated (joints finish independently),<BR>non-smooth acceleration,<br>requires sleeps between commands<br>Requires Cal |
 
 ## Kinematics
-To move the end effector to a desired point, we must convert XYZ to [Joint](Joints) Angles for J1, J2, J3, J4, and J5. Dexter follows the common convention is that Z is up / down, X is right / left, and Y is out / back. (see picture below). This can be done by the control software, such as DDE, or onboard by Dexter. To specify the desired position and orientation, we use:
+To move the end effector to a desired Cartesian point, we must convert the points X, Y, and Z values to [Joint](Joints) Angles for J1, J2, J3, J4, and J5. This is called "Inverse Kinematics". _Note: Dexter follows the common convention is that Z is up / down, X is right / left, and Y is out / back. (see picture below)._ Doing this computation correctly also requires that we know the correct lengths between each "link" on the robot. For example, L1 is from the mounting point to the axis of Joint 2 (J2). L2 is from J2 to J3, L3 from J3 to J4, L4 from J4 to J5, and L5 is from the axis of J5 to the tip of the end effector. This IK computation can be done by the control software, such as DDE, or onboard by Dexter. To specify the desired position and orientation, we use:
 
 `[X, Y, Z], direction, config`
 - X, Y, and Z indicate the destination point, but this isn't enough information;
 - `direction` or "orientation" is an array of unit vectors [X, Y, Z] which specify the direction to point the end effector. e.g. `[0, 0, -1]` is straight down,
 - `config` is an array of boolean options [right_arm, elbow_up, wrist_out] for how we should reach that point. See below for more.
 
-A good starting point for xyz is: [0, 0.5, 0.075].
+### Position
+aka "**[X, Y, Z]**" this is the position that the tip of the end effector (assuming a correct LinkLength for L5) will be positioned at. It is not the position of the differential, or the end of the 5 axis, unless L5 is set to a very small value, e.g. 1 micron. Note that not every XYZ position can be reached, and that moving from one position to another can pass into unreachable areas, or cause the rotational speed of a joint to exceed maximums. A good starting point is: [0, 0.5, 0.075] and short movements around that point should be possible.
 
-
-**Direction** controls what direction the last part of the arm is pointing. It will be at X, Y, Z, but should it be pointing straight down? [0, 0, -1] does that. Or should it be pointed out? [0, 1, 0] does that. Or maybe you want it pointed in? [0, -1, 0]. 
+### Direction 
+This controls what direction the last part of the arm is pointing. It will be at X, Y, Z, but should it be pointing straight down? [0, 0, -1] does that. Or should it be pointed out? [0, 1, 0] does that. Or maybe you want it pointed in? [0, -1, 0]. 
 
 You can send a direction vector that has a larger than 1 magnitude.
 The code will convert this to a unit vector for you, this is called 'normalizing'.
@@ -33,10 +34,8 @@ it will convert it to
 or 
 [0.57735, 0.57735, 0.57735]
 
-
-
-### Computing Direction
-The following JavaScript code from DDE illustrates how to compute the direction vector from a "pitch" and "roll" angle:
+#### Computing Direction
+The following JavaScript code from DDE's [Kin.js](https://github.com/cfry/dde/blob/master/math/Kin.js) illustrates how to compute the direction vector from a "pitch" and "roll" angle:
 
 ````
 Kin.angles_to_dir_xyz = function(x_angle = 0, y_angle = 0){
@@ -52,15 +51,14 @@ Kin.angles_to_dir_xyz = function(x_angle = 0, y_angle = 0){
     return Vector.round(Vector.normalize(Vector.cross(ZX_plane, ZY_plane)), 15)
 }
 ````
-So, in DDE only, you can also use an array of 2 values, which will be taken as pitch and roll angles, but be careful not to use 90 as _both_ of the angles because it will cause a "singularity"
+So, in DDE only, you can also use an array of 2 values for "direction", which will be taken as pitch and roll angles, but be careful not to use 90 as _both_ of the angles because it will cause a "singularity"
 
-
-**Singularity**  "A point at which a function takes an infinite value" In many cases, there are more than one way to get to the target. If you specify [90,90] for wrist pitch and roll, there are an infinite number of ways to get to that direction. 
-
+**Singularity**  "A point at which a function takes an infinite value" In many cases, there are more than one way to get to the target. If you specify [90,90] for wrist pitch and roll, there are an infinite number of ways to get to that direction. Configuration also helps us to select one set of joint angles when there are many which might reach the same point:
 
 <img src="https://github.com/JamesNewton/AdvancedRoboticsWithJavascript/blob/master/docs/Configurations.png?raw=true" width=317 height=327 align="right">
 
-**config** For most points that Dexter can reach, there are multiple ways in which Dexter can get there. For example, This picture shows all the ways Dexter might get to the same point (on the sloped face of the grey cube). There is also a [(really big) version that shows them all separated](https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Configurations.png). `config` helps you specify your preference as to how Dexter configures its joints to get to the indicated x, y, z. There are 3 independent boolean values to determining this configuration. They are:
+### Configuration
+For most points that Dexter can reach, there are multiple ways in which Dexter can get there. For example, This picture shows all the ways Dexter might get to the same point (on the sloped face of the grey cube). There is also a [(really big) version that shows them all separated](https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Configurations.png). `config` helps you specify your preference as to how Dexter configures its joints to get to the indicated x, y, z. There are 3 independent boolean values to determining this configuration. They are:
 - **base-rotation** `right_arm`: LEFT or 0 means J1, the base joint has a _negative_ value, ie it is to the right if you are facing Dexters front. Looking down from the top at Dexter this would mean its rotated counter clockwise. The opposite direction is RIGHT, or 1 which is clockwise, to the left facing the robot.
 - **J3-position** `elbow_up`: Joint 3 can be thought of as Dexter's elbow. The elbow can be either UP i.e. away from the table or DOWN, closer to the table.
 - **J4 Position** `wrist_out`: Joint 4 / 5 can be thought of as Dexter's wrist. It can be pointing either IN, towards the base, or OUT, away from the base.
@@ -77,6 +75,9 @@ Current firmware also directly supports the ['M'](command-oplets#M) and ['T'](co
 
 The current Cartesian position and orientation can be retrieved from the robot via the ['r' Read from robot oplet, and the #POM keyword](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords). 
 
+See also: [Dynamics](Dynamics)
+
 <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Direction_Vector.PNG">
 
-See also: [Dynamics](Dynamics)
+![Link Lengths](https://user-images.githubusercontent.com/26582517/91360228-e0c9ce80-e7aa-11ea-9465-29e0f4eb875d.PNG)
+
