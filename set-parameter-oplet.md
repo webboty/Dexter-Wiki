@@ -340,7 +340,8 @@ Injects a negative force opposing the external force to limit the amount the joi
    <td>51,&nbsp;LinkLengths</td>
    <td>meters (5 floats, L5 to L1)</td>
    <td> 
-For HDI: 82551, 50801, 330201, 320676, 228600 microns (5 integers, L5 to L1)
+For HD: 82551, 50801, 330201, 320676, 228600 microns (5 integers, L5 to L1)<br>
+For HDI: 82551, 50950, 307500, 339092, 235200
 </td>
    </tr>
  <tr>
