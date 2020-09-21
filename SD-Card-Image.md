@@ -115,12 +115,18 @@ resize2fs /dev/mmcblk0p2
 At this point, everything is done; `lsblk` should show the new partition size and `df -h` should show that you have additional space on the file system.
 
 ## Checklist for Making New Image
+
+### Image From Existing Robot
 - Ensure /etc/network/interfaces is setup for non-DHCP, but fixed IP address.
 - `rm /var/lib/zerotier-one/identity.secret ` <br> `rm /var/lib/zerotier-one/identity.public` <br>so that a new ZeroTeir unique identity will be generated the first time it starts.
 - Make sure Find_Index_Pulses_HDI.dde and PHUI2RCP.js are enabled at the end of RunDexRun.
 
 After the image is made, try shrinking it on Ubuntu with <br>
 https://github.com/Drewsif/PiShrink
+
+### Image From Source
+
+See [Issue 25](https://github.com/HaddingtonDynamics/Dexter/issues/25) for notes on how the last one was built. Once the base OS is running, all the Firmware files can be placed in the /srv/samba/share folder, Defaults.make_ins edited to the correct settings for the robot, and the Job Engine can be installed (see [issue 60](https://github.com/HaddingtonDynamics/Dexter/issues/60) ). 
 
 ## History
 2017/00/00 The original image was based on Xilinux 1.3 which is basically Lubuntu 12. 
