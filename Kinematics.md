@@ -84,5 +84,7 @@ See also: [Dynamics](Dynamics)
 
 <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Direction_Vector.PNG">
 
+![](https://user-images.githubusercontent.com/419392/94041118-a9851800-fd7e-11ea-8a59-1c177d40a7a9.png)
+
 ![Link Lengths](https://user-images.githubusercontent.com/26582517/91360228-e0c9ce80-e7aa-11ea-9465-29e0f4eb875d.PNG)
 
