@@ -121,3 +121,10 @@ After installing node on Dexter (or if it is already installed) it can be easy t
 3. Download the [www.zip](https://drive.google.com/file/d/1opXPhTBxCwHbTXl6UTgPAOxYyx3PuR4r/view?usp=sharing) file and extract on your PC. Inside you will find a folder called 'www' and in that folder there are a bunch of files like "httpd.js" and others as well as sub folders like "node_modules" and "edit". You may see some of the same files and folders in the www folder under the share on Dexter. The goal is to /replace/ the files on Dexter with these new files. 
 4. Copy the www folder from the www.zip file over the top of the www folder on Dexter, telling it to replace any existing files. 
 5. Restart the robot once that is finished. Then when it has settled down after bootup, hit the robots IP address with your web browser and explore the options. 
+
+On a Mac or Linux PC, after downloading the www.zip file and extracting it to a www subfolder in your Downloads folder, you can use scp in the terminal program:
+````
+cd  /users/your_name/Downloads
+scp -r www root@192.168.1.142:/srv/samba/share/
+````
+Where "your_name" is your user name on the PC and 192.168.1.142 is whatever your Dexters IP address actually is. 
