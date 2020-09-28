@@ -80,7 +80,9 @@ In those cases where you want to convert joint angles back into Cartesian XYZ co
 
 The current Cartesian position and orientation can be retrieved from the robot via the ['r' Read from robot oplet, and the #POM keyword](https://github.com/HaddingtonDynamics/Dexter/wiki/read-from-robot#keywords). 
 
-See also: [Dynamics](Dynamics)
+See also:
+- [Dynamics](Dynamics)
+- [Spatial Transformation Matrix at MassMind](http://techref.massmind.org/Techref/method/math/spatial-transformations.htm)
 
 <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Direction_Vector.PNG">
 
