@@ -55,7 +55,7 @@ Kin.angles_to_dir_xyz = function(x_angle = 0, y_angle = 0){
 ````
 So, in DDE only, you can also use an array of 2 values for "direction", which will be taken as pitch and roll angles, but be careful not to use 90 as _both_ of the angles because it will cause a "singularity"
 
-### Singularity
+#### Singularity
 "A point at which a function takes an infinite value" In many cases, there are more than one way to get to the target. If you specify [90,90] for wrist pitch and roll, there are an infinite number of ways to get to that direction. Configuration also helps us to select one set of joint angles when there are many which might reach the same point:
 
 <img src="https://github.com/JamesNewton/AdvancedRoboticsWithJavascript/blob/master/docs/Configurations.png?raw=true" width=317 height=327 align="right">
