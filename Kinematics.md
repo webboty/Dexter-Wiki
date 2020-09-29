@@ -1,6 +1,6 @@
 Movement of any robot depends on it's motors or other actuators. In Dexter, there are stepper motors on each axis. But we have a complex and powerful [FPGA](Gateware) based control system which integrates existing position, commanded position, forces, and time in order to provide fantastic accuracy and response times. 
 
-In general, all you need to do is tell Dexter where to move each [joint](Joints) and they will get to exactly that position or die trying. But sometimes you want to change the goal position during a movement, or you want to bring the end effector to a Cartesian position and not worry about the joint angles. _Note: Cartesian positions have their own complexities; requiring [orientation](direction) and [configuration](configuration) to be specified, and [singularities](singularities ) to be avoided._
+In general, all you need to do is tell Dexter where to move each [joint](Joints) and they will get to exactly that position or die trying. But sometimes you want to change the goal position during a movement, or you want to bring the end effector to a Cartesian position and not worry about the joint angles. _Note: Cartesian positions have their own complexities; requiring [orientation](#direction) and [configuration](#configuration) to be specified, and [singularities](#singularities ) must be avoided._
 
 Here is a summary of the different movement methods, including related parameters, settings you can change in the environment that affect that method, and its pros and cons. 
 
