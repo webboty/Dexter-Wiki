@@ -58,8 +58,6 @@ So, in DDE only, you can also use an array of 2 values for "direction", which wi
 #### singularities
 "A point at which a function takes an infinite value" In many cases, there are more than one way to get to the target. If you specify [90,90] for wrist pitch and roll, there are an infinite number of ways to get to that direction. Configuration also helps us to select one set of joint angles when there are many which might reach the same point:
 
-<img src="https://github.com/JamesNewton/AdvancedRoboticsWithJavascript/blob/master/docs/Configurations.png?raw=true" width=317 height=327 align="right">
-
 A true gimbal lock (also called a singularity) will break the math and cause an error. Also positions that are near a singularity can cause strange behavior like large changes in joint angles. An example of a gimbal lock singularity is:
 <br>`[0, 0, 4,  0, 0, -1,  1, 1, 1]`
 
@@ -71,6 +69,8 @@ Here is another example, which is slightly more complex:
 Where L5 is whatever value link 5 is set to. In this position Link5's axis is perpendicular to the plane that L2, L3, and L4 move in; let's call it "Plane 1". In this position the end effector can be rotated about L5's axis to any angle and still achieve the specified X,Y,Z position and direction. In this case three joints J2, J3, and J4 will have infinite solutions and will have large motions when approaching this position.
 
 ### Configuration
+<img src="https://github.com/JamesNewton/AdvancedRoboticsWithJavascript/blob/master/docs/Configurations.png?raw=true" width=317 height=327 align="right">
+
 For most points that Dexter can reach, there are multiple ways in which Dexter can get there. For example, This picture shows all the ways Dexter might get to the same point (on the sloped face of the grey cube). There is also a [(really big) version that shows them all separated](https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Configurations.png). `config` helps you specify your preference as to how Dexter configures its joints to get to the indicated x, y, z. There are 3 independent boolean values to determining this configuration. They are:
 - **base-rotation** `right_arm`: LEFT or 0 means J1, the base joint has a _negative_ value, ie it is to the right if you are facing Dexters front. Looking down from the top at Dexter this would mean its rotated counter clockwise. The opposite direction is RIGHT, or 1 which is clockwise, to the left facing the robot.
 - **J3-position** `elbow_up`: Joint 3 can be thought of as Dexter's elbow. The elbow can be either UP i.e. away from the table or DOWN, closer to the table.
