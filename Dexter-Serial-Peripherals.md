@@ -8,7 +8,7 @@ Once you are at the command prompt on Dexter, with the device _disconnected_ typ
 
 <br><tt><B>ls /dev/co*</B></tt>
 <br><tt>/dev/console</tt>
-<br><tt><B>ls /dev/ttyUSB*</B></tt>
+<br><tt><B>ls /dev/tty*</B></tt>
 
 Now, plug in the device and wait a few moments, then enter those same commands again. In this case, I've plugged in a simple USB - TTL adapter based on the CP2102 chip. Look for the difference:
 
@@ -20,6 +20,8 @@ Now, plug in the device and wait a few moments, then enter those same commands a
 As you can see, the new device is there at `/dev/ttyUSB0`. 
 
 Arduino Unos may show up as `/dev/ttyACM0`.
+
+The OpenMV camera will also show up as `/dev/ttyACM#` Note: To find and mount the flash drive to program the OpenMV cam, you can use `blkid` to show available block devices without the device connected, then connect it and use the command again. The new device is the camera. It will probably appear as `/dev/sda1: SEC_TYPE="msdos" UUID="4621-0000" TYPE="vfat"`. To access the contents, make a folder: `mkdir /mnt/openmvcam` then mount the device: `sudo mount /dev/sda1 /mnt/openmvcam/` and the files will appear at `/mnt/openmvcam`. Edit `main.py` to change the cameras code. When finished, be sure to `umount /mnt/openmvcam`
 
 To test it's operation, you can even use the command line to send and receive data. e.g. Here is a sample session for an Arduino device programmed to respond with some binary data and a few analog port readings in response to a "?". You can find the code for that here: 
 https://gist.github.com/JamesNewton/8b994528ff3ce69e60bbb67c40954cd2
