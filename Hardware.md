@@ -16,3 +16,24 @@ Hardware includes:
 [Parts list (BOM)](https://docs.google.com/spreadsheets/d/1uk89q76vcK4OT9NTM6qxsPpkON_QM3-OrlhfjPigGuE/edit?usp=sharing). May be out of date.
 
 For problems related to hardware, be sure to search [Hardware Issues](https://github.com/HaddingtonDynamics/Dexter/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3AHardware+)
+
+Motor board:
+https://github.com/kgallspark/Dexter/tree/master/MotorControl (see updated schematic PDF in this folder)
+
+Opto interruptors:
+https://github.com/kgallspark/Dexter/tree/master/OPTO (see updated schematic and BOM in the Opto folder here)
+LEDs: https://www.digikey.com/product-detail/en/lite-on-inc/LTE-4206/160-1028-ND/121704
+Phototransistors: https://www.digikey.com/product-detail/en/lite-on-inc/LTR-4206E/160-1030-ND/121710
+Harmonic Drives: www.hanzh.com/ but you need the number 14 component set. This is not listed in their site but they do reply quickly. The problem here is that the lead time is 9-12 weeks. We do not sell them directly. The gear ratio is 52:1.
+
+STL files:
+https://www.thingiverse.com/thing:2108244 Dexter version 1
+https://www.thingiverse.com/thing:3206154 Dexter HD
+https://www.thingiverse.com/thing:3781990 .. HD update
+https://www.thingiverse.com/thing:2842496 covers
+
+OnShape CAD:
+https://cad.onshape.com/documents/2af8ed0e61a34ebf69284c68/w/72caf65e51bde98e456925d2/e/6843c182cbf9181dbb307455
+
+Kinematic skins:
+https://myhub.autodesk360.com/ue2d0419e/g/shares/SH919a0QTf3c32634dcf753762a288dd9424
