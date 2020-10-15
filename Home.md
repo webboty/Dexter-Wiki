@@ -7,7 +7,7 @@ Dexter is a combination of the following:
 * [Gateware](Gateware)
 * [Hardware](Hardware)
 
-<img src="http://techref.massmind.org/images/member/jmn-efp-786/HD_ControlSystem_20201015.svg" height="1224" width="1584" usemap="#workmap">
+<img src="http://techref.massmind.org/images/member/jmn-efp-786/HD_ControlSystem_20201015.svg" height="1224" width="1584" usemap="#workmap" align="top">
 
 <map name="workmap">
   <area shape="rect" coords="34,44,270,350" alt="Computer" href="Firmware">
