@@ -111,7 +111,6 @@ See also:
 
 ## Range
 
-Dexter HDI Joint Range of Motion:<br>
 <img align="left" src="https://user-images.githubusercontent.com/419392/96190203-b1a42380-0ef6-11eb-92c3-84d30b67d975.png">Dexter HDI Motion Envelope - Side View:<BR>
 ![Dexter HDI Motion Envelope - Side View](https://user-images.githubusercontent.com/419392/96189880-30e52780-0ef6-11eb-8ffd-4e77d4b6e493.png)
 
