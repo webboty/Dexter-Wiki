@@ -7,4 +7,4 @@ Dexter is a combination of the following:
 * [Gateware](Gateware)
 * [Hardware](Hardware)
 
-<img src="http://techref.massmind.org/images/member/jmn-efp-786/HD_ControlSystem_20201015.svg" height="800" width="1584" align="top">
+<a href="http://techref.massmind.org/images/member/jmn-efp-786/HD_ControlSystem_20201015.svg"><img src="http://techref.massmind.org/images/member/jmn-efp-786/HD_ControlSystem_20201015.svg" height="800" width="1584" align="top"></a>
