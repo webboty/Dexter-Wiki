@@ -1,6 +1,16 @@
-Movement of any robot depends on it's motors or other actuators. In Dexter, there are stepper motors on each axis. But we have a complex and powerful [FPGA](Gateware) based control system which integrates existing position, commanded position, forces, and time in order to provide fantastic accuracy and response times. 
+On this page:
+- <a href="#methods">Methods of commanding movement</a>
+- <a href="#inverse-kinematics">Inverse Kinematics</a>: Position, Direction, Configuration and Singularities in DDE and on-board.
+- <a href="#forward-kinematics">Forward Kinematics</a>
+- <a href="#directions">Directions Diagram</a>
+- <a href="#range">Range and Envelope of Motion</a>
+- <a href="#link-lengths">Link Lengths and Center of Mass</a>
+
+Movement of any robot depends on it's motors or other actuators. In Dexter, there are stepper motors on each of the first 5 axis and servos on Joint 6 and 7 (or more). But we have a complex and powerful [FPGA](Gateware) based control system which integrates existing position, commanded position, forces, and time in order to provide fantastic accuracy and response times. 
 
 In general, all you need to do is tell Dexter where to move each [joint](Joints) and they will get to exactly that position or die trying. But sometimes you want to change the goal position during a movement, or you want to bring the end effector to a Cartesian position and not worry about the joint angles. _Note: Cartesian positions have their own complexities; requiring [orientation](#direction) and [configuration](#configuration) to be specified, and [singularities](#singularities) must be avoided._
+
+## Methods
 
 Here is a summary of the different movement methods, including related parameters, settings you can change in the environment that affect that method, and its pros and cons. 
 
@@ -95,18 +105,22 @@ See also:
 - [Dynamics](Dynamics)
 - [Spatial Transformation Matrix at MassMind](http://techref.massmind.org/Techref/method/math/spatial-transformations.htm)
 
+## Directions
+
 <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Direction_Vector.PNG">
 
-Dexter HDI Joint Range of Motion:<br>
-<img align="left" src="https://user-images.githubusercontent.com/419392/96190203-b1a42380-0ef6-11eb-92c3-84d30b67d975.png">
+## Range
 
-Dexter HDI Motion Envelope - Side View:<BR>
+Dexter HDI Joint Range of Motion:<br>
+<img align="left" src="https://user-images.githubusercontent.com/419392/96190203-b1a42380-0ef6-11eb-92c3-84d30b67d975.png">Dexter HDI Motion Envelope - Side View:<BR>
 ![Dexter HDI Motion Envelope - Side View](https://user-images.githubusercontent.com/419392/96189880-30e52780-0ef6-11eb-8ffd-4e77d4b6e493.png)
 
 Dexter HDI Motion Envelope - Top View:<BR>
 ![Dexter HDI Motion Envelope - Top View](https://user-images.githubusercontent.com/419392/96189198-e911d080-0ef4-11eb-868c-c63a0f8b30f6.png)
 
-<P style="clear:both;">Link Lengths:</P>
+<P style="clear:both;">&nbsp;</P>
+
+## Link Lengths
 
 ![Link Lengths](https://user-images.githubusercontent.com/419392/94041118-a9851800-fd7e-11ea-8a59-1c177d40a7a9.png)
 
