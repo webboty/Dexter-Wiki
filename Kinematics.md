@@ -97,7 +97,18 @@ See also:
 
 <img src="https://raw.githubusercontent.com/cfry/dde/master/doc/coor_images/Direction_Vector.PNG">
 
-![](https://user-images.githubusercontent.com/419392/94041118-a9851800-fd7e-11ea-8a59-1c177d40a7a9.png)
+Dexter HDI Joint Range of Motion:<br>
+<img align="left" src="https://user-images.githubusercontent.com/419392/96190203-b1a42380-0ef6-11eb-92c3-84d30b67d975.png">
+
+Dexter HDI Motion Envelope - Side View:<BR>
+![Dexter HDI Motion Envelope - Side View](https://user-images.githubusercontent.com/419392/96189880-30e52780-0ef6-11eb-8ffd-4e77d4b6e493.png)
+
+Dexter HDI Motion Envelope - Top View:<BR>
+![Dexter HDI Motion Envelope - Top View](https://user-images.githubusercontent.com/419392/96189198-e911d080-0ef4-11eb-868c-c63a0f8b30f6.png)
+
+<P style="clear:both;">Link Lengths:</P>
+
+![Link Lengths](https://user-images.githubusercontent.com/419392/94041118-a9851800-fd7e-11ea-8a59-1c177d40a7a9.png)
 
 ![Link Lengths](https://user-images.githubusercontent.com/26582517/91360228-e0c9ce80-e7aa-11ea-9465-29e0f4eb875d.PNG)
 
