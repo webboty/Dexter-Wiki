@@ -48,7 +48,7 @@ Note that changing between modes can be problematic when the mode allows you to 
 Dexters gateware is written in [Viva](https://github.com/vivaimagined/Viva), a graphical system for defining logic. This (very) large picture shows the overview of that logic diagram: [Dexter FPGA logic diagram overview](https://user-images.githubusercontent.com/419392/57746151-be2ea780-7684-11e9-80b5-95490f015973.png)
 
 To install Viva, 
-- Download the [Azido.msi installer](https://github.com/vivaimagined/Viva/releases) and install the program on your system. 
+- Download the [Azido.msi installer](https://drive.google.com/file/d/1W-nEY-C-udYF9eZAKjx-If6AcsHUWU8V/view?usp=sharing) and install the program on your system. 
 - Download the SystemDescriptions files for your target and copy them into a SystemDescriptions folder under the "Azido" install folder. e.g. `C:\Program Files (x86)\Azido\SystemDescriptions` (you may need administrative rights)
 - Run VivaSD.exe, and on the System menu select "Open System" and select the .sd file for the desired system. For Dexter, it would be `SystemDescriptions\OpalKelly\XEM6002\PMODBCSxAXIuZNObcs.sd` file. This file contains the system descriptions for both the [MicroZed](MicroZed) board and the [Opal Kelly XEM6002 FPGA board](https://opalkelly.com/products/xem6002/). This board can be used as an ICE for the MicroZed board. Other settings are required for the ICE capacity, including an environment variable called XIL_INSTALL=D:\Xilinx\14.6\ISE_DS\ISE\bin\nt. This is NOT required to use Viva for Dexters FPGA.
 - Set Tools / Preferences as follows<br>![](https://user-images.githubusercontent.com/419392/58519674-779f7980-8169-11e9-9146-c67a6d174f35.png)
