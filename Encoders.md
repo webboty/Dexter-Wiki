@@ -10,10 +10,17 @@ Here you can see the slot passing under the mask. Notice the variation in light 
 There are two light sources and sensors for each disk to provide quadrature directional data. These are placed such that the signals generated are 90 degrees out of phase with each other. In this animation, you can see the phase difference between the two sensors:<BR>
 ![Animation of the encoder showing the phase between the two sensors.](https://user-images.githubusercontent.com/419392/93278905-c025e080-f77a-11ea-936e-0685ca073cac.gif)
 
-This makes them sin and cosine. If they are plotted on a graph, as each slot passes the sensors, they form a circle: <BR>
-![Good encoder, after replacing Sensor in hole of encoder block.](https://user-images.githubusercontent.com/419392/59716213-6d9df300-91ca-11e9-87d6-0b530f39fb61.png)
+## DDE Calibration Dialog
+This makes them sin and cosine. When they are plotted on a graph in DDE on the Jobs / Calibrate Dexter... window, as each slot passes the sensors, they form a circle: <BR>
+![Good encoder, after replacing Sensor in hole of encoder block.](https://user-images.githubusercontent.com/419392/59716213-6d9df300-91ca-11e9-87d6-0b530f39fb61.png)<BR>An acceptable encoder "eye" in the DDE Calibration dialog. 
 
-<BR>An acceptable encoder "eye" in the DDE Calibration dialog. The black dots are a sampling of ADC reading. When you click, you move the red dot to indicate the center of the eye. The blue dot near center indicates where the center is currently set in the robot; where it was previously set and saved. A green dot indicates the programs best guess of the center. 
+After selecting your Dexter in step one, you can press Start to begin a full range motion of each joint while the encoder values are sampled and displayed. The dots are color coded but they can be differentiated by position and order of appearance:
+- Blue / previous: The blue dot near center indicates where the center is currently set in the robot; where it was previously set and saved. This dot will appear first when selecting a joint.
+- Black / circling: The black dots are a sampling of ADC reading and will appear around the circle as the joint moves
+- Green / estimated center: A green dot will appear and jump occasionally to show the programs best guess of the center.  
+- Red / your click: When you click, you move the red dot to indicate the center of the eye. The is the value that will be written to the robot when you press "Save"
+
+_Dexter HDI robots come pre-calibrated from the factory **Never Save an Eye Calibration on a Dexter HDI!**_
 
 ### ADC Centers
 The light sources can be adjusted to change their intensity. This changes the maximum readings returned by Analog to Digital Conversion (ADC), thereby expanding the circle. Minimum readings, when the light is blocked, might be zero or slightly higher if any light is leading around the disk. The center of the circle must be marked, and those coordinate values are stored in the AdcCenters.txt file in the /srv/samba/share folder. The easiest way to set those center positions is to use the DDE Calibration dialog, shown above, in step 2, for each joint. This is a long and careful process which _must_ be completed with precision before the robot will calibrate and work correctly in closed loop modes. Follow the directions in DDE to view and adjust the circles, and then set the center point by pressing "Save". Always restart the robot after saving the new configuration. _Dexter HDI robots come pre-calibrated from the factory **Never Save an Eye Calibration on a Dexter HDI!**_
@@ -23,7 +30,7 @@ On startup those AdcCenters values are read in by the firmware and set into the 
 _Note: Development of the FPGA code started in the middle and so the numbering of the [joints](Joints) is not consistent. Specifically, when reading (or writing) the AdcCenters.txt file from the [share](Dexter-Networking#file-sharing) folder, the 2nd and 4th, and 3rd and 5th, lines must be swapped_
 
 ### Calibration
-During calibration, the signals are recorded in RAM and transferred to the HiMem.dta and memText.txt files on the disk via the ["load_tables" oplet](Command-oplet-instruction) which actually stores the data from the tables. HiMem.dta is binary, the text version of this file is memText.txt. On startup, RAM is automatically [loaded from HiMem.dta](https://github.com/HaddingtonDynamics/Dexter/search?q=himem&unscoped_q=HiMem.dta). 
+During [movement calibration](Encoder-Calibration) (which is NOT the same as the eye calibration we are discussing here), the signals are recorded in RAM and transferred to the HiMem.dta and memText.txt files on the disk via the ["load_tables" oplet](Command-oplet-instruction) which actually stores the data from the tables. HiMem.dta is binary, the text version of this file is memText.txt. On startup, RAM is automatically [loaded from HiMem.dta](https://github.com/HaddingtonDynamics/Dexter/search?q=himem&unscoped_q=HiMem.dta). 
 
 Each value represents a reading from the A2D at a given angle converted to arctangent (perpendicular from the tangent which is sin/cos) and combined with the slot number. Values are a 32 bits. The top 10(?) bits are the slot number and the bottom 20(?) bits are the interpolated data.
 
