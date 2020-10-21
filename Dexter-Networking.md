@@ -11,7 +11,7 @@ Table of contents:
 Dexter has an RJ-45 connector for CAT5 Ethernet connection. Because of issues with the Linux stack, WiFi adapters have not been supported (before Feb 2018). Those were resolved on [the OS 16.04 image](https://github.com/HaddingtonDynamics/Dexter/issues/25), and WiFi adapters DO work, but can be difficult to use. (see below)
 
 ## Direct to PC
-Although Dexter does have the ability to connect directly to the internet via a CAT5 cable to a local router, the easiest way to connect from a PC is to simply connect that CAT5 cable directly between the network port on the PC and Dexter. This is perfectly acceptable and works very well. 
+Although Dexter does have the ability to connect directly to the internet via a CAT5 cable to a local router, the easiest way to connect from a PC is to simply connect that CAT5 cable directly between the network port on the PC and Dexter. This is perfectly acceptable and works very well. If your computer is normally connected via WiFi, but has a CAT5 connector, this is probably the best option for you.
 
 The network adapter on the PC should be configured to the 192.168.1. network. (Since 201903, the [SD card image](https://github.com/HaddingtonDynamics/Dexter/wiki/SD-Card-Image) supports both 192.168.1 and 192.168.0 networks at the same time). In the PC adapter properties for the CAT5 network adapter (not wifi), 
 - set the PC's IP address to something _other_ than .142; e.g. set it to 192.168.1.10.
@@ -25,7 +25,7 @@ Note: You may find that the WiFi network and the Dexter network need to be on se
 In most cases, for most users, this is all that is required. You can start using [DDE](DDE) to program your robot. For other options, continue on here... 
 
 ## Direct to Network Router
-If you can connect a CAT5 cable between Dexter and your network router, Dexter will have access to NTP time, and can be reached from any PC in your internal network (assuming your router allows it). If your network is 192.168.1 or 192.168.0 this should work as long as no other device is at 192.168.x.142. You may need to change Dexters fixed IP address, or change Dexter to DHCP. (see below)
+If you can connect a CAT5 cable between Dexter and your network router, Dexter will have access to NTP time, and can be reached from any PC in your internal network (assuming your router allows it). If your network is 192.168.1 or 192.168.0 this should work as long as no other device is at 192.168.x.142. You may need to change Dexters fixed IP address, or change Dexter to DHCP. (see below). If your PC is connected via CAT5, you may want to purchase a small HUB and split your network cable between Dexter and your PC. 
 
 ## WiFi 
 If your [SD Card](SD-Card-Image) is up to date, you should be able to install a WiFi adapter via the USB Host connection on the [MicroZed board](MicroZed), and configure it for access to your WiFi router. However, 
