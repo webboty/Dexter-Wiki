@@ -392,7 +392,7 @@ S, AxisCal, -332800, -332800, -332800, -86400, -86400 ;Defaults for Dexter HDI
    </tr>
 
  <tr>
-   <td colspan=3><a name="HomeOffset"><b>HomeOffset</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5#diff-a940a548ba41bc988f99d51fd02f21de">2019/10/10</a>. Set an offset for each joint. This defaults to zero. The values are subtracted before any PID movement ('P' or 'C' oplet) and are added back into measured angles or step angles when reporting status. Experimental. Do not use.
+   <td colspan=3><a name="HomeOffset"><b>HomeOffset</b></a>: Added <a href="https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5#diff-a940a548ba41bc988f99d51fd02f21de">2019/10/10</a>. Set an offset for each joint. This defaults to zero. The values are _subtracted_ before any PID movement ('P' or 'C' oplet) and are added back into measured angles or step angles when reporting status. So a positive offset moves the joint in the negative direction. Experimental. [Example](https://github.com/HaddingtonDynamics/Dexter/commit/4c506d60a42ed31d4acc35f74e6f6262ac6a78e5#commitcomment-43499390)
       </td>
    </tr>
  <tr>
