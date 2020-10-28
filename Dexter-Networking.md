@@ -185,8 +185,8 @@ If you wish to disable or reconfigure the sftp daemon, see the /etc/ssh folder. 
 
 ## SCP
 If you are using Linux or MAC, you can transfer files via the terminal window using the SCP command. For example, if you cd into the folder on your computer where the file you want to transfer is located, you can enter a command like: <BR>
-`scp -3 Find_Index_Pulses_HDI.dde root@192.168.1.142:/srv/samba/share`
-<BR> where "Find_Index_Pulses_HDI.dde" is the file being transferred, "192.168.1.142" is the IP address of the Dexter, and "/srv/samba/share" is the destination address.
+`scp -3 RunDexRun root@192.168.1.142:/srv/samba/share`
+<BR> where "RunDexRn" is the file being transferred, "192.168.1.142" is the IP address of the Dexter, and "/srv/samba/share" is the destination address.
 
 # Internet access
 You generally should NOT need to actually give Dexter access to the internet, but if you need that for some reason, you will need that CAT5 cable to run between Dexter and your Router. After a restart, Dexter may automatically connect and have internet access, if the network is 192.168.0.x and your gateway is 192.168.0.1. You can test that from your command prompt with `ping 192.168.0.142` or ping and whatever Dexters IP address is (press Ctrl+C to stop). If it works, [SSH into Dexter](#shell-access-via-ssh) and try `ping www.google.com` from Dexter. If that works, great! If not, here are some common errors and how to resolve them.
