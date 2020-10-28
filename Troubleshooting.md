@@ -61,12 +61,3 @@ Here is an example of a Sensor that was accidentally pulled out of it's hole in 
 
 Replacing it and hot glueing it in place corrected the example issue shown with the eyes above. 
 
-### Failure to find home
-
-The defining feature of the Dexter HDI is it's ability to find home position automatically after power cycle. Previous versions needed to be manually homed before being turned on. If something is wrong with calibration, or if there is a mechanical problem, this may fail and the robot will not be accessible except via [SSH](Dexter-Networking) or [Console Cable connection](Dexter-USB-Connection). 
-
-To find the cause of the issue, we need to first stop Dexter from trying to find home on bootup. First, connect to Dexters command line via [SSH](Dexter-Networking) or [Console Cable connection](Dexter-USB-Connection). At the command prompt, enter `cd /srv/samba/share` and then, from that directory, run `nano RunDexRun` to edit that file. Use the down arrow or PgDn key to move to the bottom of the file. Find the line that mentions `Find_Index_Pulses`. The entire line is:<BR>
-`sleep 5 && sudo node core define_and_start_job /srv/samba/share/dde_apps/Find_Index_Pulses_HDI.dde`<br>
-comment out this line by inserting a '#' at the start of the line. Press Ctrl-X to close nano, and answer "Y" when asked to save the file and confirm the same file name by just pressing Enter. 
-
-Now power cycle the robot. Wait for it to "twitch" the end effector and then you can start DDE and connect to the robot. Note that you are in open loop mode, so PID moves will not work. Perform the [calibrated](Encoder-Calibration) procedure and look for problems with the encoder eyes, or with the joints not moving correctly through the entire range of motion. Do NOT save the calibration results! If you find problems, contact us. 
