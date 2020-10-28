@@ -119,7 +119,7 @@ At this point, everything is done; `lsblk` should show the new partition size an
 ### Image From Existing Robot
 - Ensure /etc/network/interfaces is setup for non-DHCP, but fixed IP address.
 - `rm /var/lib/zerotier-one/identity.secret ` <br> `rm /var/lib/zerotier-one/identity.public` <br>so that a new ZeroTeir unique identity will be generated the first time it starts.
-- Make sure Find_Index_Pulses_HDI.dde and PHUI2RCP.js are enabled at the end of RunDexRun.
+- Make sure the startup jobs you want are enabled at the end of RunDexRun or in the autoexec.jobs file
 
 After the image is made, try shrinking it on Ubuntu with <br>
 https://github.com/Drewsif/PiShrink
