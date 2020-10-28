@@ -36,7 +36,7 @@ A job number, instruction number, start POSIX time, end time (unknown) and the o
 <a name="l">l</a>|"load_tables"|LOAD_TABLES|Writes [encoder](Encoders) CalTables from [FPGA](Gateware) to /srv/samba/share/HiMem.dta
 <a name="M">**M**</a>|n/a<sup>1</sup>|MOVETO_CMD<br>[Since 2018.10.9](https://github.com/HaddingtonDynamics/Dexter/commit/78bc04dfae5166d8889e1fba36540a3de3ea836b#diff-691272021fae98368efb598f8e089c16)|Queued Onboard [kinematics](Kinematics) move to XYZ (integer microns), with end effector in XYZ direction (unit vector), using configuration (booleans). For example to move to [0,0.5,1.0] (in meters) with the end effector pointed straight down and right_arm, elbow_up, and wrist_out:<tt>1 1 1 1 M 0 500000 100000 0 0 -1 1 1 1</tt>. See <a href="#T">T</a> and [S MaxSpeed](set-parameter-oplet#MaxSpeed)
 <a name="m">m</a>|"record_movement"|RECORD_MOVEMENT||
-<a name="n">n</a>|"find_index"|FIND_INDEX_CMD||
+<a name="n">n</a>|"find_index"|FIND_INDEX_CMD|Unused|
 <a name="o">o</a>|"replay_movement"|REPLAY_MOVEMENT||
 <a name="P">P</a>|"pid_move_all_joints"|PID_FINEMOVE|Chases a goal position on each joint using the PID control system which must be enabled. Requires [calibration](Encoder-calibration). The goal can change in the middle of the move. Movement is not coordinated so each joint may arrive at the goal at a different time. The standard trapezoidal speed ramping is not used. See "a". Modified 201909 to optionally accept joint 6/7 angles. See [kinematics](Kinematics) for its comparison to move_all_joints. See also [S PID_P](set-parameter-oplet#JointPID) and [w MAX_ERROR](oplet-write#36) to limit drive strength. |
 <a name="p">p</a>|"find_home_rep"|FIND_HOME_REP_CMD|_Depreciated_ Use job engine.|
