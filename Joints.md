@@ -1,6 +1,6 @@
 Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool Interface](End-Effectors) adds 2 more for a total of 7. Joints 1 to 5 use a stepper motor, transmission, and then an [encoder](Encoders) _after_ the gearing, directly on the joint. The [FPGA](Gateware) measures the encoder position and adjusts the stepped angle of the motor to correct for any error. The difference between the stepped motor shaft position and the actual joint position accommodates any springiness in the drive, but the joint position always returns back to the exact commanded location. Also: [Kinematics](Kinematics), [Dynamics](Dynamics)
 
-|#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation*  | Index spacing on pos move
+|#	|FPGA	|Connector	|Human / Description            	|Slots	|Eye Rotation*  | Spacing on pos move
 | ----  | ----- | ------------- | ------------------------------------- | ----- | ------------- | --------- |
 |1	|1	|Base		|Roll. Shoulder rotate (vertical)      	| 200	| Counter	| even?
 |2	|3<sup>1</sup>	|Pivot		|Pitch. Shoulder lift	               	| 180	| Counter	| odd<sup>3</sup>
@@ -15,9 +15,9 @@ Dexter's [hardware](Hardware) has 5 joints in the base model, and the v2 [Tool I
 
 <sup>2</sup> _The direction of the rotation of the eye for Joint 5 was the opposite of the others because the phase was reversed. This was corrected for consistency on the HD._
 
-<sup>3</sup> The code disks for joints 2, 3, and 4 are designed from the opposite side shown in the diagram below. From the CAD point of view, the Index Even Dir is CW from home for those joints.
+<sup>3</sup> The code disks for joints 2, 3, and 4 are designed from the opposite side shown in the diagram below. From the CAD point of view, the direction is CW from home for those joints.
 
-<sup>4</sup> On Joint 2, the sensor block moves and the code disk is fixed. This reverses the order of the index pulses.
+<sup>4</sup> On Joint 2, the sensor block moves and the code disk is fixed. This reverses the order of the pulses.
 
 ### AxisCal.txt
 Because joints may (do) have different gearing and drive systems, the conversion between one step of the motor and 1 degree of motion for the joint requires a factor. These also account for microstepping and the conversion from degrees to arc seconds. There is also an compensation factor required for joints 4 and 5 when joint 3 is moved (<tt>ANGLE_END_RATIO</tt>). All of this information is stored in the **AxisCal.txt** file on the share. Anytime an angle value is sent or recieved by the Firmware, it is multiplied by the conversion factor for that joint (<tt>JointsCal</tt> array). The following Javascript (for use in DDE) calculates the correct values given the gear ratios, stepper motor steps per revolution, and stepper driver microstepping setting. The gear_ratios shown are for the Dexter 1 and Dexter HD, with the 52:1 Harmonic Drive [hardware](Hardware).
