@@ -107,7 +107,7 @@ There are other capabilities which can be added to the node server as well:
 With the Node Proxy, you can also add extensions to the [Scratch](https://scratch.mit.edu/) language to control Dexter, as demonstrated in [this video](https://www.facebook.com/steamaker/videos/577470826025034/). For more, see [Scratch extension](Scratch-extension)
 
 ### Web Editor
-Editing files on Dexter via a browser based web editor:<BR>
+Editing files on Dexter via a browser based web editor. This makes it _really_ easy to edit the Job Engine jobs which run on startup, as it opens the autoexec.jobs file by default. To disable a job, just put a # in front of it's file name. To enable, remove the leading #. To add a job, put it in the dde_apps folder, and then list it in the autoexect.jobs file (no path required). You can also traverse all the files on Dexter and edit any text files. For more, see:<BR>
 https://github.com/HaddingtonDynamics/Dexter/issues/85
 
 ### ModBus client
