@@ -10,8 +10,8 @@ DexRun.c also provides a few local functions. For example, onboard motion planni
 
 Other files in the /srv/samba/share folder include
 - `autoexec.make_ins` which calls `Defaults.make_ins` which sets the default values for several items in the robot. e.g. "LengthLength" which are the length of each segment (or link) of the arm. This file can be read and parsed to ensure the control software (such as DDE) is aware of the robots settings. These .make_ins files contain [oplets](Command-oplet-instruction) in the same format used to control Dexter, but without the job, instruction, and start and end time values. They /start/ with the oplet letter. Other make_ins files contain sequences of instructions to set modes, re-calibrate, etc...
-- `RunDexRun` is a bash script that checks versions and writes them to Defaults.make_ins, updates the DexRun program when it finds a new DexRun.c file, and optionally starts `autoexec.dde` in the onboard DDE Job Engine
-- `autoexec.dde` if present, can be started as soon as the robot boots.
+- `RunDexRun` is a bash script that checks versions and writes them to Defaults.make_ins, updates the DexRun program when it finds a new DexRun.c file, and optionally starts jobs in the onboard [DDE Job Engine](DDE#job-engine-on-dexter)
+- `autoexec.jobs` if present, lists [Job Engine](DDE#job-engine-on-dexter) jobs to be started as soon as the robot boots.
 - `AdcCenters.txt` contains the X and Y locations of the center of each [encoder](Encoders) "eye". 
 - `AxisCal.txt` is calculated from from Gear Ratio and Microstepping as follows (in DDE)
 ````
