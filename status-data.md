@@ -7,7 +7,7 @@ Each data item is a signed 32 bit binary integer.
 Units for angles are always integer arc seconds.
 
 ## Joint Data Meanings
-For each of the following "[Joint](Joints)..." sections in the status data:
+For each of the following "[Joint](Joints)..." sections (e.g. replace * in the following with J1...J5) in the status data:
 
 Name | Description
 --- | ---
