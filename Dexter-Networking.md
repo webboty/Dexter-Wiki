@@ -18,6 +18,8 @@ The network adapter on the PC should be configured to the 192.168.1. network. (S
 - set the subnet address to 255.255.255.0
 - set the gateway to nothing or to 192.168.1.1
 
+For example, on Windows 10, Search for Network Status in the windows search bar -> Click change adapter options -> Right click Ethernet and go to properties. Under "Internet Protocol version 4" change to "Use the following IP address" and then enter 192.168.1.10, 255.255.255.0 and 192.168.1.1 in the three fields. 
+
 For more complete instructions to configure your PC's CAT5 Network adapter, go into [DDE](DDE) or go to [the HDRobotic.com Software page](http://hdrobotic.com/software) and on the Doc panel, under **User Guide**, **Configure Dexter**, **Data Connection**, follow the directions for your operating system.
 
 Note: You may find that the WiFi network and the Dexter network need to be on separate subnets. E.g. If WiFI is using 192.168.1. something, then try setting the CAT5 adapter for Dexter to 192.168.0.142
