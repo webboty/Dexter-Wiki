@@ -43,7 +43,7 @@ When going into a closed loop mode where the [Encoders](Encoders) are feeding po
 
 Most often, this is caused by a problem with the encoder. E.g. an LED or photosensor has come out of the hole in the encoder block, the encoder block has been pulled out of mesh with the disk, a connector is loose or a wire broken, or the encoder is simply not [calibrated](Encoder-Calibration) correctly. 
 
-To diagnose an encoder problem, in [DDE](DDE), from the "Calibrate Dexter..." dialog on the "Jobs" menu, do the eye calibration for the affected joint. Here is an example of an encoder which is NOT working correctly:<br>
+To diagnose an encoder problem, in [DDE](DDE), from the "Calibrate Dexter..." dialog on the "Jobs" menu, do the eye calibration for the affected joint. _Note: DO NOT PRESS SAVE!_ Here is an example of an encoder which is NOT working correctly:<br>
 ![Bad encoder eye. Sensor pulled out of encoder block.](https://user-images.githubusercontent.com/419392/59715702-4f83c300-91c9-11e9-85df-87ec6569a9de.png)
 
 In this case, one of the two led / opto pairs is not working. Diagnose the cause of this type of problem by removing both LEDs and photosensors, then start calibration, but manually shine the LED's into the opto sensors.
