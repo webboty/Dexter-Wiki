@@ -44,4 +44,4 @@ On power up, Dexter will load the OS, then move slightly to let you know it's wo
 
 To change the startup jobs, edit, via the [web editor](nodejs-webserver#web-editor) or nano in [SSH](Dexter-Networking#shell-access-via-ssh), the autoexec.jobs file, or if it is not present (older robot) then edit the end of the RunDexRun file. 
 
-To exit PHUI mode once it is running: Grab the tool interface and "cog" 7 places to the right and then up twice to exit PUI mode. That is "right" while facing the robot, meaning CCW when looking down on the robot from the top. After exiting, Dexter firmware will respond to commands from a PC or other connected device.
+To exit PHUI mode once it is running: Grab the tool interface and "cog" up twice to exit PUI mode. After exiting, Dexter firmware will respond to commands from a PC or other connected device.
