@@ -76,6 +76,8 @@ A folder can be created and a systemd path unit[^](https://blog.andrewkeech.com/
 
 So if you change the first digit to the right of the decimal point, you are moving about a finger length. The next digit, 2nd to the right, moves you about a finger width, and the 3rd moves you about the thickness of a fingernail.
 
+**Close DDE from inside DDE**: `require('electron').remote.getCurrentWindow().close()`
+
 **Debugging:** _Note that all of this is documented in the  help system inside DDE. Download and install the program to access that in it's formatted form_.
 - the `out` function can be wrapped around _anything_ to dump a copy of the result to the output panel when it is evaluated _without_ any change in program behavior. It returns whatever it prints, so there is no side effect to it being included. E.g. `let variable = out("Hello" + "World").toUpper())` will still put "HELLOWORLD" in variable, but it will also let you see "HelloWorld" on the screen.
 - `inspect` provides a very nice interactive inspector in the output panel. It does not return values like `out` as of this time.
