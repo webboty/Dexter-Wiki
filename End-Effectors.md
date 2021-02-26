@@ -12,7 +12,7 @@ Table of contents:
 # Tool Interfaces
 ## Version 1
 
-The end point of the standard Dexter robot [hardware](Hardware) is a replaceable "tool interface" It has a shape which makes it easy for other tools to be clicked on and off. There are [spring loaded connectors, sometimes called "pogo pins"](https://www.mouser.com/ProductDetail/855-P70-2300045R) at the end for electrical connection, and space for a Tinyduino if additional processing of the signals is needed.
+The end point of the standard Dexter robot [hardware](Hardware) is a replaceable "tool interface" It has a shape which makes it easy for other tools to be clicked on and off.
 
 The signals available to the end effector include power, ground, and whatever signals the [main board](MicroZed) has been configured to produce. Early versions were wired to USB connection. Later version bring out the AUX1 and AUX2 GPIO pins from the FPGA via J20 and J21 which can be configured to produce different signals. 
 
