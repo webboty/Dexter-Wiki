@@ -24,6 +24,23 @@ Low level commands to directly communicate on the Dynamixel Protocol are also av
 `make_ins("S", "ServoSet", servo_addr, register_addr, val_8bit)`<BR>
 `make_ins("S", "ServoSet2X", servo_addr, register_addr, val_16bit)`
 
+### Servo Reset
+The XL-320 servos will apply full torque for about 5 seconds before going into an error state, blinking red, and no longer applying any torque. In this mode, they can be moved easily. To re-enable torque, use the following sequence of oplets:
+```
+S ServoSet 3 25 1; Turn XL320 J6 LED "Red"
+S RebootServo 3; Restart Joint 6, Servo ID 3
+z 1000000; Let servo restart
+S ServoSet 3 25 0; Turn XL320 J6 LED Off
+S ServoSet 1 25 1; Turn XL320 J7 LED "Red"
+S RebootServo 1; Restart Joint 7, Servo ID 1
+z 1000000; Let servo restart
+S ServoSet 1 25 0; Turn XL320 J7 LED Off
+```
+The servo reboot command causes the servo to restart, during which time, it emits a series of troubleshooting messages which will walk on top of any attempt to send other data to the device. It is important to pause (using the z oplet) to wait for that to finish before trying to send any further commands. 
+
+### Avoiding Errors
+To avoid errors, it is important to watch the servo torque and set it's position to the current location when that exceeds 1000 for more than a few seconds. For example, when grasping an object, you can order J7 to close, then read the torque and position of J7, and if it stops moving and shows a high torque, then set it to stay at the current position, which should reduce the torque and allow it to continue to hold the object it has in it's grasp.
+
 ### Version 2 Wiring
 
 Signals from the Dexter [Motor Control PCB](Motor-Control-PCB) to the Tool Interface:
