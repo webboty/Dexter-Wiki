@@ -38,8 +38,41 @@ S ServoSet 1 25 0; Turn XL320 J7 LED Off
 ```
 The servo reboot command causes the servo to restart, during which time, it emits a series of troubleshooting messages which will walk on top of any attempt to send other data to the device. It is important to pause (using the z oplet) to wait for that to finish before trying to send any further commands. 
 
+### Coordinated Movement
+
+The end effector servos can be controlled via the [a](Command-oplet-instruction#a) or [P](Command-oplet-instruction#P) [oplets](Command-oplet-instruction), as if they were joints. However, their motion is NOT coordinated with the other joints. e.g. J6 will rotate to the new commanded position as fast as it can, possibly reaching that position far before the other joints on the robot have move to a new commanded position. Or, if the other joints have only a short distance to move, J6 might reach it's commanded angle far after the other joints; they will not slow down to accommodate it. Also, quite often we want to make sure the gripper stays open when moving to a new location on the other joints, and _then_ close it.
+
+This example set of oplets with comments showing the same commands in DDE format, demonstrates a simple pick motion. It uses the [F]((Command-oplet-instruction#F) oplet to ensure the prior movement of the other joints is finished before closing the gripper, and it uses a delay, via the [z](Command-oplet-instruction#z) oplet, to ensure that the gripper has time to close before moving the other joints.
+
+````
+new Job({
+    name: "pick",
+    do_list: [
+        Dexter.move_all_joints([0, 0, 0, 0, 0, 0, 200]), //open gripper
+        Dexter.move_all_joints([0, 0, 30, 0, 0, 0, 200]), //move somewhere keeping the gripper open
+        Dexter.empty_instruction_queue, //wait for that to finish
+        Dexter.move_all_joints([0, 0, 30, 0, 0, 0, 0]), //now close the gripper
+        Robot.wait_until(1), //and stay here until it's closed.
+        Dexter.move_all_joints([0, 0, 0, 0, 0, 0, 0]), //now move with the gripper closed
+    ]})
+````
+Here are the actual oplets produced by that job. The DDE commands (following the ';') can be removed. 
+````
+;new Job({
+;    name: "pick",
+;    do_list: [
+a 0 0 0 0 0 0 200;       Dexter.move_all_joints([0, 0, 0, 0, 0, 0, 200]), //open gripper
+a 0 0 108000 0 0 0 200;  Dexter.move_all_joints([0, 0, 30, 0, 0, 0, 200]), //move somewhere keeping the gripper open
+F;                       Dexter.empty_instruction_queue, //wait for that to finish
+a 0 0 108000 0 0 0 200;  Dexter.move_all_joints([0, 0, 30, 0, 0, 0, 0]), //now close the gripper
+z 1000000;               Robot.wait_until(1), //and stay here until it's closed.
+a 0 0 0 0 0 0 0;         Dexter.move_all_joints([0, 0, 0, 0, 0, 0, 0]), //now move with the gripper closed
+;             ]})
+````
+A better solution, instead of simply waiting 1 second, would monitor the [return status](status-data), index 48: "Joint 7 Torque", in a loop watching for the gripper to close, or reach full torque. 
+
 ### Avoiding Errors
-To avoid errors, it is important to watch the servo torque and set it's position to the current location when that exceeds 1000 for more than a few seconds. For example, when grasping an object, you can order J7 to close, then read the torque and position of J7, and if it stops moving and shows a high torque, then set it to stay at the current position, which should reduce the torque and allow it to continue to hold the object it has in it's grasp.
+To avoid errors, it is important to watch the servo torque and set it's position to the current location when that exceeds 1000 for more than a few seconds. For example, when grasping an object, you can order J7 to close, then read the [return status](status-data) for the torque and position of J7, and if it stops moving and shows a high torque, then set it to stay at the current position, which should reduce the torque and allow it to continue to hold the object it has in it's grasp.
 
 ### Version 2 Wiring
 
