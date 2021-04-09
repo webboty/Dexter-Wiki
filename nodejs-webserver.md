@@ -114,6 +114,15 @@ https://github.com/HaddingtonDynamics/Dexter/issues/85
 Acting as a ModBus server to set and read register values from a file or start and return values from Job Engine jobs:<BR>
 https://github.com/HaddingtonDynamics/Dexter/issues/84
 
+## Debugging
+To debug, SSH into Dexter, then enter
+````
+cd /srv/samba/share
+pkill node
+node www/httpd.js
+````
+and now you can see what the node server is doing. If you can crash it, please raise an issue and let us know what the error message was and what you did to crash it. 
+
 ## Batch Update
 After installing node on Dexter (or if it is already installed) it can be easy to update all the files related to the node server by simply downloading the current image of the www folder as a zip file and extracting it, then copying all those files into the /srv/samba/share/www folder. Step by step:
 1. You will need a Dexter robot, and a [local network connection to it from a PC](Dexter-Networking#connection). 
