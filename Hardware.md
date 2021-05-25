@@ -20,7 +20,7 @@ For diagrams, overall dimensions, etc... see the [Kinematics](Kinematics) page.
 For problems related to hardware, be sure to search [Hardware Issues](https://github.com/HaddingtonDynamics/Dexter/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3AHardware+)
 
 Motor board:
-- https://github.com/kgallspark/Dexter/tree/master/MotorControl (see updated schematic PDF in this folder)
+- https://github.com/kgallspark/Dexter/tree/master/MotorControl (see updated [schematic PDF](09011-00135-A.PDF))
 
 Opto interruptors:
 - https://github.com/kgallspark/Dexter/tree/master/OPTO (see updated schematic and BOM in the Opto folder here)
