@@ -16,7 +16,10 @@ Dexter HDI now ship with a Physical User Interface script called "PhUI" (pronoun
 
   To stop it from playing just pop the end effector in a upward position with your hand. This is not a slow nudge; it's more like a smack with your flat hand in an upward position.
 
-https://photos.app.goo.gl/trWqVvSvmc9UVz9g6
+## Videos
+[Unboxing and PhUI](https://youtu.be/ub6ONeoViJw)
 
-https://www.youtube.com/watch?v=wVUsNT75h5I
+[Demo at Tradeshow](https://photos.app.goo.gl/trWqVvSvmc9UVz9g6)
+
+[Demo at bar](https://www.youtube.com/watch?v=wVUsNT75h5I)
 
