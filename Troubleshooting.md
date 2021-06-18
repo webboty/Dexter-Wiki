@@ -37,6 +37,14 @@ If you get a blue light after about 10 seconds, and get a `zynq>` prompt on the 
 
 If you still don't get a blue light, and you are sure the SD card is formatted FAT32 and is inserted correctly, then the FPGA board may need to be replaced. You might want to remove the MicroZed board from Dexter, so that only a know good FAT 32 SD card is connected, and then power it via the USB cable from your PC. If you get the blue light and `zynq>` prompt then the issue is the Green HDR Motor board. 
 
+### Incomplete motions, freezing with a grinding / buzzing sound.
+
+If the robot fails to find home on startup, or fails to complete a trained motion in PhUI, or fails to return to home position during eye calibration, especially if there is a horrible grinding / buzzing sort of a noise for a moment before it comes to rest, then the issue is more than likely low voltage from the wrong power brick being plugged in. 
+
+The power bricks used for Dexter are standard laptop power bricks, which are commonly available, low cost, and provide lots of power. However, they come in different voltages and Dexters motors want more voltage in order to move faster. The current "green" [motor electronics board](Motor-Control-PCB) (as of June 2021) is [rated for 38 volts](https://www.digikey.com/en/products/detail/analog-devices-inc/LTC3786IUD-PBF/2407353). The "blue" motor board currently in testing will be rated max 75 volts. Although it will not be damaged by providing less voltage, Dexter will not be able to move as quickly and may "stall" during the motion if a 12 or 24 volt power brick is used instead. 
+
+It is easy to swap a PC laptop power brick for Dexters power brick. **Please ensure that the power brick you plug into Dexter is rated at 36 volts, 4 amps. WARNING: Plugging Dexters 36 volt power brick into a laptop which is expected 12 or 24 volts can DESTROY the laptop!** 
+
 ### Freak Out
 
 When going into a closed loop mode where the [Encoders](Encoders) are feeding position information into the [FPGA](FPGA) to correct each joint to an exact location, one or more joints may start to shake or vibrate, and may squeal and lose position badly. Here is a [video of a customers Dexter in that state](https://youtu.be/S1g-IPPbs4I).
