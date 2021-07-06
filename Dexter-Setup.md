@@ -36,7 +36,9 @@ Plug in the power cord to fire up your Dexter robot. You should see a blue light
 ![](https://user-images.githubusercontent.com/419392/83826550-0609dd80-a691-11ea-8210-35bf60e937d9.jpg)
 
 If you don't see the boot dance, or the board doesn't light up, see [Troubleshooting](Troubleshooting)
-Continue to [connect to Dexter](Dexter-Networking).
+
+# Connect
+If the robot appears to be working ok, continue to [connect to Dexter](Dexter-Networking). In general, you want to connect Dexters CAT 5 cable to the network port adapter on your PC or laptop and configure your settings for that Adapter to have a fixed IP address of 192.168.1.10 and no gateway. Then you should be able to ping Dexter at 192.168.1.142. If you have issues, see [Dexter Networking](Dexter-Networking)
 
 # Bootup
 
