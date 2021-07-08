@@ -12,7 +12,7 @@ In general, all you need to do is tell Dexter where to move each [joint](Joints)
 
 ## Methods
 
-Here is a summary of the different movement methods, including related parameters, settings you can change in the environment that affect that method, and its pros and cons. 
+Here is a summary of the different movement methods, including related parameters, settings you can change in the environment that affect that method, and its pros and cons. Note that the commanded position via 'a' or 'M' is added to by the PID position of 'P' or 'C'; PID positions are an offset to commanded positions.
 
 | [Oplet](Command-oplet-instruction) | Parameters | Settings | Pros | Cons  |
 | ----- | ---------- | ----------- | ---- | ----- |
