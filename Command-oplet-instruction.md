@@ -12,6 +12,8 @@ This wiki page attempts to expand on that document to further explain the instru
 
 **To wait for a movement** to completed, use the <a href="#f">'F' oplet</a>, as it will not return a [status](status-data) until the queue is empty. 
 
+Note that the commanded position via 'a' or 'M' is added to by the PID position of 'P' or 'C'; PID positions are an offset to commanded positions.
+
 See [DDE](DDE) documentation for the use of the DDE version of each command. E.g. for `move_to` use `Dexter.move_to (...)`
 
 ### Command Format
@@ -38,7 +40,7 @@ A job number, instruction number, start POSIX time, end time (unknown) and the o
 <a name="m">m</a>|"record_movement"|RECORD_MOVEMENT||
 <a name="n">n</a>|"find_index"|FIND_INDEX_CMD|Unused|
 <a name="o">o</a>|"replay_movement"|REPLAY_MOVEMENT||
-<a name="P">P</a>|"pid_move_all_joints"|PID_FINEMOVE|Chases a goal position on each joint using the PID control system which must be enabled. Requires [calibration](Encoder-calibration). The goal can change in the middle of the move. Movement is not coordinated so each joint may arrive at the goal at a different time. The standard trapezoidal speed ramping is not used. See "a". Modified 201909 to optionally accept joint 6/7 angles. See [kinematics](Kinematics) for its comparison to move_all_joints. See also [S PID_P](set-parameter-oplet#JointPID) and [w MAX_ERROR](oplet-write#36) to limit drive strength. |
+<a name="P">P</a>|"pid_move_all_joints"|PID_FINEMOVE|Chases a goal offset on each joint using the PID control system which must be enabled. Requires [calibration](Encoder-calibration). The goal can change in the middle of the move. Movement is not coordinated so each joint may arrive at the goal at a different time. The standard trapezoidal speed ramping is not used. Adds to "a" position. Modified 201909 to optionally accept joint 6/7 angles. See [kinematics](Kinematics) for its comparison to move_all_joints. See also [S PID_P](set-parameter-oplet#JointPID) and [w MAX_ERROR](oplet-write#36) to limit drive strength. |
 <a name="p">p</a>|"find_home_rep"|FIND_HOME_REP_CMD|_Depreciated_ Use job engine.|
 <a name="R">**R**</a>|"move_all_joints_ relative"|MOVEALL_RELATIVE|Queued. Like 'a' but the joint is moved relative to it's prior position. E.g. `R 0 0 -36000 0 0;` will move joint 3 ccw 10 degrees.
 <a name="r">r</a>|"[read_from_robot](read-from-robot)"<br>[Since v2.3.16](https://github.com/cfry/dde/releases/tag/untagged-5d86b61c13b61d266905)|READ_CMD<br>[Since 2018.07.26](https://github.com/HaddingtonDynamics/Dexter/commit/243ac0fa3c995effd9c75731d3a9c7ecb70cc73e)|Reads files or string data from the robot. Also reads and prints locally values from the memory mapped FPGA interface.
