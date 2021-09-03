@@ -254,7 +254,7 @@ Injects a negative force opposing the external force to limit the amount the joi
    <td>3600 | 108000 | 162000 integer arcsec/s</td>
    </tr>
  <tr>
-   <td colspan=3><a name="AngularAcceleration"><b>Angular Acceleration</b></a>: Replaces Acceleration, specifying with human readable units. </td>
+   <td colspan=3><a name="AngularAcceleration"><b>Angular Acceleration</b></a>: WILL replace Acceleration, specifying with human readable units. This is NOT yet implemented. </td>
    </tr>
  <tr>
    <td>38,&nbsp;AngularAcceleration</td>
