@@ -1,8 +1,7 @@
 
 Encoders provide closed loop feedback of the actual position of each [joint](Joints). Dexters joint encoders use low res, 3D printed disks with 200 or fewer slots. But instead of sensing only black / white as each slot passes the sensors, local 12 bit A2D converters sense 8,000 levels of grey (4096 up, 4096 down) as each slot exposes or occludes the light. That data is sent back to the [FPGA](Gateware), which processes it to find the fraction of an angle the disk has moved within that slot. The result is over 1 MILLION positions / joint rotation. 50 micron repeatability. Under 10 micron step precision. And, variations in the slots characterize the wheel, allowing absolute positioning. 
 
-With precision, [calibration](Calibrations) provide Accuracy. (note: [Accuracy vs Precision](Accuracy vs Precision.
-https://sketchplanations.com/accuracy-and-precision))
+With precision, [calibration](Calibrations) provide Accuracy. (note: [Accuracy vs Precision](https://sketchplanations.com/accuracy-and-precision))
 
 <img src="https://raw.githubusercontent.com/HaddingtonDynamics/Dexter/master/Hardware/EncoderOverview.png">
 
@@ -19,7 +18,7 @@ This difference in phase, as usual, gives us the direction of rotation: When we 
 
 ## DDE Calibration Dialog
 This display shows the two encoder signals from each joint as sin and cosine. Since the encoder blocks are positioned 90 degrees out of phase, it makes sense. When they are plotted on a graph in DDE on the Jobs / Calibrate Dexter... window, as each slot passes the sensors, they form a circle: <BR>
-![Good encoder, after replacing Sensor in hole of encoder block.](https://user-images.githubusercontent.com/419392/59716213-6d9df300-91ca-11e9-87d6-0b530f39fb61.png)_An acceptable encoder "eye" in the DDE Calibration dialog._ 
+![Good encoder, after replacing Sensor in hole of encoder block.](https://user-images.githubusercontent.com/419392/59716213-6d9df300-91ca-11e9-87d6-0b530f39fb61.png)<BR>_An acceptable encoder "eye" in the DDE Calibration dialog._ 
 
 This "Eye" calibration is about finding the "center" of that circle; a point between the vertical and horizontal values that comes as close as possible to providing an equidistant center for each "revolution" of the eye. Of course, the slots vary slightly, and the encoder disk is never perfectly aligned with the optical block, so there is no way to put the adc center exactly in the center of every circle. This variation between circles, and even the variation of one "circle" from being perfectly circular must be compensated, and it will be.
 
